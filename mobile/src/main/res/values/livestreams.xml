@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zdf_hd">http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8?dw=0</string>
+    <string name="phoenix">http://zdf-hds-de-f.zdf.de/i/de09_v1@87012/master.m3u8?dw=0</string>
+    <string name="zdf_kultur">http://zdf1112-lh.akamaihd.net/i/de11_v1@392881/master.m3u8?dw=0</string>
+    <string name="zdf_info">http://zdf1112-lh.akamaihd.net/i/de12_v1@392882/master.m3u8?dw=0</string>
+    <string name="zdf_neo">http://zdf1314-lh.akamaihd.net/i/de13_v1@392877/master.m3u8?dw=0</string>
+    <string name="drei_sat">http://zdf0910-lh.akamaihd.net/i/dach10_v1@392872/master.m3u8?dw=0</string>
+</resources>
