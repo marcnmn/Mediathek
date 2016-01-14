@@ -44,7 +44,7 @@ public class XmlParser {
                 if (parser.getAttributeValue(null, "key").equals("946x532")) {
                     thumbnail = readText(parser);
                 }
-            } else if (name.equals("originChannelId")) {
+            } else if (name.equals("assetId")) {
                 id = readText(parser);
             } else if (name.equals("channel")) {
                 title = readText(parser);

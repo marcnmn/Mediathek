@@ -1,6 +1,8 @@
 package com.marcn.mediathek;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -113,6 +115,12 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onListFragmentInteraction(LiveStream item) {
         if (item.title == null) return;
-        Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, item.getLiveM3U8(this), Toast.LENGTH_SHORT).show();
+//        Intent stream = new Intent(Intent.ACTION_VIEW);
+//        stream.setDataAndType(Uri.parse(item.getLiveM3U8(this)), "video/*");
+//        startActivity(Intent.createChooser(stream, getResources().getText(R.string.send_to_intent)));
+        Intent stream = new Intent(Intent.ACTION_VIEW);
+        stream.setDataAndType(Uri.parse(item.getLiveM3U8(this)), "video/*");
+        startActivity(stream);
     }
 }

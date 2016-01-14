@@ -1,5 +1,8 @@
 package com.marcn.mediathek.base_objects;
 
+import android.content.Context;
+import com.marcn.mediathek.R;
+
 public class LiveStream {
     public final String id;
     public final String title;
@@ -11,9 +14,15 @@ public class LiveStream {
         this.thumb_url = thumb_url;
     }
 
-    public String getLiveM3U8 () {
-        switch (title) {
-            case "ZDF": return http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8?dw=0;
+    public String getLiveM3U8 (Context c) {
+        switch (id) {
+            case "1822600": return c.getString(R.string.zdf_hd);
+            case "2492878": return c.getString(R.string.phoenix);
+            case "1822544": return c.getString(R.string.zdf_kultur);
+            case "1822586": return c.getString(R.string.zdf_info);
+            case "2306126": return c.getString(R.string.drei_sat);
+            case "1822440": return c.getString(R.string.zdf_neo);
+            default: return null;
         }
     }
 
