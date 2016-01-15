@@ -1,49 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="channels">
-        <item>ZDF</item>
-        <item>Phoenix</item>
-        <item>ZDF.kultur</item>
-        <item>ZDFinfo</item>
-        <item>3sat</item>
-        <item>ZDFneo</item>
-        <item>Arte</item>
-        <item>ARD</item>
-        <item>ARD Alpha</item>
-        <item>Tagesschau</item>
-        <item>SWR</item>
-        <item>WDR</item>
-        <item>MDR</item>
-        <item>NDR</item>
-        <item>BR</item>
-        <item>SR</item>
-        <item>HR</item>
-        <item>RBB</item>
-        <item>KiKa</item>
-    </array>
+    <string name="zdf_live_api">http://www.zdf.de/ZDFmediathek/xmlservice/web/live?maxLength=30</string>
+    <string name="arte_live_api">http://www.arte.tv/guide/de/live</string>
+    <string name="ard_live_api">http://www.ardmediathek.de/tv/live</string>
+    <string name="ard_live_image_api">http://www.ardmediathek.de</string>
 
-    <string name="zdf_hd">http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8?dw=0</string>
-    <string name="phoenix">http://zdf-hds-de-f.zdf.de/i/de09_v1@87012/master.m3u8?dw=0</string>
-    <string name="zdf_kultur">http://zdf1112-lh.akamaihd.net/i/de11_v1@392881/master.m3u8?dw=0</string>
-    <string name="zdf_info">http://zdf1112-lh.akamaihd.net/i/de12_v1@392882/master.m3u8?dw=0</string>
-    <string name="zdf_neo">http://zdf1314-lh.akamaihd.net/i/de13_v1@392877/master.m3u8?dw=0</string>
-    <string name="drei_sat">http://zdf0910-lh.akamaihd.net/i/dach10_v1@392872/master.m3u8?dw=0</string>
+    <string name="zdf_hd_m3u8">http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8?dw=0</string>
+    <string name="phoenix_m3u8">http://zdf-hds-de-f.zdf.de/i/de09_v1@87012/master.m3u8?dw=0</string>
+    <string name="zdf_kultur_m3u8">http://zdf1112-lh.akamaihd.net/i/de11_v1@392881/master.m3u8?dw=0</string>
+    <string name="zdf_info_m3u8">http://zdf1112-lh.akamaihd.net/i/de12_v1@392882/master.m3u8?dw=0</string>
+    <string name="zdf_neo_m3u8">http://zdf1314-lh.akamaihd.net/i/de13_v1@392877/master.m3u8?dw=0</string>
+    <string name="drei_sat_m3u8">http://zdf0910-lh.akamaihd.net/i/dach10_v1@392872/master.m3u8?dw=0</string>
 
-    <string name="arte">http://delive.artestras.cshls.lldns.net/artestras/contrib/delive.m3u8</string>
+    <string name="arte_m3u8">http://delive.artestras.cshls.lldns.net/artestras/contrib/delive.m3u8</string>
 
-    <string name="ard">http://daserste_live-lh.akamaihd.net/i/daserste_de@91204/master.m3u8</string>
-    <string name="ard_alpha">http://livestreams.br.de/i/bralpha_germany@119899/master.m3u8</string>
-    <string name="tagesschau">http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8</string>
+    <string name="ard_m3u8">http://daserste_live-lh.akamaihd.net/i/daserste_de@91204/master.m3u8</string>
+    <string name="ard_alpha_m3u8">http://livestreams.br.de/i/bralpha_germany@119899/master.m3u8</string>
+    <string name="tagesschau_m3u8">http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8</string>
 
-    <string name="swr">http://swrbw-lh.akamaihd.net/i/swrbw_live@196738/master.m3u8</string>
-    <string name="mdr">http://mdr_th_hls-lh.akamaihd.net/i/livetvmdrthueringen_de@106903/master.m3u8</string>
-    <string name="ndr">http://ndr_fs-lh.akamaihd.net/i/ndrfs_nds@119224/master.m3u8</string>
-    <string name="wdr">http://wdr_fs_geo-lh.akamaihd.net/i/wdrfs_geogeblockt@112044/master.m3u8</string>
+    <string name="swr_m3u8">http://swrbw-lh.akamaihd.net/i/swrbw_live@196738/master.m3u8</string>
+    <string name="mdr_m3u8">http://mdr_th_hls-lh.akamaihd.net/i/livetvmdrthueringen_de@106903/master.m3u8</string>
+    <string name="ndr_m3u8">http://ndr_fs-lh.akamaihd.net/i/ndrfs_nds@119224/master.m3u8</string>
+    <string name="wdr_m3u8">http://wdr_fs_geo-lh.akamaihd.net/i/wdrfs_geogeblockt@112044/master.m3u8</string>
 
-    <string name="br">http://livestreams.br.de/i/bfsnord_germany@119898/master.m3u8</string>
-    <string name="hr">http://live1_hr-lh.akamaihd.net/i/hr_fernsehen@75910/master.m3u8</string>
-    <string name="sr">http://live2_sr-lh.akamaihd.net/i/sr_universal02@107595/master.m3u8</string>
-    <string name="rbb">http://rbb_live-lh.akamaihd.net/i/rbb_brandenburg@107638/master.m3u8</string>
+    <string name="br_m3u8">http://livestreams.br.de/i/bfsnord_germany@119898/master.m3u8</string>
+    <string name="hr_m3u8">http://live1_hr-lh.akamaihd.net/i/hr_fernsehen@75910/master.m3u8</string>
+    <string name="sr_m3u8">http://live2_sr-lh.akamaihd.net/i/sr_universal02@107595/master.m3u8</string>
+    <string name="rbb_m3u8">http://rbb_live-lh.akamaihd.net/i/rbb_brandenburg@107638/master.m3u8</string>
 
-    <string name="kika">http://kika_geo-lh.akamaihd.net/i/livetvkika_de@75114/master.m3u8</string>
+    <string name="kika_m3u8">http://kika_geo-lh.akamaihd.net/i/livetvkika_de@75114/master.m3u8</string>
 </resources>

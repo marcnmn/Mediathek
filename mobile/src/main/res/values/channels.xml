@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zdf_name">ZDF</string>
+    <string name="phoenix_name">Phoenix</string>
+    <string name="zdf_kultur_name">ZDF.kultur</string>
+    <string name="zdf_info_name">ZDFinfo</string>
+    <string name="zdf_neo_name">3sat</string>
+    <string name="drei_sat_name">ZDFneo</string>
+
+    <string name="arte_name">Arte</string>
+
+    <string name="ard_name">ARD</string>
+    <string name="ard_alpha_name">ARD Alpha</string>
+    <string name="tagesschau_name">Tagesschau24</string>
+
+    <string name="swr_name">SWR</string>
+    <string name="mdr_name">MDR</string>
+    <string name="ndr_name">NDR</string>
+    <string name="wdr_name">WDR</string>
+
+    <string name="br_name">BR</string>
+    <string name="hr_name">HR</string>
+    <string name="sr_name">SR</string>
+    <string name="rbb_name">RBB</string>
+
+    <string name="kika_name">KiKA</string>
+</resources>

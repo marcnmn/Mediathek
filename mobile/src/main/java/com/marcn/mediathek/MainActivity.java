@@ -113,8 +113,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onListFragmentInteraction(LiveStream item) {
-        if (item.title == null) return;
-        Toast.makeText(this, item.getLiveM3U8(this), Toast.LENGTH_SHORT).show();
+        if (item.channel == null || item.getLiveM3U8(this) == null) return;
 //        Intent stream = new Intent(Intent.ACTION_VIEW);
 //        stream.setDataAndType(Uri.parse(item.getLiveM3U8(this)), "video/*");
 //        startActivity(Intent.createChooser(stream, getResources().getText(R.string.send_to_intent)));

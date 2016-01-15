@@ -1,7 +1,11 @@
 package com.marcn.mediathek.utils;
 
+import android.content.Context;
 import android.util.Xml;
+
+import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.LiveStream;
+import com.marcn.mediathek.base_objects.LiveStreams;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -13,24 +17,26 @@ import java.util.ArrayList;
 
 public class XmlParser {
 
-    public static ArrayList<LiveStream> parseLiveStreams(InputStream in) throws IOException {
+    public static ArrayList<LiveStream> getZDFLiveStreamData(Context c,ArrayList<LiveStream> ls) throws IOException {
+        String url =  c.getString(R.string.zdf_live_api);
+        InputStream is = NetworkTasks.downloadStringDataAsInputStream(url);
+        if (is == null) return ls;
+
         try {
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-            parser.setInput(in, null);
+            parser.setInput(is, null);
             parser.nextTag();
-            return readFeed(parser);
+            return readFeed(parser, ls);
         } catch (Exception ignored) {
         } finally {
-            in.close();
+            is.close();
         }
         return null;
     }
 
-    private static ArrayList<LiveStream> readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
-        ArrayList<LiveStream> liveStreams = new ArrayList<>();
+    private static ArrayList<LiveStream> readFeed(XmlPullParser parser, ArrayList<LiveStream> ls) throws XmlPullParserException, IOException {
         String title, id = "", thumbnail = "";
-
         parser.require(XmlPullParser.START_TAG, null, "response");
         while (parser.next() != XmlPullParser.END_DOCUMENT) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -48,12 +54,13 @@ public class XmlParser {
                 id = readText(parser);
             } else if (name.equals("channel")) {
                 title = readText(parser);
-                LiveStream ls = new LiveStream(id, title, thumbnail);
-                if (liveStreams.indexOf(ls) < 0)
-                    liveStreams.add(ls);
+
+                int index = LiveStreams.indexOfId(ls, id);
+                if (index >= 0)
+                    ls.get(index).setThumb_url(thumbnail);
             }
         }
-        return liveStreams;
+        return ls;
     }
 
     private static String readText(XmlPullParser parser) throws IOException, XmlPullParserException {

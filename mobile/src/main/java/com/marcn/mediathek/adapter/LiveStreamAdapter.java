@@ -10,31 +10,34 @@ import android.widget.TextView;
 
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.LiveStream;
+import com.marcn.mediathek.base_objects.LiveStreams;
 import com.marcn.mediathek.ui_fragments.LiveStreamFragment.OnListFragmentInteractionListener;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.ViewHolder> {
 
-    private final List<LiveStream> mValues;
+    private final LiveStreams mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public LiveStreamAdapter(List<LiveStream> items, OnListFragmentInteractionListener listener) {
+    public LiveStreamAdapter(LiveStreams items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
 
-    public void updateValue(LiveStream ls) {
-        mValues.add(ls);
-        notifyDataSetChanged();
+    public void updateValue(LiveStream l) {
+        int index = mValues.mLiveStreams.indexOf(l);
+        mValues.pushLiveStream(l);
+        if (index < 0)
+            notifyDataSetChanged();
+        else
+            notifyItemChanged(index);
     }
 
     public void updateValues(ArrayList<LiveStream> ls) {
-        mValues.addAll(ls);
+        mValues.pushLiveStreams(ls);
         notifyDataSetChanged();
     }
 
@@ -50,13 +53,13 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
 
-        holder.mTitle.setText(holder.mItem.title);
+        holder.mTitle.setText(holder.mItem.channel);
 
-        if (holder.mItem.thumb_url == null || holder.mItem.thumb_url.isEmpty())
+        if (holder.mItem.getThumb_url() == null || holder.mItem.getThumb_url().isEmpty())
             holder.mThumb.setImageResource(R.drawable.placeholder_stream);
         else
             Picasso.with(holder.mThumb.getContext())
-                    .load(holder.mItem.thumb_url)
+                    .load(holder.mItem.getThumb_url())
                     .placeholder(R.drawable.placeholder_stream)
                     .config(Bitmap.Config.RGB_565)
                     .into(holder.mThumb);

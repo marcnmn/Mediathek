@@ -13,14 +13,10 @@ import android.view.ViewGroup;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.LiveStreamAdapter;
 import com.marcn.mediathek.base_objects.LiveStream;
+import com.marcn.mediathek.base_objects.LiveStreams;
+import com.marcn.mediathek.utils.HTMLParser;
 import com.marcn.mediathek.utils.NetworkTasks;
 import com.marcn.mediathek.utils.XmlParser;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,7 +27,7 @@ public class LiveStreamFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 2;
     private OnListFragmentInteractionListener mListener;
-    private ArrayList<LiveStream> mLiveStreams = new ArrayList<>();
+    private LiveStreams mLiveStreams;
     private LiveStreamAdapter mLiveStreamAdapter;
 
     public LiveStreamFragment() {
@@ -68,103 +64,66 @@ public class LiveStreamFragment extends Fragment {
         } else {
             recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
         }
+
+        mLiveStreams = new LiveStreams(getContext());
         mLiveStreamAdapter = new LiveStreamAdapter(mLiveStreams, mListener);
         recyclerView.setAdapter(mLiveStreamAdapter);
 
         downloadZdfData();
+        downloadArteData();
+        downloadArdData();
         return view;
     }
 
     private void downloadZdfData() {
-        final String url = "http://www.zdf.de/ZDFmediathek/xmlservice/web/live?maxLength=30";
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final InputStream response = NetworkTasks.downloadStringDataAsInputStream(url);
                 try {
-                    final ArrayList<LiveStream> ls = XmlParser.parseLiveStreams(response);
+                    final ArrayList<LiveStream> ls = XmlParser.getZDFLiveStreamData(getContext(), mLiveStreams.getGroup(LiveStream.ZDF_MAIN_GROUP));
                     if (getActivity() == null || ls == null) return;
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             mLiveStreamAdapter.updateValues(ls);
-                            downloadArteData();
                         }
                     });
-                } catch (IOException ignored) {}
+                } catch (IOException ignored) {
+                }
             }
         }).start();
     }
 
     private void downloadArteData() {
-        final String url = "http://www.arte.tv/guide/de/live";
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Document doc = Jsoup.connect(url).get();
-                    final String thumbnail = doc.select("div.video-block.LIVE.has-play > img").attr("src");
-                    if (getActivity() == null || thumbnail == null) return;
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mLiveStreamAdapter.updateValue(new LiveStream("6", "ARTE", thumbnail));
-                            downloadArdData();
-                        }
-                    });
-                } catch (IOException ignored) {}
+                final LiveStream l = HTMLParser.arteLiveStreamData(getContext(), mLiveStreams.getArteLiveStream());
+                if (getActivity() == null) return;
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mLiveStreamAdapter.updateValue(l);
+                    }
+                });
             }
         }).start();
     }
 
     private void downloadArdData() {
-        final String url = "http://www.ardmediathek.de/tv/live";
-        final String image_url = "http://www.ardmediathek.de";
-        final ArrayList<LiveStream> ls = new ArrayList<>();
-        ls.add(new LiveStream("5868", "ARD-alpha", ""));
-        ls.add(new LiveStream("21518950", "Bayerisches-Fernsehen-S%C3%BCd", ""));
-        ls.add(new LiveStream("208", "Das-Erste", ""));
-        ls.add(new LiveStream("1386804", "MDR-SACHSEN", ""));
-        ls.add(new LiveStream("21518352", "NDR-Niedersachsen", ""));
-        ls.add(new LiveStream("21518358", "rbb-Berlin", ""));
-        ls.add(new LiveStream("5870", "SR-Fernsehen", ""));
-        ls.add(new LiveStream("5904", "SWR-Baden-W%C3%BCrttemberg", ""));
-        ls.add(new LiveStream("5902", "WDR-Fernsehen", ""));
-        ls.add(new LiveStream("5878", "tagesschau24", ""));
-        ls.add(new LiveStream("5900", "3sat", ""));
-        ls.add(new LiveStream("5886", "KiKA", ""));
-
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Document doc = Jsoup.connect(url).get();
-                    for (int i = 0; i < ls.size(); i++) {
-                        LiveStream l = ls.get(i);
-                        String json = doc.select("a[href=/tv/"+l.title+"/live?kanal="+l.id+"].medialink").select("img.img.hideOnNoScript").attr("data-ctrl-image");
-                        JSONObject j = new JSONObject(json);
-                        String thumb = j.getString("urlScheme");
-                        thumb = thumb.substring(0, thumb.indexOf("#"));
-                        ls.set(i, new LiveStream(l.id, l.title, image_url + thumb + "384"));
+                final ArrayList<LiveStream> ls = HTMLParser.ardLiveStreamsData(getContext(), mLiveStreams.getGroup(LiveStream.ARD_GROUP));
+                if (getActivity() == null) return;
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mLiveStreamAdapter.updateValues(ls);
                     }
-                    if (getActivity() == null) return;
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mLiveStreamAdapter.updateValues(ls);
-                        }
-                    });
-                } catch (IOException | JSONException ignored) {}
+                });
             }
         }).start();
-    }
-
-    private void addOtherChannels() {
-        ArrayList<LiveStream> ls = new ArrayList<>();
-        String[] channels = getActivity().getResources().getStringArray(R.array.channels);
-        for (int i = 7; i < channels.length; i++)
-            ls.add(new LiveStream("" + i, channels[i], ""));
-        mLiveStreamAdapter.updateValues(ls);
     }
 
     @Override
