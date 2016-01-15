@@ -18,10 +18,6 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link LiveStream} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
- */
 public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.ViewHolder> {
 
     private final List<LiveStream> mValues;
@@ -30,6 +26,11 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
     public LiveStreamAdapter(List<LiveStream> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
+    }
+
+    public void updateValue(LiveStream ls) {
+        mValues.add(ls);
+        notifyDataSetChanged();
     }
 
     public void updateValues(ArrayList<LiveStream> ls) {
@@ -50,9 +51,13 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
         holder.mItem = mValues.get(position);
 
         holder.mTitle.setText(holder.mItem.title);
-        if (holder.mItem.thumb_url != null)
+
+        if (holder.mItem.thumb_url == null || holder.mItem.thumb_url.isEmpty())
+            holder.mThumb.setImageResource(R.drawable.placeholder_stream);
+        else
             Picasso.with(holder.mThumb.getContext())
                     .load(holder.mItem.thumb_url)
+                    .placeholder(R.drawable.placeholder_stream)
                     .config(Bitmap.Config.RGB_565)
                     .into(holder.mThumb);
 
