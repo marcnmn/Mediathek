@@ -75,4 +75,11 @@ public class LiveStreams {
         if (mLiveStreams == null) return 0;
         else return mLiveStreams.size();
     }
+
+    public static int indexOfName(ArrayList<LiveStream> ls, String name) {
+        for (int i = 0; i < ls.size(); i++)
+            if (ls.get(i).channel.equals(name))
+                return i;
+        return -1;
+    }
 }

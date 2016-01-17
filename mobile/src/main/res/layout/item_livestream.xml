@@ -8,6 +8,13 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:id="@+id/imageThumbnail"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:adjustViewBounds="true"
+        android:id="@+id/imageLogo"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,5 +22,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="5dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:id="@+id/textTitle"/>
+        android:id="@+id/textTitle"
+        android:visibility="gone"/>
 </RelativeLayout>

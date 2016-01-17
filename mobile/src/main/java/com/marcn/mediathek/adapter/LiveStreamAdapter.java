@@ -1,5 +1,6 @@
 package com.marcn.mediathek.adapter;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -52,18 +53,26 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-
         holder.mTitle.setText(holder.mItem.channel);
+        Context context = holder.mView.getContext();
 
-        if (holder.mItem.getThumb_url() == null || holder.mItem.getThumb_url().isEmpty())
+        // Thumbnail Image
+        String thumb = holder.mItem.getThumb_url();
+        if (thumb == null || thumb.isEmpty())
             holder.mThumb.setImageResource(R.drawable.placeholder_stream);
         else
-            Picasso.with(holder.mThumb.getContext())
-                    .load(holder.mItem.getThumb_url())
+            Picasso.with(context)
+                    .load(thumb)
                     .placeholder(R.drawable.placeholder_stream)
                     .config(Bitmap.Config.RGB_565)
                     .into(holder.mThumb);
 
+        // Logo Image
+        int logo = holder.mItem.getLogoResId();
+        if (logo > 0)
+            holder.mLogo.setImageResource(logo);
+
+        // OnClick
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +90,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final ImageView mThumb;
+        public final ImageView mThumb, mLogo;
         public final TextView mTitle;
         public LiveStream mItem;
 
@@ -89,6 +98,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
             super(view);
             mView = view;
             mThumb = (ImageView) view.findViewById(R.id.imageThumbnail);
+            mLogo = (ImageView) view.findViewById(R.id.imageLogo);
             mTitle = (TextView) view.findViewById(R.id.textTitle);
         }
     }

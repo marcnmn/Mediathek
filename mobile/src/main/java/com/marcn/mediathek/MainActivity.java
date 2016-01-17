@@ -20,9 +20,12 @@ import android.widget.Toast;
 
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.ui_fragments.LiveStreamFragment;
+import com.marcn.mediathek.ui_fragments.PlayerFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, LiveStreamFragment.OnListFragmentInteractionListener {
+
+    public static final String INTENT_LIVE_DRAWER_ITEM = "player-drawer-item";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +52,13 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        loadCleanFragment(LiveStreamFragment.newInstance(1));
+        Intent intent = getIntent();
+        if (intent != null && intent.getExtras() != null) {
+            int navId = intent.getIntExtra(INTENT_LIVE_DRAWER_ITEM, -1);
+            navigationIdReceived(navId);
+        } else {
+            loadCleanFragment(LiveStreamFragment.newInstance(1), false);
+        }
     }
 
     @Override
@@ -79,13 +88,19 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
+        navigationIdReceived(id);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
+    @SuppressWarnings("StatementWithEmptyBody")
+    private void navigationIdReceived(int id) {
         if (id == R.id.nav_live) {
-            loadCleanFragment(new LiveStreamFragment());
+            loadCleanFragment(new LiveStreamFragment(), false);
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -97,28 +112,26 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_send) {
 
         }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     private void loadCleanFragment(Fragment fragment) {
+        loadCleanFragment(fragment, true);
+    }
+
+    private void loadCleanFragment(Fragment fragment, boolean backstack) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         transaction.replace(R.id.content_main, fragment, "0");
-        transaction.addToBackStack("0");
+        if (backstack)
+            transaction.addToBackStack("0");
         transaction.commit();
     }
 
     @Override
     public void onListFragmentInteraction(LiveStream item) {
         if (item.channel == null || item.getLiveM3U8(this) == null) return;
-//        Intent stream = new Intent(Intent.ACTION_VIEW);
-//        stream.setDataAndType(Uri.parse(item.getLiveM3U8(this)), "video/*");
-//        startActivity(Intent.createChooser(stream, getResources().getText(R.string.send_to_intent)));
-        Intent stream = new Intent(Intent.ACTION_VIEW);
-        stream.setDataAndType(Uri.parse(item.getLiveM3U8(this)), "video/*");
-        startActivity(stream);
+        Intent intent = new Intent(this, PlayerActivity.class);
+        intent.putExtra(PlayerActivity.INTENT_LIVE_STREAM_URL, item.getLiveM3U8(this));
+        startActivity(intent);
     }
 }

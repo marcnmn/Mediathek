@@ -27,7 +27,7 @@ public class XmlParser {
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             parser.setInput(is, null);
             parser.nextTag();
-            return readFeed(parser, ls);
+            return readZdfLiveStreamXml(parser, ls);
         } catch (Exception ignored) {
         } finally {
             is.close();
@@ -35,8 +35,8 @@ public class XmlParser {
         return null;
     }
 
-    private static ArrayList<LiveStream> readFeed(XmlPullParser parser, ArrayList<LiveStream> ls) throws XmlPullParserException, IOException {
-        String title, id = "", thumbnail = "";
+    private static ArrayList<LiveStream> readZdfLiveStreamXml(XmlPullParser parser, ArrayList<LiveStream> ls) throws XmlPullParserException, IOException {
+        String title = "", id = "", thumbnail = "", logo = "";
         parser.require(XmlPullParser.START_TAG, null, "response");
         while (parser.next() != XmlPullParser.END_DOCUMENT) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -54,10 +54,14 @@ public class XmlParser {
                 id = readText(parser);
             } else if (name.equals("channel")) {
                 title = readText(parser);
+            }else if (name.equals("channelLogoSmall")) {
+                logo = readText(parser);
 
-                int index = LiveStreams.indexOfId(ls, id);
-                if (index >= 0)
+                int index = LiveStreams.indexOfName(ls, title);
+                if (index >= 0) {
                     ls.get(index).setThumb_url(thumbnail);
+                    ls.get(index).setLogo_url(logo);
+                }
             }
         }
         return ls;
