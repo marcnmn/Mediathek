@@ -1,95 +1,90 @@
 package com.marcn.mediathek.utils;
 
 import android.content.Context;
-import android.util.Xml;
 
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreams;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 
 public class XmlParser {
 
-    public static ArrayList<LiveStream> getZDFLiveStreamData(Context c,ArrayList<LiveStream> ls) throws IOException {
+    // LiveStreams
+    public static ArrayList<LiveStream> getZDFLiveStreamData2(Context c, ArrayList<LiveStream> ls) throws IOException {
         String url =  c.getString(R.string.zdf_live_api);
-        InputStream is = NetworkTasks.downloadStringDataAsInputStream(url);
-        if (is == null) return ls;
+        Document d = Jsoup.connect(url).get();
+
+        if (d == null)
+            return ls;
+
+        Elements elements = d.getElementsByTag("teaser");
+        for (Element el: elements.select("teaser[member=onAir]")) {
+            try {
+                String detail = el.getElementsByTag("detail").get(0).text();
+                String thumb = el.select("teaserimage[key=946x532]").text();
+                String channel = el.getElementsByTag("channel").get(0).text();
+
+                int index = LiveStreams.indexOfName(ls, channel);
+                if (index < 0) continue;
+
+                ls.get(index).setThumb_url(thumb);
+                ls.get(index).setDescription(detail);
+            } catch (NullPointerException ignored){}
+        }
+
+        return null;
+    }
+
+    public static LiveStream arteLiveStreamData(Context c, LiveStream l) {
+        if (c == null) return l;
+        String url =  c.getString(R.string.arte_live_api);
 
         try {
-            XmlPullParser parser = Xml.newPullParser();
-            parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-            parser.setInput(is, null);
-            parser.nextTag();
-            return readZdfLiveStreamXml(parser, ls);
-        } catch (Exception ignored) {
-        } finally {
-            is.close();
+            Document doc = Jsoup.connect(url).get();
+            String thumbnail = doc.select("div.video-block.LIVE.has-play > img").attr("src");
+            l.setThumb_url(thumbnail);
+            l.setLogo_url("http://www.arte.tv/footer-arte/assets/img/logo_arte.png");
+            return l;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return null;
     }
 
-    private static ArrayList<LiveStream> readZdfLiveStreamXml(XmlPullParser parser, ArrayList<LiveStream> ls) throws XmlPullParserException, IOException {
-        String title = "", id = "", thumbnail = "", logo = "";
-        parser.require(XmlPullParser.START_TAG, null, "response");
-        while (parser.next() != XmlPullParser.END_DOCUMENT) {
-            if (parser.getEventType() != XmlPullParser.START_TAG) {
-                continue;
-            }
-
-            String name = parser.getName();
-            if (name.equals("teaser") && !parser.getAttributeValue(null, "member").equals("onAir"))
-                skip(parser);
-            else if (name.equals("teaserimage")) {
-                if (parser.getAttributeValue(null, "key").equals("946x532")) {
-                    thumbnail = readText(parser);
+    public static ArrayList<LiveStream> ardLiveStreamsData(Context c, ArrayList<LiveStream> ls) {
+        if (c == null) return null;
+        String url = c.getString(R.string.ard_live_api);
+        String image_url = c.getString(R.string.ard_live_image_api);
+        try {
+            Document doc = Jsoup.connect(url).get();
+            for (LiveStream l : ls) {
+                String thumb;
+                try {
+                    String json = doc.select("a[href=/tv/"+l.queryName +"/live?kanal="+l.id+"].medialink").select("img.img.hideOnNoScript").attr("data-ctrl-image");
+                    JSONObject j = new JSONObject(json);
+                    thumb = j.getString("urlScheme");
+                } catch (JSONException e) {
+                    continue;
                 }
-            } else if (name.equals("assetId")) {
-                id = readText(parser);
-            } else if (name.equals("channel")) {
-                title = readText(parser);
-            }else if (name.equals("channelLogoSmall")) {
-                logo = readText(parser);
-
-                int index = LiveStreams.indexOfName(ls, title);
-                if (index >= 0) {
-                    ls.get(index).setThumb_url(thumbnail);
-                    ls.get(index).setLogo_url(logo);
+                if (thumb != null && !thumb.isEmpty() && thumb.indexOf("#") > 0) {
+                    thumb = thumb.substring(0, thumb.indexOf("#"));
+                    l.setThumb_url(image_url + thumb + "384");
+                    l.setLogo_url(LiveStream.ARD_ALPHA_LOGO);
                 }
             }
-        }
-        return ls;
-    }
-
-    private static String readText(XmlPullParser parser) throws IOException, XmlPullParserException {
-        String result = "";
-        if (parser.next() == XmlPullParser.TEXT) {
-            result = parser.getText();
-            parser.nextTag();
-        }
-        return result;
-    }
-
-    private static void skip(XmlPullParser parser) throws XmlPullParserException, IOException {
-        if (parser.getEventType() != XmlPullParser.START_TAG) {
-            throw new IllegalStateException();
-        }
-        int depth = 1;
-        while (depth != 0) {
-            switch (parser.next()) {
-                case XmlPullParser.END_TAG:
-                    depth--;
-                    break;
-                case XmlPullParser.START_TAG:
-                    depth++;
-                    break;
-            }
+            return ls;
+        } catch (IOException ignored) {
+            return ls;
         }
     }
 }

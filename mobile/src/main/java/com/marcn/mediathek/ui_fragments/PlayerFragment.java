@@ -13,7 +13,6 @@ import com.marcn.mediathek.R;
 public class PlayerFragment extends Fragment {
 
     private static final String ARG_STREAM_URL = "stream-url";
-
     private String mStreamUrl;
 
     public PlayerFragment() {
@@ -42,8 +41,8 @@ public class PlayerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_player, container, false);
 
         VideoView videoView = (VideoView) view.findViewById(R.id.videoView);
-//        videoView.setVideoPath(mStreamUrl);
-        videoView.setVideoPath("http://nrodl.zdf.de/none/zdf/14/03/140310_grossbritannien_oben_2_neo_1496k_p18v11.webm");
+        videoView.setVideoPath(mStreamUrl);
+        //videoView.setVideoPath("http://nrodl.zdf.de/none/zdf/14/03/140310_grossbritannien_oben_2_neo_1496k_p18v11.webm");
         videoView.start();
 
         if (isInLandscape() && !isImmersiveEnabled())

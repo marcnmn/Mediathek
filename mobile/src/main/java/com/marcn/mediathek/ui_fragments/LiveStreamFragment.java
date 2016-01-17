@@ -14,12 +14,9 @@ import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.LiveStreamAdapter;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreams;
-import com.marcn.mediathek.utils.HTMLParser;
-import com.marcn.mediathek.utils.NetworkTasks;
 import com.marcn.mediathek.utils.XmlParser;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class LiveStreamFragment extends Fragment {
@@ -80,7 +77,7 @@ public class LiveStreamFragment extends Fragment {
             @Override
             public void run() {
                 try {
-                    final ArrayList<LiveStream> ls = XmlParser.getZDFLiveStreamData(getContext(), mLiveStreams.getGroup(LiveStream.ZDF_MAIN_GROUP));
+                    final ArrayList<LiveStream> ls = XmlParser.getZDFLiveStreamData2(getContext(), mLiveStreams.getGroup(LiveStream.ZDF_MAIN_GROUP));
                     if (getActivity() == null || ls == null) return;
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
@@ -98,7 +95,7 @@ public class LiveStreamFragment extends Fragment {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final LiveStream l = HTMLParser.arteLiveStreamData(getContext(), mLiveStreams.getArteLiveStream());
+                final LiveStream l = XmlParser.arteLiveStreamData(getContext(), mLiveStreams.getArteLiveStream());
                 if (getActivity() == null) return;
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
@@ -114,7 +111,7 @@ public class LiveStreamFragment extends Fragment {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final ArrayList<LiveStream> ls = HTMLParser.ardLiveStreamsData(getContext(), mLiveStreams.getGroup(LiveStream.ARD_GROUP));
+                final ArrayList<LiveStream> ls = XmlParser.ardLiveStreamsData(getContext(), mLiveStreams.getGroup(LiveStream.ARD_GROUP));
                 if (getActivity() == null) return;
                 getActivity().runOnUiThread(new Runnable() {
                     @Override

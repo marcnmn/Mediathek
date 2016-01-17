@@ -40,7 +40,7 @@ public class LiveStream {
     public final String id, queryName;
     public final int originChannelId;
     public final String channel;
-    private String description, thumb_url, logo_url;
+    private String description, thumb_url;
 
     public static ArrayList<LiveStream> getBaseLiveStreams (Context c){
         ArrayList<LiveStream> ls =  new ArrayList<>();
@@ -170,9 +170,5 @@ public class LiveStream {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void setLogo_url(String logo_url) {
-        this.logo_url = logo_url;
     }
 }
