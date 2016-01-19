@@ -53,7 +53,6 @@ public class XmlParser {
             Document doc = Jsoup.connect(url).get();
             String thumbnail = doc.select("div.video-block.LIVE.has-play > img").attr("src");
             l.setThumb_url(thumbnail);
-            l.setLogo_url("http://www.arte.tv/footer-arte/assets/img/logo_arte.png");
             return l;
         } catch (IOException e) {
             e.printStackTrace();
@@ -79,7 +78,6 @@ public class XmlParser {
                 if (thumb != null && !thumb.isEmpty() && thumb.indexOf("#") > 0) {
                     thumb = thumb.substring(0, thumb.indexOf("#"));
                     l.setThumb_url(image_url + thumb + "384");
-                    l.setLogo_url(LiveStream.ARD_ALPHA_LOGO);
                 }
             }
             return ls;

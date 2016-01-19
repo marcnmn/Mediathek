@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <VideoView
+    <FrameLayout
+        android:id="@+id/video_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SurfaceView
+            android:id="@+id/surface_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.exoplayer.text.SubtitleLayout
+            android:id="@+id/subtitles"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/shutter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/videoView"
-        android:layout_alignParentTop="true" />
-</RelativeLayout>
+        android:src="@drawable/placeholder_stream"
+        android:adjustViewBounds="true"
+        android:transitionName="thumb"
+        android:visibility="visible"/>
+
+</FrameLayout>

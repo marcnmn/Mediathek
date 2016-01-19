@@ -2,6 +2,7 @@ package com.marcn.mediathek.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,10 @@ import android.widget.TextView;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreams;
-import com.marcn.mediathek.ui_fragments.LiveStreamFragment.OnListFragmentInteractionListener;
+import com.marcn.mediathek.ui_fragments.LiveStreamsFragment.OnListFragmentInteractionListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.ViewHolder> {
 
@@ -71,13 +71,15 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
         int logo = holder.mItem.getLogoResId();
         if (logo > 0)
             holder.mLogo.setImageResource(logo);
+        else
+            holder.mLogo.setImageBitmap(null);
 
         // OnClick
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    mListener.onListFragmentInteraction(holder.mItem, holder.mThumb);
                 }
             }
         });
@@ -86,6 +88,13 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
     @Override
     public int getItemCount() {
         return mValues.size();
+    }
+
+    @Nullable
+    public LiveStream getItem(int position) {
+        if (position >= getItemCount() || position < 0)
+            return null;
+        return mValues.get(position);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

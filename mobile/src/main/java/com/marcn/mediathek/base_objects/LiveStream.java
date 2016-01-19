@@ -37,6 +37,7 @@ public class LiveStream {
 //    public final static String DREI_SAT_QUERY = "3sat";
 //    public final static String KIKA_QUERY = "KiKA";
 
+    public Channel ch;
     public final String id, queryName;
     public final int originChannelId;
     public final String channel;
@@ -54,16 +55,16 @@ public class LiveStream {
         ls.add(new LiveStream("1822440", c.getString(R.string.zdf_neo_name), ZDF_MAIN_GROUP)); // ZDF NEO
 
         ls.add(new LiveStream("6", c.getString(R.string.arte_name), ARTE_GROUP)); //ARTE
-
-        ls.add(new LiveStream("5868", c.getString(R.string.ard_alpha_name), ARD_GROUP, ARD_ALPHA_QUERY));  // ARD-alpha
-        ls.add(new LiveStream("21518950", c.getString(R.string.br_name), ARD_GROUP, BR_QUERY));  // BR
-        ls.add(new LiveStream("208", c.getString(R.string.ard_name), ARD_GROUP, ARD_QUERY));  // ARD
         ls.add(new LiveStream("1386804", c.getString(R.string.mdr_name), ARD_GROUP, MDR_QUERY));  // MDR
         ls.add(new LiveStream("21518352", c.getString(R.string.ndr_name), ARD_GROUP, NDR_QUERY));  // NDR
-        ls.add(new LiveStream("21518358", c.getString(R.string.rbb_name), ARD_GROUP, RBB_QUERY));  // RBB
-        ls.add(new LiveStream("5870", c.getString(R.string.sr_name), ARD_GROUP, SR_QUERY));  // SR
         ls.add(new LiveStream("5904", c.getString(R.string.swr_name), ARD_GROUP, SWR_QUERY));  // SWR
         ls.add(new LiveStream("5902", c.getString(R.string.wdr_name), ARD_GROUP, WDR_QUERY));  // WDR
+
+        ls.add(new LiveStream("208", c.getString(R.string.ard_name), ARD_GROUP, ARD_QUERY));  // ARD
+        ls.add(new LiveStream("5868", c.getString(R.string.ard_alpha_name), ARD_GROUP, ARD_ALPHA_QUERY));  // ARD-alpha
+        ls.add(new LiveStream("21518950", c.getString(R.string.br_name), ARD_GROUP, BR_QUERY));  // BR
+        ls.add(new LiveStream("21518358", c.getString(R.string.rbb_name), ARD_GROUP, RBB_QUERY));  // RBB
+        ls.add(new LiveStream("5870", c.getString(R.string.sr_name), ARD_GROUP, SR_QUERY));  // SR
         ls.add(new LiveStream("5878", c.getString(R.string.tagesschau_name), ARD_GROUP, TAGESSCHAU_QUERY));  // TAGESSCHAU24
         ls.add(new LiveStream("5900", c.getString(R.string.drei_sat_name), ARD_GROUP, DREI_SAT_QUERY));  // 3SAT
         ls.add(new LiveStream("5886", c.getString(R.string.kika_name), ARD_GROUP, KIKA_QUERY));  // KIKA
@@ -116,11 +117,10 @@ public class LiveStream {
         switch (id) {
             // ZDF Sender
             case "2639200": return R.drawable.ic_zdf;
-            case "2492878": return R.drawable.ic_phoenix;
-            case "1822544": return R.drawable.ic_zdf_kultur;
-            case "2306126": return R.drawable.ic_zdf_info;
-            case "5900": return R.drawable.ic_3sat;
-            case "1822440": return R.drawable.ic_zdf_neo;
+//            case "2492878": return R.drawable.ic_phoenix;
+//            case "1822544": return R.drawable.ic_zdf_kultur;
+//            case "2306126": return R.drawable.ic_zdf_info;
+//            case "1822440": return R.drawable.ic_zdf_neo;
             // ARTE
             case "6": return R.drawable.ic_arte;
             // ARD
@@ -136,7 +136,8 @@ public class LiveStream {
             case "21518950": return R.drawable.ic_br;
             case "5870": return R.drawable.ic_sr;
             case "HR": return R.drawable.ic_hr;
-            case "21518358": return R.drawable.ic_rbb;
+//            case "21518358": return R.drawable.ic_rbb;
+            case "5900": return R.drawable.ic_3sat;
             // KiKa
             case "5886": return R.drawable.ic_kika;
             default: return -1;

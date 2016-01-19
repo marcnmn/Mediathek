@@ -3,23 +3,25 @@ package com.marcn.mediathek.ui_fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.marcn.mediathek.MainActivity;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.LiveStreamAdapter;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreams;
+import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.XmlParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class LiveStreamFragment extends Fragment {
+public class LiveStreamsFragment extends Fragment {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 2;
@@ -27,11 +29,11 @@ public class LiveStreamFragment extends Fragment {
     private LiveStreams mLiveStreams;
     private LiveStreamAdapter mLiveStreamAdapter;
 
-    public LiveStreamFragment() {
+    public LiveStreamsFragment() {
     }
 
-    public static LiveStreamFragment newInstance(int columnCount) {
-        LiveStreamFragment fragment = new LiveStreamFragment();
+    public static LiveStreamsFragment newInstance(int columnCount) {
+        LiveStreamsFragment fragment = new LiveStreamsFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -41,10 +43,6 @@ public class LiveStreamFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-        }
     }
 
     @Override
@@ -54,13 +52,27 @@ public class LiveStreamFragment extends Fragment {
         if (!(view instanceof RecyclerView)) return view;
 
         Context context = view.getContext();
-
         RecyclerView recyclerView = (RecyclerView) view;
-        if (mColumnCount <= 1) {
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        } else {
-            recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-        }
+
+        if ((getActivity()) != null)
+            ((MainActivity) getActivity()).setActionBarTitle(R.string.action_title_live_streams);
+
+        GridLayoutManager mLayoutManager = new GridLayoutManager(context, mColumnCount);
+        mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                LiveStream l = mLiveStreamAdapter.getItem(position);
+                if (l == null) return 1;
+                if (l.channel.equals(Constants.TITLE_CHANNEL_ZDF)
+                        || l.channel.equals(Constants.TITLE_CHANNEL_ARTE)
+                        || l.channel.equals(Constants.TITLE_CHANNEL_ARD)
+                        || l.channel.equals(Constants.TITLE_CHANNEL_3SAT)
+                        || l.channel.equals(Constants.TITLE_CHANNEL_KIKA))
+                    return mColumnCount;
+                else return 1;
+            }
+        });
+        recyclerView.setLayoutManager(mLayoutManager);
 
         mLiveStreams = new LiveStreams(getContext());
         mLiveStreamAdapter = new LiveStreamAdapter(mLiveStreams, mListener);
@@ -141,6 +153,6 @@ public class LiveStreamFragment extends Fragment {
     }
 
     public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(LiveStream item);
+        void onListFragmentInteraction(LiveStream item, View view);
     }
 }

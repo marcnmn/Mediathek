@@ -5,7 +5,9 @@
     <string name="ard_live_api">http://www.ardmediathek.de/tv/live</string>
     <string name="ard_live_image_api">http://www.ardmediathek.de</string>
 
-    <string name="zdf_hd_m3u8">http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8?dw=0</string>
+
+    <string name="zdf_hd_m3u8">http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/index_3056_av-p.m3u8?sd=10&amp;dw=0&amp;rebase=on&amp;hdntl=</string>
+    <!--<string name="zdf_hd_m3u8">http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8?dw=0</string>-->
     <string name="phoenix_m3u8">http://zdf-hds-de-f.zdf.de/i/de09_v1@87012/master.m3u8?dw=0</string>
     <string name="zdf_kultur_m3u8">http://zdf1112-lh.akamaihd.net/i/de11_v1@392881/master.m3u8?dw=0</string>
     <string name="zdf_info_m3u8">http://zdf1112-lh.akamaihd.net/i/de12_v1@392882/master.m3u8?dw=0</string>

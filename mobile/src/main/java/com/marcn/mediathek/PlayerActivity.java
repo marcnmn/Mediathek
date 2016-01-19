@@ -1,6 +1,11 @@
 package com.marcn.mediathek;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -8,8 +13,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.Explode;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 
 import com.marcn.mediathek.ui_fragments.PlayerFragment;
 
@@ -17,6 +24,8 @@ public class PlayerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final String INTENT_LIVE_STREAM_URL = "intent-live-stream";
+    public PlayerFragment playerFragment;
+    public int presses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +35,15 @@ public class PlayerActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setExitTransition(new Explode());
+        }
+
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
             String liveUrl = intent.getStringExtra(INTENT_LIVE_STREAM_URL);
-            loadCleanFragment(PlayerFragment.newInstance(liveUrl), false);
+            playerFragment = PlayerFragment.newInstance(liveUrl);
+            loadCleanFragment(playerFragment, false);
         }
     }
 
@@ -39,6 +53,14 @@ public class PlayerActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+//            playerFragment.releasePlayer();
+//            playerFragment.cleanLayout();
+//            presses++;
+//            if (presses > 1)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                ((FrameLayout)findViewById(R.id.content_main)).setTransitionGroup(true);
+                ((FrameLayout)findViewById(R.id.video_frame)).setTransitionGroup(true);
+            }
             super.onBackPressed();
         }
     }

@@ -1,19 +1,65 @@
 package com.marcn.mediathek.ui_fragments;
 
+import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Point;
+import android.media.Image;
+import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v7.graphics.Palette;
+
+import com.google.android.exoplayer.ExoPlayer;
+import com.google.android.exoplayer.audio.AudioCapabilitiesReceiver;
+import com.marcn.mediathek.player.DashRendererBuilder;
+import com.marcn.mediathek.player.ExtractorRendererBuilder;
+import com.marcn.mediathek.player.HlsRendererBuilder;
+import com.marcn.mediathek.player.Player.RendererBuilder;
+import android.view.Display;
 import android.view.LayoutInflater;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.MediaController;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.google.android.exoplayer.AspectRatioFrameLayout;
+import com.google.android.exoplayer.util.Util;
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.player.Player;
+import com.marcn.mediathek.player.SmoothStreamingRendererBuilder;
 
-public class PlayerFragment extends Fragment {
+import java.io.FileNotFoundException;
+
+public class PlayerFragment extends Fragment implements SurfaceHolder.Callback, Player.Listener {
+
+    public static final int TYPE_DASH = 0;
+    public static final int TYPE_SS = 1;
+    public static final int TYPE_HLS = 2;
+    public static final int TYPE_OTHER = 3;
 
     private static final String ARG_STREAM_URL = "stream-url";
     private String mStreamUrl;
+
+    private VideoView mVideoView;
+    private ImageView shutterView;
+    private View debugRootView;
+    private FrameLayout videoFrame;
+    private SurfaceView surfaceView;
+    private TextView debugTextView;
+    private Player player;
+    private boolean playerNeedsPrepare;
 
     public PlayerFragment() {
     }
@@ -39,16 +85,94 @@ public class PlayerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_player, container, false);
+        Context context = view.getContext();
 
-        VideoView videoView = (VideoView) view.findViewById(R.id.videoView);
-        videoView.setVideoPath(mStreamUrl);
-        //videoView.setVideoPath("http://nrodl.zdf.de/none/zdf/14/03/140310_grossbritannien_oben_2_neo_1496k_p18v11.webm");
-        videoView.start();
+        videoFrame = (FrameLayout) view.findViewById(R.id.video_frame);
+//        videoFrame = (AspectRatioFrameLayout) view.findViewById(R.id.video_frame);
+        shutterView = (ImageView) view.findViewById(R.id.shutter);
+        surfaceView = (SurfaceView) view.findViewById(R.id.surface_view);
+        surfaceView.getHolder().addCallback(this);
 
-        if (isInLandscape() && !isImmersiveEnabled())
-            hideSystemUI();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ((FrameLayout)view).setTransitionGroup(true);
+            videoFrame.setTransitionGroup(true);
+        }
 
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) videoFrame.getLayoutParams();
+        layoutParams.height = (int) (getWindowWidth(context) * 9.0 / 16);
+        videoFrame.setLayoutParams(layoutParams);
+
+        try {
+            Bitmap bitmap = BitmapFactory.decodeStream(context.openFileInput("thumbnail"));
+            shutterView.setImageBitmap(bitmap);
+            Palette p = Palette.from(bitmap).generate();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                getActivity().getWindow().setStatusBarColor(p.getVibrantColor(getActivity().getResources().getColor(R.color.colorPrimaryDark)));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startPlayBack();
+            }
+        }, 500);
         return view;
+    }
+
+    public void startPlayBack() {
+//        contentType = intent.getIntExtra(CONTENT_TYPE_EXTRA,
+//                inferContentType(contentUri, intent.getStringExtra(CONTENT_EXT_EXTRA)));
+//        contentId = intent.getStringExtra(CONTENT_ID_EXTRA);
+//        provider = intent.getStringExtra(PROVIDER_EXTRA);
+//        configureSubtitleView();
+        preparePlayer(true);
+    }
+
+    private RendererBuilder getRendererBuilder() {
+        String userAgent = Util.getUserAgent(getActivity(), "ExoPlayerDemo");
+        Uri uri = Uri.parse(mStreamUrl);
+        int contentType = TYPE_HLS;
+        switch (contentType) {
+//            case TYPE_SS:
+//                return new SmoothStreamingRendererBuilder(this, null, contentUri.toString(),
+//                        new SmoothStreamingTestMediaDrmCallback());
+//            case TYPE_DASH:
+//                return new DashRendererBuilder(this, userAgent, contentUri.toString(),
+//                        new WidevineTestMediaDrmCallback(contentId, provider));
+            case TYPE_HLS:
+                return new HlsRendererBuilder(getContext(), userAgent, mStreamUrl);
+            case TYPE_OTHER:
+                return new ExtractorRendererBuilder(getContext(), userAgent, uri);
+            default:
+                throw new IllegalStateException("Unsupported type: " + contentType);
+        }
+    }
+
+    private void preparePlayer(boolean playWhenReady) {
+        if (player == null) {
+            player = new Player(getRendererBuilder());
+            playerNeedsPrepare = true;
+            player.addListener(this);
+//            mediaController.setMediaPlayer(player.getPlayerControl());
+//            mediaController.setEnabled(true);
+//            eventLogger = new EventLogger();
+//            eventLogger.startSession();
+//            player.addListener(eventLogger);
+//            player.setInfoListener(eventLogger);
+//            player.setInternalErrorListener(eventLogger);
+//            debugViewHelper = new DebugTextViewHelper(player, debugTextView);
+//            debugViewHelper.start();
+        }
+        if (playerNeedsPrepare) {
+            player.prepare();
+            playerNeedsPrepare = false;
+        }
+        player.setSurface(surfaceView.getHolder().getSurface());
+        player.setPlayWhenReady(playWhenReady);
     }
 
     @Override
@@ -77,5 +201,105 @@ public class PlayerFragment extends Fragment {
         if (getActivity() == null) return false;
         int uiOptions = getActivity().getWindow().getDecorView().getSystemUiVisibility();
         return ((uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) == uiOptions);
+    }
+
+    private int getWindowWidth(Context context) {
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        Point size = new Point();
+
+        display.getSize(size);
+        return size.x;
+    }
+
+    @Override
+    public void onPause() {
+//        videoFrame.setVisibility(View.INVISIBLE);
+//        videoFrame.getLayoutParams().height = 0;
+//        shutterView.setVisibility(View.VISIBLE);
+
+        super.onPause();
+        releasePlayer();
+
+//        if (!enableBackgroundAudio) {
+//        } else {
+//            player.setBackgrounded(true);
+//        }
+    }
+
+    public void cleanLayout() {
+    }
+
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+
+    }
+
+    @Override
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
+    }
+
+    @Override
+    public void surfaceDestroyed(SurfaceHolder holder) {
+
+    }
+
+    @Override
+    public void onStateChanged(boolean playWhenReady, int playbackState) {
+//        if (playbackState == ExoPlayer.STATE_ENDED) {
+//            showControls();
+//        }
+        String text = "playWhenReady=" + playWhenReady + ", playbackState=";
+        switch(playbackState) {
+            case ExoPlayer.STATE_BUFFERING:
+                text += "buffering";
+                break;
+            case ExoPlayer.STATE_ENDED:
+                text += "ended";
+                break;
+            case ExoPlayer.STATE_IDLE:
+                text += "idle";
+                break;
+            case ExoPlayer.STATE_PREPARING:
+                text += "preparing";
+                break;
+            case ExoPlayer.STATE_READY:
+                text += "ready";
+                shutterView.setVisibility(View.INVISIBLE);
+                break;
+            default:
+                text += "unknown";
+                break;
+        }
+//        playerStateTextView.setText(text);
+//        updateButtonVisibilities();
+
+    }
+
+    @Override
+    public void onError(Exception e) {
+
+    }
+
+    @Override
+    public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees,
+                                   float pixelWidthAspectRatio) {
+        shutterView.setVisibility(View.INVISIBLE);
+//        videoFrame.setAspectRatio(
+//                height == 0 ? 1 : (width * pixelWidthAspectRatio) / height);
+    }
+
+
+    public void releasePlayer() {
+        if (player != null) {
+//            debugViewHelper.stop();
+//            debugViewHelper = null;
+//            playerPosition = player.getCurrentPosition();
+            player.release();
+            player = null;
+//            eventLogger.endSession();
+//            eventLogger = null;
+        }
     }
 }

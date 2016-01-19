@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    // ZDF Gruppe
     <string name="zdf_name">ZDF</string>
     <string name="phoenix_name">Phoenix</string>
     <string name="zdf_kultur_name">ZDF.kultur</string>
     <string name="zdf_info_name">ZDFinfo</string>
     <string name="drei_sat_name">3sat</string>
     <string name="zdf_neo_name">ZDFneo</string>
+
+    <string name="zdf_gruppe_sendung_verpasst">http://www.zdf.de/ZDFmediathek/xmlservice/web/sendungVerpasst</string>
 
     <string name="arte_name">Arte</string>
 
