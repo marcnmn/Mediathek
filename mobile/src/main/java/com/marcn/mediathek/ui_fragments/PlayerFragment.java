@@ -5,6 +5,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
+import android.graphics.SurfaceTexture;
 import android.media.Image;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -22,8 +23,10 @@ import com.marcn.mediathek.player.HlsRendererBuilder;
 import com.marcn.mediathek.player.Player.RendererBuilder;
 import android.view.Display;
 import android.view.LayoutInflater;
+import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -42,7 +45,7 @@ import com.marcn.mediathek.player.SmoothStreamingRendererBuilder;
 
 import java.io.FileNotFoundException;
 
-public class PlayerFragment extends Fragment implements SurfaceHolder.Callback, Player.Listener {
+public class PlayerFragment extends Fragment implements Player.Listener, TextureView.SurfaceTextureListener {
 
     public static final int TYPE_DASH = 0;
     public static final int TYPE_SS = 1;
@@ -56,7 +59,7 @@ public class PlayerFragment extends Fragment implements SurfaceHolder.Callback, 
     private ImageView shutterView;
     private View debugRootView;
     private FrameLayout videoFrame;
-    private SurfaceView surfaceView;
+    private TextureView surfaceView;
     private TextView debugTextView;
     private Player player;
     private boolean playerNeedsPrepare;
@@ -90,8 +93,8 @@ public class PlayerFragment extends Fragment implements SurfaceHolder.Callback, 
         videoFrame = (FrameLayout) view.findViewById(R.id.video_frame);
 //        videoFrame = (AspectRatioFrameLayout) view.findViewById(R.id.video_frame);
         shutterView = (ImageView) view.findViewById(R.id.shutter);
-        surfaceView = (SurfaceView) view.findViewById(R.id.surface_view);
-        surfaceView.getHolder().addCallback(this);
+        surfaceView = (TextureView) view.findViewById(R.id.surface_view);
+        surfaceView.setSurfaceTextureListener(this);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ((FrameLayout)view).setTransitionGroup(true);
@@ -107,17 +110,18 @@ public class PlayerFragment extends Fragment implements SurfaceHolder.Callback, 
             shutterView.setImageBitmap(bitmap);
             Palette p = Palette.from(bitmap).generate();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getActivity().getWindow().setStatusBarColor(p.getVibrantColor(getActivity().getResources().getColor(R.color.colorPrimaryDark)));
+                getActivity().getWindow().setStatusBarColor(p.getDarkVibrantColor(getActivity().getResources().getColor(R.color.colorPrimaryDark)));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
+        //startPlayBack();
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startPlayBack();
+                //startPlayBack();
             }
         }, 500);
         return view;
@@ -171,7 +175,10 @@ public class PlayerFragment extends Fragment implements SurfaceHolder.Callback, 
             player.prepare();
             playerNeedsPrepare = false;
         }
-        player.setSurface(surfaceView.getHolder().getSurface());
+
+        SurfaceTexture surfaceTexture = surfaceView.getSurfaceTexture();
+        Surface surface = new Surface(surfaceTexture);
+        player.setSurface(surface);
         player.setPlayWhenReady(playWhenReady);
     }
 
@@ -213,12 +220,14 @@ public class PlayerFragment extends Fragment implements SurfaceHolder.Callback, 
     }
 
     @Override
-    public void onPause() {
-//        videoFrame.setVisibility(View.INVISIBLE);
-//        videoFrame.getLayoutParams().height = 0;
-//        shutterView.setVisibility(View.VISIBLE);
+    public void onResume() {
+        super.onResume();
+    }
 
+    @Override
+    public void onPause() {
         super.onPause();
+        shutterView.setVisibility(View.VISIBLE);
         releasePlayer();
 
 //        if (!enableBackgroundAudio) {
@@ -228,21 +237,6 @@ public class PlayerFragment extends Fragment implements SurfaceHolder.Callback, 
     }
 
     public void cleanLayout() {
-    }
-
-    @Override
-    public void surfaceCreated(SurfaceHolder holder) {
-
-    }
-
-    @Override
-    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-
-    }
-
-    @Override
-    public void surfaceDestroyed(SurfaceHolder holder) {
-
     }
 
     @Override
@@ -266,7 +260,7 @@ public class PlayerFragment extends Fragment implements SurfaceHolder.Callback, 
                 break;
             case ExoPlayer.STATE_READY:
                 text += "ready";
-                shutterView.setVisibility(View.INVISIBLE);
+                //shutterView.setVisibility(View.INVISIBLE);
                 break;
             default:
                 text += "unknown";
@@ -285,7 +279,7 @@ public class PlayerFragment extends Fragment implements SurfaceHolder.Callback, 
     @Override
     public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees,
                                    float pixelWidthAspectRatio) {
-        shutterView.setVisibility(View.INVISIBLE);
+        shutterView.setVisibility(View.GONE);
 //        videoFrame.setAspectRatio(
 //                height == 0 ? 1 : (width * pixelWidthAspectRatio) / height);
     }
@@ -301,5 +295,25 @@ public class PlayerFragment extends Fragment implements SurfaceHolder.Callback, 
 //            eventLogger.endSession();
 //            eventLogger = null;
         }
+    }
+
+    @Override
+    public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+        startPlayBack();
+    }
+
+    @Override
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
+
+    }
+
+    @Override
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
+        return false;
+    }
+
+    @Override
+    public void onSurfaceTextureUpdated(SurfaceTexture surface) {
+
     }
 }
