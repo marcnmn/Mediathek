@@ -1,6 +1,8 @@
 package com.marcn.mediathek.utils;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
+import android.util.Pair;
 
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.LiveStream;
@@ -14,12 +16,20 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.TreeMap;
 
 
 public class ZdfMediathekData {
+
+    public static final int QUALiTY_VERY_HIGH = 0;
+    public static final int QUALiTY_HIGH = 1;
+    public static final int QUALiTY_MED = 2;
+    public static final int QUALiTY_LOW = 3;
 
     // LiveStreams
     public static ArrayList<Video> getMissedShows(Context c, int offset, int count,
@@ -66,7 +76,28 @@ public class ZdfMediathekData {
         return videos;
     }
 
-    public static String getSingleStringByTag(Element el, String tag) {
+    @Nullable
+    public static TreeMap<Integer, String> getVideoUrl(Context c, int id) throws IOException{
+        String url =  c.getString(R.string.zdf_gruppe_video) + "?id=" + id;
+        Document d = Jsoup.connect(url).get();
+
+        Elements statusCode = d.getElementsByTag("statuscode");
+        if (statusCode == null || !statusCode.text().equals("ok"))
+            return null;
+
+        TreeMap<Integer, String> urls = new TreeMap<>();
+        Elements elements = d.select("formitaet[basetype=vp8_vorbis_webm_http_na_na]");
+        for (Element el: elements) {
+            try {
+                int quality = getQualityType(getSingleStringByTag(el, "quality"));
+                String qUrl = getSingleStringByTag(el, "url");
+                urls.put(quality, qUrl);
+            } catch (NullPointerException ignored){}
+        }
+        return urls;
+    }
+
+    private static String getSingleStringByTag(Element el, String tag) {
         Elements e = el.getElementsByTag(tag);
         if (e == null || e.isEmpty()) return "";
         Element target = e.get(0);
@@ -74,7 +105,7 @@ public class ZdfMediathekData {
         return target.text();
     }
 
-    public static int getSingleIntegerByTag(Element el, String tag) {
+    private static int getSingleIntegerByTag(Element el, String tag) {
         String s = getSingleStringByTag(el, tag);
         try {
             int i = Integer.parseInt(s);
@@ -84,16 +115,26 @@ public class ZdfMediathekData {
         }
     }
 
-    public static String getThumbUrl(Element el, String tag) {
+    private static String getThumbUrl(Element el, String tag) {
         Elements e = el.getElementsByTag(tag);
         if (e == null || e.isEmpty()) return "";
         String s = "";
         for (Element element : e) {
-            if (!element.attr("alt").isEmpty())
+            if (!element.attr("alt").isEmpty() && element.attr("key").equals("485x273"))
                 s = element.text();
         }
         if (s.isEmpty())
             return el.getElementsByTag(tag).last().text();
         return s;
+    }
+
+    public static int getQualityType(String s) {
+        switch (s) {
+            case "veryhigh": return QUALiTY_VERY_HIGH;
+            case "high": return QUALiTY_HIGH;
+            case "med": return QUALiTY_MED;
+            case "low": return QUALiTY_LOW;
+            default: return QUALiTY_LOW;
+        }
     }
 }

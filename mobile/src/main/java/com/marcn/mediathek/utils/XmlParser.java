@@ -31,7 +31,7 @@ public class XmlParser {
         for (Element el: elements.select("teaser[member=onAir]")) {
             try {
                 String detail = el.getElementsByTag("detail").get(0).text();
-                String thumb = el.select("teaserimage[key=946x532]").text();
+                String thumb = el.select("teaserimage[key=485x273]").text();
                 String channel = el.getElementsByTag("channel").get(0).text();
 
                 int index = LiveStreams.indexOfName(ls, channel);

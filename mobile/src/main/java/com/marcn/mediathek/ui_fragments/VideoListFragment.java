@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.VideoAdapter;
 import com.marcn.mediathek.base_objects.Video;
@@ -33,6 +34,7 @@ public class VideoListFragment extends Fragment {
 
     private Calendar mDay, mLastDay;
     private boolean mIsLoading;
+    private OnVideoInteractionListener mListener;
 
     public VideoListFragment() {
     }
@@ -74,7 +76,7 @@ public class VideoListFragment extends Fragment {
         });
         recyclerView.setLayoutManager(mLayoutManager);
 
-        mVideoAdapter = new VideoAdapter(new ArrayList<Video>(), null);
+        mVideoAdapter = new VideoAdapter(new ArrayList<Video>(), mListener);
         recyclerView.setAdapter(mVideoAdapter);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -130,5 +132,22 @@ public class VideoListFragment extends Fragment {
                 }
             }
         }).start();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnVideoInteractionListener) {
+            mListener = (OnVideoInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnListFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
     }
 }

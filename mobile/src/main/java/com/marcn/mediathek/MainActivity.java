@@ -29,6 +29,7 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.widget.ImageView;
 
+import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
@@ -39,7 +40,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, LiveStreamsFragment.OnListFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, LiveStreamsFragment.OnListFragmentInteractionListener,
+        OnVideoInteractionListener {
 
     public static final String INTENT_LIVE_DRAWER_ITEM = "player-drawer-item";
 
@@ -154,6 +156,37 @@ public class MainActivity extends AppCompatActivity
 
         Intent intent = new Intent(this, PlayerActivity.class);
         intent.putExtra(PlayerActivity.INTENT_LIVE_STREAM_URL, item.getLiveM3U8(this));
+
+        ImageView imageView = (ImageView) view;
+        Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+        createImageFromBitmap(bmp);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setExitTransition(new Explode());
+
+            view.setTransitionName("thumb");
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,
+                    Pair.create(view, "thumb"));
+            startActivity(intent, options.toBundle());
+        } else
+            startActivity(intent);
+    }
+
+    @Override
+    public void onVideoInteraction(final String url, final View view) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                startPlayer(url, view);
+            }
+        });
+    }
+
+    public void startPlayer(String url, View view) {
+        if (url == null) return;
+
+        Intent intent = new Intent(this, PlayerActivity.class);
+        intent.putExtra(PlayerActivity.INTENT_LIVE_STREAM_URL, url);
 
         ImageView imageView = (ImageView) view;
         Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <com.google.android.exoplayer.AspectRatioFrameLayout
         android:id="@+id/video_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -28,5 +28,5 @@
             android:layout_height="match_parent"
             android:visibility="gone" />
 
-    </FrameLayout>
+    </com.google.android.exoplayer.AspectRatioFrameLayout>
 </FrameLayout>

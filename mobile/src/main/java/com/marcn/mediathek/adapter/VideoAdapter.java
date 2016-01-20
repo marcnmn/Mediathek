@@ -9,12 +9,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment.OnListFragmentInteractionListener;
 import com.marcn.mediathek.utils.DateFormat;
+import com.marcn.mediathek.utils.ZdfMediathekData;
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,16 +25,18 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final int TYPE_HEADER = 0;
     public static final int TYPE_VIDEO = 1;
 
     private final ArrayList<Video> mValues;
-    private final OnListFragmentInteractionListener mListener;
+    private final OnVideoInteractionListener mListener;
 
-    public VideoAdapter(ArrayList<Video> items, OnListFragmentInteractionListener listener) {
+    public VideoAdapter(ArrayList<Video> items, OnVideoInteractionListener listener) {
         if (items == null)
             mValues = new ArrayList<>();
         else {
@@ -77,7 +82,7 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             HeaderViewHolder holder = (HeaderViewHolder) viewHolder;
             holder.mDate.setText(video.dayAndDate);
         } else {
-            VideoViewHolder holder = (VideoViewHolder) viewHolder;
+            final VideoViewHolder holder = (VideoViewHolder) viewHolder;
             holder.mItem = video;
             holder.mTitle.setText(holder.mItem.detail);
             holder.mAirTime.setText(holder.mItem.airtime);
@@ -105,7 +110,17 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 @Override
                 public void onClick(View v) {
                     if (null != mListener) {
-//                    mListener.onListFragmentInteraction(holder.mItem);
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    final TreeMap<Integer, String> s = ZdfMediathekData.getVideoUrl(holder.mView.getContext(), holder.mItem.assetId);
+                                    if (s != null && !s.isEmpty())
+                                        mListener.onVideoInteraction(s.get(0), holder.mThumb);
+                                } catch (IOException ignored) {}
+                            }
+                        }).start();
+
                     }
                 }
             });

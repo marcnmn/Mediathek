@@ -21,6 +21,8 @@ import com.marcn.mediathek.player.DashRendererBuilder;
 import com.marcn.mediathek.player.ExtractorRendererBuilder;
 import com.marcn.mediathek.player.HlsRendererBuilder;
 import com.marcn.mediathek.player.Player.RendererBuilder;
+
+import android.text.TextUtils;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Surface;
@@ -52,13 +54,17 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
     public static final int TYPE_HLS = 2;
     public static final int TYPE_OTHER = 3;
 
+    private static final String EXT_DASH = ".mpd";
+    private static final String EXT_SS = ".ism";
+    private static final String EXT_HLS = ".m3u8";
+
     private static final String ARG_STREAM_URL = "stream-url";
     private String mStreamUrl;
 
     private VideoView mVideoView;
     private ImageView shutterView;
     private View debugRootView;
-    private FrameLayout videoFrame;
+    private AspectRatioFrameLayout videoFrame;
     private TextureView surfaceView;
     private TextView debugTextView;
     private Player player;
@@ -81,6 +87,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
 
         if (getArguments() != null) {
             mStreamUrl = getArguments().getString(ARG_STREAM_URL);
+            // mStreamUrl = "http://nrodl.zdf.de/de/zdf/14/12/141211_osmanen1_inf_1496k_p18v11.webm";
         }
     }
 
@@ -90,7 +97,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         View view = inflater.inflate(R.layout.fragment_player, container, false);
         Context context = view.getContext();
 
-        videoFrame = (FrameLayout) view.findViewById(R.id.video_frame);
+        videoFrame = (AspectRatioFrameLayout) view.findViewById(R.id.video_frame);
 //        videoFrame = (AspectRatioFrameLayout) view.findViewById(R.id.video_frame);
         shutterView = (ImageView) view.findViewById(R.id.shutter);
         surfaceView = (TextureView) view.findViewById(R.id.surface_view);
@@ -116,14 +123,9 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
             e.printStackTrace();
         }
 
-        //startPlayBack();
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //startPlayBack();
-            }
-        }, 500);
+        if (isInLandscape() && !isImmersiveEnabled())
+            hideSystemUI();
+
         return view;
     }
 
@@ -139,7 +141,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
     private RendererBuilder getRendererBuilder() {
         String userAgent = Util.getUserAgent(getActivity(), "ExoPlayerDemo");
         Uri uri = Uri.parse(mStreamUrl);
-        int contentType = TYPE_HLS;
+        int contentType = inferContentType(uri, null);
         switch (contentType) {
 //            case TYPE_SS:
 //                return new SmoothStreamingRendererBuilder(this, null, contentUri.toString(),
@@ -280,8 +282,9 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
     public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees,
                                    float pixelWidthAspectRatio) {
         shutterView.setVisibility(View.GONE);
-//        videoFrame.setAspectRatio(
-//                height == 0 ? 1 : (width * pixelWidthAspectRatio) / height);
+        videoFrame.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        videoFrame.setAspectRatio(
+                height == 0 ? 1 : (width * pixelWidthAspectRatio) / height);
     }
 
 
@@ -294,6 +297,22 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
             player = null;
 //            eventLogger.endSession();
 //            eventLogger = null;
+        }
+    }
+
+    private static int inferContentType(Uri uri, String fileExtension) {
+        String lastPathSegment = !TextUtils.isEmpty(fileExtension) ? "." + fileExtension
+                : uri.getLastPathSegment();
+        if (lastPathSegment == null) {
+            return TYPE_OTHER;
+        } else if (lastPathSegment.endsWith(EXT_DASH)) {
+            return TYPE_DASH;
+        } else if (lastPathSegment.endsWith(EXT_SS)) {
+            return TYPE_SS;
+        } else if (lastPathSegment.endsWith(EXT_HLS)) {
+            return TYPE_HLS;
+        } else {
+            return TYPE_OTHER;
         }
     }
 
