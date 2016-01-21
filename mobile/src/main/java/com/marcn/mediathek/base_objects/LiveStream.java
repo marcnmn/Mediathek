@@ -40,7 +40,7 @@ public class LiveStream {
     public Channel ch;
     public final String id, queryName;
     public final int originChannelId;
-    public final String channel;
+    public final String title;
     private String description, thumb_url;
 
     public static ArrayList<LiveStream> getBaseLiveStreams (Context c){
@@ -71,13 +71,13 @@ public class LiveStream {
         return ls;
     }
 
-    public LiveStream(String id, String channel, int originChannelId) {
-        this(id, channel, originChannelId, channel);
+    public LiveStream(String id, String title, int originChannelId) {
+        this(id, title, originChannelId, title);
     }
 
-    public LiveStream(String id, String channel, int originChannelId, String queryName) {
+    public LiveStream(String id, String title, int originChannelId, String queryName) {
         this.id = id;
-        this.channel = channel;
+        this.title = title;
         this.originChannelId = originChannelId;
         this.queryName = queryName;
     }
@@ -146,7 +146,7 @@ public class LiveStream {
 
     @Override
     public String toString() {
-        return channel;
+        return title;
     }
 
     @Override
@@ -154,7 +154,7 @@ public class LiveStream {
         if (!(o instanceof LiveStream))
             return false;
         LiveStream ls = (LiveStream) o;
-        return ls.channel.equals(this.channel);
+        return ls.title.equals(this.title);
     }
 
     public String getThumb_url() {

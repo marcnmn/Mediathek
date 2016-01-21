@@ -12,22 +12,11 @@ import android.widget.TextView;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Video;
-import com.marcn.mediathek.ui_fragments.LiveStreamsFragment.OnListFragmentInteractionListener;
 import com.marcn.mediathek.utils.DateFormat;
-import com.marcn.mediathek.utils.ZdfMediathekData;
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.TreeMap;
 
 public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final int TYPE_HEADER = 0;
@@ -109,19 +98,16 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (null != mListener) {
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    final TreeMap<Integer, String> s = ZdfMediathekData.getVideoUrl(holder.mView.getContext(), holder.mItem.assetId);
-                                    if (s != null && !s.isEmpty())
-                                        mListener.onVideoInteraction(s.get(0), holder.mThumb);
-                                } catch (IOException ignored) {}
-                            }
-                        }).start();
+                    if (null != mListener)
+                        mListener.onVideoClicked(holder.mItem, holder.mThumb, Video.ACTION_INTERNAL_PLAYER);
+                }
+            });
 
-                    }
+            holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    mListener.onVideoClicked(holder.mItem, holder.mThumb, Video.ACTION_EXTERNAL_PLAYER_DIALOG);
+                    return true;
                 }
             });
         }

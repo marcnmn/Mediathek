@@ -10,10 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreams;
-import com.marcn.mediathek.ui_fragments.LiveStreamsFragment.OnListFragmentInteractionListener;
+import com.marcn.mediathek.base_objects.Video;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -21,9 +22,9 @@ import java.util.ArrayList;
 public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.ViewHolder> {
 
     private final LiveStreams mValues;
-    private final OnListFragmentInteractionListener mListener;
+    private final OnVideoInteractionListener mListener;
 
-    public LiveStreamAdapter(LiveStreams items, OnListFragmentInteractionListener listener) {
+    public LiveStreamAdapter(LiveStreams items, OnVideoInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -53,7 +54,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mTitle.setText(holder.mItem.channel);
+        holder.mTitle.setText(holder.mItem.title);
         Context context = holder.mView.getContext();
 
         // Thumbnail Image
@@ -79,8 +80,16 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
-                    mListener.onListFragmentInteraction(holder.mItem, holder.mThumb);
+                    mListener.onLiveStreamClicked(holder.mItem, holder.mThumb, Video.ACTION_INTERNAL_PLAYER);
                 }
+            }
+        });
+
+        holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                mListener.onLiveStreamClicked(holder.mItem, holder.mThumb, Video.ACTION_EXTERNAL_PLAYER_DIALOG);
+                return true;
             }
         });
     }

@@ -173,7 +173,7 @@ public class Player implements ExoPlayer.Listener, ChunkSampleSource.EventListen
 
     public Player(RendererBuilder rendererBuilder) {
         this.rendererBuilder = rendererBuilder;
-        player = ExoPlayer.Factory.newInstance(RENDERER_COUNT, 1000, 5000);
+        player = ExoPlayer.Factory.newInstance(RENDERER_COUNT, 2000, 5000);
         player.addListener(this);
         playerControl = new PlayerControl(player);
         mainHandler = new Handler();

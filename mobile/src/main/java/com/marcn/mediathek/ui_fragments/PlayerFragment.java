@@ -6,36 +6,31 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.graphics.SurfaceTexture;
-import android.media.Image;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.graphics.Palette;
 
 import com.google.android.exoplayer.ExoPlayer;
-import com.google.android.exoplayer.audio.AudioCapabilitiesReceiver;
-import com.marcn.mediathek.player.DashRendererBuilder;
 import com.marcn.mediathek.player.ExtractorRendererBuilder;
 import com.marcn.mediathek.player.HlsRendererBuilder;
 import com.marcn.mediathek.player.Player.RendererBuilder;
 
 import android.text.TextUtils;
+import android.transition.Fade;
+import android.transition.TransitionManager;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Surface;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.MediaController;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -43,7 +38,7 @@ import com.google.android.exoplayer.AspectRatioFrameLayout;
 import com.google.android.exoplayer.util.Util;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.player.Player;
-import com.marcn.mediathek.player.SmoothStreamingRendererBuilder;
+import com.marcn.mediathek.utils.LayoutTasks;
 
 import java.io.FileNotFoundException;
 
@@ -100,6 +95,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         videoFrame = (AspectRatioFrameLayout) view.findViewById(R.id.video_frame);
 //        videoFrame = (AspectRatioFrameLayout) view.findViewById(R.id.video_frame);
         shutterView = (ImageView) view.findViewById(R.id.shutter);
+
         surfaceView = (TextureView) view.findViewById(R.id.surface_view);
         surfaceView.setSurfaceTextureListener(this);
 
@@ -109,24 +105,29 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         }
 
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) videoFrame.getLayoutParams();
-        layoutParams.height = (int) (getWindowWidth(context) * 9.0 / 16);
+        layoutParams.height = (int) (LayoutTasks.getWindowWidth(context) * 9.0 / 16);
         videoFrame.setLayoutParams(layoutParams);
 
-        try {
-            Bitmap bitmap = BitmapFactory.decodeStream(context.openFileInput("thumbnail"));
-            shutterView.setImageBitmap(bitmap);
-            Palette p = Palette.from(bitmap).generate();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getActivity().getWindow().setStatusBarColor(p.getDarkVibrantColor(getActivity().getResources().getColor(R.color.colorPrimaryDark)));
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        getIntentThumbnail(context);
 
         if (isInLandscape() && !isImmersiveEnabled())
             hideSystemUI();
 
         return view;
+    }
+
+    private void getIntentThumbnail(Context context) {
+        if (context == null) return;
+        try {
+            Bitmap bitmap = BitmapFactory.decodeStream(context.openFileInput("thumbnail"));
+            shutterView.setImageBitmap(bitmap);
+            Palette p = Palette.from(bitmap).generate();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                getActivity().getWindow().setStatusBarColor(p.getDarkVibrantColor(ContextCompat.getColor(context, R.color.colorPrimaryDark)));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void startPlayBack() {
@@ -212,15 +213,6 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         return ((uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) == uiOptions);
     }
 
-    private int getWindowWidth(Context context) {
-        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-        Point size = new Point();
-
-        display.getSize(size);
-        return size.x;
-    }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -262,7 +254,13 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
                 break;
             case ExoPlayer.STATE_READY:
                 text += "ready";
-                //shutterView.setVisibility(View.INVISIBLE);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        TransitionManager.beginDelayedTransition(videoFrame, new Fade());
+                        shutterView.setVisibility(View.GONE);
+                    }
+                }, 300);
                 break;
             default:
                 text += "unknown";
@@ -270,7 +268,6 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         }
 //        playerStateTextView.setText(text);
 //        updateButtonVisibilities();
-
     }
 
     @Override
@@ -281,7 +278,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
     @Override
     public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees,
                                    float pixelWidthAspectRatio) {
-        shutterView.setVisibility(View.GONE);
+//        shutterView.setVisibility(View.GONE);
         videoFrame.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         videoFrame.setAspectRatio(
                 height == 0 ? 1 : (width * pixelWidthAspectRatio) / height);

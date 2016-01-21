@@ -54,7 +54,7 @@ public class ZdfMediathekData {
                 String title = getSingleStringByTag(el, "title");
                 String detail = getSingleStringByTag(el, "detail");
                 String thumb_url = getThumbUrl(el, "teaserimage");
-                String channel = getSingleStringByTag(el, "channel");
+                String channel = getSingleStringByTag(el, "title");
                 String airtime = getSingleStringByTag(el, "airtime");
                 String vcmsUrl = getSingleStringByTag(el, "vcmsUrl");
                 int assetId = getSingleIntegerByTag(el, "assetId");

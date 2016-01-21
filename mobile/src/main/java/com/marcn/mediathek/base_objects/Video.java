@@ -1,6 +1,11 @@
 package com.marcn.mediathek.base_objects;
 
 public class Video {
+    public static final int ACTION_INTERNAL_PLAYER = 0;
+    public static final int ACTION_EXTERNAL_PLAYER_DIALOG = 1;
+    public static final int ACTION_DEFAULT_EXTERNAL_PLAYER = 2;
+    public static final int ACTION_DOWNLOAD = 3;
+
     public String title, detail, thumb_url, airtime, vcmsUrl;
     public String nurOnline, onlineFassung, ganzeSendung, originChannelTitle;
     public int assetId, originChannelId, lengthSec;

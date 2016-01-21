@@ -16,12 +16,79 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:layout_scrollFlags="scroll|enterAlways"/>
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
 
+
     <include layout="@layout/content_main" />
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/contentContainer">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/player_chooser"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:background="@color/colorPlayerChooser"-->
+            <!--android:orientation="vertical"-->
+            <!--android:visibility="gone">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:id="@+id/player_choose"-->
+                <!--android:layout_height="48sp"-->
+                <!--android:gravity="center"-->
+                <!--android:text="Videoplayer wählen" />-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:layout_marginEnd="10dp"-->
+                <!--android:layout_marginStart="10dp"-->
+                <!--android:background="@color/colorAccent" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="48sp"-->
+                <!--android:id="@+id/player_default"-->
+                <!--android:gravity="center"-->
+                <!--android:text="Standard-Videoplayer" />-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:layout_marginEnd="10dp"-->
+                <!--android:layout_marginStart="10dp"-->
+                <!--android:background="@color/colorAccent" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="48sp"-->
+                <!--android:id="@+id/download"-->
+                <!--android:gravity="center"-->
+                <!--android:text="Download" />-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:layout_marginEnd="10dp"-->
+                <!--android:layout_marginStart="10dp"-->
+                <!--android:background="@color/colorAccent" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="48sp"-->
+                <!--android:id="@+id/yatse"-->
+                <!--android:gravity="center"-->
+                <!--android:text="Yatse" />-->
+        <!--</LinearLayout>-->
+
+    <!--</RelativeLayout>-->
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -30,6 +97,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_dialog_email"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 </android.support.design.widget.CoordinatorLayout>

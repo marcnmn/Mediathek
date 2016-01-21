@@ -32,7 +32,7 @@ public class XmlParser {
             try {
                 String detail = el.getElementsByTag("detail").get(0).text();
                 String thumb = el.select("teaserimage[key=485x273]").text();
-                String channel = el.getElementsByTag("channel").get(0).text();
+                String channel = el.getElementsByTag("title").get(0).text();
 
                 int index = LiveStreams.indexOfName(ls, channel);
                 if (index < 0) continue;

@@ -1,10 +1,6 @@
 package com.marcn.mediathek;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -16,9 +12,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.transition.Explode;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
+import android.view.View;
 
+import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.ui_fragments.PlayerFragment;
+import com.marcn.mediathek.utils.ZdfMediathekData;
+
+import java.io.IOException;
+import java.util.TreeMap;
 
 public class PlayerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -57,10 +58,10 @@ public class PlayerActivity extends AppCompatActivity
 //            playerFragment.cleanLayout();
 //            presses++;
 //            if (presses > 1)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                ((FrameLayout)findViewById(R.id.content_main)).setTransitionGroup(true);
-                ((FrameLayout)findViewById(R.id.video_frame)).setTransitionGroup(true);
-            }
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                ((FrameLayout)findViewById(R.id.content_main)).setTransitionGroup(true);
+//                ((FrameLayout)findViewById(R.id.video_frame)).setTransitionGroup(true);
+//            }
             super.onBackPressed();
         }
     }
@@ -94,10 +95,6 @@ public class PlayerActivity extends AppCompatActivity
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
 
         }
 

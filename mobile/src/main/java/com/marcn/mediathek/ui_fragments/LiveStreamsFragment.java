@@ -3,13 +3,13 @@ package com.marcn.mediathek.ui_fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.MainActivity;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.LiveStreamAdapter;
@@ -25,7 +25,7 @@ public class LiveStreamsFragment extends Fragment {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 2;
-    private OnListFragmentInteractionListener mListener;
+    private OnVideoInteractionListener mListener;
     private LiveStreams mLiveStreams;
     private LiveStreamAdapter mLiveStreamAdapter;
 
@@ -63,11 +63,11 @@ public class LiveStreamsFragment extends Fragment {
             public int getSpanSize(int position) {
                 LiveStream l = mLiveStreamAdapter.getItem(position);
                 if (l == null) return 1;
-                if (l.channel.equals(Constants.TITLE_CHANNEL_ZDF)
-                        || l.channel.equals(Constants.TITLE_CHANNEL_ARTE)
-                        || l.channel.equals(Constants.TITLE_CHANNEL_ARD)
-                        || l.channel.equals(Constants.TITLE_CHANNEL_3SAT)
-                        || l.channel.equals(Constants.TITLE_CHANNEL_KIKA))
+                if (l.title.equals(Constants.TITLE_CHANNEL_ZDF)
+                        || l.title.equals(Constants.TITLE_CHANNEL_ARTE)
+                        || l.title.equals(Constants.TITLE_CHANNEL_ARD)
+                        || l.title.equals(Constants.TITLE_CHANNEL_3SAT)
+                        || l.title.equals(Constants.TITLE_CHANNEL_KIKA))
                     return mColumnCount;
                 else return 1;
             }
@@ -138,8 +138,8 @@ public class LiveStreamsFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
+        if (context instanceof OnVideoInteractionListener) {
+            mListener = (OnVideoInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
@@ -150,9 +150,5 @@ public class LiveStreamsFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(LiveStream item, View view);
     }
 }

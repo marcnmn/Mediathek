@@ -1,13 +1,16 @@
 package com.marcn.mediathek;
 
-import android.annotation.TargetApi;
+import android.Manifest;
 import android.app.ActivityOptions;
+import android.app.DownloadManager;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.media.Image;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +19,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.transition.Explode;
 import android.transition.Fade;
+import android.transition.Slide;
+import android.transition.TransitionManager;
 import android.util.Pair;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -26,21 +31,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
 import com.marcn.mediathek.ui_fragments.VideoListFragment;
+import com.marcn.mediathek.utils.ZdfMediathekData;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.TreeMap;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, LiveStreamsFragment.OnListFragmentInteractionListener,
+        implements NavigationView.OnNavigationItemSelectedListener,
         OnVideoInteractionListener {
 
     public static final String INTENT_LIVE_DRAWER_ITEM = "player-drawer-item";
@@ -69,6 +76,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
 
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
@@ -125,10 +133,6 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
     }
 
@@ -151,40 +155,59 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onListFragmentInteraction(LiveStream item, View view) {
-        if (item.channel == null || item.getLiveM3U8(this) == null) return;
-
-        Intent intent = new Intent(this, PlayerActivity.class);
-        intent.putExtra(PlayerActivity.INTENT_LIVE_STREAM_URL, item.getLiveM3U8(this));
-
-        ImageView imageView = (ImageView) view;
-        Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-        createImageFromBitmap(bmp);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setExitTransition(new Explode());
-
-            view.setTransitionName("thumb");
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,
-                    Pair.create(view, "thumb"));
-            startActivity(intent, options.toBundle());
-        } else
-            startActivity(intent);
-    }
-
-    @Override
-    public void onVideoInteraction(final String url, final View view) {
+    public void onLiveStreamClicked(final LiveStream liveStream, final View view, final int videoAction) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                startPlayer(url, view);
+                playByUrl(liveStream.getLiveM3U8(view.getContext()), view, videoAction, liveStream.title);
             }
         });
     }
 
-    public void startPlayer(String url, View view) {
-        if (url == null) return;
+    @Override
+    public void onVideoClicked(final Video video, final View view, final int videoAction) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    final TreeMap<Integer, String> s = ZdfMediathekData.getVideoUrl(view.getContext(), video.assetId);
+                    if (s != null && !s.isEmpty())
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                playByUrl(s.get(0), view, videoAction, video.title);
+                            }
+                        });
+                } catch (IOException ignored) {
+                }
+            }
+        }).start();
+    }
 
+    public void playByUrl(final String url, final View view, final int internalPlayer, final String title) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                switch (internalPlayer) {
+                    case Video.ACTION_INTERNAL_PLAYER:
+                        startInternalPlayer(url, view);
+                        break;
+                    case Video.ACTION_EXTERNAL_PLAYER_DIALOG:
+                        startExternalPlayerDialog(url, title);
+                        break;
+                    case Video.ACTION_DEFAULT_EXTERNAL_PLAYER:
+                        startDefaultExternalPlayer(url);
+                        break;
+                    case Video.ACTION_DOWNLOAD:
+                        downloadFile(url, title);
+                        break;
+                }
+            }
+        });
+    }
+
+    public void startInternalPlayer(String url, View view) {
+        if (url == null) return;
         Intent intent = new Intent(this, PlayerActivity.class);
         intent.putExtra(PlayerActivity.INTENT_LIVE_STREAM_URL, url);
 
@@ -201,6 +224,88 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent, options.toBundle());
         } else
             startActivity(intent);
+    }
+
+    public void startExternalPlayerDialog(String url, String title) {
+        if (url == null) return;
+        Intent stream = new Intent(Intent.ACTION_VIEW);
+        stream.setDataAndType(Uri.parse(url), "video/*");
+        startActivity(Intent.createChooser(stream, getResources().getText(R.string.send_to_intent) + " für " + title));
+    }
+
+    public void startDefaultExternalPlayer(String url) {
+        if (url == null) return;
+        Intent stream = new Intent(Intent.ACTION_VIEW);
+        stream.setDataAndType(Uri.parse(url), "video/*");
+        startActivity(stream);
+    }
+
+    public void downloadFile(String url, String title) {
+        if (!getWritePermission()) return;
+        String filename = title + url.substring(url.lastIndexOf("."));
+
+        Uri uri = Uri.parse(url);
+        DownloadManager.Request r = new DownloadManager.Request(uri);
+        r.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, filename);
+        r.allowScanningByMediaScanner();
+        r.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+        dm.enqueue(r);
+    }
+
+//    public void showChooser(final String url, final String title) {
+//        RelativeLayout rl = (RelativeLayout)findViewById(R.id.contentContainer);
+//        TransitionManager.beginDelayedTransition(rl, new Slide());
+//        findViewById(R.id.player_chooser).setVisibility(View.VISIBLE);
+//
+//        findViewById(R.id.player_choose).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startExternalPlayerDialog(url, title);
+//                findViewById(R.id.player_chooser).setVisibility(View.GONE);
+//            }
+//        });
+//        findViewById(R.id.player_default).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startDefaultExternalPlayer(url);
+//                findViewById(R.id.player_chooser).setVisibility(View.GONE);
+//            }
+//        });
+//        findViewById(R.id.download).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                downloadFile(url, title);
+//                findViewById(R.id.player_chooser).setVisibility(View.GONE);
+//            }
+//        });
+//        findViewById(R.id.yatse).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                shareYatse(url);
+//                findViewById(R.id.player_chooser).setVisibility(View.GONE);
+//            }
+//        });
+//    }
+
+    public void shareYatse(String url) {
+        Intent sharingIntent = new Intent(Intent.ACTION_VIEW);
+        sharingIntent.setDataAndType(Uri.parse(url), "video/*");
+        sharingIntent.setClassName("org.leetzone.android.yatsewidgetfree", "org.leetzone.android.yatsewidget.ui.SendToActivity");
+        startActivity(sharingIntent);
+    }
+
+    private boolean getWritePermission() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                return true;
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        } else
+            return true;
     }
 
     public String createImageFromBitmap(Bitmap bitmap) {
