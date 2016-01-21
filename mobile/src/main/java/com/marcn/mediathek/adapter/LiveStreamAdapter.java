@@ -54,7 +54,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mTitle.setText(holder.mItem.title);
+        holder.mTitle.setText(holder.mItem.channel);
         Context context = holder.mView.getContext();
 
         // Thumbnail Image
@@ -65,6 +65,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
             Picasso.with(context)
                     .load(thumb)
                     .placeholder(R.drawable.placeholder_stream)
+                    .fit()
                     .config(Bitmap.Config.RGB_565)
                     .into(holder.mThumb);
 

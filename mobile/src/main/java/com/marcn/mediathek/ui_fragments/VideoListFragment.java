@@ -112,26 +112,23 @@ public class VideoListFragment extends Fragment {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    final ArrayList<Video> videos = ZdfMediathekData.getMissedShows(getContext(), offset, count, day, day);
-                    if (getActivity() == null || videos == null) return;
-                    if (videos.isEmpty() && mDay.after(mLastDay)) {
-                        mDay.add(Calendar.DAY_OF_MONTH, -1);
-                        if (mDay.get(Calendar.DAY_OF_YEAR) == new GregorianCalendar().get(Calendar.DAY_OF_YEAR))
-                            videos.add(new Video("Heute"));
-                        else
-                            videos.add(new Video(DateFormat.calendarToHeadlineFormat(mDay)));
-                        mLoadedItems = 0;
-                    }
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mVideoAdapter.updateValues(videos);
-                            mIsLoading = false;
-                        }
-                    });
-                } catch (IOException ignored) {
+                final ArrayList<Video> videos = ZdfMediathekData.getMissedShows(getContext(), offset, count, day, day);
+                if (getActivity() == null || videos == null) return;
+                if (videos.isEmpty() && mDay.after(mLastDay)) {
+                    mDay.add(Calendar.DAY_OF_MONTH, -1);
+                    if (mDay.get(Calendar.DAY_OF_YEAR) == new GregorianCalendar().get(Calendar.DAY_OF_YEAR))
+                        videos.add(new Video("Heute"));
+                    else
+                        videos.add(new Video(DateFormat.calendarToHeadlineFormat(mDay)));
+                    mLoadedItems = 0;
                 }
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mVideoAdapter.updateValues(videos);
+                        mIsLoading = false;
+                    }
+                });
             }
         }).start();
     }

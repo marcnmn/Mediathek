@@ -87,6 +87,7 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                         .load(thumb)
                         .placeholder(R.drawable.placeholder_stream)
                         .config(Bitmap.Config.RGB_565)
+                        .fit()
                         .into(holder.mThumb);
 
             // Logo Image

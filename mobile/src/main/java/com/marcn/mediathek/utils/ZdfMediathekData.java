@@ -2,25 +2,18 @@ package com.marcn.mediathek.utils;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
-import android.util.Pair;
 
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.Video;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.security.MessageDigest;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.TreeMap;
 
 
@@ -31,13 +24,20 @@ public class ZdfMediathekData {
     public static final int QUALiTY_MED = 2;
     public static final int QUALiTY_LOW = 3;
 
-    // LiveStreams
     public static ArrayList<Video> getMissedShows(Context c, int offset, int count,
-                                                  String startDate, String endDate) throws IOException {
-
+                                                  String startDate, String endDate) {
         String url =  c.getString(R.string.zdf_gruppe_sendung_verpasst)
                 + "?maxLength=" + count + "&offset=" + offset
                 + "&startdate=" + startDate + "&enddate=" + endDate;
+        try {
+            return fetchVideoList(url);
+        } catch (IOException e) {
+            return new ArrayList<>();
+        }
+    }
+
+    // LiveStreams
+    public static ArrayList<Video> fetchVideoList(String url) throws IOException {
         Document d = Jsoup.connect(url).get();
 
         ArrayList<Video> videos = new ArrayList<>();
@@ -54,7 +54,7 @@ public class ZdfMediathekData {
                 String title = getSingleStringByTag(el, "title");
                 String detail = getSingleStringByTag(el, "detail");
                 String thumb_url = getThumbUrl(el, "teaserimage");
-                String channel = getSingleStringByTag(el, "title");
+                String channel = getSingleStringByTag(el, "channel");
                 String airtime = getSingleStringByTag(el, "airtime");
                 String vcmsUrl = getSingleStringByTag(el, "vcmsUrl");
                 int assetId = getSingleIntegerByTag(el, "assetId");

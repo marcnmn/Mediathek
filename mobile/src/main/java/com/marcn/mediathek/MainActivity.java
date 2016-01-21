@@ -18,9 +18,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.transition.Explode;
-import android.transition.Fade;
-import android.transition.Slide;
-import android.transition.TransitionManager;
 import android.util.Pair;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -32,12 +29,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
+import com.marcn.mediathek.ui_fragments.SendungListFragment;
 import com.marcn.mediathek.ui_fragments.VideoListFragment;
 import com.marcn.mediathek.utils.ZdfMediathekData;
 
@@ -129,8 +126,10 @@ public class MainActivity extends AppCompatActivity
             loadCleanFragment(new LiveStreamsFragment());
         } else if (id == R.id.nav_gallery) {
             loadCleanFragment(new VideoListFragment());
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.nav_zdf_mediathek) {
+            loadCleanFragment(new SendungListFragment());
+        } else if (id == R.id.nav_arte_mediathek) {
+        } else if (id == R.id.nav_ard_mediathek) {
         } else if (id == R.id.nav_manage) {
 
         }
@@ -159,7 +158,7 @@ public class MainActivity extends AppCompatActivity
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                playByUrl(liveStream.getLiveM3U8(view.getContext()), view, videoAction, liveStream.title);
+                playByUrl(liveStream.getLiveM3U8(view.getContext()), view, videoAction, liveStream.channel);
             }
         });
     }
@@ -253,7 +252,7 @@ public class MainActivity extends AppCompatActivity
         dm.enqueue(r);
     }
 
-//    public void showChooser(final String url, final String title) {
+//    public void showChooser(final String url, final String channel) {
 //        RelativeLayout rl = (RelativeLayout)findViewById(R.id.contentContainer);
 //        TransitionManager.beginDelayedTransition(rl, new Slide());
 //        findViewById(R.id.player_chooser).setVisibility(View.VISIBLE);
@@ -261,7 +260,7 @@ public class MainActivity extends AppCompatActivity
 //        findViewById(R.id.player_choose).setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                startExternalPlayerDialog(url, title);
+//                startExternalPlayerDialog(url, channel);
 //                findViewById(R.id.player_chooser).setVisibility(View.GONE);
 //            }
 //        });
@@ -275,7 +274,7 @@ public class MainActivity extends AppCompatActivity
 //        findViewById(R.id.download).setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                downloadFile(url, title);
+//                downloadFile(url, channel);
 //                findViewById(R.id.player_chooser).setVisibility(View.GONE);
 //            }
 //        });

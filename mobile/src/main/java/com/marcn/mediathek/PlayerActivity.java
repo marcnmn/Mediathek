@@ -92,7 +92,9 @@ public class PlayerActivity extends AppCompatActivity
             loadMainFragment(id);
         } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_zdf_mediathek) {
+        } else if (id == R.id.nav_arte_mediathek) {
+        } else if (id == R.id.nav_ard_mediathek) {
 
         } else if (id == R.id.nav_manage) {
 

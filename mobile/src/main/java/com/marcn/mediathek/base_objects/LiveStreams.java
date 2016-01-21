@@ -77,7 +77,7 @@ public class LiveStreams {
 
     public static int indexOfName(ArrayList<LiveStream> ls, String name) {
         for (int i = 0; i < ls.size(); i++)
-            if (ls.get(i).title.equals(name))
+            if (ls.get(i).channel.equals(name))
                 return i;
         return -1;
     }

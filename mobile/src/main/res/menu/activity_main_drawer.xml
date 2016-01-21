@@ -11,14 +11,28 @@
             android:icon="@drawable/ic_missed"
             android:title="@string/nav_verpasst" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
             android:title="Tools" />
     </group>
+
+    <item android:title="Mediatheken">
+        <menu>
+            <item
+                android:id="@+id/nav_ard_mediathek"
+                android:icon="@drawable/ic_ard"
+                android:title="ARD Mediathek" />
+            <item
+                android:id="@+id/nav_zdf_mediathek"
+                android:icon="@drawable/ic_zdf"
+                android:title="ZDF Mediathek" />
+            <item
+                android:id="@+id/nav_arte_mediathek"
+                android:icon="@drawable/ic_arte"
+                android:title="ARTE Mediathek" />
+        </menu>
+    </item>
+
 
     <item android:title="Sender">
         <menu>

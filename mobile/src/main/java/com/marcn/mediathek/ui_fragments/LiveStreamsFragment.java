@@ -63,11 +63,11 @@ public class LiveStreamsFragment extends Fragment {
             public int getSpanSize(int position) {
                 LiveStream l = mLiveStreamAdapter.getItem(position);
                 if (l == null) return 1;
-                if (l.title.equals(Constants.TITLE_CHANNEL_ZDF)
-                        || l.title.equals(Constants.TITLE_CHANNEL_ARTE)
-                        || l.title.equals(Constants.TITLE_CHANNEL_ARD)
-                        || l.title.equals(Constants.TITLE_CHANNEL_3SAT)
-                        || l.title.equals(Constants.TITLE_CHANNEL_KIKA))
+                if (l.channel.equals(Constants.TITLE_CHANNEL_ZDF)
+                        || l.channel.equals(Constants.TITLE_CHANNEL_ARTE)
+                        || l.channel.equals(Constants.TITLE_CHANNEL_ARD)
+                        || l.channel.equals(Constants.TITLE_CHANNEL_3SAT)
+                        || l.channel.equals(Constants.TITLE_CHANNEL_KIKA))
                     return mColumnCount;
                 else return 1;
             }

@@ -32,12 +32,14 @@ public class XmlParser {
             try {
                 String detail = el.getElementsByTag("detail").get(0).text();
                 String thumb = el.select("teaserimage[key=485x273]").text();
-                String channel = el.getElementsByTag("title").get(0).text();
+                String title = el.getElementsByTag("title").get(0).text();
+                String channel = el.getElementsByTag("channel").get(0).text();
 
                 int index = LiveStreams.indexOfName(ls, channel);
                 if (index < 0) continue;
 
                 ls.get(index).setThumb_url(thumb);
+                ls.get(index).setTitle(title);
                 ls.get(index).setDescription(detail);
             } catch (NullPointerException ignored){}
         }
@@ -51,7 +53,7 @@ public class XmlParser {
 
         try {
             Document doc = Jsoup.connect(url).get();
-            String thumbnail = doc.select("div.video-block.LIVE.has-play > img").attr("src");
+            String thumbnail = doc.select("div.video-block.has-play > img").attr("src");
             l.setThumb_url(thumbnail);
             return l;
         } catch (IOException e) {
