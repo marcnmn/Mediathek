@@ -29,12 +29,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
+import com.marcn.mediathek.base_objects.Channel;
 import com.marcn.mediathek.base_objects.LiveStream;
+import com.marcn.mediathek.base_objects.Sendung;
 import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
-import com.marcn.mediathek.ui_fragments.SendungListFragment;
+import com.marcn.mediathek.ui_fragments.SendungenAbisZFragment;
 import com.marcn.mediathek.ui_fragments.VideoListFragment;
 import com.marcn.mediathek.utils.ZdfMediathekData;
 
@@ -80,7 +83,7 @@ public class MainActivity extends AppCompatActivity
             int navId = intent.getIntExtra(INTENT_LIVE_DRAWER_ITEM, -1);
             navigationIdReceived(navId);
         } else {
-            loadCleanFragment(LiveStreamsFragment.newInstance(1), false);
+            loadCleanFragment(SendungenAbisZFragment.newInstance(1), false);
         }
     }
 
@@ -127,7 +130,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             loadCleanFragment(new VideoListFragment());
         } else if (id == R.id.nav_zdf_mediathek) {
-            loadCleanFragment(new SendungListFragment());
+            loadCleanFragment(new SendungenAbisZFragment());
         } else if (id == R.id.nav_arte_mediathek) {
         } else if (id == R.id.nav_ard_mediathek) {
         } else if (id == R.id.nav_manage) {
@@ -181,6 +184,18 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         }).start();
+    }
+
+    @Override
+    public void onSendungClicked(Sendung sendung, View view) {
+        if (sendung == null) return;
+        Toast.makeText(this, sendung.title, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onChannelClicked(Channel channel, View view) {
+        if (channel == null) return;
+        Toast.makeText(this, channel.title, Toast.LENGTH_SHORT).show();
     }
 
     public void playByUrl(final String url, final View view, final int internalPlayer, final String title) {

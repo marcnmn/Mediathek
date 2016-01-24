@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.base_objects.Sendung;
 import com.marcn.mediathek.base_objects.Video;
 
 import org.jsoup.Jsoup;
@@ -36,7 +37,20 @@ public class ZdfMediathekData {
         }
     }
 
-    // LiveStreams
+    public static ArrayList<Sendung> getAllShows(Context c, int rangeStart, int rangeEnd) {
+        String characterRangeStart = String.valueOf((char) rangeStart);
+        String characterRangeEnd = String.valueOf((char) rangeEnd);
+
+        String url =  c.getString(R.string.zdf_gruppe_sendungen_abisz)
+                + "?characterRangeStart=" + characterRangeStart + "&characterRangeEnd=" + characterRangeEnd
+                + "&detailLevel=2&maxLength=100";
+        try {
+            return fetchSendungList(url);
+        } catch (IOException e) {
+            return new ArrayList<>();
+        }
+    }
+
     public static ArrayList<Video> fetchVideoList(String url) throws IOException {
         Document d = Jsoup.connect(url).get();
 
@@ -74,6 +88,44 @@ public class ZdfMediathekData {
         }
         Collections.reverse(videos);
         return videos;
+    }
+
+    public static ArrayList<Sendung> fetchSendungList(String url) throws IOException {
+        Document d = Jsoup.connect(url).get();
+        String member = "";
+
+        ArrayList<Sendung> sendungen = new ArrayList<>();
+        if (d == null)
+            return sendungen;
+
+        Elements statusCode = d.getElementsByTag("statuscode");
+        if (statusCode == null || !statusCode.text().equals("ok"))
+            return sendungen;
+
+        //sendungen.add(Sendung.createSendungHeader(character));
+
+        Elements elements = d.getElementsByTag("teaser");
+        for (Element el: elements) {
+            try {
+                if (!member.equals(el.attr("member"))) {
+                    member = el.attr("member");
+                    sendungen.add(Sendung.createSendungHeader(member));
+                }
+
+                String title = getSingleStringByTag(el, "title");
+                String shortTitle = getSingleStringByTag(el, "shortTitle");
+                String detail = getSingleStringByTag(el, "detail");
+                String thumb_url = el.select("teaserimage[key=94x65]").text();
+                String channel = getSingleStringByTag(el, "channel");
+                String vcmsUrl = getSingleStringByTag(el, "vcmsUrl");
+                int assetId = getSingleIntegerByTag(el, "assetId");
+
+                Sendung sendung = new Sendung(title, shortTitle, detail,
+                        thumb_url, channel, vcmsUrl, assetId, member);
+                sendungen.add(sendung);
+            } catch (NullPointerException ignored){}
+        }
+        return sendungen;
     }
 
     @Nullable

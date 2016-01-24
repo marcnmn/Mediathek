@@ -73,9 +73,9 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         } else {
             final VideoViewHolder holder = (VideoViewHolder) viewHolder;
             holder.mItem = video;
-            holder.mTitle.setText(holder.mItem.detail);
+            holder.mTitle.setText(holder.mItem.title);
             holder.mAirTime.setText(holder.mItem.airtime);
-            holder.mDetail.setText(holder.mItem.title);
+            //holder.mDetail.setText(holder.mItem.title);
             Context context = holder.mView.getContext();
 
             // Thumbnail Image

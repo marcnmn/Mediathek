@@ -1,31 +1,33 @@
 package com.marcn.mediathek.base_objects;
 
 public class Sendung {
-    public final String title, shortTitle, detail, thumb_url, vcmsUrl;
+    public final String title, shortTitle, detail, thumb_url, vcmsUrl, member;
     public int assetId;
     public Channel channel;
     public boolean isHeader;
 
     public Sendung(String title, String shortTitle, String detail,
                    String thumb_url, String channel, String vcmsUrl,
-                   int assetId) {
+                   int assetId, String member) {
         this.title = title;
         this.shortTitle = shortTitle;
         this.detail = detail;
         this.thumb_url = thumb_url;
         this.vcmsUrl = vcmsUrl;
         this.assetId = assetId;
+        this.member = member;
 
         this.channel = new Channel(channel);
     }
 
     public static Sendung createSendungItem(String title) {
-        Sendung s = new Sendung(title, "", "", "", "", "", 0);
+        Sendung s = new Sendung(title, "", "", "", "", "", 0, "");
+        s.isHeader = false;
         return s;
     }
 
     public static Sendung createSendungHeader(String title) {
-        Sendung s = new Sendung(title, "", "", "", "", "", 0);
+        Sendung s = new Sendung(title, "", "", "", "", "", 0, "");
         s.isHeader = true;
         return s;
     }
