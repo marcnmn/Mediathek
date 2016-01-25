@@ -26,12 +26,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class VideoWidgetFragment extends Fragment {
-    public static final int WIDGET_TYPE_LAST = 0;
-    public static final int WIDGET_TYPE_MOST_POPULAR = 1;
-    public static final int WIDGET_TYPE_FURTHER = 2;
+    public static final int WIDGET_TYPE_SENDUNG_LAST = 0;
+    public static final int WIDGET_TYPE_SENDUNG_MOST_POPULAR = 1;
+    public static final int WIDGET_TYPE_SENDUNG_FURTHER = 2;
 
     private static final String ARG_SENDUNG_JSON = "sendung-json";
     private static final String ARG_WIDGET_TYPE = "widget-type";
+    private static final String ARG_WIDGET_URL = "widget-url";
     private static final int VIDEO_ITEM_COUNT = 10;
 
 
@@ -68,11 +69,11 @@ public class VideoWidgetFragment extends Fragment {
             mWidgetType = getArguments().getInt(ARG_WIDGET_TYPE);
             if (getActivity() == null) return;
             switch (mWidgetType) {
-                case WIDGET_TYPE_MOST_POPULAR:
+                case WIDGET_TYPE_SENDUNG_MOST_POPULAR:
                     mBaseUrl = getString(R.string.zdf_gruppe_video_meist);
                     mHeaderTitle = getString(R.string.video_widget_header_most_popular);
                     break;
-                case WIDGET_TYPE_FURTHER:
+                case WIDGET_TYPE_SENDUNG_FURTHER:
                     mBaseUrl = getString(R.string.zdf_gruppe_video_weitere);
                     mHeaderTitle = getString(R.string.video_widget_header_further);
                     break;

@@ -12,35 +12,52 @@ public class Channel {
         this.title = title;
     }
 
-    public String getLiveM3U8 (Context c) {
+    public LiveStream getLiveStream() {
+        String id = getChannelId();
+        String query = getLiveStreamQueryString();
+        return new LiveStream(id, query, -1);
+    }
+
+    public String getLiveStreamQueryString() {
         switch (title) {
-            // ZDF Sender
-            case Constants.TITLE_CHANNEL_ZDF: return c.getString(R.string.zdf_hd_m3u8);
-            case Constants.TITLE_CHANNEL_PHOENIX: return c.getString(R.string.phoenix_m3u8);
-            case Constants.TITLE_CHANNEL_ZDF_KULTUR: return c.getString(R.string.zdf_kultur_m3u8);
-            case Constants.TITLE_CHANNEL_ZDF_INFO: return c.getString(R.string.zdf_info_m3u8);
-            case Constants.TITLE_CHANNEL_3SAT: return c.getString(R.string.drei_sat_m3u8);
-            case Constants.TITLE_CHANNEL_ZDF_NEO: return c.getString(R.string.zdf_neo_m3u8);
-            // ARTE
-            case Constants.TITLE_CHANNEL_ARTE: return c.getString(R.string.arte_m3u8);
             // ARD
-            case Constants.TITLE_CHANNEL_ARD: return c.getString(R.string.ard_m3u8);
-            case Constants.TITLE_CHANNEL_ARD_ALPHA: return c.getString(R.string.ard_alpha_m3u8);
-            case Constants.TITLE_CHANNEL_TAGESSCHAU: return c.getString(R.string.tagesschau_m3u8);
+            case Constants.TITLE_CHANNEL_ARD: return LiveStream.ARD_QUERY;
+            case Constants.TITLE_CHANNEL_ARD_ALPHA: return LiveStream.ARD_ALPHA_QUERY;
+            case Constants.TITLE_CHANNEL_TAGESSCHAU: return LiveStream.TAGESSCHAU_QUERY;
             // Regional 1
-            case Constants.TITLE_CHANNEL_SWR: return c.getString(R.string.swr_m3u8);
-            case Constants.TITLE_CHANNEL_WDR: return c.getString(R.string.wdr_m3u8);
-            case Constants.TITLE_CHANNEL_MDR: return c.getString(R.string.mdr_m3u8);
-            case Constants.TITLE_CHANNEL_NDR: return c.getString(R.string.ndr_m3u8);
+            case Constants.TITLE_CHANNEL_SWR: return LiveStream.SWR_QUERY;
+            case Constants.TITLE_CHANNEL_WDR: return LiveStream.WDR_QUERY;
+            case Constants.TITLE_CHANNEL_MDR: return LiveStream.MDR_QUERY;
+            case Constants.TITLE_CHANNEL_NDR: return LiveStream.NDR_QUERY;
             // Regional 2
-            case Constants.TITLE_CHANNEL_BR: return c.getString(R.string.br_m3u8);
-            case Constants.TITLE_CHANNEL_SR: return c.getString(R.string.sr_m3u8);
-            case Constants.TITLE_CHANNEL_HR: return c.getString(R.string.hr_m3u8);
-            case Constants.TITLE_CHANNEL_RBB: return c.getString(R.string.rbb_m3u8);
+            case Constants.TITLE_CHANNEL_BR: return LiveStream.BR_QUERY;
+            case Constants.TITLE_CHANNEL_SR: return LiveStream.SR_QUERY;
+            case Constants.TITLE_CHANNEL_RBB: return LiveStream.RBB_QUERY;
             // KiKa
-            case Constants.TITLE_CHANNEL_KIKA: return c.getString(R.string.kika_m3u8);
-            default: return null;
+            case Constants.TITLE_CHANNEL_KIKA: return LiveStream.KIKA_QUERY;
         }
+        return null;
+    }
+
+    public String getChannelId() {
+        switch (title) {
+            // ARD
+            case Constants.TITLE_CHANNEL_ARD: return "208";
+            case Constants.TITLE_CHANNEL_ARD_ALPHA: return "5868";
+            case Constants.TITLE_CHANNEL_TAGESSCHAU: return "5878";
+            // Regional 1
+            case Constants.TITLE_CHANNEL_SWR: return "5904";
+            case Constants.TITLE_CHANNEL_WDR: return "5902";
+            case Constants.TITLE_CHANNEL_MDR: return "1386804";
+            case Constants.TITLE_CHANNEL_NDR: return "21518352";
+            // Regional 2
+            case Constants.TITLE_CHANNEL_BR: return "21518950";
+            case Constants.TITLE_CHANNEL_SR: return "5870";
+            case Constants.TITLE_CHANNEL_RBB: return "21518358";
+            // KiKa
+            case Constants.TITLE_CHANNEL_KIKA: return "5886";
+        }
+        return "";
     }
 
     public int getLogoResId() {

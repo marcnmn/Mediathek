@@ -42,6 +42,7 @@ import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.Sendung;
 import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
+import com.marcn.mediathek.utils.XmlParser;
 import com.marcn.mediathek.utils.ZdfMediathekData;
 import com.squareup.picasso.Picasso;
 
@@ -51,14 +52,20 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.TreeMap;
 
-public class SendungActivity extends AppCompatActivity
+public class SenderActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        OnVideoInteractionListener {
+        OnVideoInteractionListener, AppBarLayout.OnOffsetChangedListener {
 
-    public static final String INTENT_SENDUNG_JSON = "sendung-json";
-    public static final String INTENT_SENDUNG_ID = "sendung-id";
+    public static final String INTENT_SENDER_JSON = "channel-json";
+    public static final String INTENT_SENDER_ID = "channel-id";
 
-    private Sendung mSendung;
+    private Channel mChannel;
+    private LiveStream mLiveStream;
+
+    private CollapsingToolbarLayout mCollapsingToolbarLayout;
+    private boolean mToolbarIsShown = false;
+    private int mToolbarScrollRange = -1;
+    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +73,8 @@ public class SendungActivity extends AppCompatActivity
         setContentView(R.layout.activity_sendung);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mContext = toolbar.getContext();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -79,36 +88,33 @@ public class SendungActivity extends AppCompatActivity
 
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
-            String json = intent.getStringExtra(INTENT_SENDUNG_JSON);
+            String json = intent.getStringExtra(INTENT_SENDER_JSON);
             Gson gson = new Gson();
-            mSendung = gson.fromJson(json, Sendung.class);
-            setupHeaderView(mSendung);
+            mChannel = gson.fromJson(json, Channel.class);
         }
 
-        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
+        appBarLayout.addOnOffsetChangedListener(this);
 
+//        getIntentThumbnail();
+        downloadLiveStreamData();
+    }
+
+    private void downloadLiveStreamData() {
+        new Thread(new Runnable() {
             @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    if (mSendung != null)
-                    collapsingToolbarLayout.setTitle(mSendung.shortTitle);
-                    isShow = true;
-                } else if(isShow) {
-                    collapsingToolbarLayout.setTitle("");
-                    isShow = false;
-                }
+            public void run() {
+                mLiveStream = XmlParser.getLivestreamFromChannel(mContext, mChannel);
+                if (mLiveStream == null) return;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        setupHeaderView(mLiveStream);
+                    }
+                });
             }
-        });
-
-        getIntentThumbnail();
-        loadWidgets();
+        }).start();
     }
 
     private void loadWidgets() {
@@ -117,23 +123,22 @@ public class SendungActivity extends AppCompatActivity
         loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_FURTHER, R.id.widgetFurther);
     }
 
-    private void setupHeaderView(Sendung sendung) {
-        if (sendung == null) return;
+    private void setupHeaderView(LiveStream liveStream) {
+        if (liveStream == null) return;
 //        if (findViewById(R.id.imageChannel) != null)
 //            ((ImageView) findViewById(R.id.imageChannel)).setImageResource(sendung.channel.getLogoResId());
         if (findViewById(R.id.textTitle) != null)
-            ((TextView) findViewById(R.id.textTitle)).setText(sendung.title);
+            ((TextView) findViewById(R.id.textTitle)).setText(liveStream.getTitle());
 
-        if (findViewById(R.id.textDetail) != null)
-            ((TextView) findViewById(R.id.textDetail)).setText(sendung.detail);
+//        if (findViewById(R.id.textDetail) != null)
+//            ((TextView) findViewById(R.id.textDetail)).setText(channel.detail);
 
         ImageView thumbnail = (ImageView) findViewById(R.id.imageThumbnail);
-        if (thumbnail != null && sendung.thumb_url_high != null)
+        if (thumbnail != null && liveStream.thumb_url != null)
             Picasso.with(this)
-                    .load(sendung.thumb_url_high)
+                    .load(liveStream.thumb_url)
                     .config(Bitmap.Config.RGB_565)
                     .into(thumbnail);
-
     }
 
     private void getIntentThumbnail() {
@@ -198,9 +203,9 @@ public class SendungActivity extends AppCompatActivity
     }
 
     private void loadWidget(int Type, int resId) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(resId, VideoWidgetFragment.newInstance(mSendung, Type));
-        transaction.commit();
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        transaction.replace(resId, VideoWidgetFragment.newInstance(mSendung, Type));
+//        transaction.commit();
     }
 
     private void loadCleanFragment(Fragment fragment) {
@@ -362,4 +367,18 @@ public class SendungActivity extends AppCompatActivity
         return fileName;
     }
 
+    @Override
+    public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+        if (mToolbarScrollRange == -1) {
+            mToolbarScrollRange = appBarLayout.getTotalScrollRange();
+        }
+        if (mToolbarScrollRange + verticalOffset == 0) {
+            if (mLiveStream != null)
+                mCollapsingToolbarLayout.setTitle(mLiveStream.title);
+            mToolbarIsShown = true;
+        } else if (mToolbarIsShown) {
+            mCollapsingToolbarLayout.setTitle("");
+            mToolbarIsShown = false;
+        }
+    }
 }

@@ -38,11 +38,12 @@ public class LiveStream {
 //    public final static String DREI_SAT_QUERY = "3sat";
 //    public final static String KIKA_QUERY = "KiKA";
 
-    public Channel ch;
-    public final String id, queryName;
-    public final int originChannelId;
-    public final String channel;
-    private String description, thumb_url, title;
+    public String id, queryName;
+    public int originChannelId;
+    public String channel;
+    public String detail, thumb_url, title;
+
+    public Channel channelObject;
 
     public static ArrayList<LiveStream> getBaseLiveStreams (Context c){
         ArrayList<LiveStream> ls =  new ArrayList<>();
@@ -79,6 +80,7 @@ public class LiveStream {
     public LiveStream(String id, String channel, int originChannelId, String queryName) {
         this.id = id;
         this.channel = channel;
+        this.channelObject = new Channel(channel);
         this.originChannelId = originChannelId;
         this.queryName = queryName;
     }
@@ -113,6 +115,8 @@ public class LiveStream {
             default: return null;
         }
     }
+
+
 
     public int getLogoResId () {
         switch (id) {
@@ -167,11 +171,11 @@ public class LiveStream {
     }
 
     public String getDescription() {
-        return description;
+        return detail;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.detail = description;
     }
 
     public String getTitle() {

@@ -135,8 +135,20 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_arte_mediathek) {
         } else if (id == R.id.nav_ard_mediathek) {
         } else if (id == R.id.nav_manage) {
-
         }
+
+        Channel channel = null;
+        switch (id) {
+            case R.id.nav_ard: channel = new Channel(getString(R.string.ard_name)); break;
+            case R.id.nav_zdf: channel = new Channel(getString(R.string.zdf_name)); break;
+            case R.id.nav_arte: channel = new Channel(getString(R.string.arte_name)); break;
+            case R.id.nav_3sat: channel = new Channel(getString(R.string.drei_sat_name)); break;
+            case R.id.nav_phoenix: channel = new Channel(getString(R.string.phoenix_name)); break;
+            case R.id.nav_zdf_neo: channel = new Channel(getString(R.string.zdf_neo_name)); break;
+        }
+        if (channel != null)
+            startChannelActivity(channel);
+
     }
 
     private void loadCleanFragment(Fragment fragment) {
@@ -209,25 +221,35 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent, options.toBundle());
         } else
             startActivity(intent);
-
-//        ImageView imageView = (ImageView) view;
-//        Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-//        saveBitmapOnDisk(bmp);
-//
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            getWindow().setExitTransition(new Explode());
-//
-//            view.setTransitionName("thumb");
-//            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,
-//                    Pair.create(view, "thumb"));
-//            startActivity(intent, options.toBundle());
-//        } else
     }
 
     @Override
     public void onChannelClicked(Channel channel, View view) {
         if (channel == null) return;
         Toast.makeText(this, channel.title, Toast.LENGTH_SHORT).show();
+    }
+
+    private void startChannelActivity(Channel channel) {
+        if (channel == null) return;
+
+        Intent intent = new Intent(this, SenderActivity.class);
+        Gson gson = new Gson();
+        String json = gson.toJson(channel);
+        intent.putExtra(SenderActivity.INTENT_SENDER_JSON, json);
+
+//        ImageView imageView = (ImageView) thumbnail;
+//        Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+//        saveBitmapOnDisk(bmp);
+
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            getWindow().setExitTransition(new Explode());
+//
+//            thumbnail.setTransitionName("thumbnail");
+//            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,
+//                    Pair.create(thumbnail, "thumbnail"));
+//            startActivity(intent, options.toBundle());
+//        } else
+        startActivity(intent);
     }
 
     public void playByUrl(final String url, final View view, final int internalPlayer, final String title) {

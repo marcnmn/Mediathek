@@ -30,6 +30,11 @@
             android:label=""
             android:theme="@style/SendungTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".SenderActivity"
+            android:label=""
+            android:theme="@style/SendungTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
