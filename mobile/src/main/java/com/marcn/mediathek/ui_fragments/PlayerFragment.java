@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Point;
 import android.graphics.SurfaceTexture;
 import android.net.Uri;
 import android.os.Build;
@@ -13,31 +12,27 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.graphics.Palette;
-
-import com.google.android.exoplayer.ExoPlayer;
-import com.marcn.mediathek.player.ExtractorRendererBuilder;
-import com.marcn.mediathek.player.HlsRendererBuilder;
-import com.marcn.mediathek.player.Player.RendererBuilder;
-
 import android.text.TextUtils;
 import android.transition.Fade;
 import android.transition.TransitionManager;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.google.android.exoplayer.AspectRatioFrameLayout;
+import com.google.android.exoplayer.ExoPlayer;
 import com.google.android.exoplayer.util.Util;
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.player.ExtractorRendererBuilder;
+import com.marcn.mediathek.player.HlsRendererBuilder;
 import com.marcn.mediathek.player.Player;
+import com.marcn.mediathek.player.Player.RendererBuilder;
 import com.marcn.mediathek.utils.LayoutTasks;
 
 import java.io.FileNotFoundException;

@@ -2,11 +2,9 @@ package com.marcn.mediathek.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.DragEvent;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -19,7 +17,6 @@ import com.squareup.picasso.Picasso;
 import com.tonicartos.superslim.GridSLM;
 import com.tonicartos.superslim.LinearSLM;
 
-import java.io.Console;
 import java.util.ArrayList;
 
 public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungViewHolder> {
@@ -57,7 +54,10 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
         notifyDataSetChanged();
     }
 
+    @Nullable
     public String getMember(int position) {
+        if (position < 0 || position >= mValues.size())
+            return null;
         return mValues.get(position).member;
     }
 
@@ -100,12 +100,11 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
         viewHolder.mItem = item;
 
         if (getItemViewType(position) == VIEW_TYPE_CONTENT) {
-            if (item.thumb_url != null)
+            if (item.thumb_url_low != null)
                 Picasso.with(mContext)
-                        .load(item.thumb_url)
+                        .load(item.thumb_url_low)
                         .placeholder(R.drawable.placeholder_stream)
                         .config(Bitmap.Config.RGB_565)
-                        .fit()
                         .into(viewHolder.mThumbnail);
             else
                 viewHolder.mThumbnail.setImageDrawable(null);
@@ -122,11 +121,11 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
         lp.setFirstPosition(getFirstSectionPosition(position));
         itemView.setLayoutParams(lp);
 
-        viewHolder.mTitle.setOnClickListener(new View.OnClickListener() {
+        viewHolder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mListener != null)
-                    mListener.onSendungClicked(viewHolder.mItem, viewHolder.mThumbnail);
+                    mListener.onSendungClicked(viewHolder.mItem, viewHolder.mThumbnail, viewHolder.mChannel);
             }
         });
 

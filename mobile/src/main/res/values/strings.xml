@@ -10,6 +10,9 @@
     <string name="nav_verpasst">Sendung verpasst</string>
 
     <string name="send_to_intent">Bitte wähle einen Player</string>
-
     <string name="action_title_live_streams">Livestreams</string>
+
+    <string name="video_widget_header_last">Aktuelle Sendungen</string>
+    <string name="video_widget_header_most_popular">Meist gesehen</string>
+    <string name="video_widget_header_further">Weitere</string>
 </resources>

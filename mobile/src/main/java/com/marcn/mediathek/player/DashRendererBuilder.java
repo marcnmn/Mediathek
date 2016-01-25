@@ -15,6 +15,11 @@
  */
 package com.marcn.mediathek.player;
 
+import android.content.Context;
+import android.media.MediaCodec;
+import android.os.Handler;
+import android.util.Log;
+
 import com.google.android.exoplayer.DefaultLoadControl;
 import com.google.android.exoplayer.LoadControl;
 import com.google.android.exoplayer.MediaCodecAudioTrackRenderer;
@@ -33,7 +38,6 @@ import com.google.android.exoplayer.dash.mpd.Period;
 import com.google.android.exoplayer.dash.mpd.UtcTimingElement;
 import com.google.android.exoplayer.dash.mpd.UtcTimingElementResolver;
 import com.google.android.exoplayer.dash.mpd.UtcTimingElementResolver.UtcTimingCallback;
-import com.marcn.mediathek.player.Player.RendererBuilder;
 import com.google.android.exoplayer.drm.MediaDrmCallback;
 import com.google.android.exoplayer.drm.StreamingDrmSessionManager;
 import com.google.android.exoplayer.drm.UnsupportedDrmException;
@@ -45,11 +49,7 @@ import com.google.android.exoplayer.upstream.DefaultUriDataSource;
 import com.google.android.exoplayer.upstream.UriDataSource;
 import com.google.android.exoplayer.util.ManifestFetcher;
 import com.google.android.exoplayer.util.Util;
-
-import android.content.Context;
-import android.media.MediaCodec;
-import android.os.Handler;
-import android.util.Log;
+import com.marcn.mediathek.player.Player.RendererBuilder;
 
 import java.io.IOException;
 

@@ -7,28 +7,32 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
-import android.transition.Explode;
+import android.transition.Fade;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -37,37 +41,31 @@ import com.marcn.mediathek.base_objects.Channel;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.Sendung;
 import com.marcn.mediathek.base_objects.Video;
-import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
-import com.marcn.mediathek.ui_fragments.SendungenAbisZFragment;
-import com.marcn.mediathek.ui_fragments.VideoListFragment;
+import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
 import com.marcn.mediathek.utils.ZdfMediathekData;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.TreeMap;
 
-public class MainActivity extends AppCompatActivity
+public class SendungActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         OnVideoInteractionListener {
 
-    public static final String INTENT_LIVE_DRAWER_ITEM = "player-drawer-item";
+    public static final String INTENT_SENDUNG_JSON = "sendung-json";
+    public static final String INTENT_SENDUNG_ID = "sendung-id";
+
+    private Sendung mSendung;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sendung);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -81,10 +79,78 @@ public class MainActivity extends AppCompatActivity
 
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
-            int navId = intent.getIntExtra(INTENT_LIVE_DRAWER_ITEM, -1);
-            navigationIdReceived(navId);
-        } else {
-            loadCleanFragment(LiveStreamsFragment.newInstance(1), false);
+            String json = intent.getStringExtra(INTENT_SENDUNG_JSON);
+            Gson gson = new Gson();
+            mSendung = gson.fromJson(json, Sendung.class);
+            setupHeaderView(mSendung);
+        }
+
+        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = false;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    if (mSendung != null)
+                    collapsingToolbarLayout.setTitle(mSendung.shortTitle);
+                    isShow = true;
+                } else if(isShow) {
+                    collapsingToolbarLayout.setTitle("");
+                    isShow = false;
+                }
+            }
+        });
+
+        getIntentThumbnail();
+        loadWidgets();
+    }
+
+    private void loadWidgets() {
+        loadWidget(VideoWidgetFragment.WIDGET_TYPE_LAST, R.id.widgetLast);
+        loadWidget(VideoWidgetFragment.WIDGET_TYPE_MOST_POPULAR, R.id.widgetMost);
+        loadWidget(VideoWidgetFragment.WIDGET_TYPE_FURTHER, R.id.widgetFurther);
+    }
+
+    private void setupHeaderView(Sendung sendung) {
+        if (sendung == null) return;
+//        if (findViewById(R.id.imageChannel) != null)
+//            ((ImageView) findViewById(R.id.imageChannel)).setImageResource(sendung.channel.getLogoResId());
+        if (findViewById(R.id.textTitle) != null)
+            ((TextView) findViewById(R.id.textTitle)).setText(sendung.title);
+
+        if (findViewById(R.id.textDetail) != null)
+            ((TextView) findViewById(R.id.textDetail)).setText(sendung.detail);
+
+        ImageView thumbnail = (ImageView) findViewById(R.id.imageThumbnail);
+        if (thumbnail != null && sendung.thumb_url_high != null)
+            Picasso.with(this)
+                    .load(sendung.thumb_url_high)
+                    .config(Bitmap.Config.RGB_565)
+                    .into(thumbnail);
+
+    }
+
+    private void getIntentThumbnail() {
+        try {
+            Bitmap bitmap = BitmapFactory.decodeStream(openFileInput("thumbnail"));
+            ((ImageView) findViewById(R.id.imageThumbnail)).setImageBitmap(bitmap);
+            Palette p = Palette.from(bitmap).generate();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                int themeColor = p.getDarkVibrantColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+
+                //getWindow().setStatusBarColor(themeColor);
+                if (findViewById(R.id.toolbar_layout) != null) {
+                    findViewById(R.id.toolbar_layout).setBackgroundColor(themeColor);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
@@ -126,17 +192,15 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     private void navigationIdReceived(int id) {
-        if (id == R.id.nav_live) {
-            loadCleanFragment(new LiveStreamsFragment());
-        } else if (id == R.id.nav_gallery) {
-            loadCleanFragment(new VideoListFragment());
-        } else if (id == R.id.nav_zdf_mediathek) {
-            loadCleanFragment(new SendungenAbisZFragment());
-        } else if (id == R.id.nav_arte_mediathek) {
-        } else if (id == R.id.nav_ard_mediathek) {
-        } else if (id == R.id.nav_manage) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra(MainActivity.INTENT_LIVE_DRAWER_ITEM, id);
+        startActivity(intent);
+    }
 
-        }
+    private void loadWidget(int Type, int resId) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(resId, VideoWidgetFragment.newInstance(mSendung, Type));
+        transaction.commit();
     }
 
     private void loadCleanFragment(Fragment fragment) {
@@ -190,42 +254,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onSendungClicked(Sendung sendung, View thumbnail, View logo) {
         if (sendung == null) return;
-
-        Intent intent = new Intent(this, SendungActivity.class);
-        Gson gson = new Gson();
-        String json = gson.toJson(sendung);
-        intent.putExtra(SendungActivity.INTENT_SENDUNG_JSON, json);
-
-        ImageView imageView = (ImageView) thumbnail;
-        Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-        saveBitmapOnDisk(bmp);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setExitTransition(new Explode());
-
-            thumbnail.setTransitionName("thumbnail");
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,
-                    Pair.create(thumbnail, "thumbnail"));
-            startActivity(intent, options.toBundle());
-        } else
-            startActivity(intent);
-
-//        ImageView imageView = (ImageView) view;
-//        Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-//        saveBitmapOnDisk(bmp);
-//
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            getWindow().setExitTransition(new Explode());
-//
-//            view.setTransitionName("thumb");
-//            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,
-//                    Pair.create(view, "thumb"));
-//            startActivity(intent, options.toBundle());
-//        } else
+        Toast.makeText(this, sendung.title, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void onChannelClicked(Channel channel, View view) {
+    public void onChannelClicked(Channel channel, View thumbnail) {
         if (channel == null) return;
         Toast.makeText(this, channel.title, Toast.LENGTH_SHORT).show();
     }
@@ -259,10 +292,10 @@ public class MainActivity extends AppCompatActivity
 
         ImageView imageView = (ImageView) view;
         Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-        saveBitmapOnDisk(bmp);
+        createImageFromBitmap(bmp);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setExitTransition(new Explode());
+            getWindow().setExitTransition(new Fade());
 
             view.setTransitionName("thumb");
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,
@@ -300,51 +333,9 @@ public class MainActivity extends AppCompatActivity
         dm.enqueue(r);
     }
 
-//    public void showChooser(final String url, final String channel) {
-//        RelativeLayout rl = (RelativeLayout)findViewById(R.id.contentContainer);
-//        TransitionManager.beginDelayedTransition(rl, new Slide());
-//        findViewById(R.id.player_chooser).setVisibility(View.VISIBLE);
-//
-//        findViewById(R.id.player_choose).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startExternalPlayerDialog(url, channel);
-//                findViewById(R.id.player_chooser).setVisibility(View.GONE);
-//            }
-//        });
-//        findViewById(R.id.player_default).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startDefaultExternalPlayer(url);
-//                findViewById(R.id.player_chooser).setVisibility(View.GONE);
-//            }
-//        });
-//        findViewById(R.id.download).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                downloadFile(url, channel);
-//                findViewById(R.id.player_chooser).setVisibility(View.GONE);
-//            }
-//        });
-//        findViewById(R.id.yatse).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                shareYatse(url);
-//                findViewById(R.id.player_chooser).setVisibility(View.GONE);
-//            }
-//        });
-//    }
-
-    public void shareYatse(String url) {
-        Intent sharingIntent = new Intent(Intent.ACTION_VIEW);
-        sharingIntent.setDataAndType(Uri.parse(url), "video/*");
-        sharingIntent.setClassName("org.leetzone.android.yatsewidgetfree", "org.leetzone.android.yatsewidget.ui.SendToActivity");
-        startActivity(sharingIntent);
-    }
-
     private boolean getWritePermission() {
         if (Build.VERSION.SDK_INT >= 23) {
-            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED) {
                 return true;
             } else {
@@ -355,7 +346,7 @@ public class MainActivity extends AppCompatActivity
             return true;
     }
 
-    public String saveBitmapOnDisk(Bitmap bitmap) {
+    public String createImageFromBitmap(Bitmap bitmap) {
         String fileName = "thumbnail";//no .png or .jpg needed
         try {
             ByteArrayOutputStream bytes = new ByteArrayOutputStream();

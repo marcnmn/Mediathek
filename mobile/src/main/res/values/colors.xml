@@ -3,7 +3,9 @@
     <color name="colorPrimary">#FA7D19</color>
     <color name="colorPrimaryDark">#ea6800</color>
     <color name="colorAccent">#FF4081</color>
+
     <color name="colorPlayerChooser">#cecece</color>
+    <color name="colorSendungBackground">#e2e2e2</color>
     <!--<color name="colorPrimary">#FA7D19</color>-->
     <!--<color name="colorPrimaryDark">#FA7D19</color>-->
     <!--<color name="colorAccent">#FF4081</color>-->

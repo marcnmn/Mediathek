@@ -31,7 +31,9 @@ public class ZdfMediathekData {
                 + "?maxLength=" + count + "&offset=" + offset
                 + "&startdate=" + startDate + "&enddate=" + endDate;
         try {
-            return fetchVideoList(url);
+            ArrayList<Video> videos = fetchVideoList(url);
+            Collections.reverse(videos);
+            return videos;
         } catch (IOException e) {
             return new ArrayList<>();
         }
@@ -86,7 +88,6 @@ public class ZdfMediathekData {
                 videos.add(v);
             } catch (NullPointerException ignored){}
         }
-        Collections.reverse(videos);
         return videos;
     }
 
@@ -115,13 +116,14 @@ public class ZdfMediathekData {
                 String title = getSingleStringByTag(el, "title");
                 String shortTitle = getSingleStringByTag(el, "shortTitle");
                 String detail = getSingleStringByTag(el, "detail");
-                String thumb_url = el.select("teaserimage[key=94x65]").text();
+                String thumb_url_low = el.select("teaserimage[key=144x81]").text();
+                String thumb_url_high = el.select("teaserimage[key=946x532]").text();
                 String channel = getSingleStringByTag(el, "channel");
                 String vcmsUrl = getSingleStringByTag(el, "vcmsUrl");
                 int assetId = getSingleIntegerByTag(el, "assetId");
 
                 Sendung sendung = new Sendung(title, shortTitle, detail,
-                        thumb_url, channel, vcmsUrl, assetId, member);
+                        thumb_url_low, thumb_url_high, channel, vcmsUrl, assetId, member);
                 sendungen.add(sendung);
             } catch (NullPointerException ignored){}
         }

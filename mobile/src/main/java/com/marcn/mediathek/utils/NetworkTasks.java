@@ -2,6 +2,7 @@ package com.marcn.mediathek.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 

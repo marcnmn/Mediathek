@@ -25,6 +25,11 @@
             android:theme="@style/PlayerTheme"
             android:configChanges="orientation|screenSize">
         </activity>
+        <activity
+            android:name=".SendungActivity"
+            android:label=""
+            android:theme="@style/SendungTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.marcn.mediathek.base_objects;
 
 import android.content.Context;
+
 import com.marcn.mediathek.R;
 
 import java.util.ArrayList;

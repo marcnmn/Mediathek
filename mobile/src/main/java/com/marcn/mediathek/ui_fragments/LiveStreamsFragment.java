@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
-import com.marcn.mediathek.MainActivity;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.LiveStreamAdapter;
 import com.marcn.mediathek.base_objects.LiveStream;
@@ -54,8 +53,8 @@ public class LiveStreamsFragment extends Fragment {
         Context context = view.getContext();
         RecyclerView recyclerView = (RecyclerView) view;
 
-        if ((getActivity()) != null)
-            ((MainActivity) getActivity()).setActionBarTitle(R.string.action_title_live_streams);
+        if ((getActivity()) != null && getActivity().getActionBar() != null)
+            (getActivity()).getActionBar().setTitle(R.string.action_title_live_streams);
 
         GridLayoutManager mLayoutManager = new GridLayoutManager(context, mColumnCount);
         mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
@@ -79,8 +78,6 @@ public class LiveStreamsFragment extends Fragment {
         recyclerView.setAdapter(mLiveStreamAdapter);
 
         downloadZdfData();
-        downloadArteData();
-        downloadArdData();
         return view;
     }
 
@@ -90,6 +87,7 @@ public class LiveStreamsFragment extends Fragment {
             public void run() {
                 try {
                     final ArrayList<LiveStream> ls = XmlParser.getZDFLiveStreamData2(getContext(), mLiveStreams.getGroup(LiveStream.ZDF_MAIN_GROUP));
+                    downloadArteData();
                     if (getActivity() == null || ls == null) return;
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
@@ -108,6 +106,7 @@ public class LiveStreamsFragment extends Fragment {
             @Override
             public void run() {
                 final LiveStream l = XmlParser.arteLiveStreamData(getContext(), mLiveStreams.getArteLiveStream());
+                downloadArdData();
                 if (getActivity() == null) return;
                 getActivity().runOnUiThread(new Runnable() {
                     @Override

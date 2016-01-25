@@ -15,11 +15,14 @@
  */
 package com.marcn.mediathek.player;
 
+import android.content.Context;
+import android.media.MediaCodec;
+import android.net.Uri;
+
 import com.google.android.exoplayer.MediaCodecAudioTrackRenderer;
 import com.google.android.exoplayer.MediaCodecVideoTrackRenderer;
 import com.google.android.exoplayer.TrackRenderer;
 import com.google.android.exoplayer.audio.AudioCapabilities;
-import com.marcn.mediathek.player.Player.RendererBuilder;
 import com.google.android.exoplayer.extractor.Extractor;
 import com.google.android.exoplayer.extractor.ExtractorSampleSource;
 import com.google.android.exoplayer.text.TextTrackRenderer;
@@ -28,10 +31,7 @@ import com.google.android.exoplayer.upstream.DataSource;
 import com.google.android.exoplayer.upstream.DefaultAllocator;
 import com.google.android.exoplayer.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer.upstream.DefaultUriDataSource;
-
-import android.content.Context;
-import android.media.MediaCodec;
-import android.net.Uri;
+import com.marcn.mediathek.player.Player.RendererBuilder;
 
 /**
  * A {@link RendererBuilder} for streams that can be read using an {@link Extractor}.

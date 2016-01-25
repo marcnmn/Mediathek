@@ -15,6 +15,10 @@
  */
 package com.marcn.mediathek.player;
 
+import android.content.Context;
+import android.media.MediaCodec;
+import android.os.Handler;
+
 import com.google.android.exoplayer.DefaultLoadControl;
 import com.google.android.exoplayer.LoadControl;
 import com.google.android.exoplayer.MediaCodecAudioTrackRenderer;
@@ -23,7 +27,6 @@ import com.google.android.exoplayer.MediaCodecVideoTrackRenderer;
 import com.google.android.exoplayer.TrackRenderer;
 import com.google.android.exoplayer.audio.AudioCapabilities;
 import com.google.android.exoplayer.chunk.VideoFormatSelectorUtil;
-import com.marcn.mediathek.player.Player.RendererBuilder;
 import com.google.android.exoplayer.hls.HlsChunkSource;
 import com.google.android.exoplayer.hls.HlsMasterPlaylist;
 import com.google.android.exoplayer.hls.HlsPlaylist;
@@ -38,10 +41,7 @@ import com.google.android.exoplayer.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer.upstream.DefaultUriDataSource;
 import com.google.android.exoplayer.util.ManifestFetcher;
 import com.google.android.exoplayer.util.ManifestFetcher.ManifestCallback;
-
-import android.content.Context;
-import android.media.MediaCodec;
-import android.os.Handler;
+import com.marcn.mediathek.player.Player.RendererBuilder;
 
 import java.io.IOException;
 import java.util.Map;

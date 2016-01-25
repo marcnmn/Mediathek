@@ -4,12 +4,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -39,15 +37,10 @@ public class SendungenAbisZFragment extends Fragment {
     private RelativeLayout.LayoutParams mScrollLayoutParams;
     private int mWindowHeight;
 
-    public SendungenAbisZFragment() {
-    }
-
-    public static SendungenAbisZFragment newInstance(int columnCount) {
-        SendungenAbisZFragment fragment = new SendungenAbisZFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mCharacter = ("A").charAt(0);
     }
 
     @Override
@@ -82,19 +75,26 @@ public class SendungenAbisZFragment extends Fragment {
         scrollArea.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN)
-                    indicator.setVisibility(View.VISIBLE);
-                if (event.getAction() == MotionEvent.ACTION_UP)
-                    indicator.setVisibility(View.INVISIBLE);
-
                 float normalizedPosition = 1.7f * (event.getY() - mWindowHeight / 2) + mWindowHeight / 2;
                 int fastScrollPosition = (int) (mSendungAdapter.getItemCount() * normalizedPosition / mWindowHeight);
                 fastScrollPosition = Math.max(0, Math.min(fastScrollPosition, mSendungAdapter.getItemCount() - 1));
                 mLayoutManager.scrollToPosition(fastScrollPosition);
 
+                // Indicator
                 mScrollLayoutParams.topMargin = (int) event.getY() - mScrollLayoutParams.height;
                 indicator.setLayoutParams(mScrollLayoutParams);
-                indicator.setText(mSendungAdapter.getMember(mLayoutManager.findFirstCompletelyVisibleItemPosition()));
+
+                int firstVisible = mLayoutManager.findFirstCompletelyVisibleItemPosition();
+                if (mSendungAdapter.getMember(firstVisible) != null) {
+                    indicator.setText(mSendungAdapter.getMember(firstVisible));
+
+                }
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN && firstVisible >= 1)
+                    indicator.setVisibility(View.VISIBLE);
+                if (event.getAction() == MotionEvent.ACTION_UP)
+                    indicator.setVisibility(View.INVISIBLE);
+
                 return true;
             }
         });

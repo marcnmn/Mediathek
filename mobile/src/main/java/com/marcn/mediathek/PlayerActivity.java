@@ -12,14 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.transition.Explode;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.ui_fragments.PlayerFragment;
-import com.marcn.mediathek.utils.ZdfMediathekData;
-
-import java.io.IOException;
-import java.util.TreeMap;
 
 public class PlayerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

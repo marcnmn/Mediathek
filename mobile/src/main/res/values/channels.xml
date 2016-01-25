@@ -12,6 +12,10 @@
     <string name="zdf_gruppe_sendungen_abisz">http://www.zdf.de/ZDFmediathek/xmlservice/web/sendungenAbisZ</string>
     <string name="zdf_gruppe_video">http://www.zdf.de/ZDFmediathek/xmlservice/web/beitragsDetails</string>
 
+    <string name="zdf_gruppe_video_aktuellste">http://www.zdf.de/ZDFmediathek/xmlservice/web/aktuellste</string>
+    <string name="zdf_gruppe_video_meist">http://www.zdf.de/ZDFmediathek/xmlservice/web/meistGesehen</string>
+    <string name="zdf_gruppe_video_weitere">http://www.zdf.de/ZDFmediathek/xmlservice/web/weitereBeitraege</string>
+
     <string name="arte_name">Arte</string>
 
     <string name="ard_name">ARD</string>
