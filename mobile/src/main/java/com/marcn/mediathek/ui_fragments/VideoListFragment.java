@@ -64,6 +64,7 @@ public class VideoListFragment extends Fragment {
         Context context = view.getContext();
         RecyclerView recyclerView = (RecyclerView) view;
 
+        // TODO complete rewrite including proper headers
         mLayoutManager = new GridLayoutManager(context, mColumnCount);
         mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override

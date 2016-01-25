@@ -102,6 +102,7 @@ public class VideoWidgetFragment extends Fragment {
         if (mRootView.findViewById(R.id.textHeader) != null)
             ((TextView) mRootView.findViewById(R.id.textHeader)).setText(mHeaderTitle);
 
+        // TODO nested scrolling in a good manner
         recyclerView.setNestedScrollingEnabled(false);
 
         downloadVideos();
