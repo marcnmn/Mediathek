@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.SendungAdapter;
@@ -48,6 +49,9 @@ public class SendungenAbisZFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sendungen_abisz, container, false);
         Context context = view.getContext();
+
+        if ((getActivity()) != null)
+            ((BaseActivity) getActivity()).setActionBarTitle(R.string.action_title_sendungen_abisz);
 
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         View scrollArea = view.findViewById(R.id.fastScrollArea);

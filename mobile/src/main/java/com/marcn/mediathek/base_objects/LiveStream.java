@@ -116,8 +116,6 @@ public class LiveStream {
         }
     }
 
-
-
     public int getLogoResId () {
         switch (id) {
             // ZDF Sender

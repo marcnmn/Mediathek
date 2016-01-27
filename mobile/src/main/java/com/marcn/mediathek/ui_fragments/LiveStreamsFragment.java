@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.LiveStreamAdapter;
@@ -53,8 +54,8 @@ public class LiveStreamsFragment extends Fragment {
         Context context = view.getContext();
         RecyclerView recyclerView = (RecyclerView) view;
 
-        if ((getActivity()) != null && getActivity().getActionBar() != null)
-            (getActivity()).getActionBar().setTitle(R.string.action_title_live_streams);
+        if ((getActivity()) != null)
+            ((BaseActivity) getActivity()).setActionBarTitle(R.string.action_title_live_streams);
 
         GridLayoutManager mLayoutManager = new GridLayoutManager(context, mColumnCount);
         mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
@@ -78,11 +79,14 @@ public class LiveStreamsFragment extends Fragment {
         recyclerView.setAdapter(mLiveStreamAdapter);
 
         downloadZdfData();
+        downloadArteData();
+        downloadArdData();
+
         return view;
     }
 
     private void downloadZdfData() {
-        new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -95,10 +99,11 @@ public class LiveStreamsFragment extends Fragment {
                             mLiveStreamAdapter.updateValues(ls);
                         }
                     });
-                } catch (IOException ignored) {
-                }
+                } catch (IOException ignored) {}
             }
-        }).start();
+        });
+        thread.setPriority(Thread.MIN_PRIORITY);
+        thread.start();
     }
 
     private void downloadArteData() {
