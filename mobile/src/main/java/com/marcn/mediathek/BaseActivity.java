@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -36,13 +37,23 @@ public abstract class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         OnVideoInteractionListener {
 
+    public static String FRAGMENT_NAME_FIRST_PAGE = "first-fragment";
+
     abstract void navigationIdReceived(int id);
 
     void loadCleanFragment(Fragment fragment, int containerId) {
+        loadCleanFragment(fragment, containerId, "0");
+    }
+
+    void loadCleanFragment(Fragment fragment, int containerId, String name) {
+        loadCleanFragment(fragment, containerId, name, name);
+    }
+
+    void loadCleanFragment(Fragment fragment, int containerId, String name, String tag) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        transaction.replace(containerId, fragment, "0");
-        transaction.addToBackStack("0");
+        transaction.replace(containerId, fragment, tag);
+        transaction.addToBackStack(name);
         transaction.commit();
     }
 
@@ -51,6 +62,11 @@ public abstract class BaseActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (startPointFragmentOnTop()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                finishAfterTransition();
+            else
+                finish();
         } else {
             super.onBackPressed();
         }
@@ -119,10 +135,10 @@ public abstract class BaseActivity extends AppCompatActivity
     public void onSendungClicked(Sendung sendung, View thumbnail, View logo) {
         if (sendung == null) return;
 
-        Intent intent = new Intent(this, SendungActivity.class);
+        Intent intent = new Intent(this, SeriesActivity.class);
         Gson gson = new Gson();
         String json = gson.toJson(sendung);
-        intent.putExtra(SendungActivity.INTENT_SENDUNG_JSON, json);
+        intent.putExtra(SeriesActivity.INTENT_SENDUNG_JSON, json);
 
         ImageView imageView = (ImageView) thumbnail;
         Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
@@ -148,10 +164,10 @@ public abstract class BaseActivity extends AppCompatActivity
     void startChannelActivity(Channel channel) {
         if (channel == null) return;
 
-        Intent intent = new Intent(this, SenderActivity.class);
+        Intent intent = new Intent(this, ChannelActivity.class);
         Gson gson = new Gson();
         String json = gson.toJson(channel);
-        intent.putExtra(SenderActivity.INTENT_SENDER_JSON, json);
+        intent.putExtra(ChannelActivity.INTENT_SENDER_JSON, json);
 
 //        ImageView imageView = (ImageView) thumbnail;
 //        Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
@@ -166,5 +182,14 @@ public abstract class BaseActivity extends AppCompatActivity
 //            startActivity(intent, options.toBundle());
 //        } else
         startActivity(intent);
+    }
+
+    private boolean startPointFragmentOnTop() {
+        int fragmentCount = getSupportFragmentManager().getBackStackEntryCount() - 1;
+        if (fragmentCount < 0) return false;
+        FragmentManager.BackStackEntry backEntry = getSupportFragmentManager().getBackStackEntryAt(fragmentCount);
+        if (backEntry == null) return false;
+        String str = backEntry.getName();
+        return str != null && str.equals(FRAGMENT_NAME_FIRST_PAGE);
     }
 }

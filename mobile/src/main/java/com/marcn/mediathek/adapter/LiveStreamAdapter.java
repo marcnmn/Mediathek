@@ -38,9 +38,19 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
             notifyItemChanged(index);
     }
 
-    public void updateValues(ArrayList<LiveStream> ls) {
+    public void updateZdfValues(ArrayList<LiveStream> ls) {
         mValues.pushLiveStreams(ls);
-        notifyDataSetChanged();
+        notifyItemRangeChanged(0, 5);
+    }
+
+    public void updateArteValue(LiveStream l) {
+        mValues.pushLiveStream(l);
+        notifyItemChanged(5);
+    }
+
+    public void updateArdValues(ArrayList<LiveStream> ls) {
+        mValues.pushLiveStreams(ls);
+        notifyItemRangeChanged(6, mValues.size() - 7);
     }
 
     @Override
@@ -89,7 +99,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
         holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                mListener.onLiveStreamClicked(holder.mItem, holder.mThumb, Video.ACTION_EXTERNAL_PLAYER_DIALOG);
+                mListener.onLiveStreamClicked(holder.mItem, holder.mThumb, Video.ACTION_SHARE_VIDEO_DIALOG);
                 return true;
             }
         });

@@ -6,19 +6,23 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.marcn.mediathek.base_objects.Channel;
+import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
 import com.marcn.mediathek.ui_fragments.SendungenAbisZFragment;
+import com.marcn.mediathek.ui_fragments.VideoFragment;
 import com.marcn.mediathek.ui_fragments.VideoListFragment;
 
 public class MainActivity extends BaseActivity {
 
     public static final String INTENT_LIVE_DRAWER_ITEM = "player-drawer-item";
+    private LiveStreamsFragment liveStreamsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +50,18 @@ public class MainActivity extends BaseActivity {
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
 
+        FragmentManager fm = getSupportFragmentManager();
+        liveStreamsFragment = (LiveStreamsFragment) fm.findFragmentByTag(LiveStreamsFragment.FRAGMENT_TAG);
+
         Intent intent = getIntent();
-        if (intent != null && intent.getExtras() != null) {
+        if (intent != null && intent.getExtras() != null && intent.getIntExtra(INTENT_LIVE_DRAWER_ITEM, -1) >= 0) {
             int navId = intent.getIntExtra(INTENT_LIVE_DRAWER_ITEM, -1);
             navigationIdReceived(navId);
         } else {
-            loadCleanFragment(LiveStreamsFragment.newInstance(1), R.id.content_main);
+//            navigationIdReceived(R.id.nav_zdf);
+            if (liveStreamsFragment == null)
+                liveStreamsFragment = LiveStreamsFragment.newInstance(1);
+            loadCleanFragment(liveStreamsFragment, R.id.content_main, FRAGMENT_NAME_FIRST_PAGE, LiveStreamsFragment.FRAGMENT_TAG);
         }
     }
 
@@ -59,9 +69,9 @@ public class MainActivity extends BaseActivity {
     @Override
     void navigationIdReceived(int id) {
         if (id == R.id.nav_live) {
-            loadCleanFragment(new LiveStreamsFragment());
+            loadCleanFragment(new LiveStreamsFragment(), R.id.content_main, FRAGMENT_NAME_FIRST_PAGE, LiveStreamsFragment.FRAGMENT_TAG);
         } else if (id == R.id.nav_gallery) {
-            loadCleanFragment(new VideoListFragment());
+            loadCleanFragment(new VideoFragment());
         } else if (id == R.id.nav_zdf_mediathek) {
             loadCleanFragment(new SendungenAbisZFragment());
         } else if (id == R.id.nav_arte_mediathek) {

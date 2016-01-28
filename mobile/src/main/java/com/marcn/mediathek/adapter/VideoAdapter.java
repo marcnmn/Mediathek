@@ -69,7 +69,7 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         Video video = mValues.get(position);
         if (getItemViewType(position) == TYPE_HEADER) {
             HeaderViewHolder holder = (HeaderViewHolder) viewHolder;
-            holder.mDate.setText(video.dayAndDate);
+//            holder.mDate.setText(video.dayAndDate);
         } else {
             final VideoViewHolder holder = (VideoViewHolder) viewHolder;
             holder.mItem = video;
@@ -107,7 +107,7 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    mListener.onVideoClicked(holder.mItem, holder.mThumb, Video.ACTION_EXTERNAL_PLAYER_DIALOG);
+                    mListener.onVideoClicked(holder.mItem, holder.mThumb, Video.ACTION_SHARE_VIDEO_DIALOG);
                     return true;
                 }
             });
@@ -143,13 +143,13 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     public class HeaderViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mDay, mDate;
+//        public final TextView mDay, mDate;
 
         public HeaderViewHolder(View view) {
             super(view);
             mView = view;
-            mDay = (TextView) view.findViewById(R.id.textDayOfWeek);
-            mDate = (TextView) view.findViewById(R.id.textDayOfWeek);
+//            mDay = (TextView) view.findViewById(R.id.textDayOfWeek);
+//            mDate = (TextView) view.findViewById(R.id.textDayOfWeek);
         }
     }
 }

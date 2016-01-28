@@ -24,7 +24,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.FileNotFoundException;
 
-public class SendungActivity extends BaseActivity {
+public class SeriesActivity extends BaseActivity {
 
     public static final String INTENT_SENDUNG_JSON = "sendung-json";
 //    public static final String INTENT_SENDUNG_ID = "sendung-id";
@@ -69,7 +69,7 @@ public class SendungActivity extends BaseActivity {
                 }
                 if (scrollRange + verticalOffset == 0) {
                     if (mSendung != null)
-                    collapsingToolbarLayout.setTitle(mSendung.shortTitle);
+                        collapsingToolbarLayout.setTitle(mSendung.shortTitle);
                     isShow = true;
                 } else if(isShow) {
                     collapsingToolbarLayout.setTitle("");
@@ -80,12 +80,6 @@ public class SendungActivity extends BaseActivity {
 
         getIntentThumbnail();
         loadWidgets();
-    }
-
-    private void loadWidgets() {
-        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_LAST, R.id.widgetLast);
-        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_MOST_POPULAR, R.id.widgetMost);
-        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_FURTHER, R.id.widgetFurther);
     }
 
     private void setupHeaderView(Sendung sendung) {
@@ -133,9 +127,17 @@ public class SendungActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    private void loadWidget(int Type, int resId) {
+    private void loadWidgets() {
+        if (mSendung == null) return;
+        String assetId = "" + mSendung.assetId;
+        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_LAST, R.id.widgetLast, assetId);
+        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_MOST_POPULAR, R.id.widgetMost, assetId);
+        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_FURTHER, R.id.widgetFurther, assetId);
+    }
+
+    private void loadWidget(int Type, int resId, String assetId) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(resId, VideoWidgetFragment.newInstance(mSendung, Type));
+        transaction.replace(resId, VideoWidgetFragment.newInstance(assetId, Type));
         transaction.commit();
     }
 }

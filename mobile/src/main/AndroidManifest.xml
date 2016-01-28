@@ -26,12 +26,12 @@
             android:configChanges="orientation|screenSize">
         </activity>
         <activity
-            android:name=".SendungActivity"
+            android:name=".SeriesActivity"
             android:label=""
             android:theme="@style/SendungTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".SenderActivity"
+            android:name=".ChannelActivity"
             android:label=""
             android:theme="@style/SendungTheme.NoActionBar">
         </activity>

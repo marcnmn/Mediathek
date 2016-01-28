@@ -46,7 +46,7 @@ public class XmlParser {
             } catch (NullPointerException ignored) {
             }
         }
-        return null;
+        return ls;
     }
 
     @Nullable

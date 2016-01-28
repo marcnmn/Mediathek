@@ -27,7 +27,6 @@ public class SendungenAbisZFragment extends Fragment {
     private static int mCharacter = ("A").charAt(0);
     private static final int mLastCharValue = ("Z").charAt(0);
 
-    private static final String ARG_COLUMN_COUNT = "column-count";
     private static final int INT_UPDATE_THRESHOLD = 20;
     private static final int INT_CHARACTER_UPDATE_COUNT = 4;
     private SendungAdapter mSendungAdapter;

@@ -80,7 +80,7 @@ public class VideoWidgetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    mListener.onVideoClicked(holder.mItem, holder.mThumb, Video.ACTION_EXTERNAL_PLAYER_DIALOG);
+                    mListener.onVideoClicked(holder.mItem, holder.mThumb, Video.ACTION_SHARE_VIDEO_DIALOG);
                     return true;
                 }
             });

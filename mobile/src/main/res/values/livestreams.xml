@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="zdf_live_api">http://www.zdf.de/ZDFmediathek/xmlservice/web/live?maxLength=12</string>
+    <string name="zdf_live_api">http://www.zdf.de/ZDFmediathek/xmlservice/web/live?maxLength=6</string>
     <string name="arte_live_api">http://www.arte.tv/guide/de/live</string>
     <string name="ard_live_api">http://www.ardmediathek.de/tv/live</string>
     <string name="ard_live_image_api">http://www.ardmediathek.de</string>

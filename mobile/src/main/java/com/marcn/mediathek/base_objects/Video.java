@@ -2,7 +2,7 @@ package com.marcn.mediathek.base_objects;
 
 public class Video {
     public static final int ACTION_INTERNAL_PLAYER = 0;
-    public static final int ACTION_EXTERNAL_PLAYER_DIALOG = 1;
+    public static final int ACTION_SHARE_VIDEO_DIALOG = 1;
     public static final int ACTION_DEFAULT_EXTERNAL_PLAYER = 2;
     public static final int ACTION_DOWNLOAD = 3;
 
@@ -53,6 +53,20 @@ public class Video {
         this.onlineFassung = onlineFassung;
         this.ganzeSendung = ganzeSendung;
         this.originChannelTitle = originChannelTitle;
+    }
+
+    public static Video createHeaderVideo(String title) {
+        Video video = new Video(title, "", "", "", "", "", 0, 0, 0);
+        video.isHeader = true;
+        return video;
+    }
+
+    public String getAirtime() {
+        if (airtime == null) return "";
+        String [] s = airtime.split(" ");
+        if (s.length >= 2)
+            return s[1];
+        return airtime;
     }
 
     @Override

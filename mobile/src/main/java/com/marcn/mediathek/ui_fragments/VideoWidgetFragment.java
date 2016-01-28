@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.VideoWidgetAdapter;
+import com.marcn.mediathek.base_objects.Channel;
 import com.marcn.mediathek.base_objects.Sendung;
 import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.utils.ZdfMediathekData;
@@ -29,12 +30,17 @@ public class VideoWidgetFragment extends Fragment {
     public static final int WIDGET_TYPE_SENDUNG_LAST = 0;
     public static final int WIDGET_TYPE_SENDUNG_MOST_POPULAR = 1;
     public static final int WIDGET_TYPE_SENDUNG_FURTHER = 2;
+    public static final int WIDGET_TYPE_TIPPS = 3;
 
-    private static final String ARG_SENDUNG_JSON = "sendung-json";
+    private static final int OBJECT_TYPE_SERIES = 0;
+    private static final int OBJECT_TYPE_CHANNEL = 1;
+
+    private static final String ARG_OBJECT_JSON = "object-json";
     private static final String ARG_WIDGET_TYPE = "widget-type";
     private static final String ARG_WIDGET_URL = "widget-url";
-    private static final int VIDEO_ITEM_COUNT = 10;
+    private static final String ARG_ASSET_ID = "asset-id";
 
+    private static final int VIDEO_ITEM_COUNT = 10;
 
     private VideoWidgetAdapter mVideoAdapter;
     private LinearLayoutManager mLayoutManager;
@@ -44,14 +50,13 @@ public class VideoWidgetFragment extends Fragment {
     private int mWidgetType;
     private String mBaseUrl;
     private String mHeaderTitle;
+    private String mAssetId;
     private RelativeLayout mRootView;
 
-    public static VideoWidgetFragment newInstance(Sendung sendung, int type) {
+    public static VideoWidgetFragment newInstance(String assetId, int type) {
         VideoWidgetFragment fragment = new VideoWidgetFragment();
         Bundle args = new Bundle();
-        Gson gson = new Gson();
-        String json = gson.toJson(sendung);
-        args.putString(ARG_SENDUNG_JSON, json);
+        args.putString(ARG_ASSET_ID, assetId);
         args.putInt(ARG_WIDGET_TYPE, type);
         fragment.setArguments(args);
         return fragment;
@@ -63,8 +68,12 @@ public class VideoWidgetFragment extends Fragment {
 
         if (getArguments() != null) {
             Gson gson = new Gson();
-            String sendung = getArguments().getString(ARG_SENDUNG_JSON, "");
+            String sendung = getArguments().getString(ARG_OBJECT_JSON, "");
             mSendung = gson.fromJson(sendung, Sendung.class);
+            if (mSendung != null)
+                mAssetId = mSendung.assetId + "";
+
+            mAssetId = getArguments().getString(ARG_ASSET_ID, "");
 
             mWidgetType = getArguments().getInt(ARG_WIDGET_TYPE);
             if (getActivity() == null) return;
@@ -77,9 +86,13 @@ public class VideoWidgetFragment extends Fragment {
                     mBaseUrl = getString(R.string.zdf_gruppe_video_weitere);
                     mHeaderTitle = getString(R.string.video_widget_header_further);
                     break;
-                default:
+                case WIDGET_TYPE_SENDUNG_LAST:
                     mBaseUrl = getString(R.string.zdf_gruppe_video_aktuellste);
                     mHeaderTitle = getString(R.string.video_widget_header_last);
+                    break;
+                case WIDGET_TYPE_TIPPS:
+                    mBaseUrl = getString(R.string.zdf_gruppe_video_tipps);
+                    mHeaderTitle = getString(R.string.video_widget_header_tipps);
             }
         }
     }
@@ -111,8 +124,8 @@ public class VideoWidgetFragment extends Fragment {
     }
 
     private void downloadVideos() {
-        if (getActivity() == null || mBaseUrl == null || mSendung == null) return;
-        final String request = mBaseUrl + "?maxLength=" + VIDEO_ITEM_COUNT + "&id=" + mSendung.assetId;
+        if (getActivity() == null || mBaseUrl == null) return;
+        final String request = mBaseUrl + "?maxLength=" + VIDEO_ITEM_COUNT + "&id=" + mAssetId;
 
         new Thread(new Runnable() {
             @Override
@@ -128,6 +141,8 @@ public class VideoWidgetFragment extends Fragment {
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                                 TransitionManager.beginDelayedTransition(mRootView, new Slide());
                                 mRootView.findViewById(R.id.recyclerViewVideos).setVisibility(View.VISIBLE);
+                                mRootView.findViewById(R.id.buttonMore).setVisibility(View.VISIBLE);
+                                mRootView.findViewById(R.id.textHeader).setVisibility(View.VISIBLE);
                             }
                         }
                     });

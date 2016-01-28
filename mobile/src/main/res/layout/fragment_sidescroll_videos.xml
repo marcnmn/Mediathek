@@ -13,8 +13,9 @@
         android:gravity="center_vertical"
         android:layout_alignParentEnd="true"
         android:textColor="@android:color/holo_green_dark"
-        android:textAppearance="@android:style/TextAppearance.Large"
-        android:text="MEHR"/>
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:text="MEHR"
+        android:visibility="invisible"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,8 +25,8 @@
         android:gravity="center_vertical"
         android:layout_alignBottom="@+id/buttonMore"
         android:layout_alignTop="@+id/buttonMore"
-        android:textAppearance="@android:style/TextAppearance.Large"
-        android:textStyle="bold"/>
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:visibility="invisible"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="wrap_content"
@@ -33,6 +34,7 @@
         android:id="@+id/recyclerViewVideos"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:orientation="horizontal"
-        android:layout_below="@+id/textHeader"/>
+        android:layout_below="@+id/textHeader"
+        android:visibility="invisible"/>
 
 </RelativeLayout>

@@ -18,4 +18,5 @@
     <string name="video_widget_header_last">Aktuelle Sendungen</string>
     <string name="video_widget_header_most_popular">Meist gesehen</string>
     <string name="video_widget_header_further">Weitere</string>
+    <string name="video_widget_header_tipps">Tipps</string>
 </resources>

@@ -1,7 +1,5 @@
 package com.marcn.mediathek.base_objects;
 
-import android.content.Context;
-
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.utils.Constants;
 

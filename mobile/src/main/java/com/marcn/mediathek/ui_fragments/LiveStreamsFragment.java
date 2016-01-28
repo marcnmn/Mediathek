@@ -22,12 +22,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class LiveStreamsFragment extends Fragment {
+    public static String FRAGMENT_TAG = "livestream-fragment";
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 2;
     private OnVideoInteractionListener mListener;
     private LiveStreams mLiveStreams;
     private LiveStreamAdapter mLiveStreamAdapter;
+    private RecyclerView mRecyclerView;
 
     public LiveStreamsFragment() {
     }
@@ -43,6 +45,7 @@ public class LiveStreamsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
     }
 
     @Override
@@ -52,7 +55,7 @@ public class LiveStreamsFragment extends Fragment {
         if (!(view instanceof RecyclerView)) return view;
 
         Context context = view.getContext();
-        RecyclerView recyclerView = (RecyclerView) view;
+        mRecyclerView = (RecyclerView) view;
 
         if ((getActivity()) != null)
             ((BaseActivity) getActivity()).setActionBarTitle(R.string.action_title_live_streams);
@@ -72,38 +75,27 @@ public class LiveStreamsFragment extends Fragment {
                 else return 1;
             }
         });
-        recyclerView.setLayoutManager(mLayoutManager);
-
-        mLiveStreams = new LiveStreams(getContext());
-        mLiveStreamAdapter = new LiveStreamAdapter(mLiveStreams, mListener);
-        recyclerView.setAdapter(mLiveStreamAdapter);
-
-        downloadZdfData();
-        downloadArteData();
-        downloadArdData();
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         return view;
     }
 
     private void downloadZdfData() {
-        Thread thread = new Thread(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     final ArrayList<LiveStream> ls = XmlParser.getZDFLiveStreamData2(getContext(), mLiveStreams.getGroup(LiveStream.ZDF_MAIN_GROUP));
-                    downloadArteData();
                     if (getActivity() == null || ls == null) return;
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mLiveStreamAdapter.updateValues(ls);
+                            mLiveStreamAdapter.updateZdfValues(ls);
                         }
                     });
                 } catch (IOException ignored) {}
             }
-        });
-        thread.setPriority(Thread.MIN_PRIORITY);
-        thread.start();
+        }).start();
     }
 
     private void downloadArteData() {
@@ -111,12 +103,11 @@ public class LiveStreamsFragment extends Fragment {
             @Override
             public void run() {
                 final LiveStream l = XmlParser.arteLiveStreamData(getContext(), mLiveStreams.getArteLiveStream());
-                downloadArdData();
                 if (getActivity() == null) return;
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mLiveStreamAdapter.updateValue(l);
+                        mLiveStreamAdapter.updateArteValue(l);
                     }
                 });
             }
@@ -132,11 +123,26 @@ public class LiveStreamsFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mLiveStreamAdapter.updateValues(ls);
+                        mLiveStreamAdapter.updateArdValues(ls);
                     }
                 });
             }
         }).start();
+    }
+
+    @Override
+    public void onResume() {
+        if (mLiveStreamAdapter == null) {
+            mLiveStreams = new LiveStreams(getContext());
+            mLiveStreamAdapter = new LiveStreamAdapter(mLiveStreams, mListener);
+            mRecyclerView.setAdapter(mLiveStreamAdapter);
+            downloadZdfData();
+            downloadArteData();
+            downloadArdData();
+        } else {
+            mRecyclerView.setAdapter(mLiveStreamAdapter);
+        }
+        super.onResume();
     }
 
     @Override

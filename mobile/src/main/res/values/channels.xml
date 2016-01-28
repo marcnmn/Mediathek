@@ -15,6 +15,10 @@
     <string name="zdf_gruppe_video_aktuellste">http://www.zdf.de/ZDFmediathek/xmlservice/web/aktuellste</string>
     <string name="zdf_gruppe_video_meist">http://www.zdf.de/ZDFmediathek/xmlservice/web/meistGesehen</string>
     <string name="zdf_gruppe_video_weitere">http://www.zdf.de/ZDFmediathek/xmlservice/web/weitereBeitraege</string>
+    <string name="zdf_gruppe_video_tipps">http://www.zdf.de/ZDFmediathek/xmlservice/web/tipps</string>
+
+    <string name="zdf_id_startseite">_STARTSEITE</string>
+    <string name="zdf_id_global">_GLOBAL</string>
 
     <string name="arte_name">Arte</string>
 

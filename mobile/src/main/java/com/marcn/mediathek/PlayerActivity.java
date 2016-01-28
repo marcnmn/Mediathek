@@ -29,7 +29,7 @@ public class PlayerActivity extends BaseActivity {
         if (intent != null && intent.getExtras() != null) {
             String liveUrl = intent.getStringExtra(INTENT_LIVE_STREAM_URL);
             playerFragment = PlayerFragment.newInstance(liveUrl);
-            loadCleanFragment(playerFragment, R.id.content_main);
+            loadCleanFragment(playerFragment, R.id.content_main, FRAGMENT_NAME_FIRST_PAGE);
         }
     }
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageThumbnail"
+        android:src="@drawable/placeholder_stream"
+        android:adjustViewBounds="true"
+        android:layout_margin="10dp"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/imageChannel"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:layout_below="@id/imageThumbnail"
+        android:src="@drawable/ic_zdf_neo"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageOptionsButton"
+        android:scaleType="centerCrop"
+        android:layout_below="@id/imageThumbnail"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/textTitle"
+        android:layout_alignBottom="@+id/textTitle"
+        android:src="@drawable/ic_more_vert_black_24dp"
+        android:paddingTop="24dip"
+        android:paddingBottom="24dip"
+        android:layout_marginEnd="15dp"/>
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/imageChannel"
+        android:layout_toEndOf="@id/imageChannel"
+        android:layout_toStartOf="@+id/imageOptionsButton"
+        android:textColor="#222222"
+        android:textSize="16sp"
+        android:layout_marginBottom="5dp"
+        tools:text="Text Line Item"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textVideoInfo"
+        android:layout_below="@id/textTitle"
+        android:layout_alignStart="@+id/textTitle"
+        tools:text="Text Line Item"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/textVideoInfo"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="10dp"/>
+</RelativeLayout>

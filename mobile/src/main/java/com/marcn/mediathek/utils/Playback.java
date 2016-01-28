@@ -1,20 +1,13 @@
 package com.marcn.mediathek.utils;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityOptions;
-import android.app.DownloadManager;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
 import android.transition.Explode;
-import android.transition.Fade;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,9 +15,6 @@ import android.widget.ImageView;
 import com.marcn.mediathek.PlayerActivity;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Video;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
 
 public class Playback {
     public static void playByUrl(final Activity activity, final String url, final View view, final int internalPlayer, final String title) {
@@ -35,7 +25,7 @@ public class Playback {
                     case Video.ACTION_INTERNAL_PLAYER:
                         startInternalPlayer(activity, url, view);
                         break;
-                    case Video.ACTION_EXTERNAL_PLAYER_DIALOG:
+                    case Video.ACTION_SHARE_VIDEO_DIALOG:
                         startExternalPlayerDialog(activity, url, title);
                         break;
                     case Video.ACTION_DEFAULT_EXTERNAL_PLAYER:

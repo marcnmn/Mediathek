@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -16,10 +17,11 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.marcn.mediathek.base_objects.Channel;
 import com.marcn.mediathek.base_objects.LiveStream;
+import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
 import com.marcn.mediathek.utils.XmlParser;
 import com.squareup.picasso.Picasso;
 
-public class SenderActivity extends BaseActivity
+public class ChannelActivity extends BaseActivity
         implements AppBarLayout.OnOffsetChangedListener {
 
     public static final String INTENT_SENDER_JSON = "channel-json";
@@ -63,6 +65,7 @@ public class SenderActivity extends BaseActivity
         appBarLayout.addOnOffsetChangedListener(this);
 
 //        getIntentThumbnail();
+        loadWidgets();
         downloadLiveStreamData();
     }
 
@@ -82,11 +85,17 @@ public class SenderActivity extends BaseActivity
         }).start();
     }
 
-//    private void loadWidgets() {
-//        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_LAST, R.id.widgetLast);
-//        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_MOST_POPULAR, R.id.widgetMost);
-//        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_FURTHER, R.id.widgetFurther);
-//    }
+    private void loadWidgets() {
+        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_LAST, R.id.widgetLast, getString(R.string.zdf_id_startseite));
+        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_MOST_POPULAR, R.id.widgetMost, getString(R.string.zdf_id_global));
+        loadWidget(VideoWidgetFragment.WIDGET_TYPE_TIPPS, R.id.widgetFurther, "");
+    }
+
+    private void loadWidget(int Type, int resId, String assetId) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(resId, VideoWidgetFragment.newInstance(assetId, Type));
+        transaction.commit();
+    }
 
     private void setupHeaderView(LiveStream liveStream) {
         if (liveStream == null) return;
