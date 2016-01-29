@@ -96,7 +96,7 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
             ((BaseActivity) getActivity()).setActionBarTitle(mHeaderTitle);
 
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
-        View scrollArea = view.findViewById(R.id.fastScrollArea);
+//        View scrollArea = view.findViewById(R.id.fastScrollArea);
         mWindowHeight = LayoutTasks.getWindowHeight(context);
 //        mIndicator = (TextView) view.findViewById(R.id.indicator);
 //        mScrollLayoutParams = (RelativeLayout.LayoutParams) mIndicator.getLayoutParams();
