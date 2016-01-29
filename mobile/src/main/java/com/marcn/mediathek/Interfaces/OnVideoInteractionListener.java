@@ -12,4 +12,6 @@ public interface OnVideoInteractionListener {
     void onVideoClicked(Video video, View view, int videoAction);
     void onSendungClicked(Sendung sendung, View thumbnail, View logo);
     void onChannelClicked(Channel channel, View view);
+
+    void onMoreClicked(String assetId, int type);
 }

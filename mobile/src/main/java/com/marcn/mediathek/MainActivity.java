@@ -13,11 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.marcn.mediathek.base_objects.Channel;
-import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
 import com.marcn.mediathek.ui_fragments.SendungenAbisZFragment;
-import com.marcn.mediathek.ui_fragments.VideoFragment;
-import com.marcn.mediathek.ui_fragments.VideoListFragment;
+import com.marcn.mediathek.ui_fragments.ZdfMissedVideoFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -71,7 +69,7 @@ public class MainActivity extends BaseActivity {
         if (id == R.id.nav_live) {
             loadCleanFragment(new LiveStreamsFragment(), R.id.content_main, FRAGMENT_NAME_FIRST_PAGE, LiveStreamsFragment.FRAGMENT_TAG);
         } else if (id == R.id.nav_gallery) {
-            loadCleanFragment(new VideoFragment());
+            loadCleanFragment(new ZdfMissedVideoFragment());
         } else if (id == R.id.nav_zdf_mediathek) {
             loadCleanFragment(new SendungenAbisZFragment());
         } else if (id == R.id.nav_arte_mediathek) {

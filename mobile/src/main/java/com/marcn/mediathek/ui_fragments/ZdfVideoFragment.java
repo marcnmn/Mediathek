@@ -14,41 +14,76 @@ import android.widget.TextView;
 import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.adapter.VideoAdapter2;
+import com.marcn.mediathek.adapter.VideoAdapter;
 import com.marcn.mediathek.base_objects.Video;
-import com.marcn.mediathek.utils.DateFormat;
 import com.marcn.mediathek.utils.LayoutTasks;
 import com.marcn.mediathek.utils.ZdfMediathekData;
 import com.tonicartos.superslim.LayoutManager;
 
-import java.text.SimpleDateFormat;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
-public class VideoFragment extends Fragment implements View.OnTouchListener {
+public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
+    public static final int WIDGET_TYPE_SENDUNG_LAST = 0;
+    public static final int WIDGET_TYPE_SENDUNG_MOST_POPULAR = 1;
+    public static final int WIDGET_TYPE_SENDUNG_FURTHER = 2;
+    public static final int WIDGET_TYPE_TIPPS = 3;
 
-    private static final int INT_UPDATE_THRESHOLD = 15;
-    private static final int INT_UPDATE_COUNT = 100;
+    private static final String ARG_WIDGET_TYPE = "widget-type";
+    private static final String ARG_ASSET_ID = "asset-id";
 
-    private VideoAdapter2 mVideoAdapter;
+    private static final int INT_UPDATE_THRESHOLD = 10;
+    private static final int INT_UPDATE_COUNT = 50;
+
+    private VideoAdapter mVideoAdapter;
     private LayoutManager mLayoutManager;
 
     private int mLoadedItems = 0;
-    private Calendar mDay, mLastDay;
     private boolean mIsLoading;
     private OnVideoInteractionListener mListener;
     private RelativeLayout.LayoutParams mScrollLayoutParams;
     private int mWindowHeight;
     private TextView mIndicator;
+    private String mAssetId;
+    private int mWidgetType;
+    private String mBaseUrl;
+    private String mHeaderTitle;
+
+    public static ZdfVideoFragment newInstance(String assetId, int type) {
+        ZdfVideoFragment fragment = new ZdfVideoFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_ASSET_ID, assetId);
+        args.putInt(ARG_WIDGET_TYPE, type);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDay = new GregorianCalendar();
-        mDay.add(Calendar.DAY_OF_YEAR, 1);
-        mLastDay = new GregorianCalendar();
-        mLastDay.add(Calendar.DAY_OF_YEAR, -7);
+
+        if (getArguments() != null) {
+            mAssetId = getArguments().getString(ARG_ASSET_ID, "");
+            mWidgetType = getArguments().getInt(ARG_WIDGET_TYPE);
+            if (getActivity() == null) return;
+            switch (mWidgetType) {
+                case WIDGET_TYPE_SENDUNG_MOST_POPULAR:
+                    mBaseUrl = getString(R.string.zdf_gruppe_video_meist);
+                    mHeaderTitle = getString(R.string.video_widget_header_most_popular);
+                    break;
+                case WIDGET_TYPE_SENDUNG_FURTHER:
+                    mBaseUrl = getString(R.string.zdf_gruppe_video_weitere);
+                    mHeaderTitle = getString(R.string.video_widget_header_further);
+                    break;
+                case WIDGET_TYPE_SENDUNG_LAST:
+                    mBaseUrl = getString(R.string.zdf_gruppe_video_aktuellste);
+                    mHeaderTitle = getString(R.string.video_widget_header_last);
+                    break;
+                case WIDGET_TYPE_TIPPS:
+                    mBaseUrl = getString(R.string.zdf_gruppe_video_tipps);
+                    mHeaderTitle = getString(R.string.video_widget_header_tipps);
+            }
+        }
     }
 
     @Override
@@ -58,56 +93,52 @@ public class VideoFragment extends Fragment implements View.OnTouchListener {
         Context context = view.getContext();
 
         if ((getActivity()) != null)
-            ((BaseActivity) getActivity()).setActionBarTitle(R.string.action_title_sendungen_abisz);
+            ((BaseActivity) getActivity()).setActionBarTitle(mHeaderTitle);
 
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         View scrollArea = view.findViewById(R.id.fastScrollArea);
         mWindowHeight = LayoutTasks.getWindowHeight(context);
-        mIndicator = (TextView) view.findViewById(R.id.indicator);
-        mScrollLayoutParams = (RelativeLayout.LayoutParams) mIndicator.getLayoutParams();
+//        mIndicator = (TextView) view.findViewById(R.id.indicator);
+//        mScrollLayoutParams = (RelativeLayout.LayoutParams) mIndicator.getLayoutParams();
 
         mLayoutManager = new LayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        mVideoAdapter = new VideoAdapter2(new ArrayList<Video>(), mListener);
+        mVideoAdapter = new VideoAdapter(new ArrayList<Video>(), mListener);
         recyclerView.setAdapter(mVideoAdapter);
-        mVideoAdapter.updateValues(Video.createHeaderVideo(DateFormat.calendarToHeadlineFormat(mDay)));
 
         recyclerView.addOnScrollListener(onScrollListener);
-        scrollArea.setOnTouchListener(this);
+//        scrollArea.setOnTouchListener(this);
 
         downloadVideos(mLoadedItems, INT_UPDATE_COUNT);
         return view;
     }
 
-    private void downloadVideos(final int offset, final int count) {
-        if (mIsLoading) return;
-        mLoadedItems += count;
+    private void downloadVideos(int offset, int count) {
+        if (getActivity() == null || mBaseUrl == null || mIsLoading) return;
         mIsLoading = true;
         mVideoAdapter.setLoading(true);
-        SimpleDateFormat s = new SimpleDateFormat("ddMMyy");
-        final String day = s.format(mDay.getTime());
+        final String request = mBaseUrl + "?maxLength=" + count
+                + "&offset=" + offset + "&id=" + mAssetId;
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final ArrayList<Video> videos = ZdfMediathekData.getMissedShows(getContext(), offset, count, day, day);
-                if (getActivity() == null || videos == null) return;
-                if (videos.isEmpty() && mDay.after(mLastDay)) {
-                    mDay.add(Calendar.DAY_OF_MONTH, -1);
-                    if (mDay.get(Calendar.DAY_OF_YEAR) == new GregorianCalendar().get(Calendar.DAY_OF_YEAR))
-                        videos.add(Video.createHeaderVideo("Heute"));
-                    else
-                        videos.add(Video.createHeaderVideo(DateFormat.calendarToHeadlineFormat(mDay)));
-                    mLoadedItems = 0;
+                final ArrayList<Video> videos;
+                try {
+                    videos = ZdfMediathekData.fetchVideoList(request);
+                    if (getActivity() == null || videos == null || videos.isEmpty()) return;
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mVideoAdapter.updateValues(videos);
+                            if (mWidgetType == ZdfVideoFragment.WIDGET_TYPE_SENDUNG_LAST)
+                                mVideoAdapter.addHeaders();
+                            mIsLoading = false;
+                            mVideoAdapter.setLoading(false);
+                        }
+                    });
+                } catch (IOException ignored) {
                 }
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mVideoAdapter.updateValues(videos);
-                        mVideoAdapter.setLoading(false);
-                        mIsLoading = false;
-                    }
-                });
             }
         }).start();
     }
@@ -117,9 +148,8 @@ public class VideoFragment extends Fragment implements View.OnTouchListener {
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
             int lastVisibleItem = mLayoutManager.findLastVisibleItemPosition();
-            if (lastVisibleItem >= mVideoAdapter.getItemCount() - INT_UPDATE_THRESHOLD) {
+            if (lastVisibleItem >= mVideoAdapter.getItemCount() - INT_UPDATE_THRESHOLD)
                 downloadVideos(mLoadedItems, INT_UPDATE_COUNT);
-            }
         }
     };
 

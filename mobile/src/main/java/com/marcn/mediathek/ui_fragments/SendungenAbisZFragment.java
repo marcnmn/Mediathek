@@ -50,7 +50,7 @@ public class SendungenAbisZFragment extends Fragment {
         Context context = view.getContext();
 
         if ((getActivity()) != null)
-            ((BaseActivity) getActivity()).setActionBarTitle(R.string.action_title_sendungen_abisz);
+            ((BaseActivity) getActivity()).setActionBarResource(R.string.action_title_sendungen_abisz);
 
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         View scrollArea = view.findViewById(R.id.fastScrollArea);

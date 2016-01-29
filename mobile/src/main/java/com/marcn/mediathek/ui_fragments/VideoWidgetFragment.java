@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.VideoWidgetAdapter;
@@ -31,9 +32,6 @@ public class VideoWidgetFragment extends Fragment {
     public static final int WIDGET_TYPE_SENDUNG_MOST_POPULAR = 1;
     public static final int WIDGET_TYPE_SENDUNG_FURTHER = 2;
     public static final int WIDGET_TYPE_TIPPS = 3;
-
-    private static final int OBJECT_TYPE_SERIES = 0;
-    private static final int OBJECT_TYPE_CHANNEL = 1;
 
     private static final String ARG_OBJECT_JSON = "object-json";
     private static final String ARG_WIDGET_TYPE = "widget-type";
@@ -115,6 +113,16 @@ public class VideoWidgetFragment extends Fragment {
 
         if (mRootView.findViewById(R.id.textHeader) != null)
             ((TextView) mRootView.findViewById(R.id.textHeader)).setText(mHeaderTitle);
+
+        View buttonMore = mRootView.findViewById(R.id.buttonMore);
+        if (buttonMore != null)
+            buttonMore.setOnClickListener(new View.OnClickListener() {
+                BaseActivity activity = (BaseActivity) getActivity();
+                @Override
+                public void onClick(View v) {
+                    activity.onMoreClicked(mAssetId, mWidgetType);
+                }
+            });
 
         // TODO nested scrolling in a good manner
         recyclerView.setNestedScrollingEnabled(false);

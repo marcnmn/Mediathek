@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
-    android:id="@+id/textTitle"
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="start"
-    android:padding="8dip"
-    android:layoutDirection="locale"
-    android:textDirection="locale"
-    android:textColor="@android:color/white"
-    android:textSize="20sp"
-    android:background="@color/colorPrimary"
     app:slm_headerDisplay="inline|sticky"
-    app:slm_isHeader="true"
-    tools:text="Header Item"
-    /><!--app:slm_headerEndMargin="56dip"-->
+    app:slm_isHeader="true">
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="8dip"
+        android:layoutDirection="locale"
+        android:textDirection="locale"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:background="@color/colorPrimary"
+        tools:text="Header Item"/><!--app:slm_headerEndMargin="56dip"-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@+id/textTitle"
+        android:background="@drawable/gradient_bottom"/>
+</RelativeLayout>

@@ -94,9 +94,13 @@ public abstract class BaseActivity extends AppCompatActivity
         return true;
     }
 
-    public void setActionBarTitle(int resId) {
+    public void setActionBarResource(int resId) {
+        setActionBarTitle(getString(resId));
+    }
+
+    public void setActionBarTitle(String title) {
         if (getSupportActionBar() != null)
-            getSupportActionBar().setTitle(resId);
+            getSupportActionBar().setTitle(title);
     }
 
     @Override
@@ -159,6 +163,14 @@ public abstract class BaseActivity extends AppCompatActivity
     public void onChannelClicked(Channel channel, View view) {
         if (channel == null) return;
         Toast.makeText(this, channel.title, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onMoreClicked(String assetId, int type) {
+        Intent intent = new Intent(this, VideoActivity.class);
+        intent.putExtra(VideoActivity.INTENT_VIDEO_ASSET_ID, assetId);
+        intent.putExtra(VideoActivity.INTENT_VIDEO_TYPE, type);
+        startActivity(intent);
     }
 
     void startChannelActivity(Channel channel) {

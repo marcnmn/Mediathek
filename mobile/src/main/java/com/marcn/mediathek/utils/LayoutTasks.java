@@ -5,6 +5,12 @@ import android.graphics.Point;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.marcn.mediathek.base_objects.Video;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
 public class LayoutTasks {
 
     public static int getWindowWidth(Context context) {

@@ -58,7 +58,7 @@ public class LiveStreamsFragment extends Fragment {
         mRecyclerView = (RecyclerView) view;
 
         if ((getActivity()) != null)
-            ((BaseActivity) getActivity()).setActionBarTitle(R.string.action_title_live_streams);
+            ((BaseActivity) getActivity()).setActionBarResource(R.string.action_title_live_streams);
 
         GridLayoutManager mLayoutManager = new GridLayoutManager(context, mColumnCount);
         mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
