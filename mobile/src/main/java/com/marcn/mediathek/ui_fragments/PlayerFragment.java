@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -59,6 +60,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
     private TextView debugTextView;
     private Player player;
     private boolean playerNeedsPrepare;
+    private MediaController mediaController;
 
     public PlayerFragment() {
     }
@@ -93,6 +95,9 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
 
         surfaceView = (TextureView) view.findViewById(R.id.surface_view);
         surfaceView.setSurfaceTextureListener(this);
+
+        mediaController = new MediaController(context);
+        mediaController.setAnchorView(view);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ((FrameLayout)view).setTransitionGroup(true);
