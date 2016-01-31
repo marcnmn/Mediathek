@@ -24,8 +24,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.MediaController;
-import android.widget.TextView;
-import android.widget.VideoView;
 
 import com.google.android.exoplayer.AspectRatioFrameLayout;
 import com.google.android.exoplayer.ExoPlayer;
@@ -35,6 +33,7 @@ import com.marcn.mediathek.player.ExtractorRendererBuilder;
 import com.marcn.mediathek.player.HlsRendererBuilder;
 import com.marcn.mediathek.player.Player;
 import com.marcn.mediathek.player.Player.RendererBuilder;
+import com.marcn.mediathek.player.VideoControllerView;
 import com.marcn.mediathek.utils.LayoutTasks;
 
 import java.io.FileNotFoundException;
@@ -53,15 +52,14 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
     private static final String ARG_STREAM_URL = "stream-url";
     private String mStreamUrl;
 
-    private VideoView mVideoView;
     private ImageView shutterView;
-    private View debugRootView;
     private AspectRatioFrameLayout videoFrame;
     private TextureView surfaceView;
-    private TextView debugTextView;
     private Player player;
     private boolean playerNeedsPrepare;
-    private MediaController mediaController;
+    private VideoControllerView mediaController;
+
+    private boolean enableBackgroundAudio = true;
 
     public PlayerFragment() {
     }
@@ -97,7 +95,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         surfaceView = (TextureView) view.findViewById(R.id.surface_view);
         surfaceView.setSurfaceTextureListener(this);
 
-        mediaController = new MediaController(context);
+        mediaController = new VideoControllerView(context);
         mediaController.setAnchorView(videoFrame);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -120,7 +118,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     toggleControlsVisibility();
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    videoFrame.performClick();
+                    //videoFrame.performClick();
                 }
                 return true;
             }
@@ -229,28 +227,33 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
     @Override
     public void onResume() {
         super.onResume();
+        if (player != null)
+            player.setBackgrounded(false);
     }
 
     @Override
     public void onPause() {
         super.onPause();
         shutterView.setVisibility(View.VISIBLE);
-        releasePlayer();
 
-//        if (!enableBackgroundAudio) {
-//        } else {
-//            player.setBackgrounded(true);
-//        }
+        if (!enableBackgroundAudio) {
+            releasePlayer();
+        } else {
+            player.setBackgrounded(true);
+        }
     }
 
-    public void cleanLayout() {
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        releasePlayer();
     }
 
     @Override
     public void onStateChanged(boolean playWhenReady, int playbackState) {
-//        if (playbackState == ExoPlayer.STATE_ENDED) {
-//            showControls();
-//        }
+        if (playbackState == ExoPlayer.STATE_ENDED) {
+            mediaController.show(Integer.MAX_VALUE);
+        }
         String text = "playWhenReady=" + playWhenReady + ", playbackState=";
         switch(playbackState) {
             case ExoPlayer.STATE_BUFFERING:
@@ -272,6 +275,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
                     public void run() {
                         TransitionManager.beginDelayedTransition(videoFrame, new Fade());
                         shutterView.setVisibility(View.GONE);
+                        mediaController.showFirstTime();
                     }
                 }, 300);
                 break;
@@ -335,7 +339,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
     }
 
     private void showControls() {
-        mediaController.show(0);
+        mediaController.show();
     }
 
     @Override

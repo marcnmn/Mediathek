@@ -8,14 +8,16 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:id="@+id/imageThumbnail"/>
+        android:id="@+id/imageThumbnail"
+        android:clickable="false"/>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:adjustViewBounds="true"
         android:id="@+id/imageLogo"
         android:layout_alignParentEnd="true"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:clickable="false"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
