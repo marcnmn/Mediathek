@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import android.transition.Fade;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
@@ -97,7 +98,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         surfaceView.setSurfaceTextureListener(this);
 
         mediaController = new MediaController(context);
-        mediaController.setAnchorView(view);
+        mediaController.setAnchorView(videoFrame);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ((FrameLayout)view).setTransitionGroup(true);
@@ -112,6 +113,18 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
 
         if (isInLandscape() && !isImmersiveEnabled())
             hideSystemUI();
+
+        videoFrame.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    toggleControlsVisibility();
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    videoFrame.performClick();
+                }
+                return true;
+            }
+        });
 
         return view;
     }
@@ -164,8 +177,8 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
             player = new Player(getRendererBuilder());
             playerNeedsPrepare = true;
             player.addListener(this);
-//            mediaController.setMediaPlayer(player.getPlayerControl());
-//            mediaController.setEnabled(true);
+            mediaController.setMediaPlayer(player.getPlayerControl());
+            mediaController.setEnabled(true);
 //            eventLogger = new EventLogger();
 //            eventLogger.startSession();
 //            player.addListener(eventLogger);
@@ -311,6 +324,18 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         } else {
             return TYPE_OTHER;
         }
+    }
+
+    private void toggleControlsVisibility()  {
+        if (mediaController.isShowing()) {
+            mediaController.hide();
+        } else {
+            showControls();
+        }
+    }
+
+    private void showControls() {
+        mediaController.show(0);
     }
 
     @Override
