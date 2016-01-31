@@ -41,6 +41,9 @@ import android.widget.MediaController.MediaPlayerControl;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.utils.Anims;
 
+import java.util.Formatter;
+import java.util.Locale;
+
 /**
  * A view containing controls for a MediaPlayer. Typically contains the
  * buttons like "Play/Pause", "Rewind", "Fast Forward" and a progress
@@ -91,6 +94,9 @@ public class VideoControllerView extends FrameLayout {
     private boolean             mFallbackMode;
     private boolean             mIsFollowing;
     private ProgressBar mProgress;
+    private TextView mEndTime, mCurrentTime;
+    private StringBuilder mFormatBuilder;
+    private Formatter mFormatter;
 
 
     public VideoControllerView(Context context, AttributeSet attrs) {
@@ -164,11 +170,6 @@ public class VideoControllerView extends FrameLayout {
             mShareButton.requestFocus();
         }
 
-        if (mAnchor != null) {
-            mAnchor.removeViews(1, mAnchor.getChildCount() - 1);
-            mAnchor.addView(this);
-        }
-
         mProgress = (SeekBar) v.findViewById(R.id.mediacontroller_progress);
         if (mProgress != null) {
             if (mProgress instanceof SeekBar) {
@@ -178,13 +179,30 @@ public class VideoControllerView extends FrameLayout {
             }
             mProgress.setMax(1000);
         }
-        hide();
+
+        if (mAnchor != null) {
+            mAnchor.addView(this);
+        }
+
+        mEndTime = (TextView) v.findViewById(R.id.textEndTime);
+        mCurrentTime = (TextView) v.findViewById(R.id.textCurrentTime);
+        mFormatBuilder = new StringBuilder();
+        mFormatter = new Formatter(mFormatBuilder, Locale.getDefault());
     }
 
-    /**
-     * Show the controller on screen. It will go away
-     * automatically after 3 seconds of inactivity.
-     */
+    private void disableUnsupportedButtons() {
+        try {
+            if (mPauseButton != null && !mPlayer.canPause()) {
+                mPauseButton.setEnabled(false);
+            }
+
+            if (mProgress != null && !mPlayer.canSeekBackward() && !mPlayer.canSeekForward()) {
+                mProgress.setEnabled(false);
+            }
+        } catch (IncompatibleClassChangeError ex) {
+        }
+    }
+
     public void show() {
         show(INT_DEFAULT_TIMEOUT);
     }
@@ -394,6 +412,7 @@ public class VideoControllerView extends FrameLayout {
         if (mPauseButton != null) {
             mPauseButton.setEnabled(enabled);
         }
+        disableUnsupportedButtons();
         super.setEnabled(enabled);
     }
 
@@ -470,10 +489,10 @@ public class VideoControllerView extends FrameLayout {
             mProgress.setSecondaryProgress(percent * 10);
         }
 
-//        if (mEndTime != null)
-//            mEndTime.setText(stringForTime(duration));
-//        if (mCurrentTime != null)
-//            mCurrentTime.setText(stringForTime(position));
+        if (mEndTime != null)
+            mEndTime.setText(stringForTime(duration));
+        if (mCurrentTime != null)
+            mCurrentTime.setText(stringForTime(position));
         return position;
     }
 
@@ -485,5 +504,23 @@ public class VideoControllerView extends FrameLayout {
         mHandler.removeMessages(FADE_OUT);
         Message msg = mHandler.obtainMessage(FADE_OUT);
         mHandler.sendMessageDelayed(msg, timeout);
+    }
+
+    private String stringForTime(int timeMs) {
+        int totalSeconds = timeMs / 1000;
+
+        int seconds = totalSeconds % 60;
+        int minutes = (totalSeconds / 60) % 60;
+        int hours   = totalSeconds / 3600;
+
+        mFormatBuilder.setLength(0);
+
+        String time = minutes + ":" + seconds;
+        if (hours > 0) {
+            return time;
+        } else {
+            //return mFormatter.format("%02d:%02d", minutes, seconds).toString();
+            return time;
+        }
     }
 }

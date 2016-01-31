@@ -23,7 +23,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.MediaController;
 
 import com.google.android.exoplayer.AspectRatioFrameLayout;
 import com.google.android.exoplayer.ExoPlayer;
@@ -95,8 +94,9 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         surfaceView = (TextureView) view.findViewById(R.id.surface_view);
         surfaceView.setSurfaceTextureListener(this);
 
+        FrameLayout v = (FrameLayout) view.findViewById(R.id.controllerView);
         mediaController = new VideoControllerView(context);
-        mediaController.setAnchorView(videoFrame);
+        mediaController.setAnchorView(v);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ((FrameLayout)view).setTransitionGroup(true);
@@ -275,7 +275,6 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
                     public void run() {
                         TransitionManager.beginDelayedTransition(videoFrame, new Fade());
                         shutterView.setVisibility(View.GONE);
-                        mediaController.showFirstTime();
                     }
                 }, 300);
                 break;
