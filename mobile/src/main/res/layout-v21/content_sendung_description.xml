@@ -20,6 +20,7 @@
         android:id="@+id/imageChannel"
         android:paddingBottom="10dp"
         android:layout_marginEnd="15dp"
+        android:transitionName="channelLogo"
         android:gravity="center"
         tools:text="ZDF"/>
     <TextView
@@ -33,30 +34,31 @@
         android:textAppearance="@android:style/TextAppearance.Large"
         android:paddingBottom="5dp"
         tools:text="Aktezeichen XY ungelöst" />
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/textDate"-->
-        <!--android:layout_below="@+id/imageChannel"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:textAppearance="@android:style/TextAppearance.Small"-->
-        <!--android:paddingBottom="10dp"-->
-        <!--tools:text="12.01.2015" />-->
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/textDetailHeader"-->
-        <!--android:layout_below="@+id/imageChannel"-->
-        <!--android:textAppearance="@android:style/TextAppearance.Medium"-->
-        <!--android:paddingBottom="5dp"-->
-        <!--tools:text="Beschreibung:" />-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textDate"
+        android:layout_below="@+id/imageChannel"
+        android:layout_alignParentEnd="true"
+        android:textAppearance="@android:style/TextAppearance.Small"
+        android:paddingBottom="10dp"
+        tools:text="12.01.2015" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textDetailHeader"
+        android:layout_below="@+id/imageChannel"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:paddingBottom="5dp"
+        tools:text="Beschreibung:" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textDetail"
-        android:layout_below="@+id/textTitle"
+        android:layout_below="@+id/textDetailHeader"
         android:textAppearance="@android:style/TextAppearance.Medium"
-        tools:text="Manfred Berger, Manuela Droste und Michael Dißmer wurden am 3. November mit dem diesjährigen XY-Preis für ihr mutiges Handeln ausgezeichnet."/>
+        tools:text="Manfred Berger, Manuela Droste und Michael Dißmer wurden am 3. November mit
+        dem diesjährigen XY-Preis für ihr mutiges Handeln ausgezeichnet."/>
 </RelativeLayout>
 <!--</android.support.v7.widget.CardView>-->
     <!--</LinearLayout>-->

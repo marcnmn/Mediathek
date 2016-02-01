@@ -116,36 +116,36 @@ public class LiveStream {
         }
     }
 
-    public int getLogoResId () {
-        switch (id) {
-            // ZDF Sender
-            case "2639200": return R.drawable.ic_zdf;
-//            case "2492878": return R.drawable.ic_phoenix;
-//            case "1822544": return R.drawable.ic_zdf_kultur;
-//            case "2306126": return R.drawable.ic_zdf_info;
-//            case "1822440": return R.drawable.ic_zdf_neo;
-            // ARTE
-            case "6": return R.drawable.ic_arte;
-            // ARD
-            case "208": return R.drawable.ic_ard;
-            case "5868": return R.drawable.ic_ard_alpha;
-            case "5878": return R.drawable.ic_tagesschau24;
-            // Regional 1
-            case "5904": return R.drawable.ic_swr;
-            case "5902": return R.drawable.ic_wdr;
-            case "1386804": return R.drawable.ic_mdr;
-            case "21518352": return R.drawable.ic_ndr;
-            // Regional 2
-            case "21518950": return R.drawable.ic_br;
-            case "5870": return R.drawable.ic_sr;
-            case "HR": return R.drawable.ic_hr;
-//            case "21518358": return R.drawable.ic_rbb;
-            case "5900": return R.drawable.ic_3sat;
-            // KiKa
-            case "5886": return R.drawable.ic_kika;
-            default: return -1;
-        }
-    }
+//    public int getLogoResId () {
+//        switch (id) {
+//            // ZDF Sender
+//            case "2639200": return R.drawable.ic_zdf;
+////            case "2492878": return R.drawable.ic_phoenix;
+////            case "1822544": return R.drawable.ic_zdf_kultur;
+////            case "2306126": return R.drawable.ic_zdf_info;
+////            case "1822440": return R.drawable.ic_zdf_neo;
+//            // ARTE
+//            case "6": return R.drawable.ic_arte;
+//            // ARD
+//            case "208": return R.drawable.ic_ard;
+//            case "5868": return R.drawable.ic_ard_alpha;
+//            case "5878": return R.drawable.ic_tagesschau24;
+//            // Regional 1
+//            case "5904": return R.drawable.ic_swr;
+//            case "5902": return R.drawable.ic_wdr;
+//            case "1386804": return R.drawable.ic_mdr;
+//            case "21518352": return R.drawable.ic_ndr;
+//            // Regional 2
+//            case "21518950": return R.drawable.ic_br;
+//            case "5870": return R.drawable.ic_sr;
+//            case "HR": return R.drawable.ic_hr;
+////            case "21518358": return R.drawable.ic_rbb;
+//            case "5900": return R.drawable.ic_3sat;
+//            // KiKa
+//            case "5886": return R.drawable.ic_kika;
+//            default: return -1;
+//        }
+//    }
 
     @Override
     public String toString() {

@@ -104,10 +104,13 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
             else
                 viewHolder.mThumbnail.setImageDrawable(null);
 
-            if (item.channel != null)
-                viewHolder.mChannel.setImageResource(item.channel.getLogoResId());
-            else
-                viewHolder.mChannel.setImageDrawable(null);
+            if (viewHolder.mChannel != null)
+                viewHolder.mChannel.setText(item.channel.title);
+
+//            if (item.channel != null)
+//                viewHolder.mChannel.setImageResource(item.channel.getLogoResId());
+//            else
+//                viewHolder.mChannel.setImageDrawable(null);
         }
 
         GridSLM.LayoutParams lp = GridSLM.LayoutParams.from(itemView.getLayoutParams());
@@ -149,8 +152,8 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
 
     public class SendungViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mTitle;
-        public final ImageView mThumbnail, mChannel;
+        public final TextView mTitle, mChannel;
+        public final ImageView mThumbnail;
         public Sendung mItem;
 
         public SendungViewHolder(View view) {
@@ -158,7 +161,7 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
             mView = view;
             mTitle = (TextView) view.findViewById(R.id.textTitle);
             mThumbnail = (ImageView) view.findViewById(R.id.imageThumbnail);
-            mChannel = (ImageView) view.findViewById(R.id.imageChannel);
+            mChannel = (TextView) view.findViewById(R.id.imageChannel);
         }
     }
 }

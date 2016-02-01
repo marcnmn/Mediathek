@@ -129,10 +129,12 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
             else
                 viewHolder.mThumbnail.setImageDrawable(null);
 
-            if (item.channel != null)
-                viewHolder.mChannel.setImageResource(item.channel.getLogoResId());
-            else
-                viewHolder.mChannel.setImageDrawable(null);
+            if (viewHolder.mChannel != null)
+                viewHolder.mChannel.setText(item.channel.title);
+//            if (item.channel != null)
+//                viewHolder.mChannel.setImageResource(item.channel.getLogoResId());
+//            else
+//                viewHolder.mChannel.setImageDrawable(null);
         }
 
         GridSLM.LayoutParams lp = GridSLM.LayoutParams.from(itemView.getLayoutParams());
@@ -173,8 +175,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
 
     public class SendungViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mTitle, mVideoInfo;
-        public final ImageView mThumbnail, mChannel;
+        public final TextView mTitle, mVideoInfo, mChannel;
+        public final ImageView mThumbnail;
         public Video mItem;
 
         public SendungViewHolder(View view) {
@@ -183,7 +185,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
             mTitle = (TextView) view.findViewById(R.id.textTitle);
             mVideoInfo = (TextView) view.findViewById(R.id.textVideoInfo);
             mThumbnail = (ImageView) view.findViewById(R.id.imageThumbnail);
-            mChannel = (ImageView) view.findViewById(R.id.imageChannel);
+            mChannel = (TextView) view.findViewById(R.id.imageChannel);
         }
     }
 }

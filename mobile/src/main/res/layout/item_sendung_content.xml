@@ -13,14 +13,25 @@
         android:scaleType="centerCrop"
         android:layout_marginEnd="15dp"/>
 
-    <ImageView
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/imageChannel"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:paddingTop="24dip"-->
+        <!--android:paddingBottom="24dip"-->
+        <!--android:layout_marginEnd="15dp"/>-->
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageChannel"
         android:layout_centerVertical="true"
         android:layout_alignParentEnd="true"
-        android:scaleType="centerCrop"
-        android:adjustViewBounds="true"
+        android:gravity="center"
         android:paddingTop="24dip"
         android:paddingBottom="24dip"
         android:layout_marginEnd="15dp"/>

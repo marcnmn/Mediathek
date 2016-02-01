@@ -70,21 +70,22 @@ public class MainActivity extends BaseActivity {
             loadCleanFragment(new LiveStreamsFragment(), R.id.content_main, FRAGMENT_NAME_FIRST_PAGE, LiveStreamsFragment.FRAGMENT_TAG);
         } else if (id == R.id.nav_gallery) {
             loadCleanFragment(new ZdfMissedVideoFragment());
-        } else if (id == R.id.nav_zdf_mediathek) {
+//        } else if (id == R.id.nav_zdf_mediathek) {
+//            loadCleanFragment(new SendungenAbisZFragment());
+//        } else if (id == R.id.nav_arte_mediathek) {
+//        } else if (id == R.id.nav_ard_mediathek) {
+        } else if (id == R.id.nav_all_series) {
             loadCleanFragment(new SendungenAbisZFragment());
-        } else if (id == R.id.nav_arte_mediathek) {
-        } else if (id == R.id.nav_ard_mediathek) {
-        } else if (id == R.id.nav_manage) {
         }
 
         Channel channel = null;
         switch (id) {
-            case R.id.nav_ard: channel = new Channel(getString(R.string.ard_name)); break;
             case R.id.nav_zdf: channel = new Channel(getString(R.string.zdf_name)); break;
-            case R.id.nav_arte: channel = new Channel(getString(R.string.arte_name)); break;
-            case R.id.nav_3sat: channel = new Channel(getString(R.string.drei_sat_name)); break;
             case R.id.nav_phoenix: channel = new Channel(getString(R.string.phoenix_name)); break;
             case R.id.nav_zdf_neo: channel = new Channel(getString(R.string.zdf_neo_name)); break;
+            case R.id.nav_zdf_kultur: channel = new Channel(getString(R.string.zdf_kultur_name)); break;
+            case R.id.nav_zdf_info: channel = new Channel(getString(R.string.zdf_info_name)); break;
+            case R.id.nav_3sat: channel = new Channel(getString(R.string.drei_sat_name)); break;
         }
         if (channel != null)
             startChannelActivity(channel);

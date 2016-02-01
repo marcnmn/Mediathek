@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
@@ -97,22 +98,29 @@ public class ChannelActivity extends BaseActivity
         transaction.commit();
     }
 
-    private void setupHeaderView(LiveStream liveStream) {
+    private void setupHeaderView(final LiveStream liveStream) {
         if (liveStream == null) return;
-//        if (findViewById(R.id.imageChannel) != null)
+        if (findViewById(R.id.imageChannel) != null)
+            ((TextView) findViewById(R.id.imageChannel)).setText(mChannel.title);
 //            ((ImageView) findViewById(R.id.imageChannel)).setImageResource(sendung.channel.getLogoResId());
         if (findViewById(R.id.textTitle) != null)
             ((TextView) findViewById(R.id.textTitle)).setText(liveStream.getTitle());
 
-//        if (findViewById(R.id.textDetail) != null)
-//            ((TextView) findViewById(R.id.textDetail)).setText(channel.detail);
+        if (findViewById(R.id.textDetail) != null)
+            ((TextView) findViewById(R.id.textDetail)).setText(liveStream.detail);
 
-        ImageView thumbnail = (ImageView) findViewById(R.id.imageThumbnail);
+        final ImageView thumbnail = (ImageView) findViewById(R.id.imageThumbnail);
         if (thumbnail != null && liveStream.thumb_url != null)
-            Picasso.with(this)
-                    .load(liveStream.thumb_url)
-                    .config(Bitmap.Config.RGB_565)
-                    .into(thumbnail);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Picasso.with(mContext)
+                            .load(liveStream.thumb_url)
+                            .config(Bitmap.Config.RGB_565)
+                            .into(thumbnail);
+                }
+            }, 400);
+
     }
 
 //    private void getIntentThumbnail() {

@@ -56,19 +56,10 @@ public class XmlParser {
             case Constants.TITLE_CHANNEL_ARD:
                 liveStream = ardLiveStreamsData(context, channel);
                 break;
-            case Constants.TITLE_CHANNEL_ZDF:
-                liveStream = getZDFLiveStreamData(context, channel);
-                break;
             case Constants.TITLE_CHANNEL_ARTE:
                 liveStream = arteLiveStreamData(context, channel);
                 break;
-            case Constants.TITLE_CHANNEL_3SAT:
-                liveStream = getZDFLiveStreamData(context, channel);
-                break;
-            case Constants.TITLE_CHANNEL_PHOENIX:
-                liveStream = getZDFLiveStreamData(context, channel);
-                break;
-            case Constants.TITLE_CHANNEL_ZDF_NEO:
+            default:
                 liveStream = getZDFLiveStreamData(context, channel);
                 break;
         }

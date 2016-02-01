@@ -12,16 +12,25 @@
         android:adjustViewBounds="true"
         android:layout_margin="10dp"/>
 
-    <ImageView
+    <!--<ImageView-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:id="@+id/imageChannel"-->
+        <!--android:scaleType="centerInside"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:layout_below="@id/imageThumbnail"-->
+        <!--android:layout_marginStart="15dp"-->
+        <!--android:layout_marginEnd="15dp"/>-->
+
+    <TextView
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/imageChannel"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
         android:layout_below="@id/imageThumbnail"
-        android:src="@drawable/ic_zdf_neo"
+        android:gravity="center"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"/>
+    <!--android:src="@drawable/ic_zdf_neo"-->
 
     <ImageView
         android:layout_width="wrap_content"

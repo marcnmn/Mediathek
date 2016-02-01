@@ -80,11 +80,13 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
                     .into(holder.mThumb);
 
         // Logo Image
-        int logo = holder.mItem.getLogoResId();
-        if (logo > 0)
-            holder.mLogo.setImageResource(logo);
-        else
-            holder.mLogo.setImageBitmap(null);
+        if (holder.mLogo != null)
+            holder.mLogo.setText(holder.mItem.channelObject.title);
+//        int logo = holder.mItem.getLogoResId();
+//        if (logo > 0)
+//            holder.mLogo.setImageResource(logo);
+//        else
+//            holder.mLogo.setImageBitmap(null);
 
         // OnClick
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -119,7 +121,9 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final ImageView mThumb, mLogo;
+        public final ImageView mThumb;
+//        public final ImageView mLogo;
+        public final TextView mLogo;
         public final TextView mTitle;
         public LiveStream mItem;
 
@@ -127,7 +131,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
             super(view);
             mView = view;
             mThumb = (ImageView) view.findViewById(R.id.imageThumbnail);
-            mLogo = (ImageView) view.findViewById(R.id.imageLogo);
+            mLogo = (TextView) view.findViewById(R.id.imageLogo);
             mTitle = (TextView) view.findViewById(R.id.textTitle);
         }
     }
