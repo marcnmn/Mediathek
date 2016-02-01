@@ -61,6 +61,15 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
     }
 
     @Nullable
+    public Video getItem(int position) {
+        if (position < 0 || position >= mValues.size())
+            return null;
+        if (mValues.get(position).isHeader)
+            return getItem(position + 1);
+        return mValues.get(position);
+    }
+
+    @Nullable
     public String getMember(int position) {
         if (position < 0 || position >= mValues.size())
             return null;

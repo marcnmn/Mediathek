@@ -105,6 +105,8 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
                         mVideoAdapter.updateValues(videos);
                         mVideoAdapter.setLoading(false);
                         mIsLoading = false;
+                        if (mVideoAdapter.getItemCount() < 4)
+                            downloadMissedVideos(0, INT_UPDATE_COUNT);
                     }
                 });
             }
@@ -125,7 +127,12 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
     public boolean onTouch(View v, MotionEvent event) {
         float normalizedPosition = 1.7f * (event.getY() - mWindowHeight / 2) + mWindowHeight / 2;
         int fastScrollPosition = (int) (mVideoAdapter.getItemCount() * normalizedPosition / mWindowHeight);
-        fastScrollPosition = Math.max(0, Math.min(fastScrollPosition, mVideoAdapter.getItemCount() - 1));
+
+        if (fastScrollPosition < 0)
+            fastScrollPosition = 0;
+        else if (fastScrollPosition >= mVideoAdapter.getItemCount())
+            fastScrollPosition = mVideoAdapter.getItemCount() - 2;
+
         mLayoutManager.scrollToPosition(fastScrollPosition);
 
         // Indicator
@@ -133,9 +140,9 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
         mIndicator.setLayoutParams(mScrollLayoutParams);
 
         int firstVisible = mLayoutManager.findFirstCompletelyVisibleItemPosition();
-        if (mVideoAdapter.getMember(firstVisible) != null) {
-            mIndicator.setText(mVideoAdapter.getMember(firstVisible));
-        }
+        Video video = mVideoAdapter.getItem(firstVisible);
+        if (video != null)
+            mIndicator.setText(video.getAirTimeDay());
 
         if (event.getAction() == MotionEvent.ACTION_DOWN && firstVisible >= 1)
             mIndicator.setVisibility(View.VISIBLE);

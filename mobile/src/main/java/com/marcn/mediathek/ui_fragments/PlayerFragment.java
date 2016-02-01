@@ -96,7 +96,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
 
         FrameLayout v = (FrameLayout) view.findViewById(R.id.controllerView);
         mediaController = new VideoControllerView(context);
-        mediaController.setAnchorView(v);
+        mediaController.setAnchorView(videoFrame);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ((FrameLayout)view).setTransitionGroup(true);

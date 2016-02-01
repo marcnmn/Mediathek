@@ -61,6 +61,10 @@ public class Video {
         return video;
     }
 
+    public String getAirTimeDay() {
+        return airtime.length() >= 2 ? airtime.substring(0, 2) : "";
+    }
+
     public String getAirtime() {
         if (airtime == null) return "";
         String [] s = airtime.split(" ");

@@ -16,9 +16,7 @@
 
 package com.marcn.mediathek.player;
 
-import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.animation.TimeInterpolator;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -44,34 +42,6 @@ import com.marcn.mediathek.utils.Anims;
 import java.util.Formatter;
 import java.util.Locale;
 
-/**
- * A view containing controls for a MediaPlayer. Typically contains the
- * buttons like "Play/Pause", "Rewind", "Fast Forward" and a progress
- * slider. It takes care of synchronizing the controls with the state
- * of the MediaPlayer.
- * <p>
- * The way to use this class is to instantiate it programatically.
- * The MediaController will create a default set of controls
- * and put them in a window floating above your application. Specifically,
- * the controls will float above the view specified with setAnchorView().
- * The window will disappear if left idle for three seconds and reappear
- * when the user touches the anchor view.
- * <p>
- * Functions like show() and hide() have no effect when MediaController
- * is created in an xml layout.
- * 
- * MediaController will hide and
- * show the buttons according to these rules:
- * <ul>
- * <li> The "previous" and "next" buttons are hidden until setPrevNextListeners()
- *   has been called
- * <li> The "previous" and "next" buttons are visible but disabled if
- *   setPrevNextListeners() was called with null listeners
- * <li> The "rewind" and "fastforward" buttons are shown unless requested
- *   otherwise by using the MediaController(Context, boolean) constructor
- *   with the boolean set to false
- * </ul>
- */
 public class VideoControllerView extends FrameLayout {
     private static final String TAG = "VideoControllerView";
     private static final int INT_DEFAULT_TIMEOUT = 3000;
@@ -87,16 +57,11 @@ public class VideoControllerView extends FrameLayout {
     private ImageView           mPauseButton;
     private ImageView           mSettingsButton;
     private ImageView           mShareButton;
-    private ImageView           mFollowButton;
-    private TextView            mViewersCount;
-    private ImageView           mFullscreenButton;
-    private ImageView           mViewersIcon;
-    private boolean             mFallbackMode;
-    private boolean             mIsFollowing;
     private ProgressBar mProgress;
     private TextView mEndTime, mCurrentTime;
     private StringBuilder mFormatBuilder;
     private Formatter mFormatter;
+    private View mProgressContainer;
 
 
     public VideoControllerView(Context context, AttributeSet attrs) {
@@ -124,14 +89,8 @@ public class VideoControllerView extends FrameLayout {
     public void setMediaPlayer(MediaPlayerControl player) {
         mPlayer = player;
         updatePausePlay();
-        updateFullScreen();
     }
 
-    /**
-     * Set the view that acts as the anchor for the control view.
-     * This can for example be a VideoView, or your Activity's main view.
-     * @param view The view to which to anchor the controller when it is visible.
-     */
     public void setAnchorView(ViewGroup view) {
         mAnchor = view;
 
@@ -140,14 +99,13 @@ public class VideoControllerView extends FrameLayout {
                 ViewGroup.LayoutParams.MATCH_PARENT
         );
 
-        removeAllViews();
         View v = makeControllerView();
         addView(v, frameParams);
     }
 
     protected View makeControllerView() {
         LayoutInflater inflate = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mRoot = inflate.inflate(R.layout.media_controller2, null);
+        mRoot = inflate.inflate(R.layout.media_controller, null);
 
         initControllerView(mRoot);
         return mRoot;
@@ -169,6 +127,8 @@ public class VideoControllerView extends FrameLayout {
         if (mShareButton != null) {
             mShareButton.requestFocus();
         }
+
+        mProgressContainer = v.findViewById(R.id.progressContainer);
 
         mProgress = (SeekBar) v.findViewById(R.id.mediacontroller_progress);
         if (mProgress != null) {
@@ -195,10 +155,6 @@ public class VideoControllerView extends FrameLayout {
             if (mPauseButton != null && !mPlayer.canPause()) {
                 mPauseButton.setEnabled(false);
             }
-
-            if (mProgress != null && !mPlayer.canSeekBackward() && !mPlayer.canSeekForward()) {
-                mProgress.setEnabled(false);
-            }
         } catch (IncompatibleClassChangeError ex) {
         }
     }
@@ -215,41 +171,20 @@ public class VideoControllerView extends FrameLayout {
     public void show(int timeout) {
         if (!mShowing && mAnchor != null) {
             mRoot.setVisibility(VISIBLE);
-            if (mPauseButton != null) {
+            if (mPauseButton != null)
                 mPauseButton.requestFocus();
-            }
+
             setProgress();
 
             ObjectAnimator fadeIn = ObjectAnimator.ofFloat(this, "alpha", 0.f, 1.f);
+            fadeIn.start();
 
-            if (mPauseButton != null) {
-                ObjectAnimator scaleDownX = ObjectAnimator.ofFloat(mPauseButton, "scaleX", 1.1f);
-                ObjectAnimator scaleDownY = ObjectAnimator.ofFloat(mPauseButton, "scaleY", 1.1f);
-                scaleDownX.setInterpolator(new TimeInterpolator() {
-                    @Override
-                    public float getInterpolation(float v) {
-                        v = 2 * v - 1f;
-                        return -v * v + 1f;
-                    }
-                });
-                scaleDownY.setInterpolator(new TimeInterpolator() {
-                    @Override
-                    public float getInterpolation(float v) {
-                        v = 2 * v - 1f;
-                        return -v * v + 1f;
-                    }
-                });
-                AnimatorSet scaleDown = new AnimatorSet();
-                scaleDown.play(scaleDownX).with(scaleDownY).with(fadeIn);
-                scaleDown.start();
-            }
+            if (mPauseButton != null)
+                Anims.slightBounce(mPauseButton);
+
             mShowing = true;
         }
         updatePausePlay();
-        
-        // cause the progress bar to be updated even if mShowing
-        // was already true.  This happens, for example, if we're
-        // paused with the progress bar showing the user hits play.
         mHandler.sendEmptyMessage(SHOW_PROGRESS);
 
         if (timeout != 0) {
@@ -258,14 +193,11 @@ public class VideoControllerView extends FrameLayout {
             mHandler.sendMessageDelayed(msg, timeout);
         }
     }
-    
+
     public boolean isShowing() {
         return mShowing;
     }
 
-    /**
-     * Remove the controller from the screen.
-     */
     public void hide() {
         if (mAnchor == null) {
             return;
@@ -377,25 +309,8 @@ public class VideoControllerView extends FrameLayout {
         }
     }
 
-    public void updateFullScreen() {
-        if (mRoot == null || mFullscreenButton == null || mPlayer == null) {
-            return;
-        }
-//        if (mPlayer.isFullScreen()) {
-//            mFullscreenButton.setImageResource(R.drawable.ic_fullscreen_exit_white);
-//        }
-//        else {
-//            mFullscreenButton.setImageResource(R.drawable.ic_fullscreen_white);
-//        }
-    }
-
     private void doPauseResume() {
         if (mPlayer == null) {
-            return;
-        }
-
-        if (mFallbackMode) {
-            mPlayer.pause();
             return;
         }
         
@@ -479,6 +394,13 @@ public class VideoControllerView extends FrameLayout {
         }
         int position = mPlayer.getCurrentPosition();
         int duration = mPlayer.getDuration();
+
+        if (duration <= 0)
+            mProgressContainer.setVisibility(GONE);
+        else
+            mProgressContainer.setVisibility(VISIBLE);
+
+
         if (mProgress != null) {
             if (duration > 0) {
                 // use long to avoid overflow
@@ -515,12 +437,10 @@ public class VideoControllerView extends FrameLayout {
 
         mFormatBuilder.setLength(0);
 
-        String time = minutes + ":" + seconds;
         if (hours > 0) {
-            return time;
+            return mFormatter.format("%d:%02d:%02d", hours, minutes, seconds).toString();
         } else {
-            //return mFormatter.format("%02d:%02d", minutes, seconds).toString();
-            return time;
+            return mFormatter.format("%02d:%02d", minutes, seconds).toString();
         }
     }
 }
