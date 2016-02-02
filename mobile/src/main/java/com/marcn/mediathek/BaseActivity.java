@@ -2,18 +2,26 @@ package com.marcn.mediathek;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
+import android.transition.Transition;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,6 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity
     public static String FRAGMENT_NAME_FIRST_PAGE = "first-fragment";
 
     abstract void navigationIdReceived(int id);
+    abstract void setExitTransition();
 
     void loadCleanFragment(Fragment fragment, int containerId) {
         loadCleanFragment(fragment, containerId, "0");
@@ -106,10 +115,34 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     public void onLiveStreamClicked(final LiveStream liveStream, final View view, final int videoAction) {
         final Activity activity = this;
+        setExitTransition();
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Playback.playByUrl(activity, liveStream.getLiveM3U8(view.getContext()), view, videoAction, liveStream.channel);
+                Playback.playByUrl(activity, liveStream.getLiveM3U8(), view, videoAction, liveStream.channel);
+            }
+        });
+    }
+
+    @Override
+    public void playVideoWithInternalPlayer(final String url, final ActivityOptions activityOptions) {
+        final Activity activity = this;
+        setExitTransition();
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Playback.startInternalPlayer(activity, url, activityOptions);
+            }
+        });
+    }
+
+    @Override
+    public void playVideoExternal(final String url, final String title, final int videoAction) {
+        final Activity activity = this;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Playback.playByUrl(activity, url, null, videoAction, title);
             }
         });
     }
@@ -149,7 +182,8 @@ public abstract class BaseActivity extends AppCompatActivity
         Storage.saveBitmapOnDisk(this, bmp);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setExitTransition(new Explode());
+            //getWindow().setExitTransition(new Explode());
+            setExitTransition();
 
             thumbnail.setTransitionName("thumbnail");
             ActivityOptions options = ActivityOptions

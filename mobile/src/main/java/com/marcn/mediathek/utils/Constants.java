@@ -33,19 +33,29 @@ public class Constants {
 
     public static final String TITLE_CHANNEL_KIKA = "KiKA";
 
-    // HTML QUERIES
-    public final static String ARD_QUERY = "Das-Erste";
-    public final static String ARD_ALPHA_QUERY = "ARD-alpha";
-    public final static String BR_QUERY = "Bayerisches-Fernsehen-S%C3%BCd";
-    public final static String MDR_QUERY = "MDR-SACHSEN";
-    public final static String NDR_QUERY = "NDR-Niedersachsen";
-    public final static String RBB_QUERY = "rbb-Berlin";
-    public final static String SR_QUERY = "SR-Fernsehen";
-    public final static String SWR_QUERY = "SWR-Baden-W%C3%BCrttemberg";
-    public final static String WDR_QUERY = "WDR-Fernsehen";
-    public final static String TAGESSCHAU_QUERY = "tagesschau24";
-    public final static String DREI_SAT_QUERY = "3sat";
-    public final static String KIKA_QUERY = "KiKA";
+    public static final String LIVE_STREAM_CHANNEL_ZDF = "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/index_3056_av-p.m3u8?sd=10&amp;dw=0&amp;rebase=on&amp;hdntl=";
+    public static final String LIVE_STREAM_CHANNEL_PHOENIX = "http://zdf-hds-de-f.zdf.de/i/de09_v1@87012/master.m3u8?dw=0";
+    public static final String LIVE_STREAM_CHANNEL_ZDF_KULTUR = "http://zdf1112-lh.akamaihd.net/i/de11_v1@392881/master.m3u8?dw=0";
+    public static final String LIVE_STREAM_CHANNEL_ZDF_INFO = "http://zdf1112-lh.akamaihd.net/i/de12_v1@392882/master.m3u8?dw=0";
+    public static final String LIVE_STREAM_CHANNEL_3SAT = "http://zdf0910-lh.akamaihd.net/i/dach10_v1@392872/master.m3u8?dw=0";
+    public static final String LIVE_STREAM_CHANNEL_ZDF_NEO = "http://zdf1314-lh.akamaihd.net/i/de13_v1@392877/master.m3u8?dw=0";
+
+    public static final String LIVE_STREAM_CHANNEL_ARTE = "http://delive.artestras.cshls.lldns.net/artestras/contrib/delive.m3u8";
+
+    public static final String LIVE_STREAM_CHANNEL_ARD = "http://daserste_live-lh.akamaihd.net/i/daserste_de@91204/master.m3u8";
+    public static final String LIVE_STREAM_CHANNEL_ARD_ALPHA = "http://livestreams.br.de/i/bralpha_germany@119899/master.m3u8";
+    public static final String LIVE_STREAM_CHANNEL_TAGESSCHAU = "http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8";
+
+    public static final String LIVE_STREAM_CHANNEL_SWR = "http://swrbw-lh.akamaihd.net/i/swrbw_live@196738/master.m3u8";
+    public static final String LIVE_STREAM_CHANNEL_MDR = "http://mdr_th_hls-lh.akamaihd.net/i/livetvmdrthueringen_de@106903/master.m3u8";
+    public static final String LIVE_STREAM_CHANNEL_NDR = "http://ndr_fs-lh.akamaihd.net/i/ndrfs_nds@119224/master.m3u8";
+    public static final String LIVE_STREAM_CHANNEL_WDR = "http://wdr_fs_geo-lh.akamaihd.net/i/wdrfs_geogeblockt@112044/master.m3u8";
+
+    public static final String LIVE_STREAM_CHANNEL_BR = "http://livestreams.br.de/i/bfsnord_germany@119898/master.m3u8";
+    public static final String LIVE_STREAM_CHANNEL_SR = "http://live2_sr-lh.akamaihd.net/i/sr_universal02@107595/master.m3u8";
+    public static final String LIVE_STREAM_CHANNEL_RBB = "http://rbb_live-lh.akamaihd.net/i/rbb_brandenburg@107638/master.m3u8";
+
+    public static final String LIVE_STREAM_CHANNEL_KIKA = "http://kika_geo-lh.akamaihd.net/i/livetvkika_de@75114/master.m3u8";
 
     public static ArrayList<Channel> getBaseChannels(Context c){
         ArrayList<Channel> ls =  new ArrayList<>();

@@ -1,5 +1,6 @@
 package com.marcn.mediathek;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
+import android.transition.Explode;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -92,6 +94,9 @@ public class SeriesActivity extends BaseActivity {
         if (findViewById(R.id.textDetail) != null)
             ((TextView) findViewById(R.id.textDetail)).setText(sendung.detail);
 
+        if (findViewById(R.id.imageChannel) != null)
+            ((TextView) findViewById(R.id.imageChannel)).setText(sendung.channel.title);
+
         ImageView thumbnail = (ImageView) findViewById(R.id.imageThumbnail);
         if (thumbnail != null && sendung.thumb_url_high != null)
             Picasso.with(this)
@@ -139,5 +144,11 @@ public class SeriesActivity extends BaseActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(resId, VideoWidgetFragment.newInstance(assetId, Type));
         transaction.commit();
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    void setExitTransition() {
+        getWindow().setExitTransition(new Explode());
     }
 }

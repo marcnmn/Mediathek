@@ -101,7 +101,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
         holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                mListener.onLiveStreamClicked(holder.mItem, holder.mThumb, Video.ACTION_SHARE_VIDEO_DIALOG);
+                mListener.playVideoExternal(holder.mItem.getLiveM3U8(), holder.mItem.title, Video.ACTION_SHARE_VIDEO_DIALOG);
                 return true;
             }
         });

@@ -49,12 +49,24 @@ public class Playback {
         Storage.saveBitmapOnDisk(activity, bmp);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            activity.getWindow().setExitTransition(new Explode());
+//            activity.getWindow().setExitTransition(new Explode());
 
             view.setTransitionName("thumb");
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity,
                     Pair.create(view, "thumb"));
             activity.startActivity(intent, options.toBundle());
+        } else {
+            activity.startActivity(intent);
+        }
+    }
+
+    public static void startInternalPlayer(Activity activity, String url, ActivityOptions activityOptions) {
+        if (url == null) return;
+        Intent intent = new Intent(activity, PlayerActivity.class);
+        intent.putExtra(PlayerActivity.INTENT_LIVE_STREAM_URL, url);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            activity.startActivity(intent, activityOptions.toBundle());
         } else {
             activity.startActivity(intent);
         }

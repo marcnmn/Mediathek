@@ -1,6 +1,8 @@
 package com.marcn.mediathek;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -10,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.transition.Explode;
 import android.view.View;
 
 import com.marcn.mediathek.base_objects.Channel;
@@ -93,5 +96,11 @@ public class MainActivity extends BaseActivity {
 
     private void loadCleanFragment(Fragment fragment) {
         loadCleanFragment(fragment, R.id.content_main);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    void setExitTransition() {
+        getWindow().setExitTransition(new Explode());
     }
 }

@@ -49,13 +49,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
             <include layout="@layout/content_sendung_description" />
             <include layout="@layout/fragment_sidescroll_videos" android:id="@+id/widgetLast" />
             <include layout="@layout/fragment_sidescroll_videos" android:id="@+id/widgetMost" />
             <include layout="@layout/fragment_sidescroll_videos" android:id="@+id/widgetFurther" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -64,7 +67,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_play_arrow_white_24dp"
         app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end" />
+        app:layout_anchorGravity="bottom|end"/>
     <!--android:src="@android:drawable/ic_media_play"-->
 
 </android.support.design.widget.CoordinatorLayout>

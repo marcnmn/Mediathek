@@ -1,10 +1,12 @@
 package com.marcn.mediathek;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.transition.Explode;
+import android.transition.Fade;
 
 import com.marcn.mediathek.ui_fragments.PlayerFragment;
 
@@ -22,7 +24,7 @@ public class PlayerActivity extends BaseActivity {
         navigationView.setNavigationItemSelectedListener(this);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setExitTransition(new Explode());
+            setExitTransition();
         }
 
         Intent intent = getIntent();
@@ -38,5 +40,11 @@ public class PlayerActivity extends BaseActivity {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(MainActivity.INTENT_LIVE_DRAWER_ITEM, id);
         startActivity(intent);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    void setExitTransition() {
+        getWindow().setExitTransition(new Fade());
     }
 }

@@ -3,6 +3,7 @@ package com.marcn.mediathek.base_objects;
 import android.content.Context;
 
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -85,33 +86,32 @@ public class LiveStream {
         this.queryName = queryName;
     }
 
-    public String getLiveM3U8 (Context c) {
-        switch (id) {
+    public String getLiveM3U8 () {
+        switch (channel) {
             // ZDF Sender
-            case "2639200": return c.getString(R.string.zdf_hd_m3u8);
-            case "2492878": return c.getString(R.string.phoenix_m3u8);
-            case "1822544": return c.getString(R.string.zdf_kultur_m3u8);
-            case "2306126": return c.getString(R.string.zdf_info_m3u8);
-            case "5900": return c.getString(R.string.drei_sat_m3u8);
-            case "1822440": return c.getString(R.string.zdf_neo_m3u8);
+            case Constants.TITLE_CHANNEL_ZDF: return Constants.LIVE_STREAM_CHANNEL_ZDF;
+            case Constants.TITLE_CHANNEL_PHOENIX: return Constants.LIVE_STREAM_CHANNEL_PHOENIX;
+            case Constants.TITLE_CHANNEL_ZDF_KULTUR: return Constants.LIVE_STREAM_CHANNEL_ZDF_KULTUR;
+            case Constants.TITLE_CHANNEL_ZDF_INFO: return Constants.LIVE_STREAM_CHANNEL_ZDF_INFO;
+            case Constants.TITLE_CHANNEL_3SAT: return Constants.LIVE_STREAM_CHANNEL_3SAT;
+            case Constants.TITLE_CHANNEL_ZDF_NEO: return Constants.LIVE_STREAM_CHANNEL_ZDF_NEO;
             // ARTE
-            case "6": return c.getString(R.string.arte_m3u8);
+            case Constants.TITLE_CHANNEL_ARTE: return Constants.LIVE_STREAM_CHANNEL_ARTE;
             // ARD
-            case "208": return c.getString(R.string.ard_m3u8);
-            case "5868": return c.getString(R.string.ard_alpha_m3u8);
-            case "5878": return c.getString(R.string.tagesschau_m3u8);
+            case Constants.TITLE_CHANNEL_ARD: return Constants.LIVE_STREAM_CHANNEL_ARD;
+            case Constants.TITLE_CHANNEL_ARD_ALPHA: return Constants.LIVE_STREAM_CHANNEL_ARD_ALPHA;
+            case Constants.TITLE_CHANNEL_TAGESSCHAU: return Constants.LIVE_STREAM_CHANNEL_TAGESSCHAU;
             // Regional 1
-            case "5904": return c.getString(R.string.swr_m3u8);
-            case "5902": return c.getString(R.string.wdr_m3u8);
-            case "1386804": return c.getString(R.string.mdr_m3u8);
-            case "21518352": return c.getString(R.string.ndr_m3u8);
+            case Constants.TITLE_CHANNEL_SWR: return Constants.LIVE_STREAM_CHANNEL_SWR;
+            case Constants.TITLE_CHANNEL_WDR: return Constants.LIVE_STREAM_CHANNEL_WDR;
+            case Constants.TITLE_CHANNEL_MDR: return Constants.LIVE_STREAM_CHANNEL_MDR;
+            case Constants.TITLE_CHANNEL_NDR: return Constants.LIVE_STREAM_CHANNEL_NDR;
             // Regional 2
-            case "21518950": return c.getString(R.string.br_m3u8);
-            case "5870": return c.getString(R.string.sr_m3u8);
-            case "HR": return c.getString(R.string.hr_m3u8);
-            case "21518358": return c.getString(R.string.rbb_m3u8);
+            case Constants.TITLE_CHANNEL_BR: return Constants.LIVE_STREAM_CHANNEL_BR;
+            case Constants.TITLE_CHANNEL_SR: return Constants.LIVE_STREAM_CHANNEL_SR;
+            case Constants.TITLE_CHANNEL_RBB: return Constants.LIVE_STREAM_CHANNEL_RBB;
             // KiKa
-            case "5886": return c.getString(R.string.kika_m3u8);
+            case Constants.TITLE_CHANNEL_KIKA: return Constants.LIVE_STREAM_CHANNEL_KIKA;
             default: return null;
         }
     }

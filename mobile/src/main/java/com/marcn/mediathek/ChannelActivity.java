@@ -1,26 +1,40 @@
 package com.marcn.mediathek;
 
+import android.annotation.TargetApi;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.transition.Explode;
+import android.transition.Fade;
+import android.util.Pair;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.marcn.mediathek.base_objects.Channel;
 import com.marcn.mediathek.base_objects.LiveStream;
+import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
+import com.marcn.mediathek.utils.Anims;
+import com.marcn.mediathek.utils.Storage;
 import com.marcn.mediathek.utils.XmlParser;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class ChannelActivity extends BaseActivity
         implements AppBarLayout.OnOffsetChangedListener {
@@ -34,6 +48,8 @@ public class ChannelActivity extends BaseActivity
     private boolean mToolbarIsShown = false;
     private int mToolbarScrollRange = -1;
     private Context mContext;
+    private ImageView mThumbnail;
+    private FloatingActionButton mFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +59,9 @@ public class ChannelActivity extends BaseActivity
         setSupportActionBar(toolbar);
 
         mContext = toolbar.getContext();
+        mThumbnail = (ImageView) findViewById(R.id.imageThumbnail);
+        mFab = (FloatingActionButton) findViewById(R.id.fab);
+        Anims.fadeOut(mFab, 0);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -65,9 +84,16 @@ public class ChannelActivity extends BaseActivity
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
         appBarLayout.addOnOffsetChangedListener(this);
 
+        boolean test = mThumbnail.hasTransientState();
+
 //        getIntentThumbnail();
-        loadWidgets();
-        downloadLiveStreamData();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadWidgets();
+                downloadLiveStreamData();
+            }
+        }, 500);
     }
 
     private void downloadLiveStreamData() {
@@ -109,18 +135,30 @@ public class ChannelActivity extends BaseActivity
         if (findViewById(R.id.textDetail) != null)
             ((TextView) findViewById(R.id.textDetail)).setText(liveStream.detail);
 
-        final ImageView thumbnail = (ImageView) findViewById(R.id.imageThumbnail);
-        if (thumbnail != null && liveStream.thumb_url != null)
-            new Handler().postDelayed(new Runnable() {
+        if (mFab != null) {
+            Anims.fadeIn(mFab);
+            mFab.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void run() {
-                    Picasso.with(mContext)
-                            .load(liveStream.thumb_url)
-                            .config(Bitmap.Config.RGB_565)
-                            .into(thumbnail);
+                public void onClick(View v) {
+                    prepareBitmap();
+                    ActivityOptions activityOptions = createOptions();
+                    playVideoWithInternalPlayer(liveStream.getLiveM3U8(), activityOptions);
                 }
-            }, 400);
+            });
+            mFab.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    playVideoExternal(liveStream.getLiveM3U8(), mChannel.title, Video.ACTION_SHARE_VIDEO_DIALOG);
+                    return true;
+                }
+            });
+        }
 
+        if (mThumbnail != null && liveStream.thumb_url != null)
+            Picasso.with(mContext)
+                    .load(liveStream.thumb_url)
+                    .config(Bitmap.Config.RGB_565)
+                    .into(mThumbnail);
     }
 
 //    private void getIntentThumbnail() {
@@ -168,5 +206,28 @@ public class ChannelActivity extends BaseActivity
             mCollapsingToolbarLayout.setTitle("");
             mToolbarIsShown = false;
         }
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    void setExitTransition() {
+        getWindow().setExitTransition(new Explode());
+    }
+
+    private void prepareBitmap() {
+        Bitmap bmp = ((BitmapDrawable) mThumbnail.getDrawable()).getBitmap();
+        Storage.saveBitmapOnDisk(this, bmp);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private ActivityOptions createOptions() {
+        mThumbnail.setTransitionName("thumb");
+        Pair<View, String> pair1 = Pair.create((View) mThumbnail, "");
+        Pair<View, String> pair2 = Pair.create((View) mFab, "");
+        Pair[] pairs = new Pair[2];
+        pairs[0] = pair1;
+        pairs[1] = pair2;
+
+        return ActivityOptions.makeSceneTransitionAnimation(this, pairs);
     }
 }

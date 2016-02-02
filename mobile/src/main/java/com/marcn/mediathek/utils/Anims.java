@@ -49,4 +49,22 @@ public class Anims {
         scaleDown.play(scaleDownX).with(scaleDownY);
         scaleDown.start();
     }
+
+    public static void hideFabWorkaround(View view) {
+        ObjectAnimator scaleDownX = ObjectAnimator.ofFloat(view, "scaleX", 0f);
+        ObjectAnimator scaleDownY = ObjectAnimator.ofFloat(view, "scaleY", 0f);
+        AnimatorSet scaleDown = new AnimatorSet();
+        scaleDown.play(scaleDownX).with(scaleDownY);
+        scaleDown.setDuration(0);
+        scaleDown.start();
+    }
+
+    public static void showFabWorkaround(View view) {
+        ObjectAnimator scaleDownX = ObjectAnimator.ofFloat(view, "scaleX", 1f);
+        ObjectAnimator scaleDownY = ObjectAnimator.ofFloat(view, "scaleY", 1f);
+        AnimatorSet scaleDown = new AnimatorSet();
+        scaleDown.play(scaleDownX).with(scaleDownY);
+        scaleDown.setDuration(0);
+        scaleDown.start();
+    }
 }
