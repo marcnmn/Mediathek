@@ -41,12 +41,16 @@ public class Storage {
             return true;
     }
 
-    public static String saveBitmapOnDisk(Activity activity, Bitmap bitmap) {
-        String fileName = "thumbnail";//no .png or .jpg needed
+    public static String saveBitmapOnDisk(Context context, Bitmap bitmap) {
+        String fileName = "thumbnail";  //no .png or .jpg needed
+        return saveBitmapOnDisk(context, bitmap, fileName);
+    }
+
+    public static String saveBitmapOnDisk(Context context, Bitmap bitmap, String fileName) {
         try {
             ByteArrayOutputStream bytes = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-            FileOutputStream fo = activity.openFileOutput(fileName, Context.MODE_PRIVATE);
+            FileOutputStream fo = context.openFileOutput(fileName, Context.MODE_PRIVATE);
             fo.write(bytes.toByteArray());
             // remember close file output
             fo.close();

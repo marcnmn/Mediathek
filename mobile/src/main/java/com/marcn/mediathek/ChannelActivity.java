@@ -31,6 +31,7 @@ import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
 import com.marcn.mediathek.utils.Anims;
 import com.marcn.mediathek.utils.Storage;
+import com.marcn.mediathek.utils.Transitions;
 import com.marcn.mediathek.utils.XmlParser;
 import com.squareup.picasso.Picasso;
 
@@ -140,8 +141,7 @@ public class ChannelActivity extends BaseActivity
             mFab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    prepareBitmap();
-                    ActivityOptions activityOptions = createOptions();
+                    ActivityOptions activityOptions = prepareInternalPlayerTransition();
                     playVideoWithInternalPlayer(liveStream.getLiveM3U8(), activityOptions);
                 }
             });
@@ -159,6 +159,16 @@ public class ChannelActivity extends BaseActivity
                     .load(liveStream.thumb_url)
                     .config(Bitmap.Config.RGB_565)
                     .into(mThumbnail);
+    }
+
+    @SuppressWarnings("unchecked")
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private ActivityOptions prepareInternalPlayerTransition() {
+        mThumbnail.setTransitionName("thumb");
+        Transitions.saveBitmapFromImageView(this, mThumbnail, Transitions.PLAYER_THUMBNAIL);
+        return ActivityOptions.makeSceneTransitionAnimation(this,
+                new Pair<View, String>(mThumbnail, ""),
+                new Pair<View, String>(mFab, ""));
     }
 
 //    private void getIntentThumbnail() {

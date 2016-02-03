@@ -7,20 +7,12 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
-import android.transition.Fade;
 import android.view.View;
 
-import com.google.android.exoplayer.VideoFrameReleaseTimeHelper;
-import com.marcn.mediathek.base_objects.Channel;
-import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
-import com.marcn.mediathek.ui_fragments.SendungenAbisZFragment;
-import com.marcn.mediathek.ui_fragments.ZdfMissedVideoFragment;
 import com.marcn.mediathek.ui_fragments.ZdfVideoFragment;
 
 public class VideoActivity extends BaseActivity {
