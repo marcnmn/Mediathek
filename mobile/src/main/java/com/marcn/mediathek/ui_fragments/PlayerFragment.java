@@ -54,6 +54,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
     private ImageView shutterView;
     private AspectRatioFrameLayout videoFrame;
     private TextureView surfaceView;
+    private View progressBar;
     private Player player;
     private boolean playerNeedsPrepare;
     private VideoControllerView mediaController;
@@ -90,6 +91,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         videoFrame = (AspectRatioFrameLayout) view.findViewById(R.id.video_frame);
 //        videoFrame = (AspectRatioFrameLayout) view.findViewById(R.id.video_frame);
         shutterView = (ImageView) view.findViewById(R.id.shutter);
+        progressBar = view.findViewById(R.id.progress_bar_player);
 
         surfaceView = (TextureView) view.findViewById(R.id.surface_view);
         surfaceView.setSurfaceTextureListener(this);
@@ -275,6 +277,8 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
                     public void run() {
                         TransitionManager.beginDelayedTransition(videoFrame, new Fade());
                         shutterView.setVisibility(View.GONE);
+                        progressBar.setVisibility(View.GONE);
+                        mediaController.show();
                     }
                 }, 300);
                 break;

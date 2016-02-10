@@ -21,7 +21,6 @@
             android:adjustViewBounds="true"
             android:transitionName="thumb"/>
 
-
         <com.google.android.exoplayer.text.SubtitleLayout
             android:id="@+id/subtitles"
             android:layout_width="match_parent"
@@ -32,5 +31,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/controllerView"/>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/progress_bar_player"/>
     </com.google.android.exoplayer.AspectRatioFrameLayout>
 </FrameLayout>
