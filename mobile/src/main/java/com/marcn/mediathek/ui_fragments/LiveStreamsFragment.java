@@ -29,7 +29,6 @@ public class LiveStreamsFragment extends Fragment {
     private OnVideoInteractionListener mListener;
     private LiveStreams mLiveStreams;
     private LiveStreamAdapter mLiveStreamAdapter;
-    private RecyclerView mRecyclerView;
 
     public LiveStreamsFragment() {
     }
@@ -55,7 +54,7 @@ public class LiveStreamsFragment extends Fragment {
         if (!(view instanceof RecyclerView)) return view;
 
         Context context = view.getContext();
-        mRecyclerView = (RecyclerView) view;
+        RecyclerView mRecyclerView = (RecyclerView) view;
 
         if ((getActivity()) != null)
             ((BaseActivity) getActivity()).setActionBarResource(R.string.action_title_live_streams);
@@ -77,6 +76,18 @@ public class LiveStreamsFragment extends Fragment {
         });
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+        if (mLiveStreamAdapter == null) {
+            mLiveStreams = new LiveStreams(getContext());
+            mLiveStreamAdapter = new LiveStreamAdapter(mLiveStreams, mListener);
+            mRecyclerView.setAdapter(mLiveStreamAdapter);
+        } else {
+            mRecyclerView.setAdapter(mLiveStreamAdapter);
+        }
+
+        downloadZdfData();
+        downloadArteData();
+        downloadArdData();
+
         return view;
     }
 
@@ -93,7 +104,8 @@ public class LiveStreamsFragment extends Fragment {
                             mLiveStreamAdapter.updateZdfValues(ls);
                         }
                     });
-                } catch (IOException ignored) {}
+                } catch (IOException ignored) {
+                }
             }
         }).start();
     }
@@ -132,15 +144,8 @@ public class LiveStreamsFragment extends Fragment {
 
     @Override
     public void onResume() {
-        if (mLiveStreamAdapter == null) {
-            mLiveStreams = new LiveStreams(getContext());
-            mLiveStreamAdapter = new LiveStreamAdapter(mLiveStreams, mListener);
-            mRecyclerView.setAdapter(mLiveStreamAdapter);
-            downloadZdfData();
-            downloadArteData();
-            downloadArdData();
-        } else {
-            mRecyclerView.setAdapter(mLiveStreamAdapter);
+        if (mLiveStreamAdapter != null && mListener != null) {
+            mLiveStreamAdapter.setVideoClickListener(mListener);
         }
         super.onResume();
     }

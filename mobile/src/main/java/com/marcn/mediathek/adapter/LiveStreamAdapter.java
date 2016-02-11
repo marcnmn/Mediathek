@@ -22,21 +22,21 @@ import java.util.ArrayList;
 public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.ViewHolder> {
 
     private final LiveStreams mValues;
-    private final OnVideoInteractionListener mListener;
+    private OnVideoInteractionListener mListener;
 
     public LiveStreamAdapter(LiveStreams items, OnVideoInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
 
-    public void updateValue(LiveStream l) {
-        int index = mValues.mLiveStreams.indexOf(l);
-        mValues.pushLiveStream(l);
-        if (index < 0)
-            notifyDataSetChanged();
-        else
-            notifyItemChanged(index);
-    }
+//    public void updateValue(LiveStream l) {
+//        int index = mValues.mLiveStreams.indexOf(l);
+//        mValues.pushLiveStream(l);
+//        if (index < 0)
+//            notifyDataSetChanged();
+//        else
+//            notifyItemChanged(index);
+//    }
 
     public void updateZdfValues(ArrayList<LiveStream> ls) {
         mValues.pushLiveStreams(ls);
@@ -51,6 +51,10 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
     public void updateArdValues(ArrayList<LiveStream> ls) {
         mValues.pushLiveStreams(ls);
         notifyItemRangeChanged(6, mValues.size() - 7);
+    }
+
+    public void setVideoClickListener(OnVideoInteractionListener listener) {
+        mListener = listener;
     }
 
     @Override

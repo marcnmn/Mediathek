@@ -59,7 +59,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
     private boolean playerNeedsPrepare;
     private VideoControllerView mediaController;
 
-    private boolean enableBackgroundAudio = true;
+    private boolean enableBackgroundAudio;
 
     public PlayerFragment() {
     }
@@ -96,7 +96,6 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         surfaceView = (TextureView) view.findViewById(R.id.surface_view);
         surfaceView.setSurfaceTextureListener(this);
 
-        FrameLayout v = (FrameLayout) view.findViewById(R.id.controllerView);
         mediaController = new VideoControllerView(context);
         mediaController.setAnchorView(videoFrame);
 
@@ -110,6 +109,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         videoFrame.setLayoutParams(layoutParams);
 
         getIntentThumbnail(context);
+        enableBackgroundAudio = true;
 
         if (isInLandscape() && !isImmersiveEnabled())
             hideSystemUI();
@@ -212,8 +212,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
     }
 
     private void hideSystemUI() {
-        int uiOptions = getActivity().getWindow().getDecorView().getSystemUiVisibility();
-        int newUiOptions = uiOptions;
+        int newUiOptions = getActivity().getWindow().getDecorView().getSystemUiVisibility();
         newUiOptions ^= View.SYSTEM_UI_FLAG_FULLSCREEN;
         newUiOptions ^= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
         newUiOptions ^= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
@@ -256,22 +255,22 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         if (playbackState == ExoPlayer.STATE_ENDED) {
             mediaController.show(Integer.MAX_VALUE);
         }
-        String text = "playWhenReady=" + playWhenReady + ", playbackState=";
+//        String text = "playWhenReady=" + playWhenReady + ", playbackState=";
         switch(playbackState) {
             case ExoPlayer.STATE_BUFFERING:
-                text += "buffering";
+//                text += "buffering";
                 break;
             case ExoPlayer.STATE_ENDED:
-                text += "ended";
+//                text += "ended";
                 break;
             case ExoPlayer.STATE_IDLE:
-                text += "idle";
+//                text += "idle";
                 break;
             case ExoPlayer.STATE_PREPARING:
-                text += "preparing";
+//                text += "preparing";
                 break;
             case ExoPlayer.STATE_READY:
-                text += "ready";
+//                text += "ready";
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -283,7 +282,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
                 }, 300);
                 break;
             default:
-                text += "unknown";
+//                text += "unknown";
                 break;
         }
 //        playerStateTextView.setText(text);

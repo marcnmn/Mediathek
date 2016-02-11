@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/textCurrentTime"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:textColor="@android:color/white"
@@ -60,7 +60,7 @@
 
         <TextView
             android:id="@+id/textEndTime"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_alignParentEnd="true"
