@@ -85,7 +85,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
 
         // Logo Image
         if (holder.mLogo != null)
-            holder.mLogo.setText(holder.mItem.channelObject.title);
+            holder.mLogo.setText(holder.mItem.title);
 //        int logo = holder.mItem.getLogoResId();
 //        if (logo > 0)
 //            holder.mLogo.setImageResource(logo);

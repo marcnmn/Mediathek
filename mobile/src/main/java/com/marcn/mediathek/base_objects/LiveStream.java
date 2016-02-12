@@ -116,6 +116,21 @@ public class LiveStream {
         }
     }
 
+    public String getLiveEPGURL () {
+        String url = Constants.LIVE_STREAM_EPG_URL;
+        switch (channel) {
+            // ZDF Sender
+            case Constants.TITLE_CHANNEL_ZDF: url += Constants.LIVE_STREAM_EPG_ZDF_NAME; break;
+            case Constants.TITLE_CHANNEL_PHOENIX: url += Constants.LIVE_STREAM_EPG_PHOENIX_NAME; break;
+            case Constants.TITLE_CHANNEL_ZDF_KULTUR: url += Constants.LIVE_STREAM_EPG_ZDF_KULTUR_NAME; break;
+            case Constants.TITLE_CHANNEL_ZDF_INFO: url += Constants.LIVE_STREAM_EPG_ZDF_INFO_NAME; break;
+            case Constants.TITLE_CHANNEL_3SAT: url += Constants.LIVE_STREAM_EPG_3SAT_NAME; break;
+            case Constants.TITLE_CHANNEL_ZDF_NEO: url += Constants.LIVE_STREAM_EPG_ZDF_NEO_NAME; break;
+            default: return null;
+        }
+        return url + "/now/json";
+    }
+
 //    public int getLogoResId () {
 //        switch (id) {
 //            // ZDF Sender
