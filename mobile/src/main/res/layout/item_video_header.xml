@@ -9,19 +9,14 @@
     app:slm_isHeader="true">
     <TextView
         android:id="@+id/textTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:padding="8dip"
-        android:layoutDirection="locale"
-        android:textDirection="locale"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorTest"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:background="@color/colorPrimary"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textSize="14sp"
         tools:text="Header Item"/><!--app:slm_headerEndMargin="56dip"-->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:layout_below="@+id/textTitle"
-        android:background="@drawable/gradient_top_down"/>
 </RelativeLayout>
