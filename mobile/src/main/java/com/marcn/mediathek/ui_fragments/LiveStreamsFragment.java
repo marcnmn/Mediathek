@@ -97,6 +97,7 @@ public class LiveStreamsFragment extends Fragment {
             public void run() {
                 try {
                     final ArrayList<LiveStream> ls = XmlParser.getZDFLiveStreamData2(getContext(), mLiveStreams.getGroup(LiveStream.ZDF_MAIN_GROUP));
+                    XmlParser.getZDFLiveStreamEpgNow(ls);
                     if (getActivity() == null || ls == null) return;
                     getActivity().runOnUiThread(new Runnable() {
                         @Override

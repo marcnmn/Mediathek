@@ -57,6 +57,14 @@ public class Constants {
 
     public static final String LIVE_STREAM_CHANNEL_KIKA = "http://kika_geo-lh.akamaihd.net/i/livetvkika_de@75114/master.m3u8";
 
+    public static final String LIVE_STREAM_EPG_URL = "http://sofa01.zdf.de/epgservice/";
+    public static final String LIVE_STREAM_EPG_ZDF_NAME = "zdf";
+    public static final String LIVE_STREAM_EPG_PHOENIX_NAME = "phoenix";
+    public static final String LIVE_STREAM_EPG_ZDF_KULTUR_NAME = "zdfkultur";
+    public static final String LIVE_STREAM_EPG_ZDF_INFO_NAME = "zdfinfo";
+    public static final String LIVE_STREAM_EPG_3SAT_NAME = "3sat";
+    public static final String LIVE_STREAM_EPG_ZDF_NEO_NAME = "zdfneo";
+
     public static ArrayList<Channel> getBaseChannels(Context c){
         ArrayList<Channel> ls =  new ArrayList<>();
         if (c == null) return ls;

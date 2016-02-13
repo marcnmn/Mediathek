@@ -44,7 +44,13 @@ public final class NetworkTasks {
         JSONObject jObject = null;
         try {
             URL url = new URL(myurl);
-            HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+            HttpURLConnection conn;
+            try {
+                conn = (HttpsURLConnection) url.openConnection();
+            } catch (ClassCastException e) {
+                conn = (HttpURLConnection) url.openConnection();
+            }
+
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
             conn.connect();

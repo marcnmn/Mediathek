@@ -41,9 +41,24 @@ public class XmlParser {
                 if (index < 0) continue;
 
                 ls.get(index).setThumb_url(thumb);
-                ls.get(index).setTitle(title);
+//                ls.get(index).setTitle(title);
                 ls.get(index).setDescription(detail);
             } catch (NullPointerException ignored) {
+            }
+        }
+        return ls;
+    }
+
+    public static ArrayList<LiveStream> getZDFLiveStreamEpgNow(ArrayList<LiveStream> ls) throws IOException {
+
+        for (LiveStream l : ls) {
+            String url = l.getLiveEPGURL();
+            JSONObject json = NetworkTasks.downloadJSONData(url);
+            try {
+                json = json.getJSONObject("response").getJSONArray("sendungen").getJSONObject(0);
+                json = json.getJSONObject("sendung").getJSONObject("value");
+                l.title = json.getString("titel");
+            } catch (JSONException | NullPointerException ignored) {
             }
         }
         return ls;
