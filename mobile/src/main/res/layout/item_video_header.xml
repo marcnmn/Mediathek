@@ -13,7 +13,7 @@
         android:layout_height="40dp"
         android:gravity="center_vertical"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorTest"
+        android:background="@drawable/video_header"
         android:textColor="@android:color/white"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"

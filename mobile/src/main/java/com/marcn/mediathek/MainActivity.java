@@ -16,7 +16,6 @@ import android.transition.Explode;
 import android.view.View;
 
 import com.marcn.mediathek.base_objects.Channel;
-import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
 import com.marcn.mediathek.ui_fragments.SendungenAbisZFragment;
 import com.marcn.mediathek.ui_fragments.ZdfMissedVideoFragment;
 
