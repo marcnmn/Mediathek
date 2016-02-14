@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.SendungAdapter;
-import com.marcn.mediathek.base_objects.Sendung;
+import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.utils.ZdfMediathekData;
 import com.tonicartos.superslim.LayoutManager;
 
@@ -61,7 +61,7 @@ public class SendungFragment extends Fragment {
             @Override
             public void run() {
                 int endCaracter = Math.min(mCharacter + INT_CHARACTER_UPDATE_COUNT, mLastCharValue);
-                final ArrayList<Sendung> sendungen = ZdfMediathekData.getAllShows(getActivity(), mCharacter, endCaracter);
+                final ArrayList<Series> sendungen = ZdfMediathekData.getAllShows(getActivity(), mCharacter, endCaracter);
                 mCharacter += INT_CHARACTER_UPDATE_COUNT;
                 if (getActivity() == null) return;
                 getActivity().runOnUiThread(new Runnable() {

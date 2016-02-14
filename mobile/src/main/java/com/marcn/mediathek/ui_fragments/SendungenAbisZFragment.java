@@ -15,7 +15,7 @@ import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.SendungAdapter;
-import com.marcn.mediathek.base_objects.Sendung;
+import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.utils.LayoutTasks;
 import com.marcn.mediathek.utils.ZdfMediathekData;
 import com.tonicartos.superslim.LayoutManager;
@@ -61,7 +61,7 @@ public class SendungenAbisZFragment extends Fragment {
         mLayoutManager = new LayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        mSendungAdapter = new SendungAdapter(new ArrayList<Sendung>(), mListener);
+        mSendungAdapter = new SendungAdapter(new ArrayList<Series>(), mListener);
         recyclerView.setAdapter(mSendungAdapter);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -114,7 +114,7 @@ public class SendungenAbisZFragment extends Fragment {
             @Override
             public void run() {
                 int endCaracter = Math.min(mCharacter + INT_CHARACTER_UPDATE_COUNT, mLastCharValue);
-                final ArrayList<Sendung> sendungen = ZdfMediathekData.getAllShows(getActivity(), mCharacter, endCaracter);
+                final ArrayList<Series> sendungen = ZdfMediathekData.getAllShows(getActivity(), mCharacter, endCaracter);
                 mCharacter += INT_CHARACTER_UPDATE_COUNT;
                 if (getActivity() == null) return;
                 getActivity().runOnUiThread(new Runnable() {

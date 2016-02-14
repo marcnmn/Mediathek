@@ -7,14 +7,13 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
-import android.transition.Explode;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.marcn.mediathek.PlayerActivity;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.base_objects.Video;
+import com.marcn.mediathek.base_objects.Episode;
 
 public class Playback {
     public static void playByUrl(final Activity activity, final String url, final View view, final int internalPlayer, final String title) {
@@ -22,16 +21,16 @@ public class Playback {
             @Override
             public void run() {
                 switch (internalPlayer) {
-                    case Video.ACTION_INTERNAL_PLAYER:
+                    case Episode.ACTION_INTERNAL_PLAYER:
                         startInternalPlayer(activity, url, view);
                         break;
-                    case Video.ACTION_SHARE_VIDEO_DIALOG:
+                    case Episode.ACTION_SHARE_VIDEO_DIALOG:
                         startExternalPlayerDialog(activity, url, title);
                         break;
-                    case Video.ACTION_DEFAULT_EXTERNAL_PLAYER:
+                    case Episode.ACTION_DEFAULT_EXTERNAL_PLAYER:
                         startDefaultExternalPlayer(activity, url);
                         break;
-                    case Video.ACTION_DOWNLOAD:
+                    case Episode.ACTION_DOWNLOAD:
                         Storage.downloadFile(activity, url, title);
                         break;
                 }

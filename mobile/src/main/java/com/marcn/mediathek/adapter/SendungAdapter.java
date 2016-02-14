@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.base_objects.Sendung;
+import com.marcn.mediathek.base_objects.Series;
 import com.squareup.picasso.Picasso;
 import com.tonicartos.superslim.GridSLM;
 import com.tonicartos.superslim.LinearSLM;
@@ -27,10 +27,10 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
     private Context mContext;
     private boolean mIsLoading;
 
-    private final ArrayList<Sendung> mValues;
+    private final ArrayList<Series> mValues;
     private final OnVideoInteractionListener mListener;
 
-    public SendungAdapter(ArrayList<Sendung> items, OnVideoInteractionListener onVideoInteractionListener) {
+    public SendungAdapter(ArrayList<Series> items, OnVideoInteractionListener onVideoInteractionListener) {
         if (items == null)
             mValues = new ArrayList<>();
         else
@@ -39,7 +39,7 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
         notifyDataSetChanged();
     }
 
-    public void updateValues(ArrayList<Sendung> ls) {
+    public void updateValues(ArrayList<Series> ls) {
         mValues.addAll(ls);
         notifyDataSetChanged();
     }
@@ -89,7 +89,7 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
             return;
         }
 
-        final Sendung item = mValues.get(position);
+        final Series item = mValues.get(position);
         View itemView = viewHolder.mView;
 
         viewHolder.mItem = item;
@@ -154,7 +154,7 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
         public final View mView;
         public final TextView mTitle, mChannel;
         public final ImageView mThumbnail;
-        public Sendung mItem;
+        public Series mItem;
 
         public SendungViewHolder(View view) {
             super(view);

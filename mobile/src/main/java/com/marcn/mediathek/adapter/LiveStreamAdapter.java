@@ -12,9 +12,9 @@ import android.widget.TextView;
 
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreams;
-import com.marcn.mediathek.base_objects.Video;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -68,7 +68,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mTitle.setText(holder.mItem.channel);
+        //holder.mTitle.setText(holder.mItem.channel);
         Context context = holder.mView.getContext();
 
         // Thumbnail Image
@@ -84,8 +84,19 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
                     .into(holder.mThumb);
 
         // Logo Image
-        if (holder.mLogo != null)
-            holder.mLogo.setText(holder.mItem.title);
+        if (holder.mItem.getCurrentEpisode() != null) {
+            if (holder.mTitle != null)
+                holder.mTitle.setText(holder.mItem.getCurrentEpisode().getTitle());
+
+            if (holder.mTime != null)
+                holder.mTime.setText(holder.mItem.getCurrentEpisode().getRemainingTime());
+
+            holder.mView.findViewById(R.id.liveInfoContainer).setVisibility(View.VISIBLE);
+        } else {
+            holder.mView.findViewById(R.id.liveInfoContainer).setVisibility(View.GONE);
+        }
+
+
 //        int logo = holder.mItem.getLogoResId();
 //        if (logo > 0)
 //            holder.mLogo.setImageResource(logo);
@@ -97,7 +108,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
-                    mListener.onLiveStreamClicked(holder.mItem, holder.mThumb, Video.ACTION_INTERNAL_PLAYER);
+                    mListener.onLiveStreamClicked(holder.mItem, holder.mThumb, Episode.ACTION_INTERNAL_PLAYER);
                 }
             }
         });
@@ -105,7 +116,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
         holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                mListener.playVideoExternal(holder.mItem.getLiveM3U8(), holder.mItem.title, Video.ACTION_SHARE_VIDEO_DIALOG);
+                mListener.playVideoExternal(holder.mItem.getLiveM3U8(), holder.mItem.title, Episode.ACTION_SHARE_VIDEO_DIALOG);
                 return true;
             }
         });
@@ -128,7 +139,8 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
         public final ImageView mThumb;
 //        public final ImageView mLogo;
         public final TextView mLogo;
-        public final TextView mTitle;
+        public final TextView mTitle, mTime;
+
         public LiveStream mItem;
 
         public ViewHolder(View view) {
@@ -136,7 +148,8 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
             mView = view;
             mThumb = (ImageView) view.findViewById(R.id.imageThumbnail);
             mLogo = (TextView) view.findViewById(R.id.imageLogo);
-            mTitle = (TextView) view.findViewById(R.id.textTitle);
+            mTitle = (TextView) view.findViewById(R.id.textLiveTitle);
+            mTime = (TextView) view.findViewById(R.id.textLiveTime);
         }
     }
 }

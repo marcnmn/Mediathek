@@ -4,8 +4,8 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.base_objects.Sendung;
-import com.marcn.mediathek.base_objects.Video;
+import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.base_objects.Series;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -25,21 +25,21 @@ public class ZdfMediathekData {
     public static final int QUALiTY_MED = 2;
     public static final int QUALiTY_LOW = 3;
 
-    public static ArrayList<Video> getMissedShows(Context c, int offset, int count,
-                                                  String startDate, String endDate) {
+    public static ArrayList<Episode> getMissedShows(Context c, int offset, int count,
+                                                    String startDate, String endDate) {
         String url =  c.getString(R.string.zdf_gruppe_sendung_verpasst)
                 + "?maxLength=" + count + "&offset=" + offset
                 + "&startdate=" + startDate + "&enddate=" + endDate;
         try {
-            ArrayList<Video> videos = fetchVideoList(url);
-            Collections.reverse(videos);
-            return videos;
+            ArrayList<Episode> episodes = fetchVideoList(url);
+            Collections.reverse(episodes);
+            return episodes;
         } catch (IOException e) {
             return new ArrayList<>();
         }
     }
 
-    public static ArrayList<Sendung> getAllShows(Context c, int rangeStart, int rangeEnd) {
+    public static ArrayList<Series> getAllShows(Context c, int rangeStart, int rangeEnd) {
         String characterRangeStart = String.valueOf((char) rangeStart);
         String characterRangeEnd = String.valueOf((char) rangeEnd);
 
@@ -53,16 +53,16 @@ public class ZdfMediathekData {
         }
     }
 
-    public static ArrayList<Video> fetchVideoList(String url) throws IOException {
+    public static ArrayList<Episode> fetchVideoList(String url) throws IOException {
         Document d = Jsoup.connect(url).get();
 
-        ArrayList<Video> videos = new ArrayList<>();
+        ArrayList<Episode> episodes = new ArrayList<>();
         if (d == null)
-            return videos;
+            return episodes;
 
         Elements statusCode = d.getElementsByTag("statuscode");
         if (statusCode == null || !statusCode.text().equals("ok"))
-            return videos;
+            return episodes;
 
         Elements elements = d.getElementsByTag("teaser");
         for (Element el: elements) {
@@ -82,20 +82,20 @@ public class ZdfMediathekData {
                 String ganzeSendung = getSingleStringByTag(el, "ganzeSendung");
                 String originChannelTitle = getSingleStringByTag(el, "originChannelTitle");
 
-                Video v = new Video(title, detail, thumb_url, channel, airtime, vcmsUrl,
+                Episode v = new Episode(title, detail, thumb_url, channel, airtime, vcmsUrl,
                         assetId, originChannelId, lengthSec, nurOnline, onlineFassung,
                         ganzeSendung, originChannelTitle);
-                videos.add(v);
+                episodes.add(v);
             } catch (NullPointerException ignored){}
         }
-        return videos;
+        return episodes;
     }
 
-    public static ArrayList<Sendung> fetchSendungList(String url) throws IOException {
+    public static ArrayList<Series> fetchSendungList(String url) throws IOException {
         Document d = Jsoup.connect(url).get();
         String member = "";
 
-        ArrayList<Sendung> sendungen = new ArrayList<>();
+        ArrayList<Series> sendungen = new ArrayList<>();
         if (d == null)
             return sendungen;
 
@@ -103,14 +103,14 @@ public class ZdfMediathekData {
         if (statusCode == null || !statusCode.text().equals("ok"))
             return sendungen;
 
-        //sendungen.add(Sendung.createSendungHeader(character));
+        //sendungen.add(Series.createSendungHeader(character));
 
         Elements elements = d.getElementsByTag("teaser");
         for (Element el: elements) {
             try {
                 if (!member.equals(el.attr("member"))) {
                     member = el.attr("member");
-                    sendungen.add(Sendung.createSendungHeader(member));
+                    sendungen.add(Series.createSendungHeader(member));
                 }
 
                 String title = getSingleStringByTag(el, "title");
@@ -122,9 +122,9 @@ public class ZdfMediathekData {
                 String vcmsUrl = getSingleStringByTag(el, "vcmsUrl");
                 int assetId = getSingleIntegerByTag(el, "assetId");
 
-                Sendung sendung = new Sendung(title, shortTitle, detail,
+                Series series = new Series(title, shortTitle, detail,
                         thumb_url_low, thumb_url_high, channel, vcmsUrl, assetId, member);
-                sendungen.add(sendung);
+                sendungen.add(series);
             } catch (NullPointerException ignored){}
         }
         return sendungen;

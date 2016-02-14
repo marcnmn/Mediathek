@@ -11,16 +11,16 @@ import android.widget.TextView;
 
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.base_objects.Video;
+import com.marcn.mediathek.base_objects.Episode;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class VideoWidgetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private final ArrayList<Video> mValues;
+    private final ArrayList<Episode> mValues;
     private final OnVideoInteractionListener mListener;
 
-    public VideoWidgetAdapter(ArrayList<Video> items, OnVideoInteractionListener listener) {
+    public VideoWidgetAdapter(ArrayList<Episode> items, OnVideoInteractionListener listener) {
         if (items == null)
             mValues = new ArrayList<>();
         else {
@@ -29,12 +29,12 @@ public class VideoWidgetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         mListener = listener;
     }
 
-    public void updateValues(Video video) {
-        mValues.add(video);
+    public void updateValues(Episode episode) {
+        mValues.add(episode);
         notifyItemChanged(mValues.size()- 1);
     }
 
-    public void updateValues(ArrayList<Video> ls) {
+    public void updateValues(ArrayList<Episode> ls) {
         mValues.addAll(ls);
         notifyDataSetChanged();
     }
@@ -49,10 +49,10 @@ public class VideoWidgetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder viewHolder, int position) {
-        Video video = mValues.get(position);
+        Episode episode = mValues.get(position);
 
             final VideoViewHolder holder = (VideoViewHolder) viewHolder;
-            holder.mItem = video;
+            holder.mItem = episode;
             holder.mTitle.setText(holder.mItem.title);
             holder.mAirTime.setText(holder.mItem.airtime);
             Context context = holder.mView.getContext();
@@ -73,14 +73,14 @@ public class VideoWidgetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 @Override
                 public void onClick(View v) {
                     if (null != mListener)
-                        mListener.onVideoClicked(holder.mItem, holder.mThumb, Video.ACTION_INTERNAL_PLAYER);
+                        mListener.onVideoClicked(holder.mItem, holder.mThumb, Episode.ACTION_INTERNAL_PLAYER);
                 }
             });
 
             holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    mListener.onVideoClicked(holder.mItem, holder.mThumb, Video.ACTION_SHARE_VIDEO_DIALOG);
+                    mListener.onVideoClicked(holder.mItem, holder.mThumb, Episode.ACTION_SHARE_VIDEO_DIALOG);
                     return true;
                 }
             });
@@ -95,7 +95,7 @@ public class VideoWidgetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         public final View mView;
         public final ImageView mThumb;
         public final TextView mTitle, mAirTime;
-        public Video mItem;
+        public Episode mItem;
 
         public VideoViewHolder(View view) {
             super(view);

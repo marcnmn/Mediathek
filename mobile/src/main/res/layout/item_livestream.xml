@@ -19,24 +19,35 @@
         <!--android:layout_alignParentEnd="true"-->
         <!--android:layout_margin="10dp"-->
         <!--android:clickable="false"/>-->
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textLiveTitle"
+        android:orientation="vertical"
+        android:id="@+id/liveInfoContainer"
+        android:padding="5dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="5dp"
-        android:textAppearance="@style/WhiteShadowFont"
-        android:text="asdfasdfsf"
-        tools:text="testtest"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textLiveTime"
-        android:layout_above="@+id/textLiveTitle"
-        android:layout_alignStart="@+id/textLiveTitle"
-        android:textAppearance="@style/WhiteShadowFont"
-        android:text="asdad"
-        tools:text="testtest"/>
+        android:background="@drawable/gradient_bottom_up">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textLiveTitle"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textAppearance="@style/WhiteShadowFont"
+            android:textSize="16sp"
+            tools:text="testtest"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textLiveTime"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textAppearance="@style/WhiteShadowFont"
+            android:textColor="#e0e0e0"
+            android:textSize="12sp"
+            tools:text="testtest"/>
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

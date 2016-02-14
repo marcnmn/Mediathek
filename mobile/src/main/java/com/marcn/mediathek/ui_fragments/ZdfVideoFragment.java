@@ -15,7 +15,7 @@ import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.VideoAdapter;
-import com.marcn.mediathek.base_objects.Video;
+import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.utils.LayoutTasks;
 import com.marcn.mediathek.utils.ZdfMediathekData;
 import com.tonicartos.superslim.LayoutManager;
@@ -104,7 +104,7 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
         mLayoutManager = new LayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        mVideoAdapter = new VideoAdapter(new ArrayList<Video>(), mListener);
+        mVideoAdapter = new VideoAdapter(new ArrayList<Episode>(), mListener);
         recyclerView.setAdapter(mVideoAdapter);
 
         recyclerView.addOnScrollListener(onScrollListener);
@@ -123,14 +123,14 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final ArrayList<Video> videos;
+                final ArrayList<Episode> episodes;
                 try {
-                    videos = ZdfMediathekData.fetchVideoList(request);
-                    if (getActivity() == null || videos == null || videos.isEmpty()) return;
+                    episodes = ZdfMediathekData.fetchVideoList(request);
+                    if (getActivity() == null || episodes == null || episodes.isEmpty()) return;
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mVideoAdapter.updateValues(videos);
+                            mVideoAdapter.updateValues(episodes);
                             if (mWidgetType == ZdfVideoFragment.WIDGET_TYPE_SENDUNG_LAST)
                                 mVideoAdapter.addHeaders();
                             mIsLoading = false;

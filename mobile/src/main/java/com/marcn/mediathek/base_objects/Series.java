@@ -1,14 +1,14 @@
 package com.marcn.mediathek.base_objects;
 
-public class Sendung {
-    public final String title, shortTitle, detail, thumb_url_low, thumb_url_high, vcmsUrl, member;
+public class Series {
+    public String title, shortTitle, detail, thumb_url_low, thumb_url_high, vcmsUrl, member;
     public int assetId;
     public Channel channel;
     public boolean isHeader;
 
-    public Sendung(String title, String shortTitle, String detail,
-                   String thumb_url_low, String thumb_url_high, String channel, String vcmsUrl,
-                   int assetId, String member) {
+    public Series(String title, String shortTitle, String detail,
+                  String thumb_url_low, String thumb_url_high, String channel, String vcmsUrl,
+                  int assetId, String member) {
         this.title = title;
         this.shortTitle = shortTitle;
         this.detail = detail;
@@ -21,8 +21,8 @@ public class Sendung {
         this.channel = new Channel(channel);
     }
 
-    public static Sendung createSendungHeader(String title) {
-        Sendung s = new Sendung(title, "", "", "", "", "", "", 0, "");
+    public static Series createSendungHeader(String title) {
+        Series s = new Series(title, "", "", "", "", "", "", 0, "");
         s.isHeader = true;
         return s;
     }
@@ -34,9 +34,9 @@ public class Sendung {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Sendung))
+        if (!(o instanceof Series))
             return false;
-        Sendung v = (Sendung) o;
+        Series v = (Series) o;
         return v.assetId == this.assetId;
     }
 }

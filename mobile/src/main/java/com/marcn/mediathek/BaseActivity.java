@@ -2,26 +2,17 @@ package com.marcn.mediathek;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.transition.Explode;
-import android.transition.Transition;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,8 +23,8 @@ import com.google.gson.Gson;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.base_objects.Channel;
 import com.marcn.mediathek.base_objects.LiveStream;
-import com.marcn.mediathek.base_objects.Sendung;
-import com.marcn.mediathek.base_objects.Video;
+import com.marcn.mediathek.base_objects.Series;
+import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.utils.Playback;
 import com.marcn.mediathek.utils.Storage;
 import com.marcn.mediathek.utils.ZdfMediathekData;
@@ -148,18 +139,18 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     @Override
-    public void onVideoClicked(final Video video, final View view, final int videoAction) {
+    public void onVideoClicked(final Episode episode, final View view, final int videoAction) {
         final Activity activity = this;
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    final TreeMap<Integer, String> s = ZdfMediathekData.getVideoUrl(view.getContext(), video.assetId);
+                    final TreeMap<Integer, String> s = ZdfMediathekData.getVideoUrl(view.getContext(), episode.assetId);
                     if (s != null && !s.isEmpty())
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Playback.playByUrl(activity, s.get(0), view, videoAction, video.title);
+                                Playback.playByUrl(activity, s.get(0), view, videoAction, episode.title);
                             }
                         });
                 } catch (IOException ignored) {
@@ -169,12 +160,12 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     @Override
-    public void onSendungClicked(Sendung sendung, View thumbnail, View logo) {
-        if (sendung == null) return;
+    public void onSendungClicked(Series series, View thumbnail, View logo) {
+        if (series == null) return;
 
         Intent intent = new Intent(this, SeriesActivity.class);
         Gson gson = new Gson();
-        String json = gson.toJson(sendung);
+        String json = gson.toJson(series);
         intent.putExtra(SeriesActivity.INTENT_SENDUNG_JSON, json);
 
         ImageView imageView = (ImageView) thumbnail;

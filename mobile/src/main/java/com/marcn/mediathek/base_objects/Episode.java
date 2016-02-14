@@ -1,6 +1,6 @@
 package com.marcn.mediathek.base_objects;
 
-public class Video {
+public class Episode {
     public static final int ACTION_INTERNAL_PLAYER = 0;
     public static final int ACTION_SHARE_VIDEO_DIALOG = 1;
     public static final int ACTION_DEFAULT_EXTERNAL_PLAYER = 2;
@@ -14,14 +14,14 @@ public class Video {
     public String dayAndDate;
     public boolean isHeader;
 
-    public Video(String dayAndDate) {
+    public Episode(String dayAndDate) {
         isHeader = true;
         this.dayAndDate = dayAndDate;
     }
 
-    public Video(String title, String detail, String thumb_url,
-                 String channel, String airtime, String vcmsUrl,
-                 int assetId, int originChannelId, int lengthSec) {
+    public Episode(String title, String detail, String thumb_url,
+                   String channel, String airtime, String vcmsUrl,
+                   int assetId, int originChannelId, int lengthSec) {
         this.title = title;
         this.detail = detail;
         this.thumb_url = thumb_url;
@@ -34,10 +34,10 @@ public class Video {
         this.channel = new Channel(channel);
     }
 
-    public Video(String title, String detail, String thumb_url,
-                 String channel, String airtime, String vcmsUrl,
-                 int assetId, int originChannelId, int lengthSec,
-                 String nurOnline, String onlineFassung, String ganzeSendung, String originChannelTitle) {
+    public Episode(String title, String detail, String thumb_url,
+                   String channel, String airtime, String vcmsUrl,
+                   int assetId, int originChannelId, int lengthSec,
+                   String nurOnline, String onlineFassung, String ganzeSendung, String originChannelTitle) {
         this.title = title;
         this.detail = detail;
         this.thumb_url = thumb_url;
@@ -55,10 +55,10 @@ public class Video {
         this.originChannelTitle = originChannelTitle;
     }
 
-    public static Video createHeaderVideo(String title) {
-        Video video = new Video(title, "", "", "", "", "", 0, 0, 0);
-        video.isHeader = true;
-        return video;
+    public static Episode createHeaderVideo(String title) {
+        Episode episode = new Episode(title, "", "", "", "", "", 0, 0, 0);
+        episode.isHeader = true;
+        return episode;
     }
 
     public String getAirTimeDay() {
@@ -80,9 +80,9 @@ public class Video {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Video))
+        if (!(o instanceof Episode))
             return false;
-        Video v = (Video) o;
+        Episode v = (Episode) o;
         return v.assetId == this.assetId;
     }
 }

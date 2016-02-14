@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Channel;
+import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.base_objects.Episode2;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreams;
 
@@ -17,6 +19,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class XmlParser {
@@ -57,7 +60,23 @@ public class XmlParser {
             try {
                 json = json.getJSONObject("response").getJSONArray("sendungen").getJSONObject(0);
                 json = json.getJSONObject("sendung").getJSONObject("value");
-                l.title = json.getString("titel");
+
+                String title = json.getString("titel");
+                Episode2 episode2 = new Episode2(title, l.channelObject);
+
+                String description = json.getString("beschreibung");
+                episode2.setDescription(description);
+
+                String time = json.getString("time");
+                String endTime = json.getString("endTime");
+                Calendar cTime = FormatTime.zdfEpgStringToDate(time);
+                Calendar cEndTime = FormatTime.zdfEpgStringToDate(endTime);
+                if (cTime != null && cEndTime != null) {
+                    episode2.setStartTime(cTime);
+                    long length = cEndTime.getTimeInMillis() - cTime.getTimeInMillis();
+                    episode2.setEpisodeLengthInMs(length);
+                }
+                l.setCurrentEpisode(episode2);
             } catch (JSONException | NullPointerException ignored) {
             }
         }

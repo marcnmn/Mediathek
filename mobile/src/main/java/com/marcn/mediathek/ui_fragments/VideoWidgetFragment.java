@@ -19,9 +19,8 @@ import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.VideoWidgetAdapter;
-import com.marcn.mediathek.base_objects.Channel;
-import com.marcn.mediathek.base_objects.Sendung;
-import com.marcn.mediathek.base_objects.Video;
+import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.utils.ZdfMediathekData;
 
 import java.io.IOException;
@@ -44,7 +43,7 @@ public class VideoWidgetFragment extends Fragment {
     private LinearLayoutManager mLayoutManager;
     private OnVideoInteractionListener mListener;
 
-    private Sendung mSendung;
+    private Series mSeries;
     private int mWidgetType;
     private String mBaseUrl;
     private String mHeaderTitle;
@@ -67,9 +66,9 @@ public class VideoWidgetFragment extends Fragment {
         if (getArguments() != null) {
             Gson gson = new Gson();
             String sendung = getArguments().getString(ARG_OBJECT_JSON, "");
-            mSendung = gson.fromJson(sendung, Sendung.class);
-            if (mSendung != null)
-                mAssetId = mSendung.assetId + "";
+            mSeries = gson.fromJson(sendung, Series.class);
+            if (mSeries != null)
+                mAssetId = mSeries.assetId + "";
 
             mAssetId = getArguments().getString(ARG_ASSET_ID, "");
 
@@ -108,7 +107,7 @@ public class VideoWidgetFragment extends Fragment {
         mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(mLayoutManager);
 
-        mVideoAdapter = new VideoWidgetAdapter(new ArrayList<Video>(), mListener);
+        mVideoAdapter = new VideoWidgetAdapter(new ArrayList<Episode>(), mListener);
         recyclerView.setAdapter(mVideoAdapter);
 
         if (mRootView.findViewById(R.id.textHeader) != null)
@@ -138,14 +137,14 @@ public class VideoWidgetFragment extends Fragment {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final ArrayList<Video> videos;
+                final ArrayList<Episode> episodes;
                 try {
-                    videos = ZdfMediathekData.fetchVideoList(request);
-                    if (getActivity() == null || videos == null) return;
+                    episodes = ZdfMediathekData.fetchVideoList(request);
+                    if (getActivity() == null || episodes == null) return;
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mVideoAdapter.updateValues(videos);
+                            mVideoAdapter.updateValues(episodes);
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                                 TransitionManager.beginDelayedTransition(mRootView, new Slide());
                                 mRootView.findViewById(R.id.recyclerViewVideos).setVisibility(View.VISIBLE);

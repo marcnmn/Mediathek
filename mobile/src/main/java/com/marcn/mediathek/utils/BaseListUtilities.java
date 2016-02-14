@@ -1,8 +1,7 @@
 package com.marcn.mediathek.utils;
 
-import com.marcn.mediathek.base_objects.Video;
+import com.marcn.mediathek.base_objects.Episode;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -10,20 +9,20 @@ import java.util.Comparator;
 
 public class BaseListUtilities {
 
-    public static ArrayList<Video> addHeaders(ArrayList<Video> videos) {
+    public static ArrayList<Episode> addHeaders(ArrayList<Episode> episodes) {
         Calendar lastCalendar = null;
         Calendar calendar;
 
-        ArrayList<Video> result = new ArrayList<>();
+        ArrayList<Episode> result = new ArrayList<>();
         //clean list
-        for (Video v : videos)
+        for (Episode v : episodes)
             if (!v.isHeader) result.add(v);
 
-        Collections.sort(result, new Comparator<Video>() {
+        Collections.sort(result, new Comparator<Episode>() {
             @Override
-            public int compare(Video lhs, Video rhs) {
-                Calendar dLhs = DateFormat.zdfAirtimeStringToDate(lhs.airtime);
-                Calendar dRhs = DateFormat.zdfAirtimeStringToDate(rhs.airtime);
+            public int compare(Episode lhs, Episode rhs) {
+                Calendar dLhs = FormatTime.zdfAirtimeStringToDate(lhs.airtime);
+                Calendar dRhs = FormatTime.zdfAirtimeStringToDate(rhs.airtime);
                 return dRhs.compareTo(dLhs);
             }
         });
@@ -31,21 +30,21 @@ public class BaseListUtilities {
         int index = 0;
         int size = result.size();
 
-        Video video;
+        Episode episode;
         while (index < size) {
-            video = result.get(index);
+            episode = result.get(index);
             if (index == 0) {
-                lastCalendar = DateFormat.zdfAirtimeStringToDate(video.airtime);
-                result.add(index, Video.createHeaderVideo(DateFormat.calendarToHeadlineFormat(lastCalendar)));
+                lastCalendar = FormatTime.zdfAirtimeStringToDate(episode.airtime);
+                result.add(index, Episode.createHeaderVideo(FormatTime.calendarToHeadlineFormat(lastCalendar)));
                 index++;
                 size++;
-            } else if (!video.isHeader && lastCalendar == null) {
-                lastCalendar = DateFormat.zdfAirtimeStringToDate(video.airtime);
-            } else if (!video.isHeader) {
-                calendar = DateFormat.zdfAirtimeStringToDate(video.airtime);
+            } else if (!episode.isHeader && lastCalendar == null) {
+                lastCalendar = FormatTime.zdfAirtimeStringToDate(episode.airtime);
+            } else if (!episode.isHeader) {
+                calendar = FormatTime.zdfAirtimeStringToDate(episode.airtime);
                 if (calendar != null && calendar.getTimeInMillis() < lastCalendar.getTimeInMillis()) {
                     lastCalendar = calendar;
-                    result.add(index, Video.createHeaderVideo(DateFormat.calendarToHeadlineFormat(lastCalendar)));
+                    result.add(index, Episode.createHeaderVideo(FormatTime.calendarToHeadlineFormat(lastCalendar)));
                     index++;
                     size++;
                 }

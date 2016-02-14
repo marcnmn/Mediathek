@@ -18,7 +18,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
-import android.transition.Fade;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,16 +25,14 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.marcn.mediathek.base_objects.Channel;
+import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
-import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
 import com.marcn.mediathek.utils.Anims;
 import com.marcn.mediathek.utils.Storage;
 import com.marcn.mediathek.utils.Transitions;
 import com.marcn.mediathek.utils.XmlParser;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
 
 public class ChannelActivity extends BaseActivity
         implements AppBarLayout.OnOffsetChangedListener {
@@ -148,7 +145,7 @@ public class ChannelActivity extends BaseActivity
             mFab.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    playVideoExternal(liveStream.getLiveM3U8(), mChannel.title, Video.ACTION_SHARE_VIDEO_DIALOG);
+                    playVideoExternal(liveStream.getLiveM3U8(), mChannel.title, Episode.ACTION_SHARE_VIDEO_DIALOG);
                     return true;
                 }
             });

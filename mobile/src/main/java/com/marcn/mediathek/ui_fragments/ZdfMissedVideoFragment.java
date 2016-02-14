@@ -15,8 +15,8 @@ import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.VideoAdapter;
-import com.marcn.mediathek.base_objects.Video;
-import com.marcn.mediathek.utils.DateFormat;
+import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.utils.FormatTime;
 import com.marcn.mediathek.utils.LayoutTasks;
 import com.marcn.mediathek.utils.ZdfMediathekData;
 import com.tonicartos.superslim.LayoutManager;
@@ -68,9 +68,9 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
         mLayoutManager = new LayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        mVideoAdapter = new VideoAdapter(new ArrayList<Video>(), mListener);
+        mVideoAdapter = new VideoAdapter(new ArrayList<Episode>(), mListener);
         recyclerView.setAdapter(mVideoAdapter);
-        mVideoAdapter.updateValues(Video.createHeaderVideo(DateFormat.calendarToHeadlineFormat(mDay)));
+        mVideoAdapter.updateValues(Episode.createHeaderVideo(FormatTime.calendarToHeadlineFormat(mDay)));
 
         recyclerView.addOnScrollListener(onScrollListener);
         scrollArea.setOnTouchListener(this);
@@ -89,20 +89,20 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final ArrayList<Video> videos = ZdfMediathekData.getMissedShows(getContext(), offset, count, day, day);
-                if (getActivity() == null || videos == null) return;
-                if (videos.isEmpty() && mDay.after(mLastDay)) {
+                final ArrayList<Episode> episodes = ZdfMediathekData.getMissedShows(getContext(), offset, count, day, day);
+                if (getActivity() == null || episodes == null) return;
+                if (episodes.isEmpty() && mDay.after(mLastDay)) {
                     mDay.add(Calendar.DAY_OF_MONTH, -1);
                     if (mDay.get(Calendar.DAY_OF_YEAR) == new GregorianCalendar().get(Calendar.DAY_OF_YEAR))
-                        videos.add(Video.createHeaderVideo("Heute"));
+                        episodes.add(Episode.createHeaderVideo("Heute"));
                     else
-                        videos.add(Video.createHeaderVideo(DateFormat.calendarToHeadlineFormat(mDay)));
+                        episodes.add(Episode.createHeaderVideo(FormatTime.calendarToHeadlineFormat(mDay)));
                     mLoadedItems = 0;
                 }
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mVideoAdapter.updateValues(videos);
+                        mVideoAdapter.updateValues(episodes);
                         mVideoAdapter.setLoading(false);
                         mIsLoading = false;
                         if (mVideoAdapter.getItemCount() < 4)
@@ -140,9 +140,9 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
         mIndicator.setLayoutParams(mScrollLayoutParams);
 
         int firstVisible = mLayoutManager.findFirstCompletelyVisibleItemPosition();
-        Video video = mVideoAdapter.getItem(firstVisible);
-        if (video != null)
-            mIndicator.setText(video.getAirTimeDay());
+        Episode episode = mVideoAdapter.getItem(firstVisible);
+        if (episode != null)
+            mIndicator.setText(episode.getAirTimeDay());
 
         if (event.getAction() == MotionEvent.ACTION_DOWN && firstVisible >= 1)
             mIndicator.setVisibility(View.VISIBLE);

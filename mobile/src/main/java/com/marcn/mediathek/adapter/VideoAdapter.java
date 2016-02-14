@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.base_objects.Video;
+import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.utils.BaseListUtilities;
 import com.squareup.picasso.Picasso;
 import com.tonicartos.superslim.GridSLM;
@@ -27,10 +27,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
 
     private Context mContext;
     private boolean mIsLoading;
-    private ArrayList<Video> mValues;
+    private ArrayList<Episode> mValues;
     private final OnVideoInteractionListener mListener;
 
-    public VideoAdapter(ArrayList<Video> items, OnVideoInteractionListener onVideoInteractionListener) {
+    public VideoAdapter(ArrayList<Episode> items, OnVideoInteractionListener onVideoInteractionListener) {
         if (items == null)
             mValues = new ArrayList<>();
         else
@@ -40,12 +40,12 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
         notifyDataSetChanged();
     }
 
-    public void updateValues(ArrayList<Video> ls) {
+    public void updateValues(ArrayList<Episode> ls) {
         mValues.addAll(ls);
         notifyDataSetChanged();
     }
 
-    public void updateValues(Video ls) {
+    public void updateValues(Episode ls) {
         mValues.add(ls);
         notifyDataSetChanged();
     }
@@ -61,7 +61,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
     }
 
     @Nullable
-    public Video getItem(int position) {
+    public Episode getItem(int position) {
         if (position < 0 || position >= mValues.size())
             return null;
         if (mValues.get(position).isHeader)
@@ -109,7 +109,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
             return;
         }
 
-        final Video item = mValues.get(position);
+        final Episode item = mValues.get(position);
         View itemView = viewHolder.mView;
         viewHolder.mItem = item;
 
@@ -146,7 +146,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
             @Override
             public void onClick(View v) {
                 if (mListener != null)
-                    mListener.onVideoClicked(viewHolder.mItem, viewHolder.mThumbnail, Video.ACTION_INTERNAL_PLAYER);
+                    mListener.onVideoClicked(viewHolder.mItem, viewHolder.mThumbnail, Episode.ACTION_INTERNAL_PLAYER);
             }
         });
 
@@ -154,7 +154,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
             @Override
             public boolean onLongClick(View v) {
                 if (mListener != null)
-                    mListener.onVideoClicked(viewHolder.mItem, viewHolder.mThumbnail, Video.ACTION_SHARE_VIDEO_DIALOG);
+                    mListener.onVideoClicked(viewHolder.mItem, viewHolder.mThumbnail, Episode.ACTION_SHARE_VIDEO_DIALOG);
                 return true;
             }
         });
@@ -177,7 +177,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
         public final View mView;
         public final TextView mTitle, mVideoInfo, mChannel;
         public final ImageView mThumbnail;
-        public Video mItem;
+        public Episode mItem;
 
         public SendungViewHolder(View view) {
             super(view);

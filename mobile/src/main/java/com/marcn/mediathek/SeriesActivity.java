@@ -20,7 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.marcn.mediathek.base_objects.Sendung;
+import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
 import com.squareup.picasso.Picasso;
 
@@ -31,7 +31,7 @@ public class SeriesActivity extends BaseActivity {
     public static final String INTENT_SENDUNG_JSON = "sendung-json";
 //    public static final String INTENT_SENDUNG_ID = "sendung-id";
 
-    private Sendung mSendung;
+    private Series mSeries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +54,8 @@ public class SeriesActivity extends BaseActivity {
         if (intent != null && intent.getExtras() != null) {
             String json = intent.getStringExtra(INTENT_SENDUNG_JSON);
             Gson gson = new Gson();
-            mSendung = gson.fromJson(json, Sendung.class);
-            setupHeaderView(mSendung);
+            mSeries = gson.fromJson(json, Series.class);
+            setupHeaderView(mSeries);
         }
 
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
@@ -70,8 +70,8 @@ public class SeriesActivity extends BaseActivity {
                     scrollRange = appBarLayout.getTotalScrollRange();
                 }
                 if (scrollRange + verticalOffset == 0) {
-                    if (mSendung != null)
-                        collapsingToolbarLayout.setTitle(mSendung.shortTitle);
+                    if (mSeries != null)
+                        collapsingToolbarLayout.setTitle(mSeries.shortTitle);
                     isShow = true;
                 } else if(isShow) {
                     collapsingToolbarLayout.setTitle("");
@@ -84,23 +84,23 @@ public class SeriesActivity extends BaseActivity {
         loadWidgets();
     }
 
-    private void setupHeaderView(Sendung sendung) {
-        if (sendung == null) return;
+    private void setupHeaderView(Series series) {
+        if (series == null) return;
 //        if (findViewById(R.id.imageChannel) != null)
-//            ((ImageView) findViewById(R.id.imageChannel)).setImageResource(sendung.channel.getLogoResId());
+//            ((ImageView) findViewById(R.id.imageChannel)).setImageResource(series.channel.getLogoResId());
         if (findViewById(R.id.textTitle) != null)
-            ((TextView) findViewById(R.id.textTitle)).setText(sendung.title);
+            ((TextView) findViewById(R.id.textTitle)).setText(series.title);
 
         if (findViewById(R.id.textDetail) != null)
-            ((TextView) findViewById(R.id.textDetail)).setText(sendung.detail);
+            ((TextView) findViewById(R.id.textDetail)).setText(series.detail);
 
         if (findViewById(R.id.imageChannel) != null)
-            ((TextView) findViewById(R.id.imageChannel)).setText(sendung.channel.title);
+            ((TextView) findViewById(R.id.imageChannel)).setText(series.channel.title);
 
         ImageView thumbnail = (ImageView) findViewById(R.id.imageThumbnail);
-        if (thumbnail != null && sendung.thumb_url_high != null)
+        if (thumbnail != null && series.thumb_url_high != null)
             Picasso.with(this)
-                    .load(sendung.thumb_url_high)
+                    .load(series.thumb_url_high)
                     .config(Bitmap.Config.RGB_565)
                     .into(thumbnail);
 
@@ -133,8 +133,8 @@ public class SeriesActivity extends BaseActivity {
     }
 
     private void loadWidgets() {
-        if (mSendung == null) return;
-        String assetId = "" + mSendung.assetId;
+        if (mSeries == null) return;
+        String assetId = "" + mSeries.assetId;
         loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_LAST, R.id.widgetLast, assetId);
         loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_MOST_POPULAR, R.id.widgetMost, assetId);
         loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_FURTHER, R.id.widgetFurther, assetId);
