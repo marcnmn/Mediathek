@@ -4,8 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.base_objects.Channel;
-import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.base_objects.Station;
 import com.marcn.mediathek.base_objects.Episode2;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreams;
@@ -52,56 +51,25 @@ public class XmlParser {
         return ls;
     }
 
-    public static ArrayList<LiveStream> getZDFLiveStreamEpgNow(ArrayList<LiveStream> ls) throws IOException {
-
-        for (LiveStream l : ls) {
-            String url = l.getLiveEPGURL();
-            JSONObject json = NetworkTasks.downloadJSONData(url);
-            try {
-                json = json.getJSONObject("response").getJSONArray("sendungen").getJSONObject(0);
-                json = json.getJSONObject("sendung").getJSONObject("value");
-
-                String title = json.getString("titel");
-                Episode2 episode2 = new Episode2(title, l.channelObject);
-
-                String description = json.getString("beschreibung");
-                episode2.setDescription(description);
-
-                String time = json.getString("time");
-                String endTime = json.getString("endTime");
-                Calendar cTime = FormatTime.zdfEpgStringToDate(time);
-                Calendar cEndTime = FormatTime.zdfEpgStringToDate(endTime);
-                if (cTime != null && cEndTime != null) {
-                    episode2.setStartTime(cTime);
-                    long length = cEndTime.getTimeInMillis() - cTime.getTimeInMillis();
-                    episode2.setEpisodeLengthInMs(length);
-                }
-                l.setCurrentEpisode(episode2);
-            } catch (JSONException | NullPointerException ignored) {
-            }
-        }
-        return ls;
-    }
-
     @Nullable
-    public static LiveStream getLivestreamFromChannel(Context context, Channel channel) {
+    public static LiveStream getLivestreamFromChannel(Context context, Station station) {
         LiveStream liveStream = null;
-        switch (channel.title) {
+        switch (station.title) {
             case Constants.TITLE_CHANNEL_ARD:
-                liveStream = ardLiveStreamsData(context, channel);
+                liveStream = ardLiveStreamsData(context, station);
                 break;
             case Constants.TITLE_CHANNEL_ARTE:
-                liveStream = arteLiveStreamData(context, channel);
+                liveStream = arteLiveStreamData(context, station);
                 break;
             default:
-                liveStream = getZDFLiveStreamData(context, channel);
+                liveStream = getZDFLiveStreamData(context, station);
                 break;
         }
         return liveStream;
     }
 
     @Nullable
-    public static LiveStream getZDFLiveStreamData(Context context, Channel channel) {
+    public static LiveStream getZDFLiveStreamData(Context context, Station station) {
         String url = context.getString(R.string.zdf_live_api);
         Document d;
         try {
@@ -110,7 +78,7 @@ public class XmlParser {
             return null;
         }
 
-        if (d == null || channel == null)
+        if (d == null || station == null)
             return null;
 
         LiveStream liveStream = null;
@@ -124,7 +92,7 @@ public class XmlParser {
                 String assetId = getStringByTag(el, "assetId");
                 int originChannelId = getIntegerByTag(el, "originChannelId");
 
-                if (channel.title.equals(channelName)) {
+                if (station.title.equals(channelName)) {
                     liveStream = new LiveStream(assetId, channelName, originChannelId);
                     liveStream.detail = detail;
                     liveStream.thumb_url = thumb;
@@ -136,8 +104,8 @@ public class XmlParser {
         return liveStream;
     }
 
-    public static LiveStream arteLiveStreamData(Context c, Channel channel) {
-        if (c == null || channel == null) return null;
+    public static LiveStream arteLiveStreamData(Context c, Station station) {
+        if (c == null || station == null) return null;
         String url = c.getString(R.string.arte_live_api);
 
         LiveStream liveStream = new LiveStream("6", c.getString(R.string.arte_name), LiveStream.ARTE_GROUP);
@@ -145,7 +113,7 @@ public class XmlParser {
             Document doc = Jsoup.connect(url).get();
             String thumbnail = doc.select("div.video-block.has-play > img").attr("src");
             liveStream.setThumb_url(thumbnail);
-            liveStream.channelObject = channel;
+            liveStream.stationObject = station;
             return liveStream;
         } catch (IOException e) {
             e.printStackTrace();
@@ -169,9 +137,9 @@ public class XmlParser {
         return null;
     }
 
-    public static LiveStream ardLiveStreamsData(Context c, Channel channel) {
+    public static LiveStream ardLiveStreamsData(Context c, Station station) {
         if (c == null) return null;
-        LiveStream liveStream = channel.getLiveStream();
+        LiveStream liveStream = station.getLiveStream();
         String url = c.getString(R.string.ard_live_api);
         String image_url = c.getString(R.string.ard_live_image_api);
         try {

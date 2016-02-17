@@ -9,7 +9,7 @@ public class Episode {
     public String title, detail, thumb_url, airtime, vcmsUrl;
     public String nurOnline, onlineFassung, ganzeSendung, originChannelTitle;
     public int assetId, originChannelId, lengthSec;
-    public Channel channel;
+    public Station station;
 
     public String dayAndDate;
     public boolean isHeader;
@@ -31,7 +31,7 @@ public class Episode {
         this.originChannelId = originChannelId;
         this.lengthSec = lengthSec;
 
-        this.channel = new Channel(channel);
+        this.station = new Station(channel);
     }
 
     public Episode(String title, String detail, String thumb_url,
@@ -47,7 +47,7 @@ public class Episode {
         this.originChannelId = originChannelId;
         this.lengthSec = lengthSec;
 
-        this.channel = new Channel(channel);
+        this.station = new Station(channel);
 
         this.nurOnline = nurOnline;
         this.onlineFassung = onlineFassung;

@@ -21,13 +21,13 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
-import com.marcn.mediathek.base_objects.Channel;
+import com.marcn.mediathek.base_objects.Station;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.utils.Playback;
 import com.marcn.mediathek.utils.Storage;
-import com.marcn.mediathek.utils.ZdfMediathekData;
+import com.marcn.mediathek.StationUtils.ZdfMediathekData;
 
 import java.io.IOException;
 import java.util.TreeMap;
@@ -185,9 +185,9 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     @Override
-    public void onChannelClicked(Channel channel, View view) {
-        if (channel == null) return;
-        Toast.makeText(this, channel.title, Toast.LENGTH_SHORT).show();
+    public void onChannelClicked(Station station, View view) {
+        if (station == null) return;
+        Toast.makeText(this, station.title, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -198,12 +198,12 @@ public abstract class BaseActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    void startChannelActivity(Channel channel) {
-        if (channel == null) return;
+    void startChannelActivity(Station station) {
+        if (station == null) return;
 
         Intent intent = new Intent(this, ChannelActivity.class);
         Gson gson = new Gson();
-        String json = gson.toJson(channel);
+        String json = gson.toJson(station);
         intent.putExtra(ChannelActivity.INTENT_SENDER_JSON, json);
 
 //        ImageView imageView = (ImageView) thumbnail;

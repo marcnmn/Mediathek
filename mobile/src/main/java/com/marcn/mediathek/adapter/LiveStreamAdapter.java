@@ -50,7 +50,8 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
 
     public void updateArdValues(ArrayList<LiveStream> ls) {
         mValues.pushLiveStreams(ls);
-        notifyItemRangeChanged(6, mValues.size() - 7);
+//        notifyDataSetChanged();
+        notifyItemRangeChanged(6, ls.size());
     }
 
     public void setVideoClickListener(OnVideoInteractionListener listener) {
@@ -67,12 +68,13 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        //holder.mTitle.setText(holder.mItem.channel);
+//        holder.mItem = mValues.get(position);
+        //holder.mTitle.setText(holder.mItem.station);
         Context context = holder.mView.getContext();
+        final LiveStream liveStream = mValues.get(position);
 
         // Thumbnail Image
-        String thumb = holder.mItem.getThumb_url();
+        String thumb = liveStream.getThumb_url();
         if (thumb == null || thumb.isEmpty())
             holder.mThumb.setImageResource(R.drawable.placeholder_stream);
         else
@@ -83,16 +85,23 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
                     .config(Bitmap.Config.RGB_565)
                     .into(holder.mThumb);
 
-        // Logo Image
-        if (holder.mItem.getCurrentEpisode() != null) {
+        if (liveStream.stationObject != null)
+            holder.mStation.setText(liveStream.stationObject.title);
+
+        if (liveStream.getCurrentEpisode() != null) {
             if (holder.mTitle != null)
-                holder.mTitle.setText(holder.mItem.getCurrentEpisode().getTitle());
+                holder.mTitle.setText(liveStream.getCurrentEpisode().getTitle());
 
             if (holder.mTime != null)
-                holder.mTime.setText(holder.mItem.getCurrentEpisode().getRemainingTime());
+                holder.mTime.setText(liveStream.getCurrentEpisode().getRemainingTime());
 
             holder.mView.findViewById(R.id.liveInfoContainer).setVisibility(View.VISIBLE);
         } else {
+            if (holder.mTitle != null)
+                holder.mTitle.setText(null);
+
+            if (holder.mTime != null)
+                holder.mTime.setText(null);
             holder.mView.findViewById(R.id.liveInfoContainer).setVisibility(View.GONE);
         }
 
@@ -108,7 +117,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
-                    mListener.onLiveStreamClicked(holder.mItem, holder.mThumb, Episode.ACTION_INTERNAL_PLAYER);
+                    mListener.onLiveStreamClicked(liveStream, holder.mThumb, Episode.ACTION_INTERNAL_PLAYER);
                 }
             }
         });
@@ -116,7 +125,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
         holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                mListener.playVideoExternal(holder.mItem.getLiveM3U8(), holder.mItem.title, Episode.ACTION_SHARE_VIDEO_DIALOG);
+                mListener.playVideoExternal(liveStream.getLiveM3U8(), holder.mItem.title, Episode.ACTION_SHARE_VIDEO_DIALOG);
                 return true;
             }
         });
@@ -139,7 +148,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
         public final ImageView mThumb;
 //        public final ImageView mLogo;
         public final TextView mLogo;
-        public final TextView mTitle, mTime;
+        public final TextView mTitle, mTime, mStation;
 
         public LiveStream mItem;
 
@@ -150,6 +159,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
             mLogo = (TextView) view.findViewById(R.id.imageLogo);
             mTitle = (TextView) view.findViewById(R.id.textLiveTitle);
             mTime = (TextView) view.findViewById(R.id.textLiveTime);
+            mStation = (TextView) view.findViewById(R.id.textStationName);
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.marcn.mediathek.ui_fragments;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -16,10 +17,12 @@ import com.marcn.mediathek.adapter.LiveStreamAdapter;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreams;
 import com.marcn.mediathek.utils.Constants;
+import com.marcn.mediathek.utils.EpgUtils;
 import com.marcn.mediathek.utils.XmlParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.RunnableFuture;
 
 public class LiveStreamsFragment extends Fragment {
     public static String FRAGMENT_TAG = "livestream-fragment";
@@ -87,7 +90,6 @@ public class LiveStreamsFragment extends Fragment {
         downloadZdfData();
         downloadArteData();
         downloadArdData();
-
         return view;
     }
 
@@ -97,7 +99,7 @@ public class LiveStreamsFragment extends Fragment {
             public void run() {
                 try {
                     final ArrayList<LiveStream> ls = XmlParser.getZDFLiveStreamData2(getContext(), mLiveStreams.getGroup(LiveStream.ZDF_MAIN_GROUP));
-                    XmlParser.getZDFLiveStreamEpgNow(ls);
+                    EpgUtils.getLiveStreamEpgNow(ls);
                     if (getActivity() == null || ls == null) return;
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
@@ -116,6 +118,7 @@ public class LiveStreamsFragment extends Fragment {
             @Override
             public void run() {
                 final LiveStream l = XmlParser.arteLiveStreamData(getContext(), mLiveStreams.getArteLiveStream());
+                EpgUtils.getLiveStreamEpgNow(l);
                 if (getActivity() == null) return;
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
@@ -132,6 +135,7 @@ public class LiveStreamsFragment extends Fragment {
             @Override
             public void run() {
                 final ArrayList<LiveStream> ls = XmlParser.ardLiveStreamsData(getContext(), mLiveStreams.getGroup(LiveStream.ARD_GROUP));
+                EpgUtils.getLiveStreamEpgNow(ls);
                 if (getActivity() == null) return;
                 getActivity().runOnUiThread(new Runnable() {
                     @Override

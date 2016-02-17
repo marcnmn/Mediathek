@@ -12,12 +12,14 @@ public class Episode2 {
 
     // Essentials
     private final String title;
-    private final Channel channel;
+    private final Station station;
     private final int assetId;
 
     private Calendar startTime;
     private long episodeLengthInMs;
     private boolean isHeader;
+
+    private String remainingTime;
 
     // Additional information
     private String description, thumb_url, browserUrl;
@@ -25,19 +27,19 @@ public class Episode2 {
     // Mediathek specific
     private boolean nurOnline, onlineFassung, ganzeSendung;
 
-    public Episode2(String title, Channel channel) {
-        this(title, channel, (int) (Math.random() * Integer.MAX_VALUE));
+    public Episode2(String title, Station station) {
+        this(title, station, (int) (Math.random() * Integer.MAX_VALUE));
     }
 
-    public Episode2(String title, Channel channel, int assetId) {
+    public Episode2(String title, Station station, int assetId) {
         this.title = title;
-        this.channel = channel;
+        this.station = station;
         this.assetId = assetId;
     }
 
-    public Episode2(String title, Channel channel, int assetId, Calendar startTime, long episodeLengthInMs) {
+    public Episode2(String title, Station station, int assetId, Calendar startTime, long episodeLengthInMs) {
         this.title = title;
-        this.channel = channel;
+        this.station = station;
         this.assetId = assetId;
         this.startTime = startTime;
         this.episodeLengthInMs = episodeLengthInMs;
@@ -66,17 +68,12 @@ public class Episode2 {
         return title;
     }
 
-    public Channel getChannel() {
-        return channel;
+    public Station getStation() {
+        return station;
     }
 
     public int getAssetId() {
         return assetId;
-    }
-
-    public String getRemainingTime() {
-        if (startTime == null || episodeLengthInMs < 0) return "";
-        return "Noch " + FormatTime.remainingMinutes(startTime, episodeLengthInMs) + " min";
     }
 
     public Calendar getStartTime() {
@@ -149,5 +146,15 @@ public class Episode2 {
 
     public void setGanzeSendung(boolean ganzeSendung) {
         this.ganzeSendung = ganzeSendung;
+    }
+
+    public String getRemainingTime() {
+        return remainingTime;
+    }
+
+    public void setRemainingTime(Calendar start, long ms) {
+        remainingTime = "";
+        if (startTime != null && episodeLengthInMs >= 0)
+            remainingTime = "Noch " + FormatTime.remainingMinutes(start, ms) + " min";
     }
 }

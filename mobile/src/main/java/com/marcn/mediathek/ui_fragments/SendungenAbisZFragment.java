@@ -17,7 +17,7 @@ import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.SendungAdapter;
 import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.utils.LayoutTasks;
-import com.marcn.mediathek.utils.ZdfMediathekData;
+import com.marcn.mediathek.StationUtils.ZdfMediathekData;
 import com.tonicartos.superslim.LayoutManager;
 
 import java.util.ArrayList;

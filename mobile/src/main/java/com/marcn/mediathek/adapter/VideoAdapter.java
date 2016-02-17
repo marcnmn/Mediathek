@@ -130,9 +130,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
                 viewHolder.mThumbnail.setImageDrawable(null);
 
             if (viewHolder.mChannel != null)
-                viewHolder.mChannel.setText(item.channel.title);
-//            if (item.channel != null)
-//                viewHolder.mChannel.setImageResource(item.channel.getLogoResId());
+                viewHolder.mChannel.setText(item.station.title);
+//            if (item.station != null)
+//                viewHolder.mChannel.setImageResource(item.station.getLogoResId());
 //            else
 //                viewHolder.mChannel.setImageDrawable(null);
         }

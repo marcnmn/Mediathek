@@ -87,7 +87,7 @@ public class SeriesActivity extends BaseActivity {
     private void setupHeaderView(Series series) {
         if (series == null) return;
 //        if (findViewById(R.id.imageChannel) != null)
-//            ((ImageView) findViewById(R.id.imageChannel)).setImageResource(series.channel.getLogoResId());
+//            ((ImageView) findViewById(R.id.imageChannel)).setImageResource(series.station.getLogoResId());
         if (findViewById(R.id.textTitle) != null)
             ((TextView) findViewById(R.id.textTitle)).setText(series.title);
 
@@ -95,7 +95,7 @@ public class SeriesActivity extends BaseActivity {
             ((TextView) findViewById(R.id.textDetail)).setText(series.detail);
 
         if (findViewById(R.id.imageChannel) != null)
-            ((TextView) findViewById(R.id.imageChannel)).setText(series.channel.title);
+            ((TextView) findViewById(R.id.imageChannel)).setText(series.station.title);
 
         ImageView thumbnail = (ImageView) findViewById(R.id.imageThumbnail);
         if (thumbnail != null && series.thumb_url_high != null)

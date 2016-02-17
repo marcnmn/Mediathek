@@ -45,7 +45,7 @@ public class LiveStream {
     public String detail, thumb_url, title;
 
     private Episode2 currentEpisode;
-    public Channel channelObject;
+    public Station stationObject;
 
     public static ArrayList<LiveStream> getBaseLiveStreams (Context c){
         ArrayList<LiveStream> ls =  new ArrayList<>();
@@ -82,7 +82,7 @@ public class LiveStream {
     public LiveStream(String id, String channel, int originChannelId, String queryName) {
         this.id = id;
         this.channel = channel;
-        this.channelObject = new Channel(channel);
+        this.stationObject = new Station(channel);
         this.originChannelId = originChannelId;
         this.queryName = queryName;
     }
@@ -127,6 +127,7 @@ public class LiveStream {
             case Constants.TITLE_CHANNEL_ZDF_INFO: url += Constants.LIVE_STREAM_EPG_ZDF_INFO_NAME; break;
             case Constants.TITLE_CHANNEL_3SAT: url += Constants.LIVE_STREAM_EPG_3SAT_NAME; break;
             case Constants.TITLE_CHANNEL_ZDF_NEO: url += Constants.LIVE_STREAM_EPG_ZDF_NEO_NAME; break;
+            case Constants.TITLE_CHANNEL_ARTE: url += Constants.LIVE_STREAM_EPG_ARTE_NAME; break;
             default: return null;
         }
         return url + "/now/json";

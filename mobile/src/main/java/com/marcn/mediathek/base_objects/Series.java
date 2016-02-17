@@ -3,7 +3,7 @@ package com.marcn.mediathek.base_objects;
 public class Series {
     public String title, shortTitle, detail, thumb_url_low, thumb_url_high, vcmsUrl, member;
     public int assetId;
-    public Channel channel;
+    public Station station;
     public boolean isHeader;
 
     public Series(String title, String shortTitle, String detail,
@@ -18,7 +18,7 @@ public class Series {
         this.assetId = assetId;
         this.member = member;
 
-        this.channel = new Channel(channel);
+        this.station = new Station(channel);
     }
 
     public static Series createSendungHeader(String title) {

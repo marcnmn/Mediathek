@@ -105,10 +105,10 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
                 viewHolder.mThumbnail.setImageDrawable(null);
 
             if (viewHolder.mChannel != null)
-                viewHolder.mChannel.setText(item.channel.title);
+                viewHolder.mChannel.setText(item.station.title);
 
-//            if (item.channel != null)
-//                viewHolder.mChannel.setImageResource(item.channel.getLogoResId());
+//            if (item.station != null)
+//                viewHolder.mChannel.setImageResource(item.station.getLogoResId());
 //            else
 //                viewHolder.mChannel.setImageDrawable(null);
         }
@@ -132,7 +132,7 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
                 @Override
                 public void onClick(View v) {
                     if (mListener != null)
-                        mListener.onChannelClicked(viewHolder.mItem.channel, viewHolder.mChannel);
+                        mListener.onChannelClicked(viewHolder.mItem.station, viewHolder.mChannel);
                 }
             });
     }

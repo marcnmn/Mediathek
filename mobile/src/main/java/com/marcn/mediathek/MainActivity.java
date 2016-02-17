@@ -15,7 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
 import android.view.View;
 
-import com.marcn.mediathek.base_objects.Channel;
+import com.marcn.mediathek.base_objects.Station;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
 import com.marcn.mediathek.ui_fragments.SendungenAbisZFragment;
 import com.marcn.mediathek.ui_fragments.ZdfMissedVideoFragment;
@@ -81,17 +81,17 @@ public class MainActivity extends BaseActivity {
             loadCleanFragment(new SendungenAbisZFragment());
         }
 
-        Channel channel = null;
+        Station station = null;
         switch (id) {
-            case R.id.nav_zdf: channel = new Channel(getString(R.string.zdf_name)); break;
-            case R.id.nav_phoenix: channel = new Channel(getString(R.string.phoenix_name)); break;
-            case R.id.nav_zdf_neo: channel = new Channel(getString(R.string.zdf_neo_name)); break;
-            case R.id.nav_zdf_kultur: channel = new Channel(getString(R.string.zdf_kultur_name)); break;
-            case R.id.nav_zdf_info: channel = new Channel(getString(R.string.zdf_info_name)); break;
-            case R.id.nav_3sat: channel = new Channel(getString(R.string.drei_sat_name)); break;
+            case R.id.nav_zdf: station = new Station(getString(R.string.zdf_name)); break;
+            case R.id.nav_phoenix: station = new Station(getString(R.string.phoenix_name)); break;
+            case R.id.nav_zdf_neo: station = new Station(getString(R.string.zdf_neo_name)); break;
+            case R.id.nav_zdf_kultur: station = new Station(getString(R.string.zdf_kultur_name)); break;
+            case R.id.nav_zdf_info: station = new Station(getString(R.string.zdf_info_name)); break;
+            case R.id.nav_3sat: station = new Station(getString(R.string.drei_sat_name)); break;
         }
-        if (channel != null)
-            startChannelActivity(channel);
+        if (station != null)
+            startChannelActivity(station);
     }
 
     private void loadCleanFragment(Fragment fragment) {

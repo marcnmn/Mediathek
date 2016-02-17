@@ -43,10 +43,22 @@
             android:maxLines="1"
             android:ellipsize="end"
             android:textAppearance="@style/WhiteShadowFont"
-            android:textColor="#e0e0e0"
+            android:textColor="#ffcc80"
             android:textSize="12sp"
             tools:text="testtest"/>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textStationName"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="5dp"
+        android:paddingEnd="5dp"
+        android:textAppearance="@style/WhiteShadowFont"
+        android:textSize="12sp"
+        tools:text="ZDF"/>
 
     <TextView
         android:layout_width="wrap_content"

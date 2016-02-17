@@ -21,7 +21,7 @@ import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.VideoWidgetAdapter;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.Series;
-import com.marcn.mediathek.utils.ZdfMediathekData;
+import com.marcn.mediathek.StationUtils.ZdfMediathekData;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -52,7 +52,6 @@ public class FormatTime {
         if (day == null) return null;
         day = day.replace("T", " ");
         SimpleDateFormat format  = new SimpleDateFormat("yyy-MM-dd hh:mm:ss");
-
         SimpleDateFormat offsetFormat  = new SimpleDateFormat("mm:ss");
 
         Date date = null;
@@ -67,6 +66,21 @@ public class FormatTime {
         }
         Calendar calendar = GregorianCalendar.getInstance();
         calendar.setTime(date);
+        return calendar;
+    }
+
+    //// ARD specific
+    @SuppressLint("SimpleDateFormat")
+    public static Calendar parseArdString(String data) throws ParseException {
+        SimpleDateFormat s = new SimpleDateFormat("hh:mm");
+        Date date = s.parse(data);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int hours = calendar.get(Calendar.HOUR_OF_DAY);
+        int minutes = calendar.get(Calendar.MINUTE);
+        calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, hours);
+        calendar.set(Calendar.MINUTE, minutes);
         return calendar;
     }
 }

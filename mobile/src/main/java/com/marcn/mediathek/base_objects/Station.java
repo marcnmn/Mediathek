@@ -1,13 +1,22 @@
 package com.marcn.mediathek.base_objects;
 
-import com.marcn.mediathek.R;
 import com.marcn.mediathek.utils.Constants;
 
-public class Channel {
-    public final String title;
+public class Station {
+    public static final int ZDF_GOURP = 0;
+    public static final int ARTE_GOURP = 1;
+    public static final int ARD_GOURP = 2;
 
-    public Channel(String title) {
+    public final String title;
+    private final int group;
+
+//    public Station(String title) {
+//        this(title, -1);
+//    }
+
+    public Station(String title) {
         this.title = title;
+        this.group = getGroupFromName(title);
     }
 
     public LiveStream getLiveStream() {
@@ -58,6 +67,37 @@ public class Channel {
         return "";
     }
 
+    public static int getGroupFromName(String name) {
+        switch (name) {
+            // ZDF Sender
+            case Constants.TITLE_CHANNEL_ZDF: return ZDF_GOURP;
+            case Constants.TITLE_CHANNEL_PHOENIX: return ZDF_GOURP;
+            case Constants.TITLE_CHANNEL_ZDF_KULTUR: return ZDF_GOURP;
+            case Constants.TITLE_CHANNEL_ZDF_INFO: return ZDF_GOURP;
+            case Constants.TITLE_CHANNEL_3SAT: return ZDF_GOURP;
+            case Constants.TITLE_CHANNEL_ZDF_NEO: return ZDF_GOURP;
+            // ARTE
+            case Constants.TITLE_CHANNEL_ARTE: return ARTE_GOURP;
+            // ARD
+            case Constants.TITLE_CHANNEL_ARD: return ARD_GOURP;
+            case Constants.TITLE_CHANNEL_ARD_ALPHA: return ARD_GOURP;
+            case Constants.TITLE_CHANNEL_TAGESSCHAU: return ARD_GOURP;
+            // Regional 1
+            case Constants.TITLE_CHANNEL_SWR: return ARD_GOURP;
+            case Constants.TITLE_CHANNEL_WDR: return ARD_GOURP;
+            case Constants.TITLE_CHANNEL_MDR: return ARD_GOURP;
+            case Constants.TITLE_CHANNEL_NDR: return ARD_GOURP;
+            // Regional 2
+            case Constants.TITLE_CHANNEL_BR: return ARD_GOURP;
+            case Constants.TITLE_CHANNEL_SR: return ARD_GOURP;
+            case Constants.TITLE_CHANNEL_HR: return ARD_GOURP;
+            case Constants.TITLE_CHANNEL_RBB: return ARD_GOURP;
+            // KiKa
+            case Constants.TITLE_CHANNEL_KIKA: return ARD_GOURP;
+            default: return -1;
+        }
+    }
+
 //    public int getLogoResId() {
 //        switch (title) {
 //            // ZDF Sender
@@ -96,9 +136,13 @@ public class Channel {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Channel))
+        if (!(o instanceof Station))
             return false;
-        Channel ls = (Channel) o;
+        Station ls = (Station) o;
         return ls.title.equals(this.title);
+    }
+
+    public int getGroup() {
+        return group;
     }
 }

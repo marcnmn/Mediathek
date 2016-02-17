@@ -24,7 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.marcn.mediathek.base_objects.Channel;
+import com.marcn.mediathek.base_objects.Station;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
@@ -37,9 +37,9 @@ import com.squareup.picasso.Picasso;
 public class ChannelActivity extends BaseActivity
         implements AppBarLayout.OnOffsetChangedListener {
 
-    public static final String INTENT_SENDER_JSON = "channel-json";
+    public static final String INTENT_SENDER_JSON = "station-json";
 
-    private Channel mChannel;
+    private Station mStation;
     private LiveStream mLiveStream;
 
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
@@ -75,7 +75,7 @@ public class ChannelActivity extends BaseActivity
         if (intent != null && intent.getExtras() != null) {
             String json = intent.getStringExtra(INTENT_SENDER_JSON);
             Gson gson = new Gson();
-            mChannel = gson.fromJson(json, Channel.class);
+            mStation = gson.fromJson(json, Station.class);
         }
 
         mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
@@ -98,7 +98,7 @@ public class ChannelActivity extends BaseActivity
         new Thread(new Runnable() {
             @Override
             public void run() {
-                mLiveStream = XmlParser.getLivestreamFromChannel(mContext, mChannel);
+                mLiveStream = XmlParser.getLivestreamFromChannel(mContext, mStation);
                 if (mLiveStream == null) return;
                 runOnUiThread(new Runnable() {
                     @Override
@@ -125,8 +125,8 @@ public class ChannelActivity extends BaseActivity
     private void setupHeaderView(final LiveStream liveStream) {
         if (liveStream == null) return;
         if (findViewById(R.id.imageChannel) != null)
-            ((TextView) findViewById(R.id.imageChannel)).setText(mChannel.title);
-//            ((ImageView) findViewById(R.id.imageChannel)).setImageResource(sendung.channel.getLogoResId());
+            ((TextView) findViewById(R.id.imageChannel)).setText(mStation.title);
+//            ((ImageView) findViewById(R.id.imageChannel)).setImageResource(sendung.station.getLogoResId());
         if (findViewById(R.id.textTitle) != null)
             ((TextView) findViewById(R.id.textTitle)).setText(liveStream.getTitle());
 
@@ -145,7 +145,7 @@ public class ChannelActivity extends BaseActivity
             mFab.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    playVideoExternal(liveStream.getLiveM3U8(), mChannel.title, Episode.ACTION_SHARE_VIDEO_DIALOG);
+                    playVideoExternal(liveStream.getLiveM3U8(), mStation.title, Episode.ACTION_SHARE_VIDEO_DIALOG);
                     return true;
                 }
             });

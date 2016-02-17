@@ -1,4 +1,4 @@
-package com.marcn.mediathek.utils;
+package com.marcn.mediathek.StationUtils;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -70,7 +70,7 @@ public class ZdfMediathekData {
                 String title = getSingleStringByTag(el, "title");
                 String detail = getSingleStringByTag(el, "detail");
                 String thumb_url = getThumbUrl(el, "teaserimage");
-                String channel = getSingleStringByTag(el, "channel");
+                String channel = getSingleStringByTag(el, "station");
                 String airtime = getSingleStringByTag(el, "airtime");
                 String vcmsUrl = getSingleStringByTag(el, "vcmsUrl");
                 int assetId = getSingleIntegerByTag(el, "assetId");
@@ -118,7 +118,7 @@ public class ZdfMediathekData {
                 String detail = getSingleStringByTag(el, "detail");
                 String thumb_url_low = el.select("teaserimage[key=144x81]").text();
                 String thumb_url_high = el.select("teaserimage[key=946x532]").text();
-                String channel = getSingleStringByTag(el, "channel");
+                String channel = getSingleStringByTag(el, "station");
                 String vcmsUrl = getSingleStringByTag(el, "vcmsUrl");
                 int assetId = getSingleIntegerByTag(el, "assetId");
 
