@@ -53,12 +53,12 @@ public class VideoWidgetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
             final VideoViewHolder holder = (VideoViewHolder) viewHolder;
             holder.mItem = episode;
-            holder.mTitle.setText(holder.mItem.title);
-            holder.mAirTime.setText(holder.mItem.airtime);
+            holder.mTitle.setText(holder.mItem.getTitle());
+            holder.mAirTime.setText(holder.mItem.getAirTime());
             Context context = holder.mView.getContext();
 
             // Thumbnail Image
-            String thumb = holder.mItem.thumb_url;
+            String thumb = holder.mItem.getThumb_url();
             if (thumb == null || thumb.isEmpty())
                 holder.mThumb.setImageResource(R.drawable.placeholder_stream);
             else

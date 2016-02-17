@@ -44,7 +44,7 @@ public class LiveStream {
     public String channel;
     public String detail, thumb_url, title;
 
-    private Episode2 currentEpisode;
+    private Episode currentEpisode;
     public Station stationObject;
 
     public static ArrayList<LiveStream> getBaseLiveStreams (Context c){
@@ -201,11 +201,11 @@ public class LiveStream {
         this.title = title;
     }
 
-    public Episode2 getCurrentEpisode() {
+    public Episode getCurrentEpisode() {
         return currentEpisode;
     }
 
-    public void setCurrentEpisode(Episode2 currentEpisode) {
+    public void setCurrentEpisode(Episode currentEpisode) {
         this.currentEpisode = currentEpisode;
     }
 }

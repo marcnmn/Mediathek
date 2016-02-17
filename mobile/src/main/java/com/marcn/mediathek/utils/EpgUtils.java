@@ -1,7 +1,7 @@
 package com.marcn.mediathek.utils;
 
 import com.marcn.mediathek.StationUtils.Ard;
-import com.marcn.mediathek.base_objects.Episode2;
+import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.Station;
 
@@ -42,22 +42,22 @@ public class EpgUtils {
             json = json.getJSONObject("sendung").getJSONObject("value");
 
             String title = json.getString("titel");
-            Episode2 episode2 = new Episode2(title, l.stationObject);
+            Episode episode = new Episode(title, l.stationObject);
 
             String description = ParserUtils.getString(json, "beschreibung");
-            episode2.setDescription(description);
+            episode.setDescription(description);
 
             String time = json.getString("time");
             String endTime = json.getString("endTime");
             Calendar cTime = FormatTime.zdfEpgStringToDate(time);
             Calendar cEndTime = FormatTime.zdfEpgStringToDate(endTime);
             if (cTime != null && cEndTime != null) {
-                episode2.setStartTime(cTime);
+                episode.setStartTime(cTime);
                 long length = cEndTime.getTimeInMillis() - cTime.getTimeInMillis();
-                episode2.setEpisodeLengthInMs(length);
-                episode2.setRemainingTime(cTime, length);
+                episode.setEpisodeLengthInMs(length);
+                episode.setRemainingTime(cTime, length);
             }
-            l.setCurrentEpisode(episode2);
+            l.setCurrentEpisode(episode);
         } catch (JSONException | NullPointerException ignored) {
         }
         return l;

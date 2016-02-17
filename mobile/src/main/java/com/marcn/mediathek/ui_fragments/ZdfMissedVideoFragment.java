@@ -70,7 +70,7 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
 
         mVideoAdapter = new VideoAdapter(new ArrayList<Episode>(), mListener);
         recyclerView.setAdapter(mVideoAdapter);
-        mVideoAdapter.updateValues(Episode.createHeaderVideo(FormatTime.calendarToHeadlineFormat(mDay)));
+        mVideoAdapter.updateValues(Episode.createHeader(FormatTime.calendarToHeadlineFormat(mDay)));
 
         recyclerView.addOnScrollListener(onScrollListener);
         scrollArea.setOnTouchListener(this);
@@ -94,9 +94,9 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
                 if (episodes.isEmpty() && mDay.after(mLastDay)) {
                     mDay.add(Calendar.DAY_OF_MONTH, -1);
                     if (mDay.get(Calendar.DAY_OF_YEAR) == new GregorianCalendar().get(Calendar.DAY_OF_YEAR))
-                        episodes.add(Episode.createHeaderVideo("Heute"));
+                        episodes.add(Episode.createHeader("Heute"));
                     else
-                        episodes.add(Episode.createHeaderVideo(FormatTime.calendarToHeadlineFormat(mDay)));
+                        episodes.add(Episode.createHeader(FormatTime.calendarToHeadlineFormat(mDay)));
                     mLoadedItems = 0;
                 }
                 getActivity().runOnUiThread(new Runnable() {

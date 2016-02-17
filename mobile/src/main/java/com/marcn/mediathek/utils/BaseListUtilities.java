@@ -16,13 +16,13 @@ public class BaseListUtilities {
         ArrayList<Episode> result = new ArrayList<>();
         //clean list
         for (Episode v : episodes)
-            if (!v.isHeader) result.add(v);
+            if (!v.isHeader()) result.add(v);
 
         Collections.sort(result, new Comparator<Episode>() {
             @Override
             public int compare(Episode lhs, Episode rhs) {
-                Calendar dLhs = FormatTime.zdfAirtimeStringToDate(lhs.airtime);
-                Calendar dRhs = FormatTime.zdfAirtimeStringToDate(rhs.airtime);
+                Calendar dLhs = FormatTime.zdfAirtimeStringToDate(lhs.getAirTime());
+                Calendar dRhs = FormatTime.zdfAirtimeStringToDate(rhs.getAirTime());
                 return dRhs.compareTo(dLhs);
             }
         });
@@ -34,17 +34,17 @@ public class BaseListUtilities {
         while (index < size) {
             episode = result.get(index);
             if (index == 0) {
-                lastCalendar = FormatTime.zdfAirtimeStringToDate(episode.airtime);
-                result.add(index, Episode.createHeaderVideo(FormatTime.calendarToHeadlineFormat(lastCalendar)));
+                lastCalendar = FormatTime.zdfAirtimeStringToDate(episode.getAirTime());
+                result.add(index, Episode.createHeader(FormatTime.calendarToHeadlineFormat(lastCalendar)));
                 index++;
                 size++;
-            } else if (!episode.isHeader && lastCalendar == null) {
-                lastCalendar = FormatTime.zdfAirtimeStringToDate(episode.airtime);
-            } else if (!episode.isHeader) {
-                calendar = FormatTime.zdfAirtimeStringToDate(episode.airtime);
+            } else if (!episode.isHeader() && lastCalendar == null) {
+                lastCalendar = FormatTime.zdfAirtimeStringToDate(episode.getAirTime());
+            } else if (!episode.isHeader()) {
+                calendar = FormatTime.zdfAirtimeStringToDate(episode.getAirTime());
                 if (calendar != null && calendar.getTimeInMillis() < lastCalendar.getTimeInMillis()) {
                     lastCalendar = calendar;
-                    result.add(index, Episode.createHeaderVideo(FormatTime.calendarToHeadlineFormat(lastCalendar)));
+                    result.add(index, Episode.createHeader(FormatTime.calendarToHeadlineFormat(lastCalendar)));
                     index++;
                     size++;
                 }

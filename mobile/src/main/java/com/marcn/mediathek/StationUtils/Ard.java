@@ -1,7 +1,6 @@
 package com.marcn.mediathek.StationUtils;
 
 import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.base_objects.Episode2;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.Station;
 import com.marcn.mediathek.utils.FormatTime;
@@ -12,7 +11,6 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Calendar;
-import java.util.Date;
 
 public class Ard {
 
@@ -26,16 +24,16 @@ public class Ard {
         return l;
     }
 
-    private static Episode2 parseHtmlSubtitle(Station station, String data) {
+    private static Episode parseHtmlSubtitle(Station station, String data) {
         if (station == null || data == null || data.length() < 14) return null;
         String time = data.substring(0, 13);
         String title = data.substring(14);
-        Episode2 episode2 = new Episode2(title, station);
-        updateEpisodeTime(episode2, time);
-        return episode2;
+        Episode episode = new Episode(title, station);
+        updateEpisodeTime(episode, time);
+        return episode;
     }
 
-    private static void updateEpisodeTime(Episode2 e, String data) {
+    private static void updateEpisodeTime(Episode e, String data) {
         String split[] = data.split(" · ");
         try {
             Calendar from = FormatTime.parseArdString(split[0]);

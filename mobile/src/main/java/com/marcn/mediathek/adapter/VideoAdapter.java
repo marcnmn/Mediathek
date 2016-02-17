@@ -64,7 +64,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
     public Episode getItem(int position) {
         if (position < 0 || position >= mValues.size())
             return null;
-        if (mValues.get(position).isHeader)
+        if (mValues.get(position).isHeader())
             return getItem(position + 1);
         return mValues.get(position);
     }
@@ -73,7 +73,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
     public String getMember(int position) {
         if (position < 0 || position >= mValues.size())
             return null;
-        return mValues.get(position).airtime;
+        return mValues.get(position).getAirTime();
     }
 
     @Override
@@ -97,7 +97,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
     public int getItemViewType(int position) {
         if (mIsLoading && position == getItemCount() - 1)
             return VIEW_TYPE_LOADING;
-        return mValues.get(position).isHeader ? VIEW_TYPE_HEADER : VIEW_TYPE_CONTENT;
+        return mValues.get(position).isHeader() ? VIEW_TYPE_HEADER : VIEW_TYPE_CONTENT;
     }
 
     @Override
@@ -114,15 +114,15 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
         viewHolder.mItem = item;
 
         if(viewHolder.mTitle != null)
-            viewHolder.mTitle.setText(item.title);
+            viewHolder.mTitle.setText(item.getTitle());
 
         if (getItemViewType(position) == VIEW_TYPE_CONTENT) {
             if(viewHolder.mVideoInfo != null)
-                viewHolder.mVideoInfo.setText(item.airtime);
+                viewHolder.mVideoInfo.setText(item.getAirTime());
 
-            if (item.thumb_url != null)
+            if (item.getThumb_url() != null)
                 Picasso.with(mContext)
-                        .load(item.thumb_url)
+                        .load(item.getThumb_url())
                         .placeholder(R.drawable.placeholder_stream)
                         .config(Bitmap.Config.RGB_565)
                         .into(viewHolder.mThumbnail);
@@ -130,7 +130,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
                 viewHolder.mThumbnail.setImageDrawable(null);
 
             if (viewHolder.mChannel != null)
-                viewHolder.mChannel.setText(item.station.title);
+                viewHolder.mChannel.setText(item.getStation().title);
 //            if (item.station != null)
 //                viewHolder.mChannel.setImageResource(item.station.getLogoResId());
 //            else
@@ -168,7 +168,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
     private int getFirstSectionPosition(int position) {
         if (mIsLoading && getItemViewType(position) == VIEW_TYPE_LOADING) return 0;
         for (int i = position; i >= 0; i--)
-            if (mValues.get(i).isHeader)
+            if (mValues.get(i).isHeader())
                 return i;
         return 0;
     }

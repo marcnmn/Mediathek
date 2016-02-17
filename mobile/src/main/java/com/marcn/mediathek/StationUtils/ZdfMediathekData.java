@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.Series;
+import com.marcn.mediathek.base_objects.Station;
+import com.marcn.mediathek.utils.FormatTime;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -13,6 +15,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.TreeMap;
@@ -68,23 +71,34 @@ public class ZdfMediathekData {
         for (Element el: elements) {
             try {
                 String title = getSingleStringByTag(el, "title");
-                String detail = getSingleStringByTag(el, "detail");
-                String thumb_url = getThumbUrl(el, "teaserimage");
                 String channel = getSingleStringByTag(el, "station");
-                String airtime = getSingleStringByTag(el, "airtime");
-                String vcmsUrl = getSingleStringByTag(el, "vcmsUrl");
                 int assetId = getSingleIntegerByTag(el, "assetId");
+                Station station = new Station(channel);
+                Episode v = new Episode(title, station, assetId);
+
+                String detail = getSingleStringByTag(el, "detail");
+                v.setDescription(detail);
+                String thumb_url = getThumbUrl(el, "teaserimage");
+                v.setThumb_url(thumb_url);
+                String airtime = getSingleStringByTag(el, "airtime");
+                v.setStartTime(FormatTime.zdfAirtimeStringToDate(airtime));
+
+                String vcmsUrl = getSingleStringByTag(el, "vcmsUrl");
+                v.setBrowserUrl(vcmsUrl);
                 int originChannelId = getSingleIntegerByTag(el, "originChannelId");
                 int lengthSec = getSingleIntegerByTag(el, "lengthSec");
+                v.setEpisodeLengthInMs(lengthSec * 1000);
 
                 String nurOnline = getSingleStringByTag(el, "nurOnline");
+                boolean nO = nurOnline != null && nurOnline.equals("true");
+                v.setNurOnline(nO);
                 String onlineFassung = getSingleStringByTag(el, "onlineFassung");
+//                v.setOnlineFassung(onlineFassung);
                 String ganzeSendung = getSingleStringByTag(el, "ganzeSendung");
+                boolean gS = ganzeSendung != null && ganzeSendung.equals("true");
+                v.setGanzeSendung(gS);
                 String originChannelTitle = getSingleStringByTag(el, "originChannelTitle");
 
-                Episode v = new Episode(title, detail, thumb_url, channel, airtime, vcmsUrl,
-                        assetId, originChannelId, lengthSec, nurOnline, onlineFassung,
-                        ganzeSendung, originChannelTitle);
                 episodes.add(v);
             } catch (NullPointerException ignored){}
         }

@@ -145,12 +145,12 @@ public abstract class BaseActivity extends AppCompatActivity
             @Override
             public void run() {
                 try {
-                    final TreeMap<Integer, String> s = ZdfMediathekData.getVideoUrl(view.getContext(), episode.assetId);
+                    final TreeMap<Integer, String> s = ZdfMediathekData.getVideoUrl(view.getContext(), episode.getAssetId());
                     if (s != null && !s.isEmpty())
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Playback.playByUrl(activity, s.get(0), view, videoAction, episode.title);
+                                Playback.playByUrl(activity, s.get(0), view, videoAction, episode.getTitle());
                             }
                         });
                 } catch (IOException ignored) {

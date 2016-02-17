@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Station;
-import com.marcn.mediathek.base_objects.Episode2;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreams;
 
@@ -18,7 +17,6 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 
 public class XmlParser {
