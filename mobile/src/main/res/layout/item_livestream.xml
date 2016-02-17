@@ -11,14 +11,15 @@
         android:scaleType="centerCrop"
         android:id="@+id/imageThumbnail"/>
         <!--android:clickable="false"/>-->
-    <!--<ImageView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="40dp"-->
-        <!--android:adjustViewBounds="true"-->
-        <!--android:id="@+id/imageLogo"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:layout_margin="10dp"-->
-        <!--android:clickable="false"/>-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:adjustViewBounds="true"
+        android:id="@+id/imageStationLogo"
+        android:src="@drawable/ic_zdf"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="0dp"
+        android:clickable="false"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,25 +54,24 @@
         android:layout_height="wrap_content"
         android:id="@+id/textStationName"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:paddingBottom="5dp"
-        android:paddingEnd="5dp"
-        android:textAppearance="@style/WhiteShadowFont"
-        android:textSize="12sp"
-        tools:text="ZDF"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:id="@+id/imageLogo"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="5dp"
+        android:padding="5dp"
         android:textColor="@android:color/white"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="2"
-        android:shadowColor="@android:color/black"/>
+        android:shadowRadius="10"
+        android:shadowColor="@android:color/black"
+        android:textSize="20sp"
+        tools:text="ZDF"
+        android:visibility="gone"/>
+
+<!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:id="@+id/imageLogo"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_margin="5dp"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:shadowRadius="10"-->
+        <!--android:shadowColor="@android:color/black"/>-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

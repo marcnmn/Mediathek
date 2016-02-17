@@ -68,7 +68,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-//        holder.mItem = mValues.get(position);
+        holder.mItem = mValues.get(position);
         //holder.mTitle.setText(holder.mItem.station);
         Context context = holder.mView.getContext();
         final LiveStream liveStream = mValues.get(position);
@@ -95,6 +95,14 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
             if (holder.mTime != null)
                 holder.mTime.setText(liveStream.getCurrentEpisode().getRemainingTime());
 
+            int logo = holder.mItem.stationObject.getLogoResId();
+            if (holder.mLogo != null) {
+                if (logo > 0)
+                    holder.mLogo.setImageResource(logo);
+                else
+                    holder.mLogo.setImageBitmap(null);
+            }
+
             holder.mView.findViewById(R.id.liveInfoContainer).setVisibility(View.VISIBLE);
         } else {
             if (holder.mTitle != null)
@@ -106,11 +114,6 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
         }
 
 
-//        int logo = holder.mItem.getLogoResId();
-//        if (logo > 0)
-//            holder.mLogo.setImageResource(logo);
-//        else
-//            holder.mLogo.setImageBitmap(null);
 
         // OnClick
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -146,8 +149,8 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final ImageView mThumb;
-//        public final ImageView mLogo;
-        public final TextView mLogo;
+        public final ImageView mLogo;
+//        public final TextView mLogo;
         public final TextView mTitle, mTime, mStation;
 
         public LiveStream mItem;
@@ -156,7 +159,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
             super(view);
             mView = view;
             mThumb = (ImageView) view.findViewById(R.id.imageThumbnail);
-            mLogo = (TextView) view.findViewById(R.id.imageLogo);
+            mLogo = (ImageView) view.findViewById(R.id.imageStationLogo);
             mTitle = (TextView) view.findViewById(R.id.textLiveTitle);
             mTime = (TextView) view.findViewById(R.id.textLiveTime);
             mStation = (TextView) view.findViewById(R.id.textStationName);
