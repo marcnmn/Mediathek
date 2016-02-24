@@ -23,14 +23,18 @@
         <!--android:layout_marginEnd="15dp"/>-->
 
     <TextView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:id="@+id/imageChannel"
         android:layout_below="@id/imageThumbnail"
         android:gravity="center"
         android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"/>
-    <!--android:src="@drawable/ic_zdf_neo"-->
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/circle"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:fontFamily="sans-serif-condensed"
+        tools:text="ZDFkultur"/>
 
     <ImageView
         android:layout_width="wrap_content"

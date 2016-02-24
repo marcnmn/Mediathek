@@ -2,6 +2,7 @@ package com.marcn.mediathek.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.PorterDuff;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -71,10 +72,10 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
         holder.mItem = mValues.get(position);
         //holder.mTitle.setText(holder.mItem.station);
         Context context = holder.mView.getContext();
-        final LiveStream liveStream = mValues.get(position);
+//        final LiveStream liveStream = mValues.get(position);
 
         // Thumbnail Image
-        String thumb = liveStream.getThumb_url();
+        String thumb = holder.mItem.getThumb_url();
         if (thumb == null || thumb.isEmpty())
             holder.mThumb.setImageResource(R.drawable.placeholder_stream);
         else
@@ -85,42 +86,37 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
                     .config(Bitmap.Config.RGB_565)
                     .into(holder.mThumb);
 
-        if (liveStream.stationObject != null)
-            holder.mStation.setText(liveStream.stationObject.title);
-
-        if (liveStream.getCurrentEpisode() != null) {
-            if (holder.mTitle != null)
-                holder.mTitle.setText(liveStream.getCurrentEpisode().getTitle());
-
-            if (holder.mTime != null)
-                holder.mTime.setText(liveStream.getCurrentEpisode().getRemainingTime());
-
-            int logo = holder.mItem.stationObject.getLogoResId();
-            if (holder.mLogo != null) {
-                if (logo > 0)
-                    holder.mLogo.setImageResource(logo);
-                else
-                    holder.mLogo.setImageBitmap(null);
+        if (holder.mItem.stationObject != null) {
+            if (holder.mStation != null) {
+                holder.mStation.setText(holder.mItem.stationObject.title);
+                int color = holder.mItem.stationObject.getColor(context);
+                holder.mStation.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
             }
 
-            holder.mView.findViewById(R.id.liveInfoContainer).setVisibility(View.VISIBLE);
+            if (holder.mItem.getCurrentEpisode() != null) {
+                if (holder.mTitle != null)
+                    holder.mTitle.setText(holder.mItem.getCurrentEpisode().getTitle());
+
+                if (holder.mTime != null)
+                    holder.mTime.setText(holder.mItem.getCurrentEpisode().getRemainingTime());
+            }
+
+//            holder.mView.findViewById(R.id.liveInfoContainer).setVisibility(View.VISIBLE);
         } else {
             if (holder.mTitle != null)
                 holder.mTitle.setText(null);
 
             if (holder.mTime != null)
                 holder.mTime.setText(null);
-            holder.mView.findViewById(R.id.liveInfoContainer).setVisibility(View.GONE);
+            holder.mView.findViewById(R.id.liveInfoContainer).setVisibility(View.INVISIBLE);
         }
-
-
 
         // OnClick
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
-                    mListener.onLiveStreamClicked(liveStream, holder.mThumb, Episode.ACTION_INTERNAL_PLAYER);
+                    mListener.onLiveStreamClicked(holder.mItem, holder.mThumb, Episode.ACTION_INTERNAL_PLAYER);
                 }
             }
         });
@@ -128,7 +124,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
         holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                mListener.playVideoExternal(liveStream.getLiveM3U8(), holder.mItem.title, Episode.ACTION_SHARE_VIDEO_DIALOG);
+                mListener.playVideoExternal(holder.mItem.getLiveM3U8(), holder.mItem.title, Episode.ACTION_SHARE_VIDEO_DIALOG);
                 return true;
             }
         });
@@ -150,7 +146,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
         public final View mView;
         public final ImageView mThumb;
         public final ImageView mLogo;
-//        public final TextView mLogo;
+        //        public final TextView mLogo;
         public final TextView mTitle, mTime, mStation;
 
         public LiveStream mItem;

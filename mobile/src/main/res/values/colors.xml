@@ -8,6 +8,25 @@
     <color name="colorSendungBackground">#e2e2e2</color>
 
     <color name="colorTest">#F9FBE7</color>
+
+    <color name="colorZDF">#FA7D19</color>
+    <color name="colorPhoenix">#a7a7a7</color>
+    <color name="colorKultur">#7a8061</color>
+    <color name="colorInfo">#1C4266</color>
+    <color name="colorNeo">#00646E</color>
+    <color name="colorArte">#FA471C</color>
+    <color name="colorMDR">#0063AD</color>
+    <color name="colorNDR">#1B72CF</color>
+    <color name="colorSWR">#D85632</color>
+    <color name="colorWDR">#005EA8</color>
+    <color name="colorARD">#002B6A</color>
+    <color name="colorAlpha">#FF5F00</color>
+    <color name="colorBR">#009AEA</color>
+    <color name="colorRBB">#A11530</color>
+    <color name="colorSR">#00408A</color>
+    <color name="colorTagesschau">#013773</color>
+    <color name="colorDreiSat">#D2002E</color>
+    <color name="colorKika">#0D5F64</color>
     <!--<color name="colorPrimary">#FA7D19</color>-->
     <!--<color name="colorPrimaryDark">#FA7D19</color>-->
     <!--<color name="colorAccent">#FF4081</color>-->

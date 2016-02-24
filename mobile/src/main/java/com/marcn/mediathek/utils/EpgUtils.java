@@ -23,11 +23,11 @@ public class EpgUtils {
         if (l.stationObject == null || l.stationObject.getGroup() < 0) return l;
         try {
             switch (l.stationObject.getGroup()) {
-                case Station.ZDF_GOURP:
+                case Station.ZDF_GROUP:
                     return getZDFLiveStreamEpgNow(l);
-                case Station.ARTE_GOURP:
+                case Station.ARTE_GROUP:
                     return getZDFLiveStreamEpgNow(l);
-                case Station.ARD_GOURP:
+                case Station.ARD_GROUP:
                     return Ard.getARDLiveStreamEpgNow(l);
             }
         } catch (IOException ignored) {}

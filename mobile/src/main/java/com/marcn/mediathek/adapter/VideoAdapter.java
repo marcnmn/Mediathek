@@ -2,6 +2,7 @@ package com.marcn.mediathek.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.PorterDuff;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.base_objects.Station;
 import com.marcn.mediathek.utils.BaseListUtilities;
 import com.squareup.picasso.Picasso;
 import com.tonicartos.superslim.GridSLM;
@@ -131,6 +133,13 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
 
             if (viewHolder.mChannel != null)
                 viewHolder.mChannel.setText(item.getStation().title);
+
+            Station station = viewHolder.mItem.getStation();
+            if (station != null && viewHolder.mChannel != null) {
+                viewHolder.mChannel.setText(station.title);
+                int color = station.getColor(mContext);
+                viewHolder.mChannel.getBackground().setColorFilter(color, PorterDuff.Mode.OVERLAY);
+            }
 //            if (item.station != null)
 //                viewHolder.mChannel.setImageResource(item.station.getLogoResId());
 //            else

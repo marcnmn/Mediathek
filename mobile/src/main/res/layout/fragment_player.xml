@@ -21,6 +21,7 @@
             android:adjustViewBounds="true"
             android:transitionName="thumb"/>
 
+
         <com.google.android.exoplayer.text.SubtitleLayout
             android:id="@+id/subtitles"
             android:layout_width="match_parent"

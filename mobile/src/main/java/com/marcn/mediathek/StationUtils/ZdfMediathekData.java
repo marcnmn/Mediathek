@@ -71,7 +71,7 @@ public class ZdfMediathekData {
         for (Element el: elements) {
             try {
                 String title = getSingleStringByTag(el, "title");
-                String channel = getSingleStringByTag(el, "station");
+                String channel = getSingleStringByTag(el, "channel");
                 int assetId = getSingleIntegerByTag(el, "assetId");
                 Station station = new Station(channel);
                 Episode v = new Episode(title, station, assetId);
@@ -132,7 +132,7 @@ public class ZdfMediathekData {
                 String detail = getSingleStringByTag(el, "detail");
                 String thumb_url_low = el.select("teaserimage[key=144x81]").text();
                 String thumb_url_high = el.select("teaserimage[key=946x532]").text();
-                String channel = getSingleStringByTag(el, "station");
+                String channel = getSingleStringByTag(el, "channel");
                 String vcmsUrl = getSingleStringByTag(el, "vcmsUrl");
                 int assetId = getSingleIntegerByTag(el, "assetId");
 

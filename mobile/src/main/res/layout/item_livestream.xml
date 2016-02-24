@@ -19,7 +19,8 @@
         android:src="@drawable/ic_zdf"
         android:layout_alignParentEnd="true"
         android:layout_margin="0dp"
-        android:clickable="false"/>
+        android:clickable="false"
+        android:visibility="gone"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,17 +51,18 @@
     </LinearLayout>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
         android:id="@+id/textStationName"
         android:layout_alignParentEnd="true"
-        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/circle"
         android:textColor="@android:color/white"
-        android:shadowRadius="10"
-        android:shadowColor="@android:color/black"
-        android:textSize="20sp"
-        tools:text="ZDF"
-        android:visibility="gone"/>
+        android:gravity="center"
+        android:textSize="12sp"
+        android:fontFamily="sans-serif-condensed"
+        tools:text="ZDF\nkultur"
+        android:visibility="visible"/>
 
 <!--<TextView-->
         <!--android:layout_width="wrap_content"-->

@@ -11,12 +11,6 @@ import java.util.GregorianCalendar;
 public class FormatTime {
 
     @SuppressLint("SimpleDateFormat")
-    public static String calendarToHeadlineFormat(Calendar c) {
-        SimpleDateFormat s = new SimpleDateFormat("EEEE, MMMM d");
-        return s.format(c.getTime());
-    }
-
-    @SuppressLint("SimpleDateFormat")
     public static String calendarToEpisodeStartFormat(Calendar c) {
         SimpleDateFormat s = new SimpleDateFormat("HH:mm");
         return s.format(c.getTime());
@@ -51,7 +45,7 @@ public class FormatTime {
         String day = airtime.split("\\+")[0];
         if (day == null) return null;
         day = day.replace("T", " ");
-        SimpleDateFormat format  = new SimpleDateFormat("yyy-MM-dd hh:mm:ss");
+        SimpleDateFormat format  = new SimpleDateFormat("yyy-MM-dd HH:mm:ss");
         SimpleDateFormat offsetFormat  = new SimpleDateFormat("mm:ss");
 
         Date date = null;
@@ -82,5 +76,25 @@ public class FormatTime {
         calendar.set(Calendar.HOUR_OF_DAY, hours);
         calendar.set(Calendar.MINUTE, minutes);
         return calendar;
+    }
+
+    public static String getMissedHeader(Calendar data) {
+        int dayDiff = data.get(Calendar.DAY_OF_YEAR)
+                - Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
+
+        switch (dayDiff) {
+            case 2: return "Übermorgen";
+            case 1: return "Morgen";
+            case 0: return "Heute";
+            case -1: return "Gestern";
+            case -2: return "Vorgestern";
+            default: return calendarToHeadlineFormat(data);
+        }
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    public static String calendarToHeadlineFormat(Calendar c) {
+        SimpleDateFormat s = new SimpleDateFormat("EEEE, d. MMMM");
+        return s.format(c.getTime());
     }
 }
