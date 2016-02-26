@@ -7,6 +7,19 @@ import com.marcn.mediathek.base_objects.Station;
 import java.util.ArrayList;
 
 public class Constants {
+    // Video Qualities
+    public static final int QUALITY_AUDIO_ONLY = 0;
+
+    public static final int QUALITY_MOBILE = 1;
+    public static final int QUALITY_LOW = 2;
+    public static final int QUALITY_MED = 3;
+    public static final int QUALITY_HIGH = 4;
+    public static final int QUALITY_VERY_HIGH = 5;
+
+    public static final int QUALITY_AUTO = 9;
+    public static final int QUALITY_LOWEST = 10;
+    public static final int QUALITY_MAX = 11;
+
     // CHANNEL NAMES
     public static final String TITLE_CHANNEL_ZDF = "ZDF";
     public static final String TITLE_CHANNEL_PHOENIX = "Phoenix";

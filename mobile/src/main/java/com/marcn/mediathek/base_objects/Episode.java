@@ -12,12 +12,13 @@ public class Episode {
 
     // Essentials
     private final String title;
-    private final Station station;
+    private Station station;
     private final int assetId;
 
     private Calendar startTime;
     private long episodeLengthInMs;
     private boolean isHeader;
+    private boolean isLive;
 
     private String remainingTime;
 
@@ -26,6 +27,11 @@ public class Episode {
 
     // Mediathek specific
     private boolean nurOnline, onlineFassung, ganzeSendung;
+
+    public Episode(String title) {
+        this.title = title;
+        this.assetId = (int) (Math.random() * Integer.MAX_VALUE);
+    }
 
     public Episode(String title, Station station) {
         this(title, station, (int) (Math.random() * Integer.MAX_VALUE));
@@ -172,5 +178,13 @@ public class Episode {
 
     public void setRemainingTime(int min) {
         remainingTime = "Noch " + min + " min";
+    }
+
+    public boolean isLive() {
+        return isLive;
+    }
+
+    public void setLive(boolean live) {
+        isLive = live;
     }
 }

@@ -69,6 +69,11 @@ public class XmlParser {
     @Nullable
     public static LiveStream getZDFLiveStreamData(Context context, Station station) {
         String url = context.getString(R.string.zdf_live_api);
+        return getZDFLiveStreamData(url, station.title);
+    }
+
+    @Nullable
+    public static LiveStream getZDFLiveStreamData(String url, String titie) {
         Document d;
         try {
             d = Jsoup.connect(url).get();
@@ -76,7 +81,7 @@ public class XmlParser {
             return null;
         }
 
-        if (d == null || station == null)
+        if (d == null || titie == null)
             return null;
 
         LiveStream liveStream = null;
@@ -90,7 +95,7 @@ public class XmlParser {
                 String assetId = getStringByTag(el, "assetId");
                 int originChannelId = getIntegerByTag(el, "originChannelId");
 
-                if (station.title.equals(channelName)) {
+                if (titie.equals(channelName)) {
                     liveStream = new LiveStream(assetId, channelName, originChannelId);
                     liveStream.detail = detail;
                     liveStream.thumb_url = thumb;

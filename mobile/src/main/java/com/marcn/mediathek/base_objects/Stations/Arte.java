@@ -2,15 +2,24 @@ package com.marcn.mediathek.base_objects.Stations;
 
 import android.support.annotation.Nullable;
 
-import com.marcn.mediathek.base_objects.Station2;
+import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.base_objects.LiveStreamM3U8;
+import com.marcn.mediathek.utils.Constants;
+import com.marcn.mediathek.utils.EpgUtils;
+import com.marcn.mediathek.utils.NetworkTasks;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class Arte extends Station2 {
+public class Arte extends Station {
     public static final String channel_title = "Arte";
 
     private static final String base_url = "http://www.arte.tv";
     private static final String search_api = "/papi/tvguide/videos/plus7/program/";
+    private static final String live_stream_api = "/papi/tvguide/videos/livestream/player/";
+    private static final String live_stream_m3u8 = "http://delive.artestras.cshls.lldns.net/artestras/delive/delive.m3u8";
 
     public static final String lang_french = "F";
     public static final String lang_german = "D";
@@ -27,6 +36,7 @@ public class Arte extends Station2 {
     // http://www.arte.tv/papi/tvguide/videos/plus7/program/{lang}/{detailLevel}/{category}/{cluster}/{recommended}/{sort}/{limit}/{offset}/DE_FR.json
     public Arte() {
         super(channel_title);
+
         top_level_categories = new HashMap<>();
         top_level_categories.put("Alle", "ALL");
         top_level_categories.put("Aktuelles und Gesellschaft", "ACT");
@@ -37,6 +47,23 @@ public class Arte extends Station2 {
         top_level_categories.put("Entdeckung", "DEC");
         top_level_categories.put("Geschichte", "HIS");
         top_level_categories.put("Junior", "JUN");
+    }
+
+    @Override
+    public LiveStreamM3U8 getLiveStream() {
+        return new LiveStreamM3U8(live_stream_m3u8);
+    }
+
+    @Override
+    @Nullable
+    public Episode getCurrentEpisode() {
+        String url = Constants.LIVE_STREAM_EPG_URL + Constants.LIVE_STREAM_EPG_ARTE_NAME + "/now/json";
+        Episode episode = EpgUtils.getZDFLiveEpisode(url, 0);
+
+        if (episode != null)
+            episode.setThumb_url(getLiveThumbnail());
+
+        return episode;
     }
 
     @Override
@@ -92,5 +119,16 @@ public class Arte extends Station2 {
         req += offset + "/DE_FR.json";
 
         return req;
+    }
+
+    @Nullable
+    private String getLiveThumbnail() {
+        String url = base_url + live_stream_api + "D";
+        try {
+            JSONObject jsonObject = NetworkTasks.downloadJSONData(url);
+            return jsonObject.getJSONObject("videoJsonPlayer").getString("programImage");
+        } catch (JSONException | NullPointerException ignored) {
+        }
+        return null;
     }
 }

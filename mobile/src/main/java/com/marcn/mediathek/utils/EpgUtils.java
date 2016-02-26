@@ -1,5 +1,7 @@
 package com.marcn.mediathek.utils;
 
+import android.support.annotation.Nullable;
+
 import com.marcn.mediathek.StationUtils.Ard;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
@@ -72,5 +74,41 @@ public class EpgUtils {
         } catch (JSONException | NullPointerException ignored) {
         }
         return l;
+    }
+
+    @Nullable
+    public static Episode getZDFLiveEpisode(String url, int entry) {
+        JSONObject json = NetworkTasks.downloadJSONData(url);
+        Episode episode = null;
+        try {
+            json = json.getJSONObject("response").getJSONArray("sendungen").getJSONObject(entry);
+            json = json.getJSONObject("sendung").getJSONObject("value");
+
+            String title = json.getString("titel");
+            episode = new Episode(title);
+
+            String description = ParserUtils.getString(json, "beschreibung");
+            episode.setDescription(description);
+
+            String time = json.getString("time");
+            String endTime = json.getString("endTime");
+            Calendar cTime = FormatTime.zdfEpgStringToDate(time);
+            Calendar cEndTime = FormatTime.zdfEpgStringToDate(endTime);
+
+            // Check if first Entry is actually now on
+            if (cEndTime != null && cEndTime.before(Calendar.getInstance()))
+                return getZDFLiveEpisode(url, entry + 1);
+
+            // Update LiveStream Data
+            if (cTime != null && cEndTime != null) {
+                episode.setStartTime(cTime);
+                long length = cEndTime.getTimeInMillis() - cTime.getTimeInMillis();
+                episode.setEpisodeLengthInMs(length);
+                int remainingMin = FormatTime.remainingMinutes(cTime, length);
+                episode.setRemainingTime(remainingMin);
+            }
+        } catch (JSONException | NullPointerException ignored) {
+        }
+        return episode;
     }
 }

@@ -14,8 +14,11 @@ import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.LiveStreamAdapter;
+import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
+import com.marcn.mediathek.base_objects.LiveStreamM3U8;
 import com.marcn.mediathek.base_objects.LiveStreams;
+import com.marcn.mediathek.base_objects.Stations.Arte;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.EpgUtils;
 import com.marcn.mediathek.utils.XmlParser;
@@ -86,6 +89,7 @@ public class LiveStreamsFragment extends Fragment {
         } else {
             mRecyclerView.setAdapter(mLiveStreamAdapter);
         }
+        downloadArteData2();
 
         downloadZdfData();
         downloadArteData();
@@ -124,6 +128,23 @@ public class LiveStreamsFragment extends Fragment {
                     @Override
                     public void run() {
                         mLiveStreamAdapter.updateArteValue(l);
+                    }
+                });
+            }
+        }).start();
+    }
+
+    private void downloadArteData2() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Arte arte = new Arte();
+                final LiveStreamM3U8 l = arte.getLiveStream();
+                final Episode episode = arte.getCurrentEpisode();
+                if (getActivity() == null) return;
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
                     }
                 });
             }
