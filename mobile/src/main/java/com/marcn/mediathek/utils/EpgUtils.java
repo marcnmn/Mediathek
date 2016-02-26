@@ -35,10 +35,14 @@ public class EpgUtils {
     }
 
     public static LiveStream getZDFLiveStreamEpgNow(LiveStream l) throws IOException {
+        return getZDFLiveStreamEpgNow(l, 0);
+    }
+
+    public static LiveStream getZDFLiveStreamEpgNow(LiveStream l, int entry) throws IOException {
         String url = l.getLiveEPGURL();
         JSONObject json = NetworkTasks.downloadJSONData(url);
         try {
-            json = json.getJSONObject("response").getJSONArray("sendungen").getJSONObject(0);
+            json = json.getJSONObject("response").getJSONArray("sendungen").getJSONObject(entry);
             json = json.getJSONObject("sendung").getJSONObject("value");
 
             String title = json.getString("titel");
@@ -51,11 +55,18 @@ public class EpgUtils {
             String endTime = json.getString("endTime");
             Calendar cTime = FormatTime.zdfEpgStringToDate(time);
             Calendar cEndTime = FormatTime.zdfEpgStringToDate(endTime);
+
+            // Check if first Entry is actually now on
+            if (cEndTime != null && cEndTime.before(Calendar.getInstance()))
+                return getZDFLiveStreamEpgNow(l, entry + 1);
+
+            // Update LiveStream Data
             if (cTime != null && cEndTime != null) {
                 episode.setStartTime(cTime);
                 long length = cEndTime.getTimeInMillis() - cTime.getTimeInMillis();
                 episode.setEpisodeLengthInMs(length);
-                episode.setRemainingTime(cTime, length);
+                int remainingMin = FormatTime.remainingMinutes(cTime, length);
+                episode.setRemainingTime(remainingMin);
             }
             l.setCurrentEpisode(episode);
         } catch (JSONException | NullPointerException ignored) {

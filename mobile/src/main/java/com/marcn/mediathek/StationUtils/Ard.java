@@ -43,7 +43,9 @@ public class Ard {
             long length = until.getTimeInMillis() - from.getTimeInMillis();
             e.setStartTime(from);
             e.setEpisodeLengthInMs(length);
-            e.setRemainingTime(from, length);
+//            length = 16339367;
+            int remainingMinutes = FormatTime.remainingMinutes(from, length);
+            e.setRemainingTime(remainingMinutes);
         } catch (ParseException e1) {
             e1.printStackTrace();
         }

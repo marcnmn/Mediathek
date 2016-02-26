@@ -12,25 +12,41 @@ public class FormatTime {
 
     @SuppressLint("SimpleDateFormat")
     public static String calendarToEpisodeStartFormat(Calendar c) {
+        String day;
+        int dayDiff = c.get(Calendar.DAY_OF_YEAR)
+                - Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
+
+        switch (dayDiff) {
+            case 2: day = "Übermorgen"; break;
+            case 1: day = "Morgen"; break;
+            case 0: day = "Heute"; break;
+            case -1: day = "Gestern"; break;
+            case -2: day = "Vorgestern"; break;
+            default:
+                SimpleDateFormat s = new SimpleDateFormat("EEE, d.MM");
+                day = s.format(c.getTime());
+                break;
+        }
+
         SimpleDateFormat s = new SimpleDateFormat("HH:mm");
-        return s.format(c.getTime());
+        String time = s.format(c.getTime());
+
+        return day + " - " + time;
     }
 
     @SuppressLint("SimpleDateFormat")
-    public static String remainingMinutes(Calendar start, long ms) {
-        start.add(Calendar.MILLISECOND, (int) ms);
-        long remTimeInMs = start.getTimeInMillis() - Calendar.getInstance().getTimeInMillis();
-        SimpleDateFormat s = new SimpleDateFormat("mm");
-        return s.format(remTimeInMs);
+    public static int remainingMinutes(Calendar start, long ms) {
+        long remMs = start.getTimeInMillis() + ms - System.currentTimeMillis();
+        return (int) Math.max((remMs / 60000), 0);
     }
 
     @SuppressLint("SimpleDateFormat")
     public static Calendar zdfAirtimeStringToDate(String airtime) {
-        String day = airtime.split(" ")[0];
-        SimpleDateFormat format  = new SimpleDateFormat("dd.MM.yyyy");
+        //String day = airtime.split(" ")[0];
+        SimpleDateFormat format  = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         Date date = null;
         try {
-            date = format.parse(day);
+            date = format.parse(airtime);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -52,8 +68,8 @@ public class FormatTime {
         try {
             date = format.parse(day);
             if (data.length > 1) {
-                long offset = offsetFormat.parse(data[1]).getTime();
-                date.setTime(date.getTime() + offset);
+                long min = Long.parseLong(data[1].split(":")[0]);
+                date.setTime(date.getTime() + min * 60000);
             }
         } catch (ParseException e) {
             e.printStackTrace();

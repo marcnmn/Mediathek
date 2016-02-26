@@ -34,7 +34,7 @@ public class Constants {
     public static final String TITLE_CHANNEL_KIKA = "KiKA";
 
     public static final String LIVE_STREAM_CHANNEL_ZDF = "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/index_3056_av-p.m3u8?sd=10&amp;dw=0&amp;rebase=on&amp;hdntl=";
-    public static final String LIVE_STREAM_CHANNEL_PHOENIX = "http://zdf-hds-de-f.zdf.de/i/de09_v1@87012/master.m3u8?dw=0";
+    public static final String LIVE_STREAM_CHANNEL_PHOENIX = "http://zdf0910-lh.akamaihd.net/i/de09_v1@392871/master.m3u8";
     public static final String LIVE_STREAM_CHANNEL_ZDF_KULTUR = "http://zdf1112-lh.akamaihd.net/i/de11_v1@392881/master.m3u8?dw=0";
     public static final String LIVE_STREAM_CHANNEL_ZDF_INFO = "http://zdf1112-lh.akamaihd.net/i/de12_v1@392882/master.m3u8?dw=0";
     public static final String LIVE_STREAM_CHANNEL_3SAT = "http://zdf0910-lh.akamaihd.net/i/dach10_v1@392872/master.m3u8?dw=0";

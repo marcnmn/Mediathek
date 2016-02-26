@@ -11,12 +11,12 @@
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:layout_centerHorizontal="true"
         android:background="@drawable/video_header"
         android:textColor="@android:color/white"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
         android:textSize="14sp"
-        tools:text="Header Item"/><!--app:slm_headerEndMargin="56dip"-->
+        tools:text="Sunday, 21. February"/><!--app:slm_headerEndMargin="56dip"-->
 </RelativeLayout>

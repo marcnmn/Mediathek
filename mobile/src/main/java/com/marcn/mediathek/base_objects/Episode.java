@@ -149,7 +149,15 @@ public class Episode {
     }
 
     public String getAirTime() {
-        return startTime == null ? "" : startTime.getTime().toString();
+        if (startTime == null && episodeLengthInMs <= 0) return "";
+
+        String sLength = episodeLengthInMs / 60000 + " min";
+        if (startTime == null) return sLength;
+
+        String sAirtime = FormatTime.calendarToEpisodeStartFormat(startTime);
+        if (episodeLengthInMs <= 0)
+            return sAirtime;
+        else return sAirtime + " | " + sLength;
     }
 
     public String getAirTimeDay() {
@@ -157,12 +165,12 @@ public class Episode {
     }
 
     public String getRemainingTime() {
-        return remainingTime;
+        return "Noch "
+                + FormatTime.remainingMinutes(startTime, episodeLengthInMs)
+                + " min";
     }
 
-    public void setRemainingTime(Calendar start, long ms) {
-        remainingTime = "";
-        if (startTime != null && episodeLengthInMs >= 0)
-            remainingTime = "Noch " + FormatTime.remainingMinutes(start, ms) + " min";
+    public void setRemainingTime(int min) {
+        remainingTime = "Noch " + min + " min";
     }
 }

@@ -57,7 +57,7 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
         Context context = view.getContext();
 
         if ((getActivity()) != null)
-            ((BaseActivity) getActivity()).setActionBarResource(R.string.action_title_sendungen_abisz);
+            ((BaseActivity) getActivity()).setActionBarResource(R.string.action_title_sendung_verpasst);
 
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         View scrollArea = view.findViewById(R.id.fastScrollArea);
