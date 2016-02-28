@@ -3,6 +3,7 @@ package com.marcn.mediathek.base_objects;
 public class Series {
     public String title, shortTitle, detail, thumb_url_low, thumb_url_high, vcmsUrl, member;
     public int assetId;
+    private String stationTitle;
     public Station station;
     public boolean isHeader;
 
@@ -18,6 +19,7 @@ public class Series {
         this.assetId = assetId;
         this.member = member;
 
+        this.stationTitle = channel;
         this.station = new Station(channel);
     }
 
@@ -38,5 +40,9 @@ public class Series {
             return false;
         Series v = (Series) o;
         return v.assetId == this.assetId;
+    }
+
+    public String getStationTitle() {
+        return stationTitle;
     }
 }

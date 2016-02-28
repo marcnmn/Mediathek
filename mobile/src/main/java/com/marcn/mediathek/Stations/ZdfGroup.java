@@ -1,4 +1,4 @@
-package com.marcn.mediathek.Stations;
+package com.marcn.mediathek.stations;
 
 import android.support.annotation.Nullable;
 
@@ -16,10 +16,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.HashMap;
 
 public class ZdfGroup extends Station {
     private static final String live_m3u8_zdf = "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/index_3056_av-p.m3u8?sd=10&amp;dw=0&amp;rebase=on&amp;hdntl=";
@@ -40,13 +40,25 @@ public class ZdfGroup extends Station {
     private static final String most_recent_api = "http://www.zdf.de/ZDFmediathek/xmlservice/web/sendungVerpasst?";
     private static final String live_epg_api = "http://sofa01.zdf.de/epgservice/";
 
+
+    private static final String widget_key_aktuellste = "Aktuellste Sendungen";
+    private static final String widget_key_meistgesehen = "Meist gesehen";
+    private static final String widget_key_weitere = "Weitere";
+    private static final String widget_key_tipps = "Tipps";
+
     private static final String aktuellste_api = "http://www.zdf.de/ZDFmediathek/xmlservice/web/aktuellste";
     private static final String meist_gesehen_api = "http://www.zdf.de/ZDFmediathek/xmlservice/web/meistGesehen";
     private static final String weitere_beitraege_api = "http://www.zdf.de/ZDFmediathek/xmlservice/web/weitereBeitraege";
     private static final String tipps_api = "http://www.zdf.de/ZDFmediathek/xmlservice/web/tipps";
 
     public ZdfGroup(String title) {
-        super(title);
+        this.title = title;
+        // Setup Episode - Widgets
+        episode_widgets = new HashMap<>();
+        episode_widgets.put(widget_key_aktuellste, aktuellste_api);
+        episode_widgets.put(widget_key_meistgesehen, meist_gesehen_api);
+        episode_widgets.put(widget_key_weitere, meist_gesehen_api);
+        episode_widgets.put(widget_key_tipps, meist_gesehen_api);
     }
 
     @Override
@@ -72,6 +84,20 @@ public class ZdfGroup extends Station {
         if (episode != null)
             episode.setThumb_url(getLiveThumbnail());
         return episode;
+    }
+
+    public ArrayList<Episode> fetchEpisodes(String url) {
+        try {
+            return ZdfUtils.fetchVideoList(url);
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    public ArrayList<Episode> fetchWidgetEpisodes(String key, String assetId, int count) {
+        String url = episode_widgets.get(key);
+        url += "?maxLength=" + count + "&offset=0&id=" + assetId;
+        return fetchEpisodes(url);
     }
 
     @Override

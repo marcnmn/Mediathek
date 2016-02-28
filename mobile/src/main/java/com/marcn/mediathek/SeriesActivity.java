@@ -16,11 +16,15 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.marcn.mediathek.base_objects.Series;
+import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
 import com.squareup.picasso.Picasso;
 
@@ -134,15 +138,23 @@ public class SeriesActivity extends BaseActivity {
 
     private void loadWidgets() {
         if (mSeries == null) return;
-        String assetId = "" + mSeries.assetId;
-        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_LAST, R.id.widgetLast, assetId);
-        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_MOST_POPULAR, R.id.widgetMost, assetId);
-        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_FURTHER, R.id.widgetFurther, assetId);
+        Station station = Station.createStation(mSeries.getStationTitle());
+        if (station == null || station.getEpisodeWidgets() == null) return;
+
+//        String assetId = "" + mSeries.assetId;
+        for (String key : station.getEpisodeWidgets().keySet()) {
+            loadWidget(key);
+        }
+//        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_LAST, R.id.widgetLast, assetId);
+//        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_MOST_POPULAR, R.id.widgetMost, assetId);
+//        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_FURTHER, R.id.widgetFurther, assetId);
     }
 
-    private void loadWidget(int Type, int resId, String assetId) {
+    private void loadWidget(String widgetKey) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(resId, VideoWidgetFragment.newInstance(assetId, Type));
+        VideoWidgetFragment f = VideoWidgetFragment.newInstance(mSeries.getStationTitle(),
+                mSeries.assetId + "", widgetKey);
+        transaction.add(R.id.widgetContainer, f, widgetKey);
         transaction.commit();
     }
 

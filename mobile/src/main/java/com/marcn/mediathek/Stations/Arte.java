@@ -1,4 +1,4 @@
-package com.marcn.mediathek.Stations;
+package com.marcn.mediathek.stations;
 
 import android.support.annotation.Nullable;
 
@@ -37,7 +37,8 @@ public class Arte extends Station {
 
     // http://www.arte.tv/papi/tvguide/videos/plus7/program/{lang}/{detailLevel}/{category}/{cluster}/{recommended}/{sort}/{limit}/{offset}/DE_FR.json
     public Arte() {
-        super(channel_title);
+        this.title = channel_title;
+//        super(channel_title);
 
         top_level_categories = new HashMap<>();
         top_level_categories.put("Alle", "ALL");
@@ -66,6 +67,11 @@ public class Arte extends Station {
             episode.setThumb_url(getLiveThumbnail());
 
         return episode;
+    }
+
+    @Override
+    public ArrayList<Episode> fetchWidgetEpisodes(String key, String assetId, int count) {
+        return null;
     }
 
     @Override

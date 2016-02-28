@@ -1,5 +1,6 @@
 package com.marcn.mediathek.ui_fragments;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,8 +19,8 @@ import com.google.gson.Gson;
 import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.Stations.Station;
-import com.marcn.mediathek.Stations.ZdfGroup;
+import com.marcn.mediathek.stations.Station;
+import com.marcn.mediathek.stations.ZdfGroup;
 import com.marcn.mediathek.adapter.VideoWidgetAdapter;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.Series;
@@ -36,6 +37,8 @@ public class VideoWidgetFragment extends Fragment {
 
     private static final String ARG_OBJECT_JSON = "object-json";
     private static final String ARG_WIDGET_TYPE = "widget-type";
+    private static final String ARG_WIDGET_TITLE = "widget-title";
+    private static final String ARG_CHANNEL_TITLE = "channel-title";
     private static final String ARG_WIDGET_URL = "widget-url";
     private static final String ARG_ASSET_ID = "asset-id";
 
@@ -45,7 +48,7 @@ public class VideoWidgetFragment extends Fragment {
     private LinearLayoutManager mLayoutManager;
     private OnVideoInteractionListener mListener;
 
-    private Station station = new ZdfGroup("zdf");
+    private Station mStation;
 
     private Series mSeries;
     private int mWidgetType;
@@ -57,8 +60,19 @@ public class VideoWidgetFragment extends Fragment {
     public static VideoWidgetFragment newInstance(String assetId, int type) {
         VideoWidgetFragment fragment = new VideoWidgetFragment();
         Bundle args = new Bundle();
+        args.putString(ARG_WIDGET_TITLE, assetId);
         args.putString(ARG_ASSET_ID, assetId);
         args.putInt(ARG_WIDGET_TYPE, type);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    public static VideoWidgetFragment newInstance(String channelTitle, String assetId, String widgetTitle) {
+        VideoWidgetFragment fragment = new VideoWidgetFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_CHANNEL_TITLE, channelTitle);
+        args.putString(ARG_WIDGET_TITLE, widgetTitle);
+        args.putString(ARG_ASSET_ID, assetId);
         fragment.setArguments(args);
         return fragment;
     }
@@ -74,27 +88,10 @@ public class VideoWidgetFragment extends Fragment {
             if (mSeries != null)
                 mAssetId = mSeries.assetId + "";
 
+            String title = getArguments().getString(ARG_CHANNEL_TITLE, "");
+            mStation = Station.createStation(title);
+            mHeaderTitle = getArguments().getString(ARG_WIDGET_TITLE, "");
             mAssetId = getArguments().getString(ARG_ASSET_ID, "");
-
-            mWidgetType = getArguments().getInt(ARG_WIDGET_TYPE);
-            if (getActivity() == null) return;
-            switch (mWidgetType) {
-                case WIDGET_TYPE_SENDUNG_MOST_POPULAR:
-                    mBaseUrl = getString(R.string.zdf_gruppe_video_meist);
-                    mHeaderTitle = getString(R.string.video_widget_header_most_popular);
-                    break;
-                case WIDGET_TYPE_SENDUNG_FURTHER:
-                    mBaseUrl = getString(R.string.zdf_gruppe_video_weitere);
-                    mHeaderTitle = getString(R.string.video_widget_header_further);
-                    break;
-                case WIDGET_TYPE_SENDUNG_LAST:
-                    mBaseUrl = getString(R.string.zdf_gruppe_video_aktuellste);
-                    mHeaderTitle = getString(R.string.video_widget_header_last);
-                    break;
-                case WIDGET_TYPE_TIPPS:
-                    mBaseUrl = getString(R.string.zdf_gruppe_video_tipps);
-                    mHeaderTitle = getString(R.string.video_widget_header_tipps);
-            }
         }
     }
 
@@ -130,7 +127,7 @@ public class VideoWidgetFragment extends Fragment {
         // TODO nested scrolling in a good manner
         recyclerView.setNestedScrollingEnabled(false);
 
-        downloadVideos();
+        downloadVideos2();
         return mRootView;
     }
 
@@ -163,6 +160,25 @@ public class VideoWidgetFragment extends Fragment {
         }).start();
     }
 
+    private void downloadVideos2() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final ArrayList<Episode> episodes = fetchVideoList();
+                final ArrayList<Episode> episodes1
+                        = mStation.fetchWidgetEpisodes(mHeaderTitle, mAssetId, VIDEO_ITEM_COUNT);
+                if (getActivity() == null || episodes == null) return;
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mVideoAdapter.updateValues(episodes);
+                        animateInFromBottom();
+                    }
+                });
+            }
+        }).start();
+    }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -180,10 +196,18 @@ public class VideoWidgetFragment extends Fragment {
         mListener = null;
     }
 
-    private ArrayList<Episode> fetchVideoList(int count, int offset) {
-        if (station instanceof ZdfGroup) {
-            return ((ZdfGroup) station).getMostRecentEpisodes(offset, count, Integer.parseInt(mAssetId));
+    private ArrayList<Episode> fetchVideoList() {
+        if (mStation instanceof ZdfGroup) {
+            return ((ZdfGroup) mStation).getMostRecentEpisodes(0, VIDEO_ITEM_COUNT, Integer.parseInt(mAssetId));
         }
         return null;
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void animateInFromBottom() {
+        TransitionManager.beginDelayedTransition(mRootView, new Slide());
+        mRootView.findViewById(R.id.recyclerViewVideos).setVisibility(View.VISIBLE);
+        mRootView.findViewById(R.id.buttonMore).setVisibility(View.VISIBLE);
+        mRootView.findViewById(R.id.textHeader).setVisibility(View.VISIBLE);
     }
 }

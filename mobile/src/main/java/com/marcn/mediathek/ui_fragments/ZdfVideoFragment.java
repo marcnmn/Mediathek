@@ -14,15 +14,13 @@ import android.widget.TextView;
 import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.Stations.Station;
-import com.marcn.mediathek.Stations.ZdfGroup;
+import com.marcn.mediathek.stations.Station;
+import com.marcn.mediathek.stations.ZdfGroup;
 import com.marcn.mediathek.adapter.VideoAdapter;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.utils.LayoutTasks;
-import com.marcn.mediathek.StationUtils.ZdfUtils;
 import com.tonicartos.superslim.LayoutManager;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {

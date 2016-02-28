@@ -17,7 +17,7 @@ import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
 import com.marcn.mediathek.base_objects.LiveStreams;
-import com.marcn.mediathek.Stations.ZdfGroup;
+import com.marcn.mediathek.stations.ZdfGroup;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.EpgUtils;
 import com.marcn.mediathek.utils.XmlParser;
