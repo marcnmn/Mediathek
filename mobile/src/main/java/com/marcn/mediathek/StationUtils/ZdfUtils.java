@@ -21,8 +21,7 @@ import java.util.Collections;
 import java.util.TreeMap;
 
 
-public class ZdfMediathekData {
-
+public class ZdfUtils {
     public static final int QUALiTY_VERY_HIGH = 0;
     public static final int QUALiTY_HIGH = 1;
     public static final int QUALiTY_MED = 2;

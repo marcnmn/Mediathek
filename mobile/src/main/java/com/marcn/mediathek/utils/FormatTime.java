@@ -50,6 +50,7 @@ public class FormatTime {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        if (date == null) return null;
         Calendar calendar = GregorianCalendar.getInstance();
         calendar.setTime(date);
         return calendar;
@@ -112,5 +113,11 @@ public class FormatTime {
     public static String calendarToHeadlineFormat(Calendar c) {
         SimpleDateFormat s = new SimpleDateFormat("EEEE, d. MMMM");
         return s.format(c.getTime());
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    public static String zdfCalendarToRecentRequest(Calendar date) {
+        SimpleDateFormat s = new SimpleDateFormat("ddMMyy");
+        return s.format(date.getTime());
     }
 }

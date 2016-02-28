@@ -191,7 +191,7 @@ public class XmlParser {
         }
     }
 
-    private static String getStringByTag(Element el, String tag) {
+    public static String getStringByTag(Element el, String tag) {
         Elements e = el.getElementsByTag(tag);
         if (e == null || e.isEmpty()) return "";
         Element target = e.get(0);
@@ -199,7 +199,7 @@ public class XmlParser {
         return target.text();
     }
 
-    private static int getIntegerByTag(Element el, String tag) {
+    public static int getIntegerByTag(Element el, String tag) {
         String s = getStringByTag(el, tag);
         try {
             int i = Integer.parseInt(s);

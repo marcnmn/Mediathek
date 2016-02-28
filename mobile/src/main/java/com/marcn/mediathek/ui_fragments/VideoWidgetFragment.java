@@ -18,10 +18,12 @@ import com.google.gson.Gson;
 import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.Stations.Station;
+import com.marcn.mediathek.Stations.ZdfGroup;
 import com.marcn.mediathek.adapter.VideoWidgetAdapter;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.Series;
-import com.marcn.mediathek.StationUtils.ZdfMediathekData;
+import com.marcn.mediathek.StationUtils.ZdfUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,6 +44,8 @@ public class VideoWidgetFragment extends Fragment {
     private VideoWidgetAdapter mVideoAdapter;
     private LinearLayoutManager mLayoutManager;
     private OnVideoInteractionListener mListener;
+
+    private Station station = new ZdfGroup("zdf");
 
     private Series mSeries;
     private int mWidgetType;
@@ -139,7 +143,7 @@ public class VideoWidgetFragment extends Fragment {
             public void run() {
                 final ArrayList<Episode> episodes;
                 try {
-                    episodes = ZdfMediathekData.fetchVideoList(request);
+                    episodes = ZdfUtils.fetchVideoList(request);
                     if (getActivity() == null || episodes == null) return;
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
@@ -174,5 +178,12 @@ public class VideoWidgetFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    private ArrayList<Episode> fetchVideoList(int count, int offset) {
+        if (station instanceof ZdfGroup) {
+            return ((ZdfGroup) station).getMostRecentEpisodes(offset, count, Integer.parseInt(mAssetId));
+        }
+        return null;
     }
 }

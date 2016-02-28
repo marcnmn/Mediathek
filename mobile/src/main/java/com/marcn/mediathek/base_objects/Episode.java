@@ -2,6 +2,7 @@ package com.marcn.mediathek.base_objects;
 
 import com.marcn.mediathek.utils.FormatTime;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Episode {
@@ -186,5 +187,18 @@ public class Episode {
 
     public void setLive(boolean live) {
         isLive = live;
+    }
+
+    public static void addHeader(ArrayList<Episode> episodes, Calendar date) {
+        addHeader(episodes, date, -1);
+    }
+
+    public static void addHeader(ArrayList<Episode> episodes, Calendar date, int index) {
+        String title = FormatTime.getMissedHeader(date);
+        Episode header = createHeader(title);
+        if (index < 0)
+            episodes.add(header);
+        else
+            episodes.add(index, header);
     }
 }

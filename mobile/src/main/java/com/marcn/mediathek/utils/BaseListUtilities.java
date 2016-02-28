@@ -6,45 +6,39 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 
 public class BaseListUtilities {
 
-    public static ArrayList<Episode> addHeaders(ArrayList<Episode> episodes) {
-        Calendar lastCalendar = null;
-        Calendar calendar;
+    public static ArrayList<Episode> addDateHeaders(ArrayList<Episode> episodes) {
+        if (episodes == null || episodes.isEmpty()) return episodes;
+//        filterGanze(episodes);
 
         ArrayList<Episode> result = new ArrayList<>();
         //clean list
         for (Episode v : episodes)
             if (!v.isHeader()) result.add(v);
 
-        Collections.sort(result, new Comparator<Episode>() {
-            @Override
-            public int compare(Episode lhs, Episode rhs) {
-                Calendar dLhs = FormatTime.zdfAirtimeStringToDate(lhs.getAirTime());
-                Calendar dRhs = FormatTime.zdfAirtimeStringToDate(rhs.getAirTime());
-                return dRhs.compareTo(dLhs);
-            }
-        });
-
         int index = 0;
         int size = result.size();
 
-        Episode episode;
+        Calendar lastCalendar = null;
+        Calendar calendar;
         while (index < size) {
-            episode = result.get(index);
+            Episode episode = result.get(index);
             if (index == 0) {
-                lastCalendar = FormatTime.zdfAirtimeStringToDate(episode.getAirTime());
-                result.add(index, Episode.createHeader(FormatTime.calendarToHeadlineFormat(lastCalendar)));
+                lastCalendar = result.get(index).getStartTime();
+                Episode.addHeader(result, lastCalendar, index);
                 index++;
                 size++;
             } else if (!episode.isHeader() && lastCalendar == null) {
-                lastCalendar = FormatTime.zdfAirtimeStringToDate(episode.getAirTime());
+                lastCalendar = episode.getStartTime();
             } else if (!episode.isHeader()) {
-                calendar = FormatTime.zdfAirtimeStringToDate(episode.getAirTime());
+                calendar = episode.getStartTime();
                 if (calendar != null && calendar.getTimeInMillis() < lastCalendar.getTimeInMillis()) {
                     lastCalendar = calendar;
-                    result.add(index, Episode.createHeader(FormatTime.calendarToHeadlineFormat(lastCalendar)));
+                    Episode.addHeader(result, lastCalendar, index);
+//                    result.add(index, Episode.createHeader(FormatTime.calendarToHeadlineFormat(lastCalendar)));
                     index++;
                     size++;
                 }
@@ -52,5 +46,28 @@ public class BaseListUtilities {
             index++;
         }
         return result;
+    }
+
+    public static void filterGanze(ArrayList<Episode> data) {
+        Iterator iter = data.listIterator();
+
+        while(iter.hasNext()){
+            Episode e = (Episode) iter.next();
+            if (!e.getGanzeSendung())
+                iter.remove();
+        }
+    }
+
+    public static void sortEpisodesDateAsc(ArrayList<Episode> data) {
+        Collections.sort(data, new Comparator<Episode>() {
+            @Override
+            public int compare(Episode lhs, Episode rhs) {
+                if (lhs.getStartTime() == null && rhs.getStartTime() == null) return 0;
+                if (lhs.getStartTime() == null) return -1;
+                if (rhs.getStartTime() == null) return 1;
+
+                return rhs.getStartTime().compareTo(lhs.getStartTime());
+            }
+        });
     }
 }

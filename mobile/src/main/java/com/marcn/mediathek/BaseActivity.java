@@ -27,7 +27,7 @@ import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.utils.Playback;
 import com.marcn.mediathek.utils.Storage;
-import com.marcn.mediathek.StationUtils.ZdfMediathekData;
+import com.marcn.mediathek.StationUtils.ZdfUtils;
 
 import java.io.IOException;
 import java.util.TreeMap;
@@ -145,7 +145,7 @@ public abstract class BaseActivity extends AppCompatActivity
             @Override
             public void run() {
                 try {
-                    final TreeMap<Integer, String> s = ZdfMediathekData.getVideoUrl(view.getContext(), episode.getAssetId());
+                    final TreeMap<Integer, String> s = ZdfUtils.getVideoUrl(view.getContext(), episode.getAssetId());
                     if (s != null && !s.isEmpty())
                         runOnUiThread(new Runnable() {
                             @Override

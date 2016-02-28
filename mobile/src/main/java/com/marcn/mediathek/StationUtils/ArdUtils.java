@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.Calendar;
 
-public class Ard {
+public class ArdUtils {
 
     public static LiveStream getARDLiveStreamEpgNow(LiveStream l) {
         String url = "http://www.ardmediathek.de/tv/live";

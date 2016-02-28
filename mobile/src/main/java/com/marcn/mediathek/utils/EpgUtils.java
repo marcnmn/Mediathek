@@ -2,7 +2,7 @@ package com.marcn.mediathek.utils;
 
 import android.support.annotation.Nullable;
 
-import com.marcn.mediathek.StationUtils.Ard;
+import com.marcn.mediathek.StationUtils.ArdUtils;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.Station;
@@ -30,7 +30,7 @@ public class EpgUtils {
                 case Station.ARTE_GROUP:
                     return getZDFLiveStreamEpgNow(l);
                 case Station.ARD_GROUP:
-                    return Ard.getARDLiveStreamEpgNow(l);
+                    return ArdUtils.getARDLiveStreamEpgNow(l);
             }
         } catch (IOException ignored) {}
         return l;

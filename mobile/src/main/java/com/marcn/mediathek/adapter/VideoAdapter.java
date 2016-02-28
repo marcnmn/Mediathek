@@ -21,6 +21,7 @@ import com.tonicartos.superslim.GridSLM;
 import com.tonicartos.superslim.LinearSLM;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewHolder> {
     private static final int VIEW_TYPE_HEADER = 0;
@@ -44,6 +45,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
 
     public void updateValues(ArrayList<Episode> ls) {
         mValues.addAll(ls);
+        BaseListUtilities.sortEpisodesDateAsc(mValues);
+        BaseListUtilities.filterGanze(mValues);
+        BaseListUtilities.addDateHeaders(mValues);
         notifyDataSetChanged();
     }
 
@@ -58,7 +62,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
     }
 
     public void addHeaders() {
-        mValues = BaseListUtilities.addHeaders(mValues);
+        mValues = BaseListUtilities.addDateHeaders(mValues);
         notifyDataSetChanged();
     }
 
@@ -180,6 +184,13 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
             if (mValues.get(i).isHeader())
                 return i;
         return 0;
+    }
+
+    public void addHeader(Calendar mDay) {
+        if (mValues.get(mValues.size() - 1).isHeader())
+            mValues.remove(mValues.size() - 1);
+        Episode.addHeader(mValues, mDay);
+        notifyItemInserted(mValues.size() - 1);
     }
 
     public class SendungViewHolder extends RecyclerView.ViewHolder {

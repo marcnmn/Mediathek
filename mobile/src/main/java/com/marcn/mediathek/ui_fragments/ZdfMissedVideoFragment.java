@@ -14,11 +14,13 @@ import android.widget.TextView;
 import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.Stations.ZdfGroup;
 import com.marcn.mediathek.adapter.VideoAdapter;
 import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.FormatTime;
 import com.marcn.mediathek.utils.LayoutTasks;
-import com.marcn.mediathek.StationUtils.ZdfMediathekData;
+import com.marcn.mediathek.StationUtils.ZdfUtils;
 import com.tonicartos.superslim.LayoutManager;
 
 import java.text.SimpleDateFormat;
@@ -40,6 +42,8 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
     private RelativeLayout.LayoutParams mScrollLayoutParams;
     private int mWindowHeight;
     private TextView mIndicator;
+
+    private ZdfGroup zdf = new ZdfGroup(Constants.TITLE_CHANNEL_ZDF);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,7 +79,8 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
         recyclerView.addOnScrollListener(onScrollListener);
         scrollArea.setOnTouchListener(this);
 
-        downloadMissedVideos(mLoadedItems, INT_UPDATE_COUNT);
+//        downloadMissedVideos(mLoadedItems, INT_UPDATE_COUNT);
+        downloadMissedVideos2();
         return view;
     }
 
@@ -89,7 +94,7 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final ArrayList<Episode> episodes = ZdfMediathekData.getMissedShows(getContext(), offset, count, day, day);
+                final ArrayList<Episode> episodes = ZdfUtils.getMissedShows(getContext(), offset, count, day, day);
                 if (getActivity() == null || episodes == null) return;
                 if (episodes.isEmpty() && mDay.after(mLastDay)) {
                     mDay.add(Calendar.DAY_OF_MONTH, -1);
@@ -110,13 +115,39 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
         }).start();
     }
 
+    private void downloadMissedVideos2() {
+        if (mIsLoading || mDay.before(mLastDay)) return;
+        setIsLoading(true);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final ArrayList<Episode> episodes = zdf.getMostRecentEpisodes(mLoadedItems, INT_UPDATE_COUNT, mDay, mDay);
+                if (getActivity() == null) return;
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if ((episodes == null || episodes.isEmpty()) && mDay.after(mLastDay)) {
+                            switchToNextDay();
+                        } else if (episodes != null) {
+                            mVideoAdapter.updateValues(episodes);
+                            mLoadedItems += episodes.size();
+                        }
+                        setIsLoading(false);
+                    }
+                });
+            }
+        }).start();
+    }
+
+
     private RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
             int lastVisibleItem = mLayoutManager.findLastVisibleItemPosition();
             if (lastVisibleItem >= mVideoAdapter.getItemCount() - INT_UPDATE_THRESHOLD)
-                downloadMissedVideos(mLoadedItems, INT_UPDATE_COUNT);
+                downloadMissedVideos2();
+//                downloadMissedVideos(mLoadedItems, INT_UPDATE_COUNT);
         }
     };
 
@@ -164,5 +195,17 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    private void setIsLoading(boolean loading) {
+        mIsLoading = loading;
+        if (mVideoAdapter != null)
+            mVideoAdapter.setLoading(loading);
+    }
+
+    private void switchToNextDay() {
+        mDay.add(Calendar.DAY_OF_MONTH, -1);
+        mVideoAdapter.addHeader(mDay);
+        mLoadedItems = 0;
     }
 }

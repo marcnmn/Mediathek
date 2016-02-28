@@ -1,4 +1,4 @@
-package com.marcn.mediathek.base_objects.Stations;
+package com.marcn.mediathek.Stations;
 
 import android.support.annotation.Nullable;
 
@@ -11,27 +11,29 @@ import com.marcn.mediathek.utils.NetworkTasks;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class Arte extends Station {
-    public static final String channel_title = "Arte";
+    private static final String channel_title = "Arte";
 
     private static final String base_url = "http://www.arte.tv";
     private static final String search_api = "/papi/tvguide/videos/plus7/program/";
     private static final String live_stream_api = "/papi/tvguide/videos/livestream/player/";
     private static final String live_stream_m3u8 = "http://delive.artestras.cshls.lldns.net/artestras/delive/delive.m3u8";
 
-    public static final String lang_french = "F";
-    public static final String lang_german = "D";
+    public static final String LANG_FRENCH = "F";
+    public static final String LANG_GERMAN = "D";
 
-    public static final String default_lang = lang_german;
-    public static final String default_detail_level = "L2";
-    public static final String default_category = "ALL";
-    public static final String default_cluster = "ALL";
-    public static final String default_recommended = "-1";
-    public static final String default_sort = "AIRDATE_DESC";
+    private static final String default_lang = LANG_GERMAN;
+    private static final String default_detail_level = "L2";
+    private static final String default_category = "ALL";
+    private static final String default_cluster = "ALL";
+    private static final String default_recommended = "-1";
+    private static final String default_sort = "AIRDATE_DESC";
 
-    private String lang = lang_german;
+    private String lang = LANG_GERMAN;
 
     // http://www.arte.tv/papi/tvguide/videos/plus7/program/{lang}/{detailLevel}/{category}/{cluster}/{recommended}/{sort}/{limit}/{offset}/DE_FR.json
     public Arte() {
@@ -81,6 +83,16 @@ public class Arte extends Station {
         return null;
     }
 
+//    @Override
+//    public ArrayList<Episode> getMostRecentEpisodes(int offset, int limit) {
+//        return null;
+//    }
+
+    @Override
+    public ArrayList<Episode> getMostRecentEpisodes(int offset, int limit, Calendar startDate, Calendar endDate) {
+        return null;
+    }
+
     @Override
     @Nullable
     public String getCategoryUrl(String key, int offset, int limit) {
@@ -95,10 +107,10 @@ public class Arte extends Station {
     }
 
     public void setLang(String lang) {
-        if (lang_french.equals(lang))
-            lang = lang_french;
+        if (LANG_FRENCH.equals(lang))
+            lang = LANG_FRENCH;
         else
-            lang = lang_german;
+            lang = LANG_GERMAN;
     }
 
     private static String getSearchRequestUrl(String category, int offset, int limit) {

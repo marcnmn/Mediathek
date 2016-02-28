@@ -14,10 +14,12 @@ import android.widget.TextView;
 import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.Stations.Station;
+import com.marcn.mediathek.Stations.ZdfGroup;
 import com.marcn.mediathek.adapter.VideoAdapter;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.utils.LayoutTasks;
-import com.marcn.mediathek.StationUtils.ZdfMediathekData;
+import com.marcn.mediathek.StationUtils.ZdfUtils;
 import com.tonicartos.superslim.LayoutManager;
 
 import java.io.IOException;
@@ -38,8 +40,10 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
     private VideoAdapter mVideoAdapter;
     private LayoutManager mLayoutManager;
 
+    private Station station = new ZdfGroup("zdf");
+
     private int mLoadedItems = 0;
-    private boolean mIsLoading;
+    private boolean mIsLoading, mAllLoaded;
     private OnVideoInteractionListener mListener;
     private RelativeLayout.LayoutParams mScrollLayoutParams;
     private int mWindowHeight;
@@ -96,10 +100,7 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
             ((BaseActivity) getActivity()).setActionBarTitle(mHeaderTitle);
 
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
-//        View scrollArea = view.findViewById(R.id.fastScrollArea);
         mWindowHeight = LayoutTasks.getWindowHeight(context);
-//        mIndicator = (TextView) view.findViewById(R.id.indicator);
-//        mScrollLayoutParams = (RelativeLayout.LayoutParams) mIndicator.getLayoutParams();
 
         mLayoutManager = new LayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -108,37 +109,38 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
         recyclerView.setAdapter(mVideoAdapter);
 
         recyclerView.addOnScrollListener(onScrollListener);
-//        scrollArea.setOnTouchListener(this);
 
-        downloadVideos(mLoadedItems, INT_UPDATE_COUNT);
+        downloadVideos();
         return view;
     }
 
-    private void downloadVideos(int offset, int count) {
-        if (getActivity() == null || mBaseUrl == null || mIsLoading) return;
-        mIsLoading = true;
-        mVideoAdapter.setLoading(true);
-        final String request = mBaseUrl + "?maxLength=" + count
-                + "&offset=" + offset + "&id=" + mAssetId;
+    private void downloadVideos() {
+        if (getActivity() == null || mIsLoading || mAllLoaded) return;
+        setIsLoading(true);
+
         new Thread(new Runnable() {
             @Override
             public void run() {
                 final ArrayList<Episode> episodes;
-                try {
-                    episodes = ZdfMediathekData.fetchVideoList(request);
-                    if (getActivity() == null || episodes == null || episodes.isEmpty()) return;
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mVideoAdapter.updateValues(episodes);
-                            if (mWidgetType == ZdfVideoFragment.WIDGET_TYPE_SENDUNG_LAST)
-                                mVideoAdapter.addHeaders();
-                            mIsLoading = false;
-                            mVideoAdapter.setLoading(false);
+                episodes = fetchVideoList(INT_UPDATE_COUNT, mLoadedItems);
+                if (getActivity() == null) return;
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (episodes == null || episodes.isEmpty()) {
+                            mAllLoaded = true;
+                            setIsLoading(false);
+                            return;
                         }
-                    });
-                } catch (IOException ignored) {
-                }
+
+                        mVideoAdapter.updateValues(episodes);
+                        mLoadedItems += episodes.size();
+
+                        if (mWidgetType == ZdfVideoFragment.WIDGET_TYPE_SENDUNG_LAST)
+                            mVideoAdapter.addHeaders();
+                        setIsLoading(false);
+                    }
+                });
             }
         }).start();
     }
@@ -149,7 +151,7 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
             super.onScrolled(recyclerView, dx, dy);
             int lastVisibleItem = mLayoutManager.findLastVisibleItemPosition();
             if (lastVisibleItem >= mVideoAdapter.getItemCount() - INT_UPDATE_THRESHOLD)
-                downloadVideos(mLoadedItems, INT_UPDATE_COUNT);
+                downloadVideos();
         }
     };
 
@@ -192,5 +194,18 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    private void setIsLoading(boolean loading) {
+        mIsLoading = loading;
+        if (mVideoAdapter != null)
+            mVideoAdapter.setLoading(loading);
+    }
+
+    private ArrayList<Episode> fetchVideoList(int count, int offset) {
+        if (station instanceof ZdfGroup) {
+            return ((ZdfGroup) station).getMostRecentEpisodes(offset, count, Integer.parseInt(mAssetId));
+        }
+        return null;
     }
 }

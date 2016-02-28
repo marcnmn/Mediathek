@@ -1,14 +1,10 @@
-package com.marcn.mediathek.base_objects.Stations;
+package com.marcn.mediathek.Stations;
 
-import android.content.Context;
-import android.os.Build;
-
-import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
-import com.marcn.mediathek.utils.Constants;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public abstract class Station {
@@ -26,9 +22,10 @@ public abstract class Station {
     public abstract String getMostViewsUrl(int offset, int limit);
     public abstract String getMostRecentUrl(int offset, int limit);
 
+//    public abstract ArrayList<Episode> getMostRecentEpisodes(int offset, int limit);
+    public abstract ArrayList<Episode> getMostRecentEpisodes(int offset, int limit, Calendar startDate, Calendar endDate);
+
     public abstract String getCategoryUrl(String key, int offset, int limit);
-
-
 
     @Override
     public String toString() {

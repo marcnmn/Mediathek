@@ -1,7 +1,6 @@
 package com.marcn.mediathek.ui_fragments;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -18,14 +17,13 @@ import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
 import com.marcn.mediathek.base_objects.LiveStreams;
-import com.marcn.mediathek.base_objects.Stations.Arte;
+import com.marcn.mediathek.Stations.ZdfGroup;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.EpgUtils;
 import com.marcn.mediathek.utils.XmlParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.RunnableFuture;
 
 public class LiveStreamsFragment extends Fragment {
     public static String FRAGMENT_TAG = "livestream-fragment";
@@ -89,7 +87,7 @@ public class LiveStreamsFragment extends Fragment {
         } else {
             mRecyclerView.setAdapter(mLiveStreamAdapter);
         }
-        downloadArteData2();
+        downloadData2();
 
         downloadZdfData();
         downloadArteData();
@@ -134,13 +132,13 @@ public class LiveStreamsFragment extends Fragment {
         }).start();
     }
 
-    private void downloadArteData2() {
+    private void downloadData2() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Arte arte = new Arte();
-                final LiveStreamM3U8 l = arte.getLiveStream();
-                final Episode episode = arte.getCurrentEpisode();
+                ZdfGroup channel = new ZdfGroup(Constants.TITLE_CHANNEL_ZDF);
+                final LiveStreamM3U8 l = channel.getLiveStream();
+                final Episode episode = channel.getCurrentEpisode();
                 if (getActivity() == null) return;
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
