@@ -141,13 +141,9 @@ public class SeriesActivity extends BaseActivity {
         Station station = Station.createStation(mSeries.getStationTitle());
         if (station == null || station.getEpisodeWidgets() == null) return;
 
-//        String assetId = "" + mSeries.assetId;
         for (String key : station.getEpisodeWidgets().keySet()) {
             loadWidget(key);
         }
-//        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_LAST, R.id.widgetLast, assetId);
-//        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_MOST_POPULAR, R.id.widgetMost, assetId);
-//        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_FURTHER, R.id.widgetFurther, assetId);
     }
 
     private void loadWidget(String widgetKey) {

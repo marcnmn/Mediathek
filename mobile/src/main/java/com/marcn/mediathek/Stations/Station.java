@@ -7,13 +7,15 @@ import com.marcn.mediathek.utils.Constants;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public abstract class Station {
     protected String title;
-    protected HashMap<String, String> top_level_categories;
-    protected HashMap<String, String> episode_widgets;
+    protected LinkedHashMap<String, String> top_level_categories;
+    protected LinkedHashMap<String, String> episode_widgets;
 
     public static Station createStation(String title) {
+        if (title == null) return null;
         switch (title) {
             // ZDF Sender
             case Constants.TITLE_CHANNEL_ZDF: return new ZdfGroup(title);
@@ -58,6 +60,12 @@ public abstract class Station {
 
     public abstract String getCategoryUrl(String key, int offset, int limit);
 
+    public abstract String getStationId();
+
+    public String getTitle() {
+        return title;
+    }
+
     @Override
     public String toString() {
         return title;
@@ -71,7 +79,7 @@ public abstract class Station {
         return ls.title.equals(this.title);
     }
 
-    public HashMap<String, String> getTop_level_categories() {
+    public HashMap<String, String> getTopLevelCategories() {
         return top_level_categories;
     }
 

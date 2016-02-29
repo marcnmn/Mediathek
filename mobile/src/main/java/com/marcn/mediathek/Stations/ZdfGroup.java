@@ -37,10 +37,15 @@ public class ZdfGroup extends Station {
     private static final String live_epg_3sat_key = "3sat";
     private static final String live_epg_neo_key = "zdfneo";
 
+    public final static String station_id_zdf = "2639200";
+    public final static String station_id_phoenix = "2492878";
+    public final static String station_id_kultur = "1822544";
+    public final static String station_id_info = "2306126";
+    public final static String station_id_neo = "1822440";
+
     private static final String live_stream_api = "http://www.zdf.de/ZDFmediathek/xmlservice/web/live?maxLength=6";
     private static final String most_recent_api = "http://www.zdf.de/ZDFmediathek/xmlservice/web/sendungVerpasst?";
     private static final String live_epg_api = "http://sofa01.zdf.de/epgservice/";
-
 
     private static final String widget_key_aktuellste = "Aktuellste Sendungen";
     private static final String widget_key_meistgesehen = "Meist gesehen";
@@ -54,6 +59,13 @@ public class ZdfGroup extends Station {
 
     public ZdfGroup(String title) {
         this.title = title;
+
+        // Setup Episode - Widgets
+        top_level_categories = new LinkedHashMap<>();
+        top_level_categories.put(widget_key_aktuellste, aktuellste_api);
+        top_level_categories.put(widget_key_meistgesehen, meist_gesehen_api);
+        top_level_categories.put(widget_key_tipps, tipps_api);
+
         // Setup Episode - Widgets
         episode_widgets = new LinkedHashMap<>();
         episode_widgets.put(widget_key_aktuellste, aktuellste_api);
@@ -184,19 +196,9 @@ public class ZdfGroup extends Station {
         return null;
     }
 
-    public String getLiveEpgUrl () {
-        String url = live_epg_api;
-        switch (title) {
-            // ZDF Sender
-            case Constants.TITLE_CHANNEL_ZDF: url += live_epg_ZDF_key_key; break;
-            case Constants.TITLE_CHANNEL_PHOENIX: url += live_epg_phoenix_key; break;
-            case Constants.TITLE_CHANNEL_ZDF_KULTUR: url += live_epg_kultur_key; break;
-            case Constants.TITLE_CHANNEL_ZDF_INFO: url += live_epg_info_key; break;
-            case Constants.TITLE_CHANNEL_3SAT: url += live_epg_3sat_key; break;
-            case Constants.TITLE_CHANNEL_ZDF_NEO: url += live_epg_neo_key; break;
-            default: return null;
-        }
-        return url + "/now/json";
+    @Override
+    public String getStationId() {
+        return getId();
     }
 
     @Nullable
@@ -223,5 +225,34 @@ public class ZdfGroup extends Station {
         } catch (IOException ignored) {
         }
         return null;
+    }
+
+    public String getLiveEpgUrl () {
+        String url = live_epg_api;
+        switch (title) {
+            // ZDF Sender
+            case Constants.TITLE_CHANNEL_ZDF: url += live_epg_ZDF_key_key; break;
+            case Constants.TITLE_CHANNEL_PHOENIX: url += live_epg_phoenix_key; break;
+            case Constants.TITLE_CHANNEL_ZDF_KULTUR: url += live_epg_kultur_key; break;
+            case Constants.TITLE_CHANNEL_ZDF_INFO: url += live_epg_info_key; break;
+            case Constants.TITLE_CHANNEL_3SAT: url += live_epg_3sat_key; break;
+            case Constants.TITLE_CHANNEL_ZDF_NEO: url += live_epg_neo_key; break;
+            default: return null;
+        }
+        return url + "/now/json";
+    }
+
+    public String getId () {
+        return "_STARTSEITE";
+//        switch (title) {
+//            // ZDF Sender
+//            case Constants.TITLE_CHANNEL_ZDF: return station_id_zdf;
+//            case Constants.TITLE_CHANNEL_PHOENIX: return station_id_phoenix;
+//            case Constants.TITLE_CHANNEL_ZDF_KULTUR: return station_id_kultur;
+//            case Constants.TITLE_CHANNEL_ZDF_INFO: return station_id_info;
+//            case Constants.TITLE_CHANNEL_3SAT: return null;
+//            case Constants.TITLE_CHANNEL_ZDF_NEO: return station_id_neo;
+//            default: return null;
+//        }
     }
 }

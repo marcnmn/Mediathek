@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Arte extends Station {
     private static final String channel_title = "Arte";
@@ -40,7 +41,7 @@ public class Arte extends Station {
         this.title = channel_title;
 //        super(channel_title);
 
-        top_level_categories = new HashMap<>();
+        top_level_categories = new LinkedHashMap<>();
         top_level_categories.put("Alle", "ALL");
         top_level_categories.put("Aktuelles und Gesellschaft", "ACT");
         top_level_categories.put("Fernsehfilme & Serien", "FIC");
@@ -105,6 +106,11 @@ public class Arte extends Station {
         String category = top_level_categories.get(key);
         if (category == null || category.isEmpty()) return null;
         return getSearchRequestUrl(category, offset, limit);
+    }
+
+    @Override
+    public String getStationId() {
+        return "Arte";
     }
 
 

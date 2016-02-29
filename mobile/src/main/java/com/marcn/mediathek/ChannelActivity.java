@@ -23,22 +23,22 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.marcn.mediathek.base_objects.Station;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
+import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
 import com.marcn.mediathek.utils.Anims;
 import com.marcn.mediathek.utils.Storage;
 import com.marcn.mediathek.utils.Transitions;
-import com.marcn.mediathek.utils.XmlParser;
 import com.squareup.picasso.Picasso;
 
 public class ChannelActivity extends BaseActivity
         implements AppBarLayout.OnOffsetChangedListener {
 
+    public static final String INTENT_STATION_TITLE = "station-title";
     public static final String INTENT_SENDER_JSON = "station-json";
 
+//    private Station mStation;
     private Station mStation;
     private LiveStream mLiveStream;
 
@@ -48,6 +48,7 @@ public class ChannelActivity extends BaseActivity
     private Context mContext;
     private ImageView mThumbnail;
     private FloatingActionButton mFab;
+    private Episode mCurrentEpisode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,16 +74,13 @@ public class ChannelActivity extends BaseActivity
 
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
-            String json = intent.getStringExtra(INTENT_SENDER_JSON);
-            Gson gson = new Gson();
-            mStation = gson.fromJson(json, Station.class);
+            String title = intent.getStringExtra(INTENT_STATION_TITLE);
+            mStation = Station.createStation(title);
         }
 
         mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
         appBarLayout.addOnOffsetChangedListener(this);
-
-        boolean test = mThumbnail.hasTransientState();
 
 //        getIntentThumbnail();
         new Handler().postDelayed(new Runnable() {
@@ -98,12 +96,13 @@ public class ChannelActivity extends BaseActivity
         new Thread(new Runnable() {
             @Override
             public void run() {
-                mLiveStream = XmlParser.getLivestreamFromChannel(mContext, mStation);
-                if (mLiveStream == null) return;
+                mCurrentEpisode = mStation.getCurrentEpisode();
+//                mLiveStream = XmlParser.getLivestreamFromChannel(mContext, mStation);
+                if (mCurrentEpisode == null) return;
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        setupHeaderView(mLiveStream);
+                        setupHeaderView();
                     }
                 });
             }
@@ -111,27 +110,29 @@ public class ChannelActivity extends BaseActivity
     }
 
     private void loadWidgets() {
-        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_LAST, R.id.widgetLast, getString(R.string.zdf_id_startseite));
-        loadWidget(VideoWidgetFragment.WIDGET_TYPE_SENDUNG_MOST_POPULAR, R.id.widgetMost, getString(R.string.zdf_id_global));
-        loadWidget(VideoWidgetFragment.WIDGET_TYPE_TIPPS, R.id.widgetFurther, "");
+        if (mStation == null || mStation.getTopLevelCategories() == null) return;
+        for (String key : mStation.getTopLevelCategories().keySet()) {
+            loadWidget(key);
+        }
     }
 
-    private void loadWidget(int Type, int resId, String assetId) {
+    private void loadWidget(String widgetKey) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(resId, VideoWidgetFragment.newInstance(assetId, Type));
+        VideoWidgetFragment f = VideoWidgetFragment.newInstance(mStation.getTitle(),
+                mStation.getStationId() + "", widgetKey);
+        transaction.add(R.id.widgetContainer, f, widgetKey);
         transaction.commit();
     }
 
-    private void setupHeaderView(final LiveStream liveStream) {
-        if (liveStream == null) return;
+    private void setupHeaderView() {
         if (findViewById(R.id.imageChannel) != null)
-            ((TextView) findViewById(R.id.imageChannel)).setText(mStation.title);
+            ((TextView) findViewById(R.id.imageChannel)).setText(mStation.toString());
 //            ((ImageView) findViewById(R.id.imageChannel)).setImageResource(sendung.station.getLogoResId());
         if (findViewById(R.id.textTitle) != null)
-            ((TextView) findViewById(R.id.textTitle)).setText(liveStream.getTitle());
+            ((TextView) findViewById(R.id.textTitle)).setText(mCurrentEpisode.getTitle());
 
         if (findViewById(R.id.textDetail) != null)
-            ((TextView) findViewById(R.id.textDetail)).setText(liveStream.detail);
+            ((TextView) findViewById(R.id.textDetail)).setText(mCurrentEpisode.getDescription());
 
         if (mFab != null) {
             Anims.fadeIn(mFab);
@@ -139,21 +140,21 @@ public class ChannelActivity extends BaseActivity
                 @Override
                 public void onClick(View v) {
                     ActivityOptions activityOptions = prepareInternalPlayerTransition();
-                    playVideoWithInternalPlayer(liveStream.getLiveM3U8(), activityOptions);
+                    playVideoWithInternalPlayer(mStation.getLiveStream().getStreamUrl(), activityOptions);
                 }
             });
             mFab.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    playVideoExternal(liveStream.getLiveM3U8(), mStation.title, Episode.ACTION_SHARE_VIDEO_DIALOG);
+                    playVideoExternal(mStation.getLiveStream().getStreamUrl(), mStation.toString(), Episode.ACTION_SHARE_VIDEO_DIALOG);
                     return true;
                 }
             });
         }
 
-        if (mThumbnail != null && liveStream.thumb_url != null)
+        if (mThumbnail != null && mCurrentEpisode.getThumb_url() != null)
             Picasso.with(mContext)
-                    .load(liveStream.thumb_url)
+                    .load(mCurrentEpisode.getThumb_url())
                     .config(Bitmap.Config.RGB_565)
                     .into(mThumbnail);
     }
@@ -238,3 +239,39 @@ public class ChannelActivity extends BaseActivity
         return ActivityOptions.makeSceneTransitionAnimation(this, pairs);
     }
 }
+
+//    private void setupHeaderView(final LiveStream liveStream) {
+//        if (liveStream == null) return;
+//        if (findViewById(R.id.imageChannel) != null)
+//            ((TextView) findViewById(R.id.imageChannel)).setText(mStation.title);
+////            ((ImageView) findViewById(R.id.imageChannel)).setImageResource(sendung.station.getLogoResId());
+//        if (findViewById(R.id.textTitle) != null)
+//            ((TextView) findViewById(R.id.textTitle)).setText(liveStream.getTitle());
+//
+//        if (findViewById(R.id.textDetail) != null)
+//            ((TextView) findViewById(R.id.textDetail)).setText(liveStream.detail);
+//
+//        if (mFab != null) {
+//            Anims.fadeIn(mFab);
+//            mFab.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    ActivityOptions activityOptions = prepareInternalPlayerTransition();
+//                    playVideoWithInternalPlayer(liveStream.getLiveM3U8(), activityOptions);
+//                }
+//            });
+//            mFab.setOnLongClickListener(new View.OnLongClickListener() {
+//                @Override
+//                public boolean onLongClick(View v) {
+//                    playVideoExternal(liveStream.getLiveM3U8(), mStation.title, Episode.ACTION_SHARE_VIDEO_DIALOG);
+//                    return true;
+//                }
+//            });
+//        }
+//
+//        if (mThumbnail != null && liveStream.thumb_url != null)
+//            Picasso.with(mContext)
+//                    .load(liveStream.thumb_url)
+//                    .config(Bitmap.Config.RGB_565)
+//                    .into(mThumbnail);
+//    }

@@ -200,11 +200,8 @@ public abstract class BaseActivity extends AppCompatActivity
 
     void startChannelActivity(Station station) {
         if (station == null) return;
-
         Intent intent = new Intent(this, ChannelActivity.class);
-        Gson gson = new Gson();
-        String json = gson.toJson(station);
-        intent.putExtra(ChannelActivity.INTENT_SENDER_JSON, json);
+        intent.putExtra(ChannelActivity.INTENT_STATION_TITLE, station.title);
 
 //        ImageView imageView = (ImageView) thumbnail;
 //        Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
