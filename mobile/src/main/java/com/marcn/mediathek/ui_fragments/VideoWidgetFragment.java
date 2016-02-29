@@ -24,9 +24,7 @@ import com.marcn.mediathek.stations.ZdfGroup;
 import com.marcn.mediathek.adapter.VideoWidgetAdapter;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.Series;
-import com.marcn.mediathek.StationUtils.ZdfUtils;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class VideoWidgetFragment extends Fragment {
@@ -39,7 +37,7 @@ public class VideoWidgetFragment extends Fragment {
     private static final String ARG_WIDGET_TYPE = "widget-type";
     private static final String ARG_WIDGET_TITLE = "widget-title";
     private static final String ARG_CHANNEL_TITLE = "channel-title";
-    private static final String ARG_WIDGET_URL = "widget-url";
+//    private static final String ARG_WIDGET_URL = "widget-url";
     private static final String ARG_ASSET_ID = "asset-id";
 
     private static final int VIDEO_ITEM_COUNT = 10;
@@ -82,12 +80,6 @@ public class VideoWidgetFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            Gson gson = new Gson();
-            String sendung = getArguments().getString(ARG_OBJECT_JSON, "");
-            mSeries = gson.fromJson(sendung, Series.class);
-            if (mSeries != null)
-                mAssetId = mSeries.assetId + "";
-
             String title = getArguments().getString(ARG_CHANNEL_TITLE, "");
             mStation = Station.createStation(title);
             mHeaderTitle = getArguments().getString(ARG_WIDGET_TITLE, "");
@@ -127,52 +119,26 @@ public class VideoWidgetFragment extends Fragment {
         // TODO nested scrolling in a good manner
         recyclerView.setNestedScrollingEnabled(false);
 
-        downloadVideos2();
+        downloadVideos();
         return mRootView;
     }
 
     private void downloadVideos() {
-        if (getActivity() == null || mBaseUrl == null) return;
-        final String request = mBaseUrl + "?maxLength=" + VIDEO_ITEM_COUNT + "&id=" + mAssetId;
-
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final ArrayList<Episode> episodes;
-                try {
-                    episodes = ZdfUtils.fetchVideoList(request);
-                    if (getActivity() == null || episodes == null) return;
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mVideoAdapter.updateValues(episodes);
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                                TransitionManager.beginDelayedTransition(mRootView, new Slide());
-                                mRootView.findViewById(R.id.recyclerViewVideos).setVisibility(View.VISIBLE);
-                                mRootView.findViewById(R.id.buttonMore).setVisibility(View.VISIBLE);
-                                mRootView.findViewById(R.id.textHeader).setVisibility(View.VISIBLE);
-                            }
-                        }
-                    });
-                } catch (IOException ignored) {
-                }
-            }
-        }).start();
-    }
-
-    private void downloadVideos2() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final ArrayList<Episode> episodes = fetchVideoList();
-                final ArrayList<Episode> episodes1
+                final ArrayList<Episode> episodes
                         = mStation.fetchWidgetEpisodes(mHeaderTitle, mAssetId, VIDEO_ITEM_COUNT);
-                if (getActivity() == null || episodes == null) return;
+                if (getActivity() == null) return;
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mVideoAdapter.updateValues(episodes);
-                        animateInFromBottom();
+                        if (episodes != null) {
+                            mVideoAdapter.updateValues(episodes);
+                            animateInFromBottom();
+                        } else {
+                            removeFragment();
+                        }
                     }
                 });
             }
@@ -196,11 +162,8 @@ public class VideoWidgetFragment extends Fragment {
         mListener = null;
     }
 
-    private ArrayList<Episode> fetchVideoList() {
-        if (mStation instanceof ZdfGroup) {
-            return ((ZdfGroup) mStation).getMostRecentEpisodes(0, VIDEO_ITEM_COUNT, Integer.parseInt(mAssetId));
-        }
-        return null;
+    private void removeFragment() {
+        getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

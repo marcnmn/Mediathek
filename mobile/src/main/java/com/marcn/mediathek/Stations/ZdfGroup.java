@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class ZdfGroup extends Station {
     private static final String live_m3u8_zdf = "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/index_3056_av-p.m3u8?sd=10&amp;dw=0&amp;rebase=on&amp;hdntl=";
@@ -54,11 +55,11 @@ public class ZdfGroup extends Station {
     public ZdfGroup(String title) {
         this.title = title;
         // Setup Episode - Widgets
-        episode_widgets = new HashMap<>();
+        episode_widgets = new LinkedHashMap<>();
         episode_widgets.put(widget_key_aktuellste, aktuellste_api);
         episode_widgets.put(widget_key_meistgesehen, meist_gesehen_api);
-        episode_widgets.put(widget_key_weitere, meist_gesehen_api);
-        episode_widgets.put(widget_key_tipps, meist_gesehen_api);
+        episode_widgets.put(widget_key_tipps, tipps_api);
+        episode_widgets.put(widget_key_weitere, weitere_beitraege_api);
     }
 
     @Override
