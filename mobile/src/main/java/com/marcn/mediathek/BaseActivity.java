@@ -25,6 +25,8 @@ import com.marcn.mediathek.base_objects.Station;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.stations.Arte;
+import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.Playback;
 import com.marcn.mediathek.utils.Storage;
 import com.marcn.mediathek.StationUtils.ZdfUtils;
@@ -145,12 +147,16 @@ public abstract class BaseActivity extends AppCompatActivity
             @Override
             public void run() {
                 try {
-                    final TreeMap<Integer, String> s = ZdfUtils.getVideoUrl(view.getContext(), episode.getAssetId());
+                    final TreeMap<Integer, String> s;
+                    if (episode.getStationTitle().equals(Constants.TITLE_CHANNEL_ARTE))
+                        s = (new Arte()).getVodUrls(episode.getAssetId());
+                    else
+                        s = ZdfUtils.getVideoUrl(view.getContext(), episode.getAssetId());
                     if (s != null && !s.isEmpty())
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Playback.playByUrl(activity, s.get(0), view, videoAction, episode.getTitle());
+                                Playback.playByUrl(activity, s.get(s.firstKey()), view, videoAction, episode.getTitle());
                             }
                         });
                 } catch (IOException ignored) {

@@ -6,6 +6,7 @@ import com.marcn.mediathek.StationUtils.ZdfUtils;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
 import com.marcn.mediathek.utils.Constants;
+import com.marcn.mediathek.utils.DataUtils;
 import com.marcn.mediathek.utils.EpgUtils;
 import com.marcn.mediathek.utils.FormatTime;
 import com.marcn.mediathek.utils.XmlParser;
@@ -19,7 +20,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class ZdfGroup extends Station {
@@ -37,11 +37,12 @@ public class ZdfGroup extends Station {
     private static final String live_epg_3sat_key = "3sat";
     private static final String live_epg_neo_key = "zdfneo";
 
-    public final static String station_id_zdf = "2639200";
-    public final static String station_id_phoenix = "2492878";
-    public final static String station_id_kultur = "1822544";
-    public final static String station_id_info = "2306126";
-    public final static String station_id_neo = "1822440";
+    private static final String station_id_neo = "857392";
+    private static final String station_id_kultur = "1321386";
+    private static final String station_id_info = "398";
+
+    public final static String top_level_id = "_STARTSEITE";
+    public final static String top_level_id_most = "_GLOBAL";
 
     private static final String live_stream_api = "http://www.zdf.de/ZDFmediathek/xmlservice/web/live?maxLength=6";
     private static final String most_recent_api = "http://www.zdf.de/ZDFmediathek/xmlservice/web/sendungVerpasst?";
@@ -108,9 +109,44 @@ public class ZdfGroup extends Station {
     }
 
     public ArrayList<Episode> fetchWidgetEpisodes(String key, String assetId, int count) {
-        String url = episode_widgets.get(key);
-        url += "?maxLength=" + count + "&offset=0&id=" + assetId;
-        return fetchEpisodes(url);
+        if (assetId == null)
+            assetId = getTopLevelId(key);
+
+        ArrayList<Episode> episodes = new ArrayList<>();
+        int dCount = 2 * count;
+        int offset = 0;
+
+        String baseUrl = episode_widgets.get(key);
+        baseUrl += "?maxLength=" + dCount + "&id=" + assetId + "&offset=";
+
+        while (episodes.size() < count) {
+            String url = baseUrl + offset;
+
+            ArrayList<Episode> temp = fetchEpisodes(url);
+
+            if (temp != null && !temp.isEmpty()) {
+                DataUtils.filterByStation(temp, title);
+                episodes.addAll(temp);
+                offset += dCount;
+            }
+            else
+                break;
+        }
+
+        return episodes;
+    }
+
+    private String getTopLevelId(String key) {
+        switch (title) {
+            case Constants.TITLE_CHANNEL_ZDF_NEO:
+                return station_id_neo;
+            case Constants.TITLE_CHANNEL_ZDF_KULTUR:
+                return station_id_kultur;
+            case Constants.TITLE_CHANNEL_ZDF_INFO:
+                return station_id_info;
+            default:
+                return widget_key_meistgesehen.equals(key) ? top_level_id_most : top_level_id;
+        }
     }
 
     @Override
@@ -198,7 +234,7 @@ public class ZdfGroup extends Station {
 
     @Override
     public String getStationId() {
-        return getId();
+        return null;
     }
 
     @Nullable
@@ -240,19 +276,5 @@ public class ZdfGroup extends Station {
             default: return null;
         }
         return url + "/now/json";
-    }
-
-    public String getId () {
-        return "_STARTSEITE";
-//        switch (title) {
-//            // ZDF Sender
-//            case Constants.TITLE_CHANNEL_ZDF: return station_id_zdf;
-//            case Constants.TITLE_CHANNEL_PHOENIX: return station_id_phoenix;
-//            case Constants.TITLE_CHANNEL_ZDF_KULTUR: return station_id_kultur;
-//            case Constants.TITLE_CHANNEL_ZDF_INFO: return station_id_info;
-//            case Constants.TITLE_CHANNEL_3SAT: return null;
-//            case Constants.TITLE_CHANNEL_ZDF_NEO: return station_id_neo;
-//            default: return null;
-//        }
     }
 }

@@ -22,17 +22,17 @@ public class EpgUtils {
     }
 
     public static LiveStream getLiveStreamEpgNow(LiveStream l) {
-        if (l.stationObject == null || l.stationObject.getGroup() < 0) return l;
-        try {
-            switch (l.stationObject.getGroup()) {
-                case Station.ZDF_GROUP:
-                    return getZDFLiveStreamEpgNow(l);
-                case Station.ARTE_GROUP:
-                    return getZDFLiveStreamEpgNow(l);
-                case Station.ARD_GROUP:
-                    return ArdUtils.getARDLiveStreamEpgNow(l);
-            }
-        } catch (IOException ignored) {}
+//        if (l.stationObject == null || l.stationObject.getGroup() < 0) return l;
+//        try {
+//            switch (l.stationObject.getGroup()) {
+//                case Station.ZDF_GROUP:
+//                    return getZDFLiveStreamEpgNow(l);
+//                case Station.ARTE_GROUP:
+//                    return getZDFLiveStreamEpgNow(l);
+//                case Station.ARD_GROUP:
+//                    return ArdUtils.getARDLiveStreamEpgNow(l);
+//            }
+//        } catch (IOException ignored) {}
         return l;
     }
 

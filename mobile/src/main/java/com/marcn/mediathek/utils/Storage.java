@@ -49,7 +49,7 @@ public class Storage {
     public static String saveBitmapOnDisk(Context context, Bitmap bitmap, String fileName) {
         try {
             ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, bytes);
             FileOutputStream fo = context.openFileOutput(fileName, Context.MODE_PRIVATE);
             fo.write(bytes.toByteArray());
             // remember close file output

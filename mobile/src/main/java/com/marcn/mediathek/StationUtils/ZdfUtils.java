@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.Series;
-import com.marcn.mediathek.base_objects.Station;
+import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.utils.FormatTime;
 
 import org.jsoup.Jsoup;
@@ -71,8 +71,8 @@ public class ZdfUtils {
             try {
                 String title = getSingleStringByTag(el, "title");
                 String channel = getSingleStringByTag(el, "channel");
-                int assetId = getSingleIntegerByTag(el, "assetId");
-                Station station = new Station(channel);
+                String assetId = getSingleStringByTag(el, "assetId");
+                Station station = Station.createStation(channel);
                 Episode v = new Episode(title, station, assetId);
 
                 String detail = getSingleStringByTag(el, "detail");
@@ -144,7 +144,7 @@ public class ZdfUtils {
     }
 
     @Nullable
-    public static TreeMap<Integer, String> getVideoUrl(Context c, int id) throws IOException{
+    public static TreeMap<Integer, String> getVideoUrl(Context c, String id) throws IOException{
         String url =  c.getString(R.string.zdf_gruppe_video) + "?id=" + id;
         Document d = Jsoup.connect(url).get();
 

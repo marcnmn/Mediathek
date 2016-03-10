@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.base_objects.Station;
+import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreams;
 
@@ -52,7 +52,7 @@ public class XmlParser {
     @Nullable
     public static LiveStream getLivestreamFromChannel(Context context, Station station) {
         LiveStream liveStream = null;
-        switch (station.title) {
+        switch (station.getTitle()) {
             case Constants.TITLE_CHANNEL_ARD:
                 liveStream = ardLiveStreamsData(context, station);
                 break;
@@ -69,7 +69,7 @@ public class XmlParser {
     @Nullable
     public static LiveStream getZDFLiveStreamData(Context context, Station station) {
         String url = context.getString(R.string.zdf_live_api);
-        return getZDFLiveStreamData(url, station.title);
+        return getZDFLiveStreamData(url, station.getTitle());
     }
 
     @Nullable
@@ -142,27 +142,28 @@ public class XmlParser {
 
     public static LiveStream ardLiveStreamsData(Context c, Station station) {
         if (c == null) return null;
-        LiveStream liveStream = station.getLiveStream();
-        String url = c.getString(R.string.ard_live_api);
-        String image_url = c.getString(R.string.ard_live_image_api);
-        try {
-            Document doc = Jsoup.connect(url).get();
-            String thumb;
-            try {
-                String json = doc.select("a[href=/tv/" + liveStream.queryName + "/live?kanal=" + liveStream.id + "].medialink").select("img.img.hideOnNoScript").attr("data-ctrl-image");
-                JSONObject j = new JSONObject(json);
-                thumb = j.getString("urlScheme");
-            } catch (JSONException e) {
-                return null;
-            }
-            if (thumb != null && !thumb.isEmpty() && thumb.indexOf("#") > 0) {
-                thumb = thumb.substring(0, thumb.indexOf("#"));
-                liveStream.setThumb_url(image_url + thumb + "384");
-            }
-            return liveStream;
-        } catch (IOException ignored) {
-            return liveStream;
-        }
+        return null;
+//        LiveStream liveStream = station.getLiveStream();
+//        String url = c.getString(R.string.ard_live_api);
+//        String image_url = c.getString(R.string.ard_live_image_api);
+//        try {
+//            Document doc = Jsoup.connect(url).get();
+//            String thumb;
+//            try {
+//                String json = doc.select("a[href=/tv/" + liveStream.queryName + "/live?kanal=" + liveStream.id + "].medialink").select("img.img.hideOnNoScript").attr("data-ctrl-image");
+//                JSONObject j = new JSONObject(json);
+//                thumb = j.getString("urlScheme");
+//            } catch (JSONException e) {
+//                return null;
+//            }
+//            if (thumb != null && !thumb.isEmpty() && thumb.indexOf("#") > 0) {
+//                thumb = thumb.substring(0, thumb.indexOf("#"));
+//                liveStream.setThumb_url(image_url + thumb + "384");
+//            }
+//            return liveStream;
+//        } catch (IOException ignored) {
+//            return liveStream;
+//        }
     }
 
     public static ArrayList<LiveStream> ardLiveStreamsData(Context c, ArrayList<LiveStream> ls) {

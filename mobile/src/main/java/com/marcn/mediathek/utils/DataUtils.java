@@ -8,7 +8,41 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 
-public class BaseListUtilities {
+public class DataUtils {
+
+    public static void filterByStation(ArrayList<Episode> data, String title) {
+        if (title == null) return;
+        Iterator iter = data.listIterator();
+
+        while(iter.hasNext()){
+            Episode e = (Episode) iter.next();
+            if (e != null && !title.equals(e.getStationTitle()))
+                iter.remove();
+        }
+    }
+
+    public static void filterGanze(ArrayList<Episode> data) {
+        Iterator iter = data.listIterator();
+
+        while(iter.hasNext()){
+            Episode e = (Episode) iter.next();
+            if (!e.getGanzeSendung())
+                iter.remove();
+        }
+    }
+
+    public static void sortEpisodesDateAsc(ArrayList<Episode> data) {
+        Collections.sort(data, new Comparator<Episode>() {
+            @Override
+            public int compare(Episode lhs, Episode rhs) {
+                if (lhs.getStartTime() == null && rhs.getStartTime() == null) return 0;
+                if (lhs.getStartTime() == null) return -1;
+                if (rhs.getStartTime() == null) return 1;
+
+                return rhs.getStartTime().compareTo(lhs.getStartTime());
+            }
+        });
+    }
 
     public static ArrayList<Episode> addDateHeaders(ArrayList<Episode> episodes) {
         if (episodes == null || episodes.isEmpty()) return episodes;
@@ -46,28 +80,5 @@ public class BaseListUtilities {
             index++;
         }
         return result;
-    }
-
-    public static void filterGanze(ArrayList<Episode> data) {
-        Iterator iter = data.listIterator();
-
-        while(iter.hasNext()){
-            Episode e = (Episode) iter.next();
-            if (!e.getGanzeSendung())
-                iter.remove();
-        }
-    }
-
-    public static void sortEpisodesDateAsc(ArrayList<Episode> data) {
-        Collections.sort(data, new Comparator<Episode>() {
-            @Override
-            public int compare(Episode lhs, Episode rhs) {
-                if (lhs.getStartTime() == null && rhs.getStartTime() == null) return 0;
-                if (lhs.getStartTime() == null) return -1;
-                if (rhs.getStartTime() == null) return 1;
-
-                return rhs.getStartTime().compareTo(lhs.getStartTime());
-            }
-        });
     }
 }

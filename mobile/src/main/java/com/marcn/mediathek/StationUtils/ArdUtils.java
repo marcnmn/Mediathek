@@ -2,7 +2,7 @@ package com.marcn.mediathek.StationUtils;
 
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
-import com.marcn.mediathek.base_objects.Station;
+import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.utils.FormatTime;
 
 import org.jsoup.Jsoup;

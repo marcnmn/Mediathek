@@ -88,9 +88,9 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
 
         if (holder.mItem.stationObject != null) {
             if (holder.mStation != null) {
-                holder.mStation.setText(holder.mItem.stationObject.title);
-                int color = holder.mItem.stationObject.getColor(context);
-                holder.mStation.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
+                holder.mStation.setText(holder.mItem.stationObject.getTitle());
+//                int color = holder.mItem.stationObject.getColor(context);
+//                holder.mStation.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
             }
 
             if (holder.mItem.getCurrentEpisode() != null) {

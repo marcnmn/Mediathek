@@ -2,9 +2,11 @@ package com.marcn.mediathek.stations;
 
 import android.support.annotation.Nullable;
 
+import com.marcn.mediathek.StationUtils.ArteUtils;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
 import com.marcn.mediathek.utils.Constants;
+import com.marcn.mediathek.utils.DataUtils;
 import com.marcn.mediathek.utils.EpgUtils;
 import com.marcn.mediathek.utils.NetworkTasks;
 
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
 public class Arte extends Station {
     private static final String channel_title = "Arte";
@@ -23,6 +26,7 @@ public class Arte extends Station {
     private static final String search_api = "/papi/tvguide/videos/plus7/program/";
     private static final String live_stream_api = "/papi/tvguide/videos/livestream/player/";
     private static final String live_stream_m3u8 = "http://delive.artestras.cshls.lldns.net/artestras/delive/delive.m3u8";
+    private static final String video_api = "http://www.arte.tv/papi/tvguide/videos/stream/";
 
     public static final String LANG_FRENCH = "F";
     public static final String LANG_GERMAN = "D";
@@ -39,7 +43,6 @@ public class Arte extends Station {
     // http://www.arte.tv/papi/tvguide/videos/plus7/program/{lang}/{detailLevel}/{category}/{cluster}/{recommended}/{sort}/{limit}/{offset}/DE_FR.json
     public Arte() {
         this.title = channel_title;
-//        super(channel_title);
 
         top_level_categories = new LinkedHashMap<>();
         top_level_categories.put("Alle", "ALL");
@@ -58,6 +61,11 @@ public class Arte extends Station {
         return new LiveStreamM3U8(live_stream_m3u8);
     }
 
+    public TreeMap<Integer, String> getVodUrls(String id){
+        String url = video_api + lang + "/" + id + "_PLUS7-" + lang + "/ALL/ALL.json";
+        return ArteUtils.getVideoUrls(url);
+    }
+
     @Override
     @Nullable
     public Episode getCurrentEpisode() {
@@ -72,7 +80,11 @@ public class Arte extends Station {
 
     @Override
     public ArrayList<Episode> fetchWidgetEpisodes(String key, String assetId, int count) {
-        return null;
+        String request = getSearchRequestUrl(top_level_categories.get(key), 0, count);
+        ArrayList<Episode> episodes = new ArrayList<>();
+        episodes = ArteUtils.fetchVideoList(request);
+
+        return episodes;
     }
 
     @Override

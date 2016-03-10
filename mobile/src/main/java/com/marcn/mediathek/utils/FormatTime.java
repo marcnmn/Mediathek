@@ -57,6 +57,22 @@ public class FormatTime {
     }
 
     @SuppressLint("SimpleDateFormat")
+    public static Calendar arteAirtimeStringToDate(String airtime) {
+        //String day = airtime.split(" ")[0];
+        SimpleDateFormat format  = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = null;
+        try {
+            date = format.parse(airtime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if (date == null) return null;
+        Calendar calendar = GregorianCalendar.getInstance();
+        calendar.setTime(date);
+        return calendar;
+    }
+
+    @SuppressLint("SimpleDateFormat")
     public static Calendar zdfEpgStringToDate(String airtime) {
         String data[] = airtime.split("\\+");
         String day = airtime.split("\\+")[0];

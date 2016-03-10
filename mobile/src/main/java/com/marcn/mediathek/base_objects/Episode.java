@@ -1,7 +1,7 @@
 package com.marcn.mediathek.base_objects;
 
 import com.marcn.mediathek.utils.FormatTime;
-
+import com.marcn.mediathek.stations.Station;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -14,7 +14,8 @@ public class Episode {
     // Essentials
     private final String title;
     private Station station;
-    private final int assetId;
+    private String stationTitle;
+    private final String assetId;
 
     private Calendar startTime;
     private long episodeLengthInMs;
@@ -31,25 +32,19 @@ public class Episode {
 
     public Episode(String title) {
         this.title = title;
-        this.assetId = (int) (Math.random() * Integer.MAX_VALUE);
+        this.assetId = (int) (Math.random() * Integer.MAX_VALUE) + "";
     }
 
     public Episode(String title, Station station) {
-        this(title, station, (int) (Math.random() * Integer.MAX_VALUE));
+        this(title, station, (int) (Math.random() * Integer.MAX_VALUE) + "");
     }
 
-    public Episode(String title, Station station, int assetId) {
+    public Episode(String title, Station station, String assetId) {
         this.title = title;
         this.station = station;
         this.assetId = assetId;
-    }
-
-    public Episode(String title, Station station, int assetId, Calendar startTime, long episodeLengthInMs) {
-        this.title = title;
-        this.station = station;
-        this.assetId = assetId;
-        this.startTime = startTime;
-        this.episodeLengthInMs = episodeLengthInMs;
+        if (station != null)
+            this.stationTitle = station.getTitle();
     }
 
     public static Episode createHeader(String title) {
@@ -79,7 +74,7 @@ public class Episode {
         return station;
     }
 
-    public int getAssetId() {
+    public String getAssetId() {
         return assetId;
     }
 
@@ -200,5 +195,13 @@ public class Episode {
             episodes.add(header);
         else
             episodes.add(index, header);
+    }
+
+    public void setStationTitle(String title) {
+        this.stationTitle = title;
+    }
+
+    public String getStationTitle() {
+        return stationTitle;
     }
 }

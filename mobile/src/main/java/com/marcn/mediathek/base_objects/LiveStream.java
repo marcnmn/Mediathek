@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.utils.Constants;
+import com.marcn.mediathek.stations.Station;
 
 import java.util.ArrayList;
 
@@ -85,7 +86,7 @@ public class LiveStream {
     public LiveStream(String id, String channel, int originChannelId, String queryName) {
         this.id = id;
         this.channel = channel;
-        this.stationObject = new Station(channel);
+        this.stationObject = Station.createStation(channel);
         this.originChannelId = originChannelId;
         this.queryName = queryName;
     }

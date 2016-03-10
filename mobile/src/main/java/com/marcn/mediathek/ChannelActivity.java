@@ -5,7 +5,6 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,7 +27,6 @@ import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
 import com.marcn.mediathek.utils.Anims;
-import com.marcn.mediathek.utils.Storage;
 import com.marcn.mediathek.utils.Transitions;
 import com.squareup.picasso.Picasso;
 
@@ -36,7 +34,7 @@ public class ChannelActivity extends BaseActivity
         implements AppBarLayout.OnOffsetChangedListener {
 
     public static final String INTENT_STATION_TITLE = "station-title";
-    public static final String INTENT_SENDER_JSON = "station-json";
+//    public static final String INTENT_SENDER_JSON = "station-json";
 
 //    private Station mStation;
     private Station mStation;
@@ -118,8 +116,7 @@ public class ChannelActivity extends BaseActivity
 
     private void loadWidget(String widgetKey) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        VideoWidgetFragment f = VideoWidgetFragment.newInstance(mStation.getTitle(),
-                mStation.getStationId() + "", widgetKey);
+        VideoWidgetFragment f = VideoWidgetFragment.newInstance(mStation.getTitle(), null, widgetKey);
         transaction.add(R.id.widgetContainer, f, widgetKey);
         transaction.commit();
     }
@@ -222,22 +219,22 @@ public class ChannelActivity extends BaseActivity
         getWindow().setExitTransition(new Explode());
     }
 
-    private void prepareBitmap() {
-        Bitmap bmp = ((BitmapDrawable) mThumbnail.getDrawable()).getBitmap();
-        Storage.saveBitmapOnDisk(this, bmp);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private ActivityOptions createOptions() {
-        mThumbnail.setTransitionName("thumb");
-        Pair<View, String> pair1 = Pair.create((View) mThumbnail, "");
-        Pair<View, String> pair2 = Pair.create((View) mFab, "");
-        Pair[] pairs = new Pair[2];
-        pairs[0] = pair1;
-        pairs[1] = pair2;
-
-        return ActivityOptions.makeSceneTransitionAnimation(this, pairs);
-    }
+//    private void prepareBitmap() {
+//        Bitmap bmp = ((BitmapDrawable) mThumbnail.getDrawable()).getBitmap();
+//        Storage.saveBitmapOnDisk(this, bmp);
+//    }
+//
+//    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+//    private ActivityOptions createOptions() {
+//        mThumbnail.setTransitionName("thumb");
+//        Pair<View, String> pair1 = Pair.create((View) mThumbnail, "");
+//        Pair<View, String> pair2 = Pair.create((View) mFab, "");
+//        Pair[] pairs = new Pair[2];
+//        pairs[0] = pair1;
+//        pairs[1] = pair2;
+//
+//        return ActivityOptions.makeSceneTransitionAnimation(this, pairs);
+//    }
 }
 
 //    private void setupHeaderView(final LiveStream liveStream) {

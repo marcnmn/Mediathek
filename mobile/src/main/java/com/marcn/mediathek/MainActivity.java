@@ -19,6 +19,7 @@ import com.marcn.mediathek.base_objects.Station;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
 import com.marcn.mediathek.ui_fragments.SendungenAbisZFragment;
 import com.marcn.mediathek.ui_fragments.ZdfMissedVideoFragment;
+import com.marcn.mediathek.utils.Constants;
 
 public class MainActivity extends BaseActivity {
 
@@ -88,7 +89,7 @@ public class MainActivity extends BaseActivity {
             case R.id.nav_zdf_neo: station = new Station(getString(R.string.zdf_neo_name)); break;
             case R.id.nav_zdf_kultur: station = new Station(getString(R.string.zdf_kultur_name)); break;
             case R.id.nav_zdf_info: station = new Station(getString(R.string.zdf_info_name)); break;
-            case R.id.nav_3sat: station = new Station(getString(R.string.drei_sat_name)); break;
+            case R.id.nav_3sat: station = new Station(Constants.TITLE_CHANNEL_ARTE); break;
         }
         if (station != null)
             startChannelActivity(station);

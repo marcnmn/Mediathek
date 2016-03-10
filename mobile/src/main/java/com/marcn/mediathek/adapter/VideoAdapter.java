@@ -14,8 +14,8 @@ import android.widget.TextView;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.base_objects.Station;
-import com.marcn.mediathek.utils.BaseListUtilities;
+import com.marcn.mediathek.stations.Station;
+import com.marcn.mediathek.utils.DataUtils;
 import com.squareup.picasso.Picasso;
 import com.tonicartos.superslim.GridSLM;
 import com.tonicartos.superslim.LinearSLM;
@@ -45,9 +45,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
 
     public void updateValues(ArrayList<Episode> ls) {
         mValues.addAll(ls);
-        BaseListUtilities.sortEpisodesDateAsc(mValues);
-        BaseListUtilities.filterGanze(mValues);
-        BaseListUtilities.addDateHeaders(mValues);
+        DataUtils.sortEpisodesDateAsc(mValues);
+        DataUtils.filterGanze(mValues);
+        DataUtils.addDateHeaders(mValues);
         notifyDataSetChanged();
     }
 
@@ -58,11 +58,13 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
 
     public void setLoading(boolean b) {
         mIsLoading = b;
-        notifyDataSetChanged();
+        try {
+            notifyDataSetChanged();
+        } catch (IllegalStateException ignored) {}
     }
 
     public void addHeaders() {
-        mValues = BaseListUtilities.addDateHeaders(mValues);
+        mValues = DataUtils.addDateHeaders(mValues);
         notifyDataSetChanged();
     }
 
@@ -131,18 +133,19 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
                         .load(item.getThumb_url())
                         .placeholder(R.drawable.placeholder_stream)
                         .config(Bitmap.Config.RGB_565)
+                        .fit()
                         .into(viewHolder.mThumbnail);
             else
                 viewHolder.mThumbnail.setImageDrawable(null);
 
             if (viewHolder.mChannel != null)
-                viewHolder.mChannel.setText(item.getStation().title);
+                viewHolder.mChannel.setText(item.getStation().getTitle());
 
             Station station = viewHolder.mItem.getStation();
             if (station != null && viewHolder.mChannel != null) {
-                viewHolder.mChannel.setText(station.title);
-                int color = station.getColor(mContext);
-                viewHolder.mChannel.getBackground().setColorFilter(color, PorterDuff.Mode.OVERLAY);
+                viewHolder.mChannel.setText(station.getTitle());
+//                int color = station.getColor(mContext);
+//                viewHolder.mChannel.getBackground().setColorFilter(color, PorterDuff.Mode.OVERLAY);
             }
 //            if (item.station != null)
 //                viewHolder.mChannel.setImageResource(item.station.getLogoResId());

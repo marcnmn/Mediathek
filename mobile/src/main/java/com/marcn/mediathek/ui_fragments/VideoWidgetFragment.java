@@ -83,7 +83,7 @@ public class VideoWidgetFragment extends Fragment {
             String title = getArguments().getString(ARG_CHANNEL_TITLE, "");
             mStation = Station.createStation(title);
             mHeaderTitle = getArguments().getString(ARG_WIDGET_TITLE, "");
-            mAssetId = getArguments().getString(ARG_ASSET_ID, "");
+            mAssetId = getArguments().getString(ARG_ASSET_ID, null);
         }
     }
 
