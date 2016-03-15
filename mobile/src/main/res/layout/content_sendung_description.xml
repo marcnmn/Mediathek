@@ -55,6 +55,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textDetail"
         android:layout_below="@+id/textTitle"
+        android:maxLines="4"
         android:textAppearance="@android:style/TextAppearance.Medium"
         tools:text="Manfred Berger, Manuela Droste und Michael Dißmer wurden am 3. November mit dem diesjährigen XY-Preis für ihr mutiges Handeln ausgezeichnet."/>
 </RelativeLayout>

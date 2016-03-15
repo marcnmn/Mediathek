@@ -55,16 +55,6 @@ public class VideoWidgetFragment extends Fragment {
     private String mAssetId;
     private RelativeLayout mRootView;
 
-    public static VideoWidgetFragment newInstance(String assetId, int type) {
-        VideoWidgetFragment fragment = new VideoWidgetFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_WIDGET_TITLE, assetId);
-        args.putString(ARG_ASSET_ID, assetId);
-        args.putInt(ARG_WIDGET_TYPE, type);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     public static VideoWidgetFragment newInstance(String channelTitle, String assetId, String widgetTitle) {
         VideoWidgetFragment fragment = new VideoWidgetFragment();
         Bundle args = new Bundle();
@@ -112,7 +102,7 @@ public class VideoWidgetFragment extends Fragment {
                 BaseActivity activity = (BaseActivity) getActivity();
                 @Override
                 public void onClick(View v) {
-                    activity.onMoreClicked(mAssetId, mWidgetType);
+                    activity.onMoreClicked2(mStation.getTitle(), mAssetId, mHeaderTitle);
                 }
             });
 

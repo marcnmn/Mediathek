@@ -7,6 +7,20 @@ import com.marcn.mediathek.base_objects.Station;
 import java.util.ArrayList;
 
 public class Constants {
+    // Thumbnail Qualities
+    public static final int SIZE_THUMB_SMALL_X = 178;
+    public static final int SIZE_THUMB_SMALL_Y = 100;
+
+    public static final int SIZE_THUMB_BIG_X = 4 * SIZE_THUMB_SMALL_X;
+    public static final int SIZE_THUMB_BIG_Y = 4 * SIZE_THUMB_SMALL_Y;
+
+    public static final int SIZE_THUMB_MEDIUM_X = 2 * SIZE_THUMB_SMALL_X;
+    public static final int SIZE_THUMB_MEDIUM_Y = 2 * SIZE_THUMB_SMALL_Y;
+
+
+
+
+
     // Video Qualities
     public static final int QUALITY_AUDIO_ONLY = 0;
 

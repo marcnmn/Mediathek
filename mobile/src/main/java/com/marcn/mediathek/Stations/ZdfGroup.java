@@ -1,5 +1,6 @@
 package com.marcn.mediathek.stations;
 
+import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 
 import com.marcn.mediathek.StationUtils.ZdfUtils;
@@ -106,6 +107,18 @@ public class ZdfGroup extends Station {
         } catch (IOException e) {
             return null;
         }
+    }
+
+    @Override
+    public ArrayList<Episode> fetchCategoryEpisodes(String key, int limit, int offset) {
+        if (title.equals(Constants.LIVE_STREAM_CHANNEL_3SAT )|| title.equals(Constants.TITLE_CHANNEL_PHOENIX))
+            return null;
+
+        String url = top_level_categories.get(key);
+        url += "?maxLength=" + limit + "&id=" + getTopLevelId(key) + "&offset=" + offset;
+        ArrayList<Episode> episodes = fetchEpisodes(url);
+        DataUtils.filterByStation(episodes, title);
+        return fetchEpisodes(url);
     }
 
     public ArrayList<Episode> fetchWidgetEpisodes(String key, String assetId, int count) {
@@ -225,11 +238,6 @@ public class ZdfGroup extends Station {
         } catch (IOException e) {
             return null;
         }
-    }
-
-    @Override
-    public String getCategoryUrl(String key, int offset, int limit) {
-        return null;
     }
 
     @Override

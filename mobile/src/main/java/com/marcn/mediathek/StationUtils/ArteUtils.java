@@ -63,11 +63,8 @@ public class ArteUtils {
                     e.setEpisodeLengthInMs(duration * 1000);
                 }
                 e.setDescription(ParserUtils.getString(j, "DSS"));
-
                 episodes.add(e);
             }
-
-
         } catch (JSONException e) {
             return null;
         }

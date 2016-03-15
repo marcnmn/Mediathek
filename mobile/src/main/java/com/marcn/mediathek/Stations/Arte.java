@@ -80,11 +80,10 @@ public class Arte extends Station {
 
     @Override
     public ArrayList<Episode> fetchWidgetEpisodes(String key, String assetId, int count) {
-        String request = getSearchRequestUrl(top_level_categories.get(key), 0, count);
-        ArrayList<Episode> episodes = new ArrayList<>();
-        episodes = ArteUtils.fetchVideoList(request);
-
-        return episodes;
+        String category = top_level_categories.get(key);
+        if (category == null || category.isEmpty()) return null;
+        String request = getSearchRequestUrl(top_level_categories.get(key), count, 0);
+        return ArteUtils.fetchVideoList(request);
     }
 
     @Override
@@ -114,10 +113,11 @@ public class Arte extends Station {
 
     @Override
     @Nullable
-    public String getCategoryUrl(String key, int offset, int limit) {
+    public ArrayList<Episode> fetchCategoryEpisodes(String key, int limit, int offset) {
         String category = top_level_categories.get(key);
         if (category == null || category.isEmpty()) return null;
-        return getSearchRequestUrl(category, offset, limit);
+        String request = getSearchRequestUrl(category, limit, offset);
+        return ArteUtils.fetchVideoList(request);
     }
 
     @Override
@@ -137,13 +137,13 @@ public class Arte extends Station {
             lang = LANG_GERMAN;
     }
 
-    private static String getSearchRequestUrl(String category, int offset, int limit) {
-        return getSearchRequestUrl(null, null, category, null, null, null, offset, limit);
+    private static String getSearchRequestUrl(String category, int limit, int offset) {
+        return getSearchRequestUrl(null, null, category, null, null, null, limit, offset);
     }
 
     private static String getSearchRequestUrl(String lang, String detailLevel, String category,
                                         String cluster, String recommended, String sort,
-                                        int offset, int limit) {
+                                        int limit, int offset) {
         String req = base_url + search_api;
         req += (lang != null ? lang : default_lang) + "/";
         req += (detailLevel != null ? detailLevel : default_detail_level) + "/";

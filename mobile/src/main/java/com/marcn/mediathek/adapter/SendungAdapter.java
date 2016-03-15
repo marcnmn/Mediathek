@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Series;
+import com.marcn.mediathek.utils.Constants;
 import com.squareup.picasso.Picasso;
 import com.tonicartos.superslim.GridSLM;
 import com.tonicartos.superslim.LinearSLM;
@@ -100,6 +101,9 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
                         .load(item.thumb_url_low)
                         .placeholder(R.drawable.placeholder_stream)
                         .config(Bitmap.Config.RGB_565)
+                        .resize(Constants.SIZE_THUMB_SMALL_X, Constants.SIZE_THUMB_SMALL_Y)
+                        .onlyScaleDown()
+                        .centerCrop()
                         .into(viewHolder.mThumbnail);
             else
                 viewHolder.mThumbnail.setImageDrawable(null);

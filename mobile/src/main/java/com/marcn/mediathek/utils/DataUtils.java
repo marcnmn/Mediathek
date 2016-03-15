@@ -69,7 +69,7 @@ public class DataUtils {
                 lastCalendar = episode.getStartTime();
             } else if (!episode.isHeader()) {
                 calendar = episode.getStartTime();
-                if (calendar != null && calendar.getTimeInMillis() < lastCalendar.getTimeInMillis()) {
+                if (calendar != null && calendar.get(Calendar.DAY_OF_YEAR) < lastCalendar.get(Calendar.DAY_OF_YEAR)) {
                     lastCalendar = calendar;
                     Episode.addHeader(result, lastCalendar, index);
 //                    result.add(index, Episode.createHeader(FormatTime.calendarToHeadlineFormat(lastCalendar)));

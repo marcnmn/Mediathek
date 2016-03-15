@@ -27,6 +27,7 @@ import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
 import com.marcn.mediathek.utils.Anims;
+import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.Transitions;
 import com.squareup.picasso.Picasso;
 
@@ -74,11 +75,14 @@ public class ChannelActivity extends BaseActivity
         if (intent != null && intent.getExtras() != null) {
             String title = intent.getStringExtra(INTENT_STATION_TITLE);
             mStation = Station.createStation(title);
+
+            if(getSupportActionBar() != null)
+                getSupportActionBar().setTitle(title);
         }
 
         mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
-        appBarLayout.addOnOffsetChangedListener(this);
+//        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+//        appBarLayout.addOnOffsetChangedListener(this);
 
 //        getIntentThumbnail();
         new Handler().postDelayed(new Runnable() {
@@ -153,6 +157,9 @@ public class ChannelActivity extends BaseActivity
             Picasso.with(mContext)
                     .load(mCurrentEpisode.getThumb_url())
                     .config(Bitmap.Config.RGB_565)
+                    .resize(Constants.SIZE_THUMB_BIG_X, Constants.SIZE_THUMB_BIG_Y)
+                    .onlyScaleDown()
+                    .centerCrop()
                     .into(mThumbnail);
     }
 

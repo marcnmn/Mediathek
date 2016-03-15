@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.utils.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -66,6 +67,9 @@ public class VideoWidgetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                         .load(thumb)
                         .placeholder(R.drawable.placeholder_stream)
                         .config(Bitmap.Config.RGB_565)
+                        .resize(Constants.SIZE_THUMB_MEDIUM_X, Constants.SIZE_THUMB_MEDIUM_Y)
+                        .onlyScaleDown()
+                        .centerCrop()
                         .into(holder.mThumb);
 
             // OnClick

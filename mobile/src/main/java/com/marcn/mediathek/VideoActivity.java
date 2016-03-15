@@ -13,11 +13,14 @@ import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
 import android.view.View;
 
+import com.marcn.mediathek.ui_fragments.VideoFragment;
 import com.marcn.mediathek.ui_fragments.ZdfVideoFragment;
 
 public class VideoActivity extends BaseActivity {
     public static final String INTENT_VIDEO_TYPE = "video-type";
     public static final String INTENT_VIDEO_ASSET_ID = "asset-id";
+    public static final String INTENT_VIDEO_TITLE = "title";
+    public static final String INTENT_VIDEO_CHANNEL_TITLE = "channel-title";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +49,11 @@ public class VideoActivity extends BaseActivity {
         navigationView.setItemIconTintList(null);
 
         Intent intent = getIntent();
-        if (intent != null && intent.getExtras() != null && intent.getIntExtra(INTENT_VIDEO_TYPE, -1) != -1) {
-            String assetId = intent.getStringExtra(INTENT_VIDEO_ASSET_ID);
-            int videoType = intent.getIntExtra(INTENT_VIDEO_TYPE, -1);
-            ZdfVideoFragment videoFragment = ZdfVideoFragment.newInstance(assetId, videoType);
+        if (intent != null && intent.getExtras() != null) {
+//            String assetId = intent.getStringExtra(INTENT_VIDEO_ASSET_ID);
+            String title = intent.getStringExtra(INTENT_VIDEO_TITLE);
+            String channelTitle = intent.getStringExtra(INTENT_VIDEO_CHANNEL_TITLE);
+            VideoFragment videoFragment = VideoFragment.newInstance(channelTitle, null, title);
             loadCleanFragment(videoFragment, R.id.content_main, FRAGMENT_NAME_FIRST_PAGE);
         }
     }

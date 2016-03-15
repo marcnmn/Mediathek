@@ -49,6 +49,7 @@ public abstract class Station {
     public abstract LiveStreamM3U8 getLiveStream();
     public abstract Episode getCurrentEpisode();
 
+    public abstract ArrayList<Episode> fetchCategoryEpisodes(String key, int offset, int limit);
     public abstract ArrayList<Episode> fetchWidgetEpisodes(String key, String assetId, int count);
 
     public abstract String getRecommendedUrl(int offset, int limit);
@@ -58,7 +59,6 @@ public abstract class Station {
 //    public abstract ArrayList<Episode> getMostRecentEpisodes(int offset, int limit);
     public abstract ArrayList<Episode> getMostRecentEpisodes(int offset, int limit, Calendar startDate, Calendar endDate);
 
-    public abstract String getCategoryUrl(String key, int offset, int limit);
 
     public abstract String getStationId();
 

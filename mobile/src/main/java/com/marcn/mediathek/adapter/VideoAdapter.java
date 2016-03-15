@@ -15,6 +15,7 @@ import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.stations.Station;
+import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.DataUtils;
 import com.squareup.picasso.Picasso;
 import com.tonicartos.superslim.GridSLM;
@@ -45,9 +46,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
 
     public void updateValues(ArrayList<Episode> ls) {
         mValues.addAll(ls);
-        DataUtils.sortEpisodesDateAsc(mValues);
-        DataUtils.filterGanze(mValues);
-        DataUtils.addDateHeaders(mValues);
+//        DataUtils.sortEpisodesDateAsc(mValues);
+//        DataUtils.filterGanze(mValues);
+        mValues = DataUtils.addDateHeaders(mValues);
         notifyDataSetChanged();
     }
 
@@ -133,13 +134,15 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
                         .load(item.getThumb_url())
                         .placeholder(R.drawable.placeholder_stream)
                         .config(Bitmap.Config.RGB_565)
-                        .fit()
+                        .resize(Constants.SIZE_THUMB_BIG_X, Constants.SIZE_THUMB_BIG_Y)
+                        .onlyScaleDown()
+                        .centerCrop()
                         .into(viewHolder.mThumbnail);
             else
                 viewHolder.mThumbnail.setImageDrawable(null);
 
             if (viewHolder.mChannel != null)
-                viewHolder.mChannel.setText(item.getStation().getTitle());
+                viewHolder.mChannel.setText(item.getStationTitle());
 
             Station station = viewHolder.mItem.getStation();
             if (station != null && viewHolder.mChannel != null) {

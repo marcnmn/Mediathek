@@ -204,6 +204,15 @@ public abstract class BaseActivity extends AppCompatActivity
         startActivity(intent);
     }
 
+    @Override
+    public void onMoreClicked2(String channelTitle, String assetId, String widgetTitle) {
+        Intent intent = new Intent(this, VideoActivity.class);
+        intent.putExtra(VideoActivity.INTENT_VIDEO_CHANNEL_TITLE, channelTitle);
+        intent.putExtra(VideoActivity.INTENT_VIDEO_ASSET_ID, assetId);
+        intent.putExtra(VideoActivity.INTENT_VIDEO_TITLE, widgetTitle);
+        startActivity(intent);
+    }
+
     void startChannelActivity(Station station) {
         if (station == null) return;
         Intent intent = new Intent(this, ChannelActivity.class);

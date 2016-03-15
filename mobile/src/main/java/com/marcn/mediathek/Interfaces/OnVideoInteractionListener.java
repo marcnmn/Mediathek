@@ -18,4 +18,5 @@ public interface OnVideoInteractionListener {
     void playVideoExternal(String url, String title, int videoAction);
 
     void onMoreClicked(String assetId, int type);
+    void onMoreClicked2(String channelTitle, String assetId, String widgetTitle);
 }

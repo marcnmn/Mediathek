@@ -16,6 +16,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.graphics.Palette;
 import android.text.TextUtils;
 import android.transition.Fade;
+import android.transition.Transition;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -30,6 +31,7 @@ import android.widget.ImageView;
 import com.google.android.exoplayer.AspectRatioFrameLayout;
 import com.google.android.exoplayer.ExoPlayer;
 import com.google.android.exoplayer.util.Util;
+import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.player.ExtractorRendererBuilder;
 import com.marcn.mediathek.player.HlsRendererBuilder;
@@ -40,7 +42,7 @@ import com.marcn.mediathek.utils.LayoutTasks;
 
 import java.io.FileNotFoundException;
 
-public class PlayerFragment extends Fragment implements Player.Listener, TextureView.SurfaceTextureListener {
+public class PlayerFragment extends Fragment implements Player.Listener, TextureView.SurfaceTextureListener, Transition.TransitionListener {
 
     public static final int     TYPE_DASH = 0;
     public static final int     TYPE_SS = 1;
@@ -67,6 +69,7 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
     private VideoControllerView mediaController;
 
     private boolean enableBackgroundAudio;
+    private boolean mTransitionEnded;
 
     public PlayerFragment() {
     }
@@ -109,6 +112,12 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ((FrameLayout)view).setTransitionGroup(true);
             videoFrame.setTransitionGroup(true);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getActivity().getWindow().getEnterTransition().addListener(this);
+        } else {
+            mTransitionEnded = true;
         }
 
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) videoFrame.getLayoutParams();
@@ -277,9 +286,12 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
 //                text += "preparing";
                 break;
             case ExoPlayer.STATE_READY:
+                if (mTransitionEnded)
+                    hideThumbnail();
 //                text += "ready";
-                mHandler.sendEmptyMessage(MSG_HIDE_THUMBNAIL);
-//                new Handler().postDelayed(new Runnable() {
+//                mHandler.sendEmptyMessage(MSG_HIDE_THUMBNAIL);
+//
+// new Handler().postDelayed(new Runnable() {
 //                    @Override
 //                    public void run() {
 //                        TransitionManager.beginDelayedTransition(videoFrame, new Fade());
@@ -398,5 +410,32 @@ public class PlayerFragment extends Fragment implements Player.Listener, Texture
 
     @Override
     public void onSurfaceTextureUpdated(SurfaceTexture surface) {
+    }
+
+    @Override
+    public void onTransitionStart(Transition transition) {
+
+    }
+
+    @Override
+    public void onTransitionEnd(Transition transition) {
+        mTransitionEnded = true;
+        if (player.getPlaybackState() == ExoPlayer.STATE_READY)
+            mHandler.sendEmptyMessage(MSG_HIDE_THUMBNAIL);
+    }
+
+    @Override
+    public void onTransitionCancel(Transition transition) {
+
+    }
+
+    @Override
+    public void onTransitionPause(Transition transition) {
+
+    }
+
+    @Override
+    public void onTransitionResume(Transition transition) {
+
     }
 }

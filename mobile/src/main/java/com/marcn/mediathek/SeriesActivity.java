@@ -16,16 +16,15 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.transition.Transition;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
+import com.marcn.mediathek.utils.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.io.FileNotFoundException;
@@ -36,6 +35,7 @@ public class SeriesActivity extends BaseActivity {
 //    public static final String INTENT_SENDUNG_ID = "sendung-id";
 
     private Series mSeries;
+    private CollapsingToolbarLayout mCollapsingToolbarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +59,15 @@ public class SeriesActivity extends BaseActivity {
             String json = intent.getStringExtra(INTENT_SENDUNG_JSON);
             Gson gson = new Gson();
             mSeries = gson.fromJson(json, Series.class);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().getSharedElementEnterTransition().addListener(transitionListener);
+        } else if (mSeries != null) {
             setupHeaderView(mSeries);
         }
 
-        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             boolean isShow = false;
@@ -75,16 +80,17 @@ public class SeriesActivity extends BaseActivity {
                 }
                 if (scrollRange + verticalOffset == 0) {
                     if (mSeries != null)
-                        collapsingToolbarLayout.setTitle(mSeries.shortTitle);
+                        mCollapsingToolbarLayout.setTitle(mSeries.shortTitle);
                     isShow = true;
                 } else if(isShow) {
-                    collapsingToolbarLayout.setTitle("");
+                    mCollapsingToolbarLayout.setTitle("");
                     isShow = false;
                 }
             }
         });
 
         getIntentThumbnail();
+//        getIntentThumbnail();
         loadWidgets();
     }
 
@@ -105,7 +111,11 @@ public class SeriesActivity extends BaseActivity {
         if (thumbnail != null && series.thumb_url_high != null)
             Picasso.with(this)
                     .load(series.thumb_url_high)
+                    .placeholder(thumbnail.getDrawable())
                     .config(Bitmap.Config.RGB_565)
+                    .resize(Constants.SIZE_THUMB_BIG_X, Constants.SIZE_THUMB_BIG_Y)
+                    .onlyScaleDown()
+                    .centerCrop()
                     .into(thumbnail);
 
     }
@@ -117,10 +127,10 @@ public class SeriesActivity extends BaseActivity {
             Palette p = Palette.from(bitmap).generate();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 int themeColor = p.getDarkVibrantColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
-
-                //getWindow().setStatusBarColor(themeColor);
-                if (findViewById(R.id.toolbar_layout) != null) {
-                    findViewById(R.id.toolbar_layout).setBackgroundColor(themeColor);
+                if (mCollapsingToolbarLayout != null) {
+                    mCollapsingToolbarLayout.setStatusBarScrimColor(themeColor);
+                    mCollapsingToolbarLayout.setContentScrimColor(themeColor);
+                    mCollapsingToolbarLayout.setBackgroundColor(themeColor);
                 }
             }
         } catch (FileNotFoundException e) {
@@ -159,4 +169,24 @@ public class SeriesActivity extends BaseActivity {
     void setExitTransition() {
         getWindow().setExitTransition(new Explode());
     }
+
+    private Transition.TransitionListener transitionListener = new Transition.TransitionListener() {
+        @Override
+        public void onTransitionStart(Transition transition) {}
+
+        @Override
+        public void onTransitionEnd(Transition transition) {
+            if (mSeries != null)
+                setupHeaderView(mSeries);
+        }
+
+        @Override
+        public void onTransitionCancel(Transition transition) {}
+
+        @Override
+        public void onTransitionPause(Transition transition) {}
+
+        @Override
+        public void onTransitionResume(Transition transition) {}
+    };
 }
