@@ -5,6 +5,8 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,8 +15,10 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
 import android.util.Pair;
@@ -30,6 +34,7 @@ import com.marcn.mediathek.utils.Anims;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.Transitions;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 public class ChannelActivity extends BaseActivity
         implements AppBarLayout.OnOffsetChangedListener {
@@ -156,11 +161,41 @@ public class ChannelActivity extends BaseActivity
         if (mThumbnail != null && mCurrentEpisode.getThumb_url() != null)
             Picasso.with(mContext)
                     .load(mCurrentEpisode.getThumb_url())
-                    .config(Bitmap.Config.RGB_565)
-                    .resize(Constants.SIZE_THUMB_BIG_X, Constants.SIZE_THUMB_BIG_Y)
-                    .onlyScaleDown()
-                    .centerCrop()
-                    .into(mThumbnail);
+//                    .config(Bitmap.Config.RGB_565)
+//                    .resize(Constants.SIZE_THUMB_BIG_X, Constants.SIZE_THUMB_BIG_Y)
+//                    .onlyScaleDown()
+//                    .centerCrop()
+                    .into(loadTarget);
+    }
+
+    private Target loadTarget = new Target() {
+        @Override
+        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+            if (mThumbnail != null)
+                mThumbnail.setImageBitmap(bitmap);
+            if (bitmap != null)
+                themeActivity(bitmap);
+        }
+
+        @Override
+        public void onBitmapFailed(Drawable errorDrawable) {}
+
+        @Override
+        public void onPrepareLoad(Drawable placeHolderDrawable) {}
+    };
+
+    private void themeActivity(Bitmap bitmap) {
+        Palette p = Palette.from(bitmap).generate();
+        Palette.Swatch swatch = p.getDarkVibrantSwatch() != null ?
+                p.getDarkVibrantSwatch() : p.getDarkMutedSwatch();
+        if (swatch != null) {
+            float[] hsl = swatch.getHsl();
+            hsl[2] *= 0.98f;
+
+            mCollapsingToolbarLayout.setStatusBarScrimColor(Color.HSVToColor(hsl));
+            mCollapsingToolbarLayout.setContentScrimColor(swatch.getRgb());
+            mCollapsingToolbarLayout.setBackgroundColor(swatch.getRgb());
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -172,24 +207,6 @@ public class ChannelActivity extends BaseActivity
                 new Pair<View, String>(mThumbnail, ""),
                 new Pair<View, String>(mFab, ""));
     }
-
-//    private void getIntentThumbnail() {
-//        try {
-//            Bitmap bitmap = BitmapFactory.decodeStream(openFileInput("thumbnail"));
-//            ((ImageView) findViewById(R.id.imageThumbnail)).setImageBitmap(bitmap);
-//            Palette p = Palette.from(bitmap).generate();
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                int themeColor = p.getDarkVibrantColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
-//
-//                //getWindow().setStatusBarColor(themeColor);
-//                if (findViewById(R.id.toolbar_layout) != null) {
-//                    findViewById(R.id.toolbar_layout).setBackgroundColor(themeColor);
-//                }
-//            }
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

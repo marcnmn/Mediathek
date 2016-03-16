@@ -183,7 +183,7 @@ public class XmlParser {
                 }
                 if (thumb != null && !thumb.isEmpty() && thumb.indexOf("#") > 0) {
                     thumb = thumb.substring(0, thumb.indexOf("#"));
-                    l.setThumb_url(image_url + thumb + "384");
+                    l.setThumb_url(image_url + thumb + Constants.SIZE_THUMB_MEDIUM_X);
                 }
             }
             return ls;

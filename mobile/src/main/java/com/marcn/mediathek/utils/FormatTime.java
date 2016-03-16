@@ -1,6 +1,7 @@
 package com.marcn.mediathek.utils;
 
 import android.annotation.SuppressLint;
+import android.support.annotation.Nullable;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -99,15 +100,13 @@ public class FormatTime {
     //// ARD specific
     @SuppressLint("SimpleDateFormat")
     public static Calendar parseArdString(String data) throws ParseException {
-        SimpleDateFormat s = new SimpleDateFormat("hh:mm");
-        Date date = s.parse(data);
+        Calendar dummy = Calendar.getInstance();
+        SimpleDateFormat s = new SimpleDateFormat("HH:mm");
+        dummy.setTime(s.parse(data));
+
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        int hours = calendar.get(Calendar.HOUR_OF_DAY);
-        int minutes = calendar.get(Calendar.MINUTE);
-        calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, hours);
-        calendar.set(Calendar.MINUTE, minutes);
+        calendar.set(Calendar.HOUR_OF_DAY, dummy.get(Calendar.HOUR_OF_DAY));
+        calendar.set(Calendar.MINUTE, dummy.get(Calendar.MINUTE));
         return calendar;
     }
 

@@ -121,6 +121,7 @@ public class ZdfGroup extends Station {
         return fetchEpisodes(url);
     }
 
+    @Override
     public ArrayList<Episode> fetchWidgetEpisodes(String key, String assetId, int count) {
         if (assetId == null)
             assetId = getTopLevelId(key);
@@ -187,35 +188,6 @@ public class ZdfGroup extends Station {
         }
     }
 
-    public ArrayList<Episode> getMostViewsEpisodes(int offset, int limit, int assetId) {
-        String request = aktuellste_api + "?maxLength=" + limit
-                + "&offset=" + offset + "&id=" + assetId;
-        try {
-            return ZdfUtils.fetchVideoList(request);
-        } catch (IOException e) {
-            return null;
-        }
-    }
-
-    public ArrayList<Episode> getFurtherEpisodes(int offset, int limit, int assetId) {
-        String request = aktuellste_api + "?maxLength=" + limit
-                + "&offset=" + offset + "&id=" + assetId;
-        try {
-            return ZdfUtils.fetchVideoList(request);
-        } catch (IOException e) {
-            return null;
-        }
-    }
-
-    public ArrayList<Episode> getTippsEpisodes(int offset, int limit, int assetId) {
-        String request = aktuellste_api + "?maxLength=" + limit
-                + "&offset=" + offset + "&id=" + assetId;
-        try {
-            return ZdfUtils.fetchVideoList(request);
-        } catch (IOException e) {
-            return null;
-        }
-    }
 
     @Override
     @Nullable

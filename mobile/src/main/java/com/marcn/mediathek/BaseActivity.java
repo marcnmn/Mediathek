@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
+import com.marcn.mediathek.StationUtils.ArdUtils;
 import com.marcn.mediathek.base_objects.Station;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.Series;
@@ -148,10 +149,19 @@ public abstract class BaseActivity extends AppCompatActivity
             public void run() {
                 try {
                     final TreeMap<Integer, String> s;
-                    if (episode.getStationTitle().equals(Constants.TITLE_CHANNEL_ARTE))
-                        s = (new Arte()).getVodUrls(episode.getAssetId());
-                    else
-                        s = ZdfUtils.getVideoUrl(view.getContext(), episode.getAssetId());
+                    int group = Station.getGroupFromName(episode.getStationTitle());
+                    switch (group) {
+                        case Station.ARTE_GROUP:
+                            s = (new Arte()).getVodUrls(episode.getAssetId());
+                            break;
+                        case Station.ZDF_GROUP:
+                            s = ZdfUtils.getVideoUrl(view.getContext(), episode.getAssetId());
+                            break;
+                        default:
+                            s = ArdUtils.getVideoUrl(episode.getAssetId());
+                            break;
+                    }
+
                     if (s != null && !s.isEmpty())
                         runOnUiThread(new Runnable() {
                             @Override

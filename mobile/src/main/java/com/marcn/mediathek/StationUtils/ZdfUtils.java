@@ -153,7 +153,7 @@ public class ZdfUtils {
             return null;
 
         TreeMap<Integer, String> urls = new TreeMap<>();
-        Elements elements = d.select("formitaet[basetype=vp8_vorbis_webm_http_na_na]");
+        Elements elements = d.select("formitaet[basetype=h264_aac_ts_http_m3u8_http]");
         for (Element el: elements) {
             try {
                 int quality = getQualityType(getSingleStringByTag(el, "quality"));

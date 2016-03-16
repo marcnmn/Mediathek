@@ -16,6 +16,7 @@ import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreams;
+import com.marcn.mediathek.utils.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -82,8 +83,10 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
             Picasso.with(context)
                     .load(thumb)
                     .placeholder(R.drawable.placeholder_stream)
-                    .fit()
                     .config(Bitmap.Config.RGB_565)
+                    .resize(Constants.SIZE_THUMB_MEDIUM_X, Constants.SIZE_THUMB_MEDIUM_Y)
+                    .onlyScaleDown()
+                    .centerCrop()
                     .into(holder.mThumb);
 
         if (holder.mItem.stationObject != null) {

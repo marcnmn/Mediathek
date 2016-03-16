@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -124,17 +125,24 @@ public class SeriesActivity extends BaseActivity {
         try {
             Bitmap bitmap = BitmapFactory.decodeStream(openFileInput("thumbnail"));
             ((ImageView) findViewById(R.id.imageThumbnail)).setImageBitmap(bitmap);
-            Palette p = Palette.from(bitmap).generate();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                int themeColor = p.getDarkVibrantColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
-                if (mCollapsingToolbarLayout != null) {
-                    mCollapsingToolbarLayout.setStatusBarScrimColor(themeColor);
-                    mCollapsingToolbarLayout.setContentScrimColor(themeColor);
-                    mCollapsingToolbarLayout.setBackgroundColor(themeColor);
-                }
-            }
+            themeActivity(bitmap);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        }
+    }
+
+//    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void themeActivity(Bitmap bitmap) {
+        Palette p = Palette.from(bitmap).generate();
+        Palette.Swatch swatch = p.getDarkVibrantSwatch() != null ?
+                p.getDarkVibrantSwatch() : p.getDarkMutedSwatch();
+        if (swatch != null) {
+            float[] hsl = swatch.getHsl();
+            hsl[2] *= 0.98f;
+
+            mCollapsingToolbarLayout.setStatusBarScrimColor(Color.HSVToColor(hsl));
+            mCollapsingToolbarLayout.setContentScrimColor(swatch.getRgb());
+            mCollapsingToolbarLayout.setBackgroundColor(swatch.getRgb());
         }
     }
 

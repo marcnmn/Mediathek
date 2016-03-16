@@ -45,24 +45,24 @@
                 android:title="@string/zdf_name" />
             <!--android:icon="@drawable/ic_zdf"-->
             <item
-                android:id="@+id/nav_phoenix"
-                android:title="@string/phoenix_name" />
+                android:id="@+id/nav_ard"
+                android:title="@string/ard_name" />
+            <item
+                android:id="@+id/nav_swr"
+                android:title="@string/swr_name" />
             <!--android:icon="@drawable/ic_phoenix"-->
             <item
                 android:id="@+id/nav_zdf_neo"
                 android:title="@string/zdf_neo_name" />
             <!--android:icon="@drawable/ic_zdf_neo"-->
             <item
-                android:id="@+id/nav_zdf_kultur"
-                android:title="@string/zdf_kultur_name" />
+                android:id="@+id/nav_arte"
+                android:title="@string/arte_name" />
             <!--android:icon="@drawable/ic_zdf_neo"-->
             <item
                 android:id="@+id/nav_zdf_info"
                 android:title="@string/zdf_info_name" />
             <!--android:icon="@drawable/ic_zdf_neo"-->
-            <item
-                android:id="@+id/nav_3sat"
-                android:title="@string/drei_sat_name" />
             <!--android:icon="@drawable/ic_3sat"-->
             <!--<item-->
                 <!--android:id="@+id/nav_arte"-->

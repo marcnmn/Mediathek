@@ -85,11 +85,11 @@ public class MainActivity extends BaseActivity {
         Station station = null;
         switch (id) {
             case R.id.nav_zdf: station = new Station(getString(R.string.zdf_name)); break;
-            case R.id.nav_phoenix: station = new Station(getString(R.string.phoenix_name)); break;
+            case R.id.nav_ard: station = new Station(getString(R.string.ard_name)); break;
+            case R.id.nav_swr: station = new Station(getString(R.string.swr_name)); break;
             case R.id.nav_zdf_neo: station = new Station(getString(R.string.zdf_neo_name)); break;
-            case R.id.nav_zdf_kultur: station = new Station(getString(R.string.zdf_kultur_name)); break;
+            case R.id.nav_arte: station = new Station(getString(R.string.arte_name)); break;
             case R.id.nav_zdf_info: station = new Station(getString(R.string.zdf_info_name)); break;
-            case R.id.nav_3sat: station = new Station(Constants.TITLE_CHANNEL_ARTE); break;
         }
         if (station != null)
             startChannelActivity(station);
