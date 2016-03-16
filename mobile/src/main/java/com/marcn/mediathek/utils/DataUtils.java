@@ -82,5 +82,16 @@ public class DataUtils {
         return result;
     }
 
+    public static boolean episodeListsAreEqual(ArrayList<Episode> a, ArrayList<Episode> b) {
+        if (a == null && b == null) return true;
+        if (a == null || b == null) return false;
 
+        if (a.size() != b.size()) return false;
+        for (int i = 0; i < a.size(); i++) {
+            String aId = a.get(i).getAssetId();
+            String bId = b.get(i).getAssetId();
+            if (!aId.equals(bId)) return false;
+        }
+        return true;
+    }
 }

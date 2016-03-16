@@ -7,6 +7,7 @@ import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
 import com.marcn.mediathek.utils.Constants;
+import com.marcn.mediathek.utils.DataUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -21,16 +22,20 @@ public class ArdGroup extends Station {
     private static final String widget_key_ausgewaehlte_filme = "Ausgewählte Filme";
     private static final String widget_key_ausgewaehlte_dokus = "Ausgewählte Dokus & Reportagen";
     private static final String widget_key_meist = "Meistabgerufene Videos";
+    private static final String widget_key_beste = "Am besten bewertet";
+
+    private ArrayList<Episode> lastEpisodes;
 
     public ArdGroup(String title) {
         this.title = title;
 
         // Setup Episode - Widgets
         top_level_categories = new LinkedHashMap<>();
-        top_level_categories.put(widget_key_neuste, "23644268");
-        top_level_categories.put(widget_key_ausgewaehlte_filme, "33649088");
-        top_level_categories.put(widget_key_ausgewaehlte_dokus, "33649086");
-        top_level_categories.put(widget_key_meist, "23644244");
+        top_level_categories.put(widget_key_neuste, ARD_BASE_URL + "/tv/Neueste-Videos/mehr?documentId=23644268");
+        top_level_categories.put(widget_key_ausgewaehlte_filme, ARD_BASE_URL + "/tv/Ausgewählte-Filme/Tipps?documentId=33649088");
+        top_level_categories.put(widget_key_ausgewaehlte_dokus, ARD_BASE_URL + "/tv/Ausgewählte-Dokus-Reportagen/mehr?documentId=33649086");
+        top_level_categories.put(widget_key_meist, ARD_BASE_URL + "/tv/Meistabgerufene-Videos/mehr?documentId=23644244");
+        top_level_categories.put(widget_key_beste, ARD_BASE_URL + "/tv/Am-besten-bewertet/mehr?documentId=21282468");
 
         // Setup Episode - Widgets
         episode_widgets = new LinkedHashMap<>();
@@ -65,15 +70,30 @@ public class ArdGroup extends Station {
 
     @Override
     public ArrayList<Episode> fetchCategoryEpisodes(String key, int limit, int offset) {
-        return null;
+        String url = top_level_categories.get(key);
+        if (url == null) return null;
+        offset = Math.round(offset / 12.f) + 1;
+        url += "&mcontent=page." + offset;
+
+        if (lastEpisodes == null)
+            lastEpisodes = ArdUtils.fetchEpisodeList(url);
+        else {
+            ArrayList<Episode> episodes = ArdUtils.fetchEpisodeList(url);
+            if (DataUtils.episodeListsAreEqual(lastEpisodes, episodes))
+                lastEpisodes = null;
+            else
+                lastEpisodes = ArdUtils.fetchEpisodeList(url);
+        }
+
+        return lastEpisodes;
     }
 
     @Nullable
     @Override
     public ArrayList<Episode> fetchWidgetEpisodes(String key, String assetId, int count) {
-        String id = top_level_categories.get(key);
-        if (id == null) return null;
-        String url = ard_category_url + "documentId=" + id + "&mcontent=page.1";
+        String url = top_level_categories.get(key);
+        if (url == null) return null;
+        url += "&mcontent=page.1";
         return ArdUtils.fetchEpisodeList(url);
     }
 
