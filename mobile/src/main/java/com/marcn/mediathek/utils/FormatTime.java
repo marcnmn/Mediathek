@@ -111,6 +111,7 @@ public class FormatTime {
     }
 
     public static String getMissedHeader(Calendar data) {
+        if (data == null) return "";
         int dayDiff = data.get(Calendar.DAY_OF_YEAR)
                 - Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
 

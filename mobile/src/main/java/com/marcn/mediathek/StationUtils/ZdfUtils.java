@@ -41,6 +41,10 @@ public class ZdfUtils {
         }
     }
 
+    public static ArrayList<Series> getAllShows(String url) {
+        return fetchSendungList(url);
+    }
+
     public static ArrayList<Series> getAllShows(Context c, int rangeStart, int rangeEnd) {
         String characterRangeStart = String.valueOf((char) rangeStart);
         String characterRangeEnd = String.valueOf((char) rangeEnd);
@@ -48,11 +52,7 @@ public class ZdfUtils {
         String url =  c.getString(R.string.zdf_gruppe_sendungen_abisz)
                 + "?characterRangeStart=" + characterRangeStart + "&characterRangeEnd=" + characterRangeEnd
                 + "&detailLevel=2&maxLength=100";
-        try {
-            return fetchSendungList(url);
-        } catch (IOException e) {
-            return new ArrayList<>();
-        }
+        return fetchSendungList(url);
     }
 
     public static ArrayList<Episode> fetchVideoList(String url) throws IOException {
@@ -104,8 +104,14 @@ public class ZdfUtils {
         return episodes;
     }
 
-    public static ArrayList<Series> fetchSendungList(String url) throws IOException {
-        Document d = Jsoup.connect(url).get();
+    @Nullable
+    public static ArrayList<Series> fetchSendungList(String url) {
+        Document d;
+        try {
+            d = Jsoup.connect(url).get();
+        } catch (IOException e) {
+            return null;
+        }
         String member = "";
 
         ArrayList<Series> sendungen = new ArrayList<>();

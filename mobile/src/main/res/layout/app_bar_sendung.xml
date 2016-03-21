@@ -42,12 +42,12 @@
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/colorSendungBackground"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/widgetContainer"
             android:orientation="vertical">
             <View
@@ -55,6 +55,11 @@
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"/>
             <include layout="@layout/content_sendung_description" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="800dp"
+                android:id="@+id/list_placeholder"
+                android:visibility="gone"/>
             <!--<include layout="@layout/fragment_sidescroll_videos" android:id="@+id/widgetLast" />-->
             <!--<include layout="@layout/fragment_sidescroll_videos" android:id="@+id/widgetMost" />-->
             <!--<include layout="@layout/fragment_sidescroll_videos" android:id="@+id/widgetFurther" />-->

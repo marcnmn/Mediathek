@@ -1,8 +1,12 @@
 package com.marcn.mediathek.StationUtils;
 
 import android.annotation.SuppressLint;
+import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.base_objects.Series;
+import com.marcn.mediathek.base_objects.Station;
 import com.marcn.mediathek.stations.ArdGroup;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.FormatTime;
@@ -20,6 +24,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.TreeMap;
 
 public class ArdUtils {
@@ -74,6 +79,25 @@ public class ArdUtils {
         }
     }
 
+    public static ArrayList<Series> fetchSeriesList(String url, String station) {
+        try {
+            Document doc = Jsoup.connect(url).get();
+            ArrayList<Series> series = new ArrayList<>();
+            Elements elements = doc.select("div.section.onlyWithJs.sectionA").select("div.box").select("div.teaser");
+
+            for (Element e : elements) {
+                Series s = widgetHtmlToSeries(e);
+                if (s == null) continue;
+                s.setStationTitle(station);
+                //fetchWidgetSeriesDetails(s);
+                series.add(s);
+            }
+            return series;
+        } catch (IOException ignored) {
+            return null;
+        }
+    }
+
     public static TreeMap<Integer, String> getVideoUrl(String assetId) {
         String url = "http://www.ardmediathek.de/play/media/"
                 + assetId + "?devicetype=pc&features=flash";
@@ -117,6 +141,10 @@ public class ArdUtils {
         String time = e.select("p.subtitle").text();
         if (time != null)
             catSetEpisodeTime(episode, time);
+        if (episode.getStartTime() == null) {
+            String t2 = e.select("p.dachzeile").text();
+            catSetEpisodeTimeV2(episode, time, t2);
+        }
 
 
 
@@ -126,6 +154,46 @@ public class ArdUtils {
             episode.setThumb_url(thumb);
 
         return episode;
+    }
+
+    @Nullable
+    private static Series widgetHtmlToSeries(Element e) {
+        if (e == null) return null;
+        String title = e.select("h4.headline").text();
+        if (title == null) return null;
+        Series series = new Series(title);
+
+        String id = e.select("a.textLink").attr("href");
+        if (id == null) return null;
+        id = id.substring(id.lastIndexOf("=") + 1);
+        if (!id.isEmpty())
+            series.setAssetId(id);
+
+        String thumb = e.select("img.hideOnNoScript").attr("data-ctrl-image");
+        thumb = parseNoScriptThumb(thumb);
+        if (thumb != null)
+            series.setThumb_url(thumb);
+
+        return series;
+    }
+
+    private static void fetchWidgetSeriesDetails(Series s) {
+        String url = ArdGroup.ARD_SERIES_URL + s.assetId;
+        try {
+            Document doc = Jsoup.connect(url).get();
+            Element element = doc.select("div.section.onlyWithJs.sectionA").select("div.mod.modA.modStage").select("div.teaser").first();
+            if (element == null) return;
+
+            String detail =  element.select("p.teasertext").text();
+            if (detail != null)
+                s.setDetail(detail);
+
+            String episodeInfo = element.select("p.dachzeile").text();
+            if (episodeInfo != null)
+                s.setEpisodesInfo(episodeInfo);
+
+        } catch (IOException ignored) {
+        }
     }
 
     private static void updateEpisodeTime(Episode e, String data) {
@@ -157,6 +225,23 @@ public class ArdUtils {
 
             e.setStartTime(calendar);
             e.setEpisodeLengthInMs(Long.parseLong(split[2]) * 60000);
+        } catch (ParseException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    private static void catSetEpisodeTimeV2(Episode e, String length, String time) { // 18.03.2016 | 15:10 Uhr
+        if (length == null || time == null) return;
+        try {
+            Calendar calendar = Calendar.getInstance();
+            SimpleDateFormat s = new SimpleDateFormat("dd.MM.yyyy | HH:mm");
+            calendar.setTime(s.parse(time));
+            e.setStartTime(calendar);
+
+            String l[] = length.split(" ");
+            if (l.length > 0)
+                e.setEpisodeLengthInMs(Long.parseLong(l[0]) * 60000);
         } catch (ParseException e1) {
             e1.printStackTrace();
         }

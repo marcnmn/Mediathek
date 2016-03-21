@@ -2,6 +2,7 @@ package com.marcn.mediathek.stations;
 
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
+import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.utils.Constants;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.LinkedHashMap;
 public abstract class Station {
     protected String title;
     protected LinkedHashMap<String, String> top_level_categories;
+    protected LinkedHashMap<String, String> series_widgets;
     protected LinkedHashMap<String, String> episode_widgets;
 
     public static Station createStation(String title) {
@@ -49,8 +51,12 @@ public abstract class Station {
     public abstract LiveStreamM3U8 getLiveStream();
     public abstract Episode getCurrentEpisode();
 
+    public abstract ArrayList<Series> fetchAllSeries(int count, int offset);
+
     public abstract ArrayList<Episode> fetchCategoryEpisodes(String key, int offset, int limit);
     public abstract ArrayList<Episode> fetchWidgetEpisodes(String key, String assetId, int count);
+    public abstract ArrayList<Series> fetchWidgetSeries(String mHeaderTitle, String mAssetId, int videoItemCount);
+    public abstract ArrayList<Episode> fetchSeriesEpisodes(String assetId, int count, int offset);
 
     public abstract String getRecommendedUrl(int offset, int limit);
     public abstract String getMostViewsUrl(int offset, int limit);
@@ -81,6 +87,10 @@ public abstract class Station {
 
     public HashMap<String, String> getTopLevelCategories() {
         return top_level_categories;
+    }
+
+    public HashMap<String, String> getSeriesWidgets() {
+        return series_widgets;
     }
 
     public HashMap<String, String> getEpisodeWidgets() {

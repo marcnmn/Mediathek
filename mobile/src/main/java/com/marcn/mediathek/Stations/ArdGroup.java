@@ -1,14 +1,18 @@
 package com.marcn.mediathek.stations;
 
 import android.support.annotation.Nullable;
+import android.support.annotation.StringDef;
 
 import com.marcn.mediathek.StationUtils.ArdUtils;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
+import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.DataUtils;
+import com.marcn.mediathek.utils.NetworkTasks;
 
+import java.sql.Struct;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.LinkedHashMap;
@@ -16,13 +20,21 @@ import java.util.LinkedHashMap;
 public class ArdGroup extends Station {
     private static final String ard_live_api = "http://www.ardmediathek.de/tv/live";
     public static final String ARD_BASE_URL = "http://www.ardmediathek.de";
+    public static final String ARD_SERIES_URL = ARD_BASE_URL + "/tv/Sendung?documentId=";
     private static final String ard_category_url = ARD_BASE_URL + "/Tipps?";
+    private static final String all_series_api = ARD_BASE_URL + "/tv/sendungen-a-z?sendungsTyp=sendung&buchstabe=";
 
     private static final String widget_key_neuste = "Neuste Videos";
     private static final String widget_key_ausgewaehlte_filme = "Ausgewählte Filme";
     private static final String widget_key_ausgewaehlte_dokus = "Ausgewählte Dokus & Reportagen";
     private static final String widget_key_meist = "Meistabgerufene Videos";
     private static final String widget_key_beste = "Am besten bewertet";
+//    private static final String widget_key_sturm = "Sturm der Liebe";
+
+    private static final String widget_key_serien = "Serien";
+    private static final String widget_key_themen = "Themen";
+    private static final String widget_key_rubriken = "Rubriken";
+
 
     private ArrayList<Episode> lastEpisodes;
 
@@ -36,6 +48,13 @@ public class ArdGroup extends Station {
         top_level_categories.put(widget_key_ausgewaehlte_dokus, ARD_BASE_URL + "/tv/Ausgewählte-Dokus-Reportagen/mehr?documentId=33649086");
         top_level_categories.put(widget_key_meist, ARD_BASE_URL + "/tv/Meistabgerufene-Videos/mehr?documentId=23644244");
         top_level_categories.put(widget_key_beste, ARD_BASE_URL + "/tv/Am-besten-bewertet/mehr?documentId=21282468");
+//        top_level_categories.put(widget_key_sturm, ARD_BASE_URL + "/tv/Sturm-der-Liebe/Sendung?documentId=5290");
+
+        // Setup Series - Widgets
+        series_widgets = new LinkedHashMap<>();
+        series_widgets.put(widget_key_serien, ARD_BASE_URL + "/tv/Serien/Tipps?documentId=26402940");
+        series_widgets.put(widget_key_themen, ARD_BASE_URL + "/tv/Serien/Tipps?documentId=21301810");
+        series_widgets.put(widget_key_rubriken, ARD_BASE_URL + "/tv/Serien/Tipps?documentId=21282550");
 
         // Setup Episode - Widgets
         episode_widgets = new LinkedHashMap<>();
@@ -69,6 +88,24 @@ public class ArdGroup extends Station {
     }
 
     @Override
+    public ArrayList<Series> fetchAllSeries(int count, int offset) {
+        ArrayList<Series> series = new ArrayList<>();
+        int lastCharacter = ("Z").charAt(0);
+
+        String url = all_series_api + "0-9";
+        series.addAll(ArdUtils.fetchSeriesList(url, title));
+
+        int character = ("A").charAt(0);
+        while (character <= lastCharacter) {
+            url = all_series_api + String.valueOf((char) character);
+            series.addAll(ArdUtils.fetchSeriesList(url, title));
+            character++;
+        }
+
+        return series;
+    }
+
+    @Override
     public ArrayList<Episode> fetchCategoryEpisodes(String key, int limit, int offset) {
         String url = top_level_categories.get(key);
         if (url == null) return null;
@@ -95,6 +132,49 @@ public class ArdGroup extends Station {
         if (url == null) return null;
         url += "&mcontent=page.1";
         return ArdUtils.fetchEpisodeList(url);
+    }
+
+    @Nullable
+    @Override
+    public ArrayList<Series> fetchWidgetSeries(String key, String assetId, int count) {
+        String url = series_widgets.get(key);
+        if (url == null) return null;
+        url += "&mcontent=page.1";
+        return ArdUtils.fetchSeriesList(url, title);
+    }
+
+    @Nullable
+    @Override
+    public ArrayList<Episode> fetchSeriesEpisodes(String assetId, int count, int offset) {
+        String url = ARD_SERIES_URL + assetId;
+
+        offset = Math.round(offset / 12.f) + 1;
+        url += "&mcontent=page." + offset;
+
+        // Check if on last page
+        if (offset > 1) {
+            String a = NetworkTasks.downloadStringData(url);
+            int beg = a.lastIndexOf("content=\"http://www.ardmediathek.de/tv/") + 1;
+            int end = a.indexOf("/", beg);
+            String asd = a.substring(beg, end);
+
+            String url2 = ARD_SERIES_URL + assetId + "&mcontent=page." + (offset - 1);
+            String b = NetworkTasks.downloadStringData(ARD_SERIES_URL + assetId + "&mcontent=page." + (offset - 1));
+            if (a != null && a.equals(b))
+                return null;
+        }
+
+        if (lastEpisodes == null)
+            lastEpisodes = ArdUtils.fetchEpisodeList(url);
+        else {
+            ArrayList<Episode> episodes = ArdUtils.fetchEpisodeList(url);
+            if (DataUtils.episodeListsAreEqual(lastEpisodes, episodes))
+                lastEpisodes = null;
+            else
+                lastEpisodes = ArdUtils.fetchEpisodeList(url);
+        }
+
+        return lastEpisodes;
     }
 
     @Override

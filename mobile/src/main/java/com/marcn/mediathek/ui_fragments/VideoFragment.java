@@ -43,6 +43,8 @@ public class VideoFragment extends Fragment {
     private boolean mIsLoading;
     private boolean mAllLoaded;
     private int mLoadedItems;
+    private RecyclerView mRecyclerView;
+    private boolean nestedScrolling = true;
 
     public static VideoFragment newInstance(String channelTitle, String assetId, String widgetTitle) {
         VideoFragment fragment = new VideoFragment();
@@ -61,7 +63,7 @@ public class VideoFragment extends Fragment {
         if (getArguments() != null) {
             String title = getArguments().getString(ARG_CHANNEL_TITLE, "");
             mStation = Station.createStation(title);
-            mHeaderTitle = getArguments().getString(ARG_TITLE, "");
+            mHeaderTitle = getArguments().getString(ARG_TITLE, null);
             mAssetId = getArguments().getString(ARG_ASSET_ID, null);
         }
     }
@@ -70,18 +72,19 @@ public class VideoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mRootView = (RelativeLayout) inflater.inflate(R.layout.fragment_sendungen_abisz, container, false);
-        final RecyclerView recyclerView = (RecyclerView) mRootView.findViewById(R.id.list);
+        mRecyclerView = (RecyclerView) mRootView.findViewById(R.id.list);
 
-        if ((getActivity()) != null)
+        if ((getActivity()) != null && mHeaderTitle != null)
             ((BaseActivity) getActivity()).setActionBarTitle(mHeaderTitle);
 
         mLayoutManager = new LayoutManager(getActivity());
-        recyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         mVideoAdapter = new VideoAdapter(new ArrayList<Episode>(), mListener);
-        recyclerView.setAdapter(mVideoAdapter);
+        mRecyclerView.setAdapter(mVideoAdapter);
 
-        recyclerView.addOnScrollListener(onScrollListener);
+        mRecyclerView.addOnScrollListener(onScrollListener);
+        mRecyclerView.setNestedScrollingEnabled(nestedScrolling);
 
         downloadVideos();
         return mRootView;
@@ -94,8 +97,7 @@ public class VideoFragment extends Fragment {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final ArrayList<Episode> episodes;
-                episodes = mStation.fetchCategoryEpisodes(mHeaderTitle, INT_UPDATE_COUNT, mLoadedItems);
+                final ArrayList<Episode> episodes = fetchEpisodes();
                 if (getActivity() == null) return;
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
@@ -114,6 +116,16 @@ public class VideoFragment extends Fragment {
                 });
             }
         }).start();
+    }
+
+    private ArrayList<Episode> fetchEpisodes() {
+        if (mStation == null) return null;
+        if (mHeaderTitle == null && mAssetId != null)
+            return mStation.fetchSeriesEpisodes(mAssetId, INT_UPDATE_COUNT, mLoadedItems);
+        else if (mHeaderTitle != null && mAssetId == null)
+            return mStation.fetchCategoryEpisodes(mHeaderTitle, INT_UPDATE_COUNT, mLoadedItems);
+        else
+            return null;
     }
 
     private RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
@@ -147,5 +159,11 @@ public class VideoFragment extends Fragment {
         mIsLoading = loading;
         if (mVideoAdapter != null)
             mVideoAdapter.setLoading(loading);
+    }
+
+    public void setNestedScrollingEnabled(boolean b) {
+        nestedScrolling = b;
+        if (mRecyclerView != null)
+            mRecyclerView.setNestedScrollingEnabled(nestedScrolling);
     }
 }

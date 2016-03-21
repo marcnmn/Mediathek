@@ -11,19 +11,21 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
 import android.transition.Transition;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.marcn.mediathek.base_objects.Series;
+import com.marcn.mediathek.stations.ArdGroup;
 import com.marcn.mediathek.stations.Station;
+import com.marcn.mediathek.ui_fragments.VideoFragment;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
 import com.marcn.mediathek.utils.Constants;
 import com.squareup.picasso.Picasso;
@@ -37,6 +39,7 @@ public class SeriesActivity extends BaseActivity {
 
     private Series mSeries;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
+    private VideoFragment mVideoFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +84,14 @@ public class SeriesActivity extends BaseActivity {
                 }
                 if (scrollRange + verticalOffset == 0) {
                     if (mSeries != null)
-                        mCollapsingToolbarLayout.setTitle(mSeries.shortTitle);
+                        mCollapsingToolbarLayout.setTitle(mSeries.title);
+                    if (mVideoFragment != null)
+                        mVideoFragment.setNestedScrollingEnabled(true);
                     isShow = true;
                 } else if(isShow) {
                     mCollapsingToolbarLayout.setTitle("");
+                    if (mVideoFragment != null)
+                        mVideoFragment.setNestedScrollingEnabled(false);
                     isShow = false;
                 }
             }
@@ -159,6 +166,11 @@ public class SeriesActivity extends BaseActivity {
         Station station = Station.createStation(mSeries.getStationTitle());
         if (station == null || station.getEpisodeWidgets() == null) return;
 
+        if (station instanceof ArdGroup) {
+            loadSeriesWidget();
+            return;
+        }
+
         for (String key : station.getEpisodeWidgets().keySet()) {
             loadWidget(key);
         }
@@ -170,6 +182,17 @@ public class SeriesActivity extends BaseActivity {
                 mSeries.assetId + "", widgetKey);
         transaction.add(R.id.widgetContainer, f, widgetKey);
         transaction.commit();
+    }
+
+    private void loadSeriesWidget() {
+        if (findViewById(R.id.list_placeholder) == null) return;
+
+        findViewById(R.id.list_placeholder).setVisibility(View.VISIBLE);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        mVideoFragment = VideoFragment.newInstance(mSeries.getStationTitle(), mSeries.getAssetId(), null);
+        transaction.replace(R.id.list_placeholder, mVideoFragment, mSeries.getAssetId());
+        transaction.commit();
+        mVideoFragment.setNestedScrollingEnabled(false);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

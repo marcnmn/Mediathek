@@ -14,8 +14,8 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.graphics.Palette;
@@ -29,9 +29,9 @@ import android.widget.TextView;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.stations.Station;
+import com.marcn.mediathek.ui_fragments.SeriesWidgetFragment;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
 import com.marcn.mediathek.utils.Anims;
-import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.Transitions;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -40,6 +40,8 @@ public class ChannelActivity extends BaseActivity
         implements AppBarLayout.OnOffsetChangedListener {
 
     public static final String INTENT_STATION_TITLE = "station-title";
+    public static final int INT_WIDGET_VIDEO = 0;
+    public static final int INT_WIDGET_SERIES = 1;
 //    public static final String INTENT_SENDER_JSON = "station-json";
 
 //    private Station mStation;
@@ -118,15 +120,28 @@ public class ChannelActivity extends BaseActivity
 
     private void loadWidgets() {
         if (mStation == null || mStation.getTopLevelCategories() == null) return;
-        for (String key : mStation.getTopLevelCategories().keySet()) {
-            loadWidget(key);
+
+        if (mStation.getTopLevelCategories() != null) {
+            for (String key : mStation.getTopLevelCategories().keySet()) {
+                loadWidget(key, INT_WIDGET_VIDEO);
+            }
+        }
+
+        if (mStation.getSeriesWidgets() != null) {
+            for (String key : mStation.getSeriesWidgets().keySet()) {
+                loadWidget(key, INT_WIDGET_SERIES);
+            }
         }
     }
 
-    private void loadWidget(String widgetKey) {
+    private void loadWidget(String widgetKey, int type) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        VideoWidgetFragment f = VideoWidgetFragment.newInstance(mStation.getTitle(), null, widgetKey);
-        transaction.add(R.id.widgetContainer, f, widgetKey);
+        Fragment frag;
+        if (type == INT_WIDGET_VIDEO)
+            frag = VideoWidgetFragment.newInstance(mStation.getTitle(), null, widgetKey);
+        else
+            frag = SeriesWidgetFragment.newInstance(mStation.getTitle(), null, widgetKey);
+        transaction.add(R.id.widgetContainer, frag, widgetKey);
         transaction.commit();
     }
 

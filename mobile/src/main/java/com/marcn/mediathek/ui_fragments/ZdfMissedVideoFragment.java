@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.stations.ArdGroup;
 import com.marcn.mediathek.stations.ZdfGroup;
 import com.marcn.mediathek.adapter.VideoAdapter;
 import com.marcn.mediathek.base_objects.Episode;
@@ -82,37 +83,6 @@ public class ZdfMissedVideoFragment extends Fragment implements View.OnTouchList
 //        downloadMissedVideos(mLoadedItems, INT_UPDATE_COUNT);
         downloadMissedVideos2();
         return view;
-    }
-
-    private void downloadMissedVideos(final int offset, final int count) {
-        if (mIsLoading) return;
-        mLoadedItems += count;
-        mIsLoading = true;
-        mVideoAdapter.setLoading(true);
-        SimpleDateFormat s = new SimpleDateFormat("ddMMyy");
-        final String day = s.format(mDay.getTime());
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final ArrayList<Episode> episodes = ZdfUtils.getMissedShows(getContext(), offset, count, day, day);
-                if (getActivity() == null || episodes == null) return;
-                if (episodes.isEmpty() && mDay.after(mLastDay)) {
-                    mDay.add(Calendar.DAY_OF_MONTH, -1);
-                    episodes.add(Episode.createHeader(FormatTime.getMissedHeader(mDay)));
-                    mLoadedItems = 0;
-                }
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mVideoAdapter.updateValues(episodes);
-                        mVideoAdapter.setLoading(false);
-                        mIsLoading = false;
-                        if (mVideoAdapter.getItemCount() < 4)
-                            downloadMissedVideos(0, INT_UPDATE_COUNT);
-                    }
-                });
-            }
-        }).start();
     }
 
     private void downloadMissedVideos2() {

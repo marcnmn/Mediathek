@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import com.marcn.mediathek.StationUtils.ArteUtils;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
+import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.DataUtils;
 import com.marcn.mediathek.utils.EpgUtils;
@@ -79,11 +80,26 @@ public class Arte extends Station {
     }
 
     @Override
+    public ArrayList<Series> fetchAllSeries(int count, int offset) {
+        return null;
+    }
+
+    @Override
     public ArrayList<Episode> fetchWidgetEpisodes(String key, String assetId, int count) {
         String category = top_level_categories.get(key);
         if (category == null || category.isEmpty()) return null;
         String request = getSearchRequestUrl(top_level_categories.get(key), count, 0);
         return ArteUtils.fetchVideoList(request);
+    }
+
+    @Override
+    public ArrayList<Series> fetchWidgetSeries(String mHeaderTitle, String mAssetId, int videoItemCount) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Episode> fetchSeriesEpisodes(String assetId, int count, int offset) {
+        return null;
     }
 
     @Override

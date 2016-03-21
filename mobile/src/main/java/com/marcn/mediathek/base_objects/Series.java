@@ -3,7 +3,9 @@ package com.marcn.mediathek.base_objects;
 public class Series {
     public String title, shortTitle, detail, thumb_url_low, thumb_url_high, vcmsUrl, member;
     public int assetId;
+    private String thumb_url;
     private String stationTitle;
+    private String episodesInfo;
     public Station station;
     public boolean isHeader;
 
@@ -21,6 +23,10 @@ public class Series {
 
         this.stationTitle = channel;
         this.station = new Station(channel);
+    }
+
+    public Series(String title) {
+        this(title, "", "", "", "", "", "", 0, title.substring(0,1).toUpperCase());
     }
 
     public static Series createSendungHeader(String title) {
@@ -44,5 +50,37 @@ public class Series {
 
     public String getStationTitle() {
         return stationTitle;
+    }
+
+    public void setStationTitle(String title) {stationTitle = title;}
+
+    public String getThumb_url() {
+        return thumb_url;
+    }
+
+    public void setThumb_url(String thumb_url) {
+        this.thumb_url = thumb_url;
+        this.thumb_url_high = thumb_url;
+        this.thumb_url_low = thumb_url;
+    }
+
+    public String getAssetId() {
+        return String.valueOf(assetId);
+    }
+
+    public void setAssetId(String assetId) {
+        this.assetId = Integer.parseInt(assetId);
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public String getEpisodesInfo() {
+        return episodesInfo;
+    }
+
+    public void setEpisodesInfo(String episodesInfo) {
+        this.episodesInfo = episodesInfo;
     }
 }

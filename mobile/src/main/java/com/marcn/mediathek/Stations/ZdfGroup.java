@@ -3,9 +3,11 @@ package com.marcn.mediathek.stations;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 
+import com.marcn.mediathek.R;
 import com.marcn.mediathek.StationUtils.ZdfUtils;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
+import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.DataUtils;
 import com.marcn.mediathek.utils.EpgUtils;
@@ -45,6 +47,7 @@ public class ZdfGroup extends Station {
     public final static String top_level_id = "_STARTSEITE";
     public final static String top_level_id_most = "_GLOBAL";
 
+    private static final String all_series_api = "http://www.zdf.de/ZDFmediathek/xmlservice/web/sendungenAbisZ";
     private static final String live_stream_api = "http://www.zdf.de/ZDFmediathek/xmlservice/web/live?maxLength=6";
     private static final String most_recent_api = "http://www.zdf.de/ZDFmediathek/xmlservice/web/sendungVerpasst?";
     private static final String live_epg_api = "http://sofa01.zdf.de/epgservice/";
@@ -101,6 +104,29 @@ public class ZdfGroup extends Station {
         return episode;
     }
 
+    @Override
+    public ArrayList<Series> fetchAllSeries(int rangeStart, int last) {
+        int intervall = 5;
+
+        ArrayList<Series> series = new ArrayList<>();
+        ArrayList<Series> temp = new ArrayList<>();
+
+        while (temp != null && rangeStart <= last) {
+            String characterRangeStart = String.valueOf((char) rangeStart);
+            String characterRangeEnd = String.valueOf((char) (rangeStart + intervall));
+
+            String url =  all_series_api + "?characterRangeStart=" + characterRangeStart
+                    + "&characterRangeEnd=" + characterRangeEnd + "&detailLevel=2&maxLength=100";
+
+            temp = ZdfUtils.fetchSendungList(url);
+            series.addAll(temp);
+
+            rangeStart += intervall;
+        }
+
+        return  series;
+    }
+
     public ArrayList<Episode> fetchEpisodes(String url) {
         try {
             return ZdfUtils.fetchVideoList(url);
@@ -148,6 +174,16 @@ public class ZdfGroup extends Station {
         }
 
         return episodes;
+    }
+
+    @Override
+    public ArrayList<Series> fetchWidgetSeries(String mHeaderTitle, String mAssetId, int videoItemCount) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Episode> fetchSeriesEpisodes(String assetId, int count, int offset) {
+        return null;
     }
 
     private String getTopLevelId(String key) {

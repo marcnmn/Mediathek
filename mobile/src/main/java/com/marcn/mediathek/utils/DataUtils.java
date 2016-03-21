@@ -1,6 +1,7 @@
 package com.marcn.mediathek.utils;
 
 import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.base_objects.Series;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,6 +41,22 @@ public class DataUtils {
                 if (rhs.getStartTime() == null) return 1;
 
                 return rhs.getStartTime().compareTo(lhs.getStartTime());
+            }
+        });
+    }
+
+    public static void sortSeriesByName(ArrayList<Series> data) {
+        Collections.sort(data, new Comparator<Series>() {
+            @Override
+            public int compare(Series lhs, Series rhs) {
+                if (lhs.member == null && rhs.member == null) return 0;
+                if (lhs.member == null) return -1;
+                if (rhs.member == null) return 1;
+
+                return lhs.member.compareTo(rhs.member);
+//                int a = lhs.member.charAt(0);
+//                int b = rhs.member.charAt(0);
+//                return Integer.compare(a, b);
             }
         });
     }
