@@ -8,6 +8,7 @@ public class Series {
     private String episodesInfo;
     public Station station;
     public boolean isHeader;
+    private boolean isHidden;
 
     public Series(String title, String shortTitle, String detail,
                   String thumb_url_low, String thumb_url_high, String channel, String vcmsUrl,
@@ -82,5 +83,13 @@ public class Series {
 
     public void setEpisodesInfo(String episodesInfo) {
         this.episodesInfo = episodesInfo;
+    }
+
+    public boolean isHidden() {
+        return isHidden;
+    }
+
+    public void setHidden(boolean hidden) {
+        isHidden = hidden;
     }
 }

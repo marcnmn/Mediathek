@@ -22,6 +22,39 @@ public class DataUtils {
         }
     }
 
+    public static void searchSeriesList(ArrayList<Series> data, String query) {
+        Iterator iter = data.listIterator();
+        if (query == null) return;
+
+        while(iter.hasNext()){
+            Series e = (Series) iter.next();
+            String title = e.title;
+
+            if (title == null) {
+                e.setHidden(true);
+                continue;
+            }
+            if (query.isEmpty()) {
+                e.setHidden(false);
+                continue;
+            }
+
+            if (stringContains(title, query))
+                e.setHidden(false);
+            else
+                e.setHidden(true);
+        }
+    }
+
+    public static void filterByHidden(ArrayList<Series> data) {
+        Iterator iter = data.listIterator();
+
+        while(iter.hasNext()){
+            Series e = (Series) iter.next();
+            if (e.isHidden()) iter.remove();
+        }
+    }
+
     public static void filterGanze(ArrayList<Episode> data) {
         Iterator iter = data.listIterator();
 
@@ -54,11 +87,23 @@ public class DataUtils {
                 if (rhs.member == null) return 1;
 
                 return lhs.member.compareTo(rhs.member);
-//                int a = lhs.member.charAt(0);
-//                int b = rhs.member.charAt(0);
-//                return Integer.compare(a, b);
             }
         });
+    }
+
+    public static void addNameHeaders(ArrayList<Series> data) {
+        if (data == null || data.isEmpty()) return;
+
+        int index = 0;
+        String lastMember = null;
+
+        while(index < data.size()) {
+            String member = data.get(index).member;
+            if (lastMember == null || !member.equals(lastMember))
+                data.add(index, Series.createSendungHeader(member));
+            lastMember = member;
+            index++;
+        }
     }
 
     public static ArrayList<Episode> addDateHeaders(ArrayList<Episode> episodes) {
@@ -110,5 +155,30 @@ public class DataUtils {
             if (!aId.equals(bId)) return false;
         }
         return true;
+    }
+
+    private static boolean stringContains(String data, String query) {
+        if (data == null) return false;
+        data = data.toLowerCase();
+        if (query == null || query.isEmpty()) return true;
+        query = query.toLowerCase();
+
+        String[] qArray = query.split(" ");
+        for (String q : qArray)
+            if (!data.contains(q))
+                return false;
+        return true;
+
+//        return data.contains(query);
+
+//        String[] array = data.split(" ");
+
+//        for (String s : array) {
+//            for (String q : qArray)
+//                if (s.startsWith(q))
+//                    return true;
+//        }
+
+
     }
 }

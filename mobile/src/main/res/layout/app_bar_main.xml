@@ -24,79 +24,30 @@
 
     <include layout="@layout/content_main" />
 
-    <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/contentContainer">-->
-
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/player_chooser"-->
-            <!--android:layout_alignParentBottom="true"-->
-            <!--android:background="@color/colorPlayerChooser"-->
-            <!--android:orientation="vertical"-->
-            <!--android:visibility="gone">-->
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:id="@+id/player_choose"-->
-                <!--android:layout_height="48sp"-->
-                <!--android:gravity="center"-->
-                <!--android:text="Videoplayer wählen" />-->
-
-            <!--<View-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="1dp"-->
-                <!--android:layout_marginEnd="10dp"-->
-                <!--android:layout_marginStart="10dp"-->
-                <!--android:background="@color/colorAccent" />-->
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="48sp"-->
-                <!--android:id="@+id/player_default"-->
-                <!--android:gravity="center"-->
-                <!--android:text="Standard-Videoplayer" />-->
-
-            <!--<View-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="1dp"-->
-                <!--android:layout_marginEnd="10dp"-->
-                <!--android:layout_marginStart="10dp"-->
-                <!--android:background="@color/colorAccent" />-->
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="48sp"-->
-                <!--android:id="@+id/download"-->
-                <!--android:gravity="center"-->
-                <!--android:text="Download" />-->
-
-            <!--<View-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="1dp"-->
-                <!--android:layout_marginEnd="10dp"-->
-                <!--android:layout_marginStart="10dp"-->
-                <!--android:background="@color/colorAccent" />-->
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="48sp"-->
-                <!--android:id="@+id/yatse"-->
-                <!--android:gravity="center"-->
-                <!--android:text="Yatse" />-->
-        <!--</LinearLayout>-->
-
-    <!--</RelativeLayout>-->
-
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fabSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email"
+        android:layout_margin="10dp"
+        app:srcCompat="@drawable/ic_search_white"
         android:visibility="gone" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@+id/fabSearch"
+        app:layout_anchorGravity="bottom"
+        android:background="@android:color/white"
+        android:paddingBottom="10dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginStart="10dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:id="@+id/editSearch"
+            android:hint="Name der Sendung"
+            android:visibility="gone"/>
+    </android.support.design.widget.TextInputLayout>
 
 </android.support.design.widget.CoordinatorLayout>

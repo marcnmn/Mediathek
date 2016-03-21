@@ -11,8 +11,18 @@ import android.os.Build;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 
+import com.google.gson.Gson;
+import com.marcn.mediathek.base_objects.Series;
+
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Storage {
     public static void downloadFile(Activity activity, String url, String title) {
@@ -59,5 +69,44 @@ public class Storage {
             fileName = null;
         }
         return fileName;
+    }
+
+    public static String saveSeriesOnDisk(Context context, ArrayList<Series> data, String filename) {
+        Gson gson = new Gson();
+        String s = gson.toJson(data);
+
+        FileOutputStream outputStream;
+        try {
+            outputStream = context.openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write(s.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return filename;
+    }
+
+    public static ArrayList<Series> getSeriesFromFile(Context context, String filename) {
+        try {
+            FileInputStream fis = context.openFileInput(filename);
+
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader bufferedReader = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                sb.append(line);
+            }
+
+            String json = sb.toString();
+            Gson gson = new Gson();
+            Series[] sArray = gson.fromJson(json, Series[].class);
+            ArrayList<Series> series = new ArrayList<>(Arrays.asList(sArray));
+            return series;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

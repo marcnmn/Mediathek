@@ -127,11 +127,12 @@ public class ZdfUtils {
         Elements elements = d.getElementsByTag("teaser");
         for (Element el: elements) {
             try {
-                if (!member.equals(el.attr("member"))) {
-                    member = el.attr("member");
-                    sendungen.add(Series.createSendungHeader(member));
-                }
+//                if (!member.equals(el.attr("member"))) {
+//                    member = el.attr("member");
+//                    sendungen.add(Series.createSendungHeader(member));
+//                }
 
+                member = el.attr("member");
                 String title = getSingleStringByTag(el, "title");
                 String shortTitle = getSingleStringByTag(el, "shortTitle");
                 String detail = getSingleStringByTag(el, "detail");

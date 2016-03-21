@@ -14,6 +14,7 @@ import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.utils.Constants;
+import com.marcn.mediathek.utils.DataUtils;
 import com.squareup.picasso.Picasso;
 import com.tonicartos.superslim.GridSLM;
 import com.tonicartos.superslim.LinearSLM;
@@ -27,6 +28,7 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
 
     private Context mContext;
     private boolean mIsLoading;
+    private final ArrayList<Series> shownValues = new ArrayList<>();
 
     private final ArrayList<Series> mValues;
     private final OnVideoInteractionListener mListener;
@@ -36,12 +38,17 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
             mValues = new ArrayList<>();
         else
             mValues = items;
+
+        shownValues.clear();
+        shownValues.addAll(mValues);
         mListener = onVideoInteractionListener;
         notifyDataSetChanged();
     }
 
     public void updateValues(ArrayList<Series> ls) {
         mValues.addAll(ls);
+        shownValues.clear();
+        shownValues.addAll(mValues);
         notifyDataSetChanged();
     }
 
@@ -52,9 +59,9 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
 
     @Nullable
     public String getMember(int position) {
-        if (position < 0 || position >= mValues.size())
+        if (position < 0 || position >= shownValues.size())
             return null;
-        return mValues.get(position).member;
+        return shownValues.get(position).member;
     }
 
     @Override
@@ -78,7 +85,7 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
     public int getItemViewType(int position) {
         if (mIsLoading && position == getItemCount() - 1)
             return VIEW_TYPE_LOADING;
-        return mValues.get(position).isHeader ? VIEW_TYPE_HEADER : VIEW_TYPE_CONTENT;
+        return shownValues.get(position).isHeader ? VIEW_TYPE_HEADER : VIEW_TYPE_CONTENT;
     }
 
     @Override
@@ -90,8 +97,12 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
             return;
         }
 
-        final Series item = mValues.get(position);
+        final Series item = shownValues.get(position);
         View itemView = viewHolder.mView;
+        if (item.isHidden())
+            viewHolder.mView.setVisibility(View.GONE);
+        else
+            viewHolder.mView.setVisibility(View.VISIBLE);
 
         viewHolder.mItem = item;
 
@@ -143,15 +154,28 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
 
     @Override
     public int getItemCount() {
-        return mIsLoading ? mValues.size() + 1 : mValues.size();
+        return mIsLoading ? shownValues.size() + 1 : shownValues.size();
     }
 
     private int getFirstSectionPosition(int position) {
         if (mIsLoading && getItemViewType(position) == VIEW_TYPE_LOADING) return 0;
         for (int i = position; i >= 0; i--)
-            if (mValues.get(i).isHeader)
+            if (shownValues.get(i).isHeader)
                 return i;
         return 0;
+    }
+
+    public void searchAndFilter(String query) {
+        shownValues.clear();
+        shownValues.addAll(mValues);
+        DataUtils.searchSeriesList(shownValues, query);
+        DataUtils.filterByHidden(shownValues);
+        notifyDataSetChanged();
+    }
+
+    public void forceUpdateAll(ArrayList<Series> sendungen) {
+        mValues.clear();
+        updateValues(sendungen);
     }
 
     public class SendungViewHolder extends RecyclerView.ViewHolder {
