@@ -2,7 +2,6 @@ package com.marcn.mediathek.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.PorterDuff;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -129,9 +128,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
             if(viewHolder.mVideoInfo != null)
                 viewHolder.mVideoInfo.setText(item.getAirTime());
 
-            if (item.getThumb_url() != null)
+            if (item.getThumbUrl() != null)
                 Picasso.with(mContext)
-                        .load(item.getThumb_url())
+                        .load(item.getThumbUrl())
                         .placeholder(R.drawable.placeholder_stream)
                         .config(Bitmap.Config.RGB_565)
                         .resize(Constants.SIZE_THUMB_BIG_X, Constants.SIZE_THUMB_BIG_Y)

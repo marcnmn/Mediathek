@@ -25,6 +25,8 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 
+import rx.Observable;
+
 public class ZdfGroup extends Station {
     private static final String live_m3u8_zdf = "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/index_3056_av-p.m3u8?sd=10&amp;dw=0&amp;rebase=on&amp;hdntl=";
     private static final String live_m3u8_phoenix = "http://zdf0910-lh.akamaihd.net/i/de09_v1@392871/master.m3u8";
@@ -84,14 +86,31 @@ public class ZdfGroup extends Station {
         String url = "";
         switch (title) {
             // ZDF Sender
-            case Constants.TITLE_CHANNEL_ZDF: url = live_m3u8_zdf; break;
-            case Constants.TITLE_CHANNEL_PHOENIX: url = live_m3u8_phoenix; break;
-            case Constants.TITLE_CHANNEL_ZDF_KULTUR: url = live_m3u8_kultur; break;
-            case Constants.TITLE_CHANNEL_ZDF_INFO: url = live_m3u8_info; break;
-            case Constants.TITLE_CHANNEL_3SAT: url = live_m3u8_3sat; break;
-            case Constants.TITLE_CHANNEL_ZDF_NEO: url = live_m3u8_neo; break;
+            case Constants.TITLE_CHANNEL_ZDF:
+                url = live_m3u8_zdf;
+                break;
+            case Constants.TITLE_CHANNEL_PHOENIX:
+                url = live_m3u8_phoenix;
+                break;
+            case Constants.TITLE_CHANNEL_ZDF_KULTUR:
+                url = live_m3u8_kultur;
+                break;
+            case Constants.TITLE_CHANNEL_ZDF_INFO:
+                url = live_m3u8_info;
+                break;
+            case Constants.TITLE_CHANNEL_3SAT:
+                url = live_m3u8_3sat;
+                break;
+            case Constants.TITLE_CHANNEL_ZDF_NEO:
+                url = live_m3u8_neo;
+                break;
         }
         return url.isEmpty() ? null : new LiveStreamM3U8(url);
+    }
+
+    @Override
+    public Observable<Episode> fetchCurrentEpisode() {
+        return Observable.defer(() -> Observable.just(getCurrentEpisode()));
     }
 
     @Override
@@ -115,7 +134,7 @@ public class ZdfGroup extends Station {
             String characterRangeStart = String.valueOf((char) rangeStart);
             String characterRangeEnd = String.valueOf((char) (rangeStart + intervall));
 
-            String url =  all_series_api + "?characterRangeStart=" + characterRangeStart
+            String url = all_series_api + "?characterRangeStart=" + characterRangeStart
                     + "&characterRangeEnd=" + characterRangeEnd + "&detailLevel=2&maxLength=100";
 
             temp = ZdfUtils.fetchSendungList(url);
@@ -124,7 +143,7 @@ public class ZdfGroup extends Station {
             rangeStart += intervall;
         }
 
-        return  series;
+        return series;
     }
 
     public ArrayList<Episode> fetchEpisodes(String url) {
@@ -137,7 +156,7 @@ public class ZdfGroup extends Station {
 
     @Override
     public ArrayList<Episode> fetchCategoryEpisodes(String key, int limit, int offset) {
-        if (title.equals(Constants.LIVE_STREAM_CHANNEL_3SAT )|| title.equals(Constants.TITLE_CHANNEL_PHOENIX))
+        if (title.equals(Constants.LIVE_STREAM_CHANNEL_3SAT) || title.equals(Constants.TITLE_CHANNEL_PHOENIX))
             return null;
 
         String url = top_level_categories.get(key);
@@ -145,6 +164,11 @@ public class ZdfGroup extends Station {
         ArrayList<Episode> episodes = fetchEpisodes(url);
         DataUtils.filterByStation(episodes, title);
         return fetchEpisodes(url);
+    }
+
+    @Override
+    public Observable<ArrayList<Episode>> fetchObsWidgetEpisodes(String key, String assetId, int count) {
+        return Observable.defer(() -> Observable.just(fetchWidgetEpisodes(key, assetId, count)));
     }
 
     @Override
@@ -168,11 +192,9 @@ public class ZdfGroup extends Station {
                 DataUtils.filterByStation(temp, title);
                 episodes.addAll(temp);
                 offset += dCount;
-            }
-            else
+            } else
                 break;
         }
-
         return episodes;
     }
 
@@ -254,42 +276,45 @@ public class ZdfGroup extends Station {
     }
 
     @Nullable
-    private String getLiveThumbnail(Element el) {
-        try {
-            String thumb = el.select("teaserimage[key=485x273]").text();
-            String channelName = XmlParser.getStringByTag(el, "channel");
-            return title.equals(channelName) ? thumb : null;
-        } catch (NullPointerException ignored) {
-        }
-        return null;
-    }
-
-    @Nullable
     private String getLiveThumbnail() {
         try {
             Document d = Jsoup.connect(live_stream_api).get();
             Elements elements = d.getElementsByTag("teaser");
             for (Element el : elements.select("teaser[member=onAir]")) {
-                String thumb = getLiveThumbnail(el);
-                if (thumb != null)
-                    return thumb;
+                String station = XmlParser.getStringByTag(el, "channel");
+                if (title.equals(station))
+                    return el.select("teaserimage").last().text();
             }
-        } catch (IOException ignored) {
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return null;
     }
 
-    public String getLiveEpgUrl () {
+    public String getLiveEpgUrl() {
         String url = live_epg_api;
         switch (title) {
             // ZDF Sender
-            case Constants.TITLE_CHANNEL_ZDF: url += live_epg_ZDF_key_key; break;
-            case Constants.TITLE_CHANNEL_PHOENIX: url += live_epg_phoenix_key; break;
-            case Constants.TITLE_CHANNEL_ZDF_KULTUR: url += live_epg_kultur_key; break;
-            case Constants.TITLE_CHANNEL_ZDF_INFO: url += live_epg_info_key; break;
-            case Constants.TITLE_CHANNEL_3SAT: url += live_epg_3sat_key; break;
-            case Constants.TITLE_CHANNEL_ZDF_NEO: url += live_epg_neo_key; break;
-            default: return null;
+            case Constants.TITLE_CHANNEL_ZDF:
+                url += live_epg_ZDF_key_key;
+                break;
+            case Constants.TITLE_CHANNEL_PHOENIX:
+                url += live_epg_phoenix_key;
+                break;
+            case Constants.TITLE_CHANNEL_ZDF_KULTUR:
+                url += live_epg_kultur_key;
+                break;
+            case Constants.TITLE_CHANNEL_ZDF_INFO:
+                url += live_epg_info_key;
+                break;
+            case Constants.TITLE_CHANNEL_3SAT:
+                url += live_epg_3sat_key;
+                break;
+            case Constants.TITLE_CHANNEL_ZDF_NEO:
+                url += live_epg_neo_key;
+                break;
+            default:
+                return null;
         }
         return url + "/now/json";
     }

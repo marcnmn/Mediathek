@@ -42,7 +42,7 @@
         android:paddingBottom="10dp"
         android:layout_marginEnd="76dp"
         android:layout_marginStart="10dp">
-        <EditText
+        <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:id="@+id/editSearch"

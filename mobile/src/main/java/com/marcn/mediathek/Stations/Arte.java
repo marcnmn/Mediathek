@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
+import rx.Observable;
+
 public class Arte extends Station {
     private static final String channel_title = "Arte";
 
@@ -60,6 +62,11 @@ public class Arte extends Station {
     @Override
     public LiveStreamM3U8 getLiveStream() {
         return new LiveStreamM3U8(live_stream_m3u8);
+    }
+
+    @Override
+    public Observable<Episode> fetchCurrentEpisode() {
+        return Observable.defer(() -> Observable.just(getCurrentEpisode()));
     }
 
     public TreeMap<Integer, String> getVodUrls(String id){
@@ -134,6 +141,11 @@ public class Arte extends Station {
         if (category == null || category.isEmpty()) return null;
         String request = getSearchRequestUrl(category, limit, offset);
         return ArteUtils.fetchVideoList(request);
+    }
+
+    @Override
+    public Observable<ArrayList<Episode>> fetchObsWidgetEpisodes(String key, String assetId, int count) {
+        return Observable.defer(() -> Observable.just(fetchWidgetEpisodes(key, assetId, count)));
     }
 
     @Override

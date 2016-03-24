@@ -6,46 +6,47 @@ import android.os.Build;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.utils.Constants;
 
-public class Station {
+public class StationOld {
     public static final int ZDF_GROUP = 0;
     public static final int ARTE_GROUP = 1;
     public static final int ARD_GROUP = 2;
 
     public final String title;
+    private Episode currentEpisode;
     private final int group;
 
-//    public Station(String title) {
+//    public StationOld(String title) {
 //        this(title, -1);
 //    }
 
-    public Station(String title) {
+    public StationOld(String title) {
         this.title = title;
         this.group = getGroupFromName(title);
     }
 
-    public LiveStream getLiveStream() {
+    public Video getLiveStream() {
         String id = getChannelId();
         String query = getLiveStreamQueryString();
-        return new LiveStream(id, query, -1);
+        return new Video(id, query, -1);
     }
 
     public String getLiveStreamQueryString() {
         switch (title) {
             // ARD
-            case Constants.TITLE_CHANNEL_ARD: return LiveStream.ARD_QUERY;
-            case Constants.TITLE_CHANNEL_ARD_ALPHA: return LiveStream.ARD_ALPHA_QUERY;
-            case Constants.TITLE_CHANNEL_TAGESSCHAU: return LiveStream.TAGESSCHAU_QUERY;
+            case Constants.TITLE_CHANNEL_ARD: return Video.ARD_QUERY;
+            case Constants.TITLE_CHANNEL_ARD_ALPHA: return Video.ARD_ALPHA_QUERY;
+            case Constants.TITLE_CHANNEL_TAGESSCHAU: return Video.TAGESSCHAU_QUERY;
             // Regional 1
-            case Constants.TITLE_CHANNEL_SWR: return LiveStream.SWR_QUERY;
-            case Constants.TITLE_CHANNEL_WDR: return LiveStream.WDR_QUERY;
-            case Constants.TITLE_CHANNEL_MDR: return LiveStream.MDR_QUERY;
-            case Constants.TITLE_CHANNEL_NDR: return LiveStream.NDR_QUERY;
+            case Constants.TITLE_CHANNEL_SWR: return Video.SWR_QUERY;
+            case Constants.TITLE_CHANNEL_WDR: return Video.WDR_QUERY;
+            case Constants.TITLE_CHANNEL_MDR: return Video.MDR_QUERY;
+            case Constants.TITLE_CHANNEL_NDR: return Video.NDR_QUERY;
             // Regional 2
-            case Constants.TITLE_CHANNEL_BR: return LiveStream.BR_QUERY;
-            case Constants.TITLE_CHANNEL_SR: return LiveStream.SR_QUERY;
-            case Constants.TITLE_CHANNEL_RBB: return LiveStream.RBB_QUERY;
+            case Constants.TITLE_CHANNEL_BR: return Video.BR_QUERY;
+            case Constants.TITLE_CHANNEL_SR: return Video.SR_QUERY;
+            case Constants.TITLE_CHANNEL_RBB: return Video.RBB_QUERY;
             // KiKa
-            case Constants.TITLE_CHANNEL_KIKA: return LiveStream.KIKA_QUERY;
+            case Constants.TITLE_CHANNEL_KIKA: return Video.KIKA_QUERY;
         }
         return null;
     }
@@ -178,13 +179,21 @@ public class Station {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Station))
+        if (!(o instanceof StationOld))
             return false;
-        Station ls = (Station) o;
+        StationOld ls = (StationOld) o;
         return ls.title.equals(this.title);
     }
 
     public int getGroup() {
         return group;
+    }
+
+    public Episode getCurrentEpisode() {
+        return currentEpisode;
+    }
+
+    public void setCurrentEpisode(Episode currentEpisode) {
+        this.currentEpisode = currentEpisode;
     }
 }

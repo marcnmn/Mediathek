@@ -1,21 +1,21 @@
 package com.marcn.mediathek.stations;
 
 import android.support.annotation.Nullable;
-import android.support.annotation.StringDef;
 
 import com.marcn.mediathek.StationUtils.ArdUtils;
 import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.base_objects.LiveStream;
+import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
 import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.DataUtils;
 import com.marcn.mediathek.utils.NetworkTasks;
 
-import java.sql.Struct;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.LinkedHashMap;
+
+import rx.Observable;
 
 public class ArdGroup extends Station {
     private static final String ard_live_api = "http://www.ardmediathek.de/tv/live";
@@ -82,6 +82,11 @@ public class ArdGroup extends Station {
     }
 
     @Override
+    public Observable<Episode> fetchCurrentEpisode() {
+        return Observable.defer(() -> Observable.just(getCurrentEpisode()));
+    }
+
+    @Override
     @Nullable
     public Episode getCurrentEpisode() {
         return ArdUtils.getCurrentEpisode(this, ard_live_api, ARD_BASE_URL);
@@ -93,12 +98,14 @@ public class ArdGroup extends Station {
         int lastCharacter = ("Z").charAt(0);
 
         String url = all_series_api + "0-9";
-        series.addAll(ArdUtils.fetchSeriesList(url, title));
+//        series.addAll(ArdUtils.fetchSeriesList(url, title));
+        ArdUtils.addSeriesList(series, url, title);
 
         int character = ("A").charAt(0);
         while (character <= lastCharacter) {
             url = all_series_api + String.valueOf((char) character);
-            series.addAll(ArdUtils.fetchSeriesList(url, title));
+//            series.addAll(ArdUtils.fetchSeriesList(url, title));
+            ArdUtils.addSeriesList(series, url, title);
             character++;
         }
 
@@ -134,13 +141,18 @@ public class ArdGroup extends Station {
         return ArdUtils.fetchEpisodeList(url);
     }
 
+    @Override
+    public Observable<ArrayList<Episode>> fetchObsWidgetEpisodes(String key, String assetId, int count) {
+        return Observable.defer(() -> Observable.just(fetchWidgetEpisodes(key, assetId, count)));
+    }
+
     @Nullable
     @Override
     public ArrayList<Series> fetchWidgetSeries(String key, String assetId, int count) {
         String url = series_widgets.get(key);
         if (url == null) return null;
         url += "&mcontent=page.1";
-        return ArdUtils.fetchSeriesList(url, title);
+        return ArdUtils.addSeriesList(null, url, title);
     }
 
     @Nullable
@@ -223,20 +235,20 @@ public class ArdGroup extends Station {
     public String getLiveQueryString() {
         switch (title) {
             // ARD
-            case Constants.TITLE_CHANNEL_ARD: return LiveStream.ARD_QUERY;
-            case Constants.TITLE_CHANNEL_ARD_ALPHA: return LiveStream.ARD_ALPHA_QUERY;
-            case Constants.TITLE_CHANNEL_TAGESSCHAU: return LiveStream.TAGESSCHAU_QUERY;
+            case Constants.TITLE_CHANNEL_ARD: return Video.ARD_QUERY;
+            case Constants.TITLE_CHANNEL_ARD_ALPHA: return Video.ARD_ALPHA_QUERY;
+            case Constants.TITLE_CHANNEL_TAGESSCHAU: return Video.TAGESSCHAU_QUERY;
             // Regional 1
-            case Constants.TITLE_CHANNEL_SWR: return LiveStream.SWR_QUERY;
-            case Constants.TITLE_CHANNEL_WDR: return LiveStream.WDR_QUERY;
-            case Constants.TITLE_CHANNEL_MDR: return LiveStream.MDR_QUERY;
-            case Constants.TITLE_CHANNEL_NDR: return LiveStream.NDR_QUERY;
+            case Constants.TITLE_CHANNEL_SWR: return Video.SWR_QUERY;
+            case Constants.TITLE_CHANNEL_WDR: return Video.WDR_QUERY;
+            case Constants.TITLE_CHANNEL_MDR: return Video.MDR_QUERY;
+            case Constants.TITLE_CHANNEL_NDR: return Video.NDR_QUERY;
             // Regional 2
-            case Constants.TITLE_CHANNEL_BR: return LiveStream.BR_QUERY;
-            case Constants.TITLE_CHANNEL_SR: return LiveStream.SR_QUERY;
-            case Constants.TITLE_CHANNEL_RBB: return LiveStream.RBB_QUERY;
+            case Constants.TITLE_CHANNEL_BR: return Video.BR_QUERY;
+            case Constants.TITLE_CHANNEL_SR: return Video.SR_QUERY;
+            case Constants.TITLE_CHANNEL_RBB: return Video.RBB_QUERY;
             // KiKa
-            case Constants.TITLE_CHANNEL_KIKA: return LiveStream.KIKA_QUERY;
+            case Constants.TITLE_CHANNEL_KIKA: return Video.KIKA_QUERY;
         }
         return null;
     }

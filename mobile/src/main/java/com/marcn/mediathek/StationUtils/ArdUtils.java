@@ -2,11 +2,9 @@ package com.marcn.mediathek.StationUtils;
 
 import android.annotation.SuppressLint;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.Series;
-import com.marcn.mediathek.base_objects.Station;
 import com.marcn.mediathek.stations.ArdGroup;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.FormatTime;
@@ -24,7 +22,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.TreeMap;
 
 public class ArdUtils {
@@ -90,7 +87,28 @@ public class ArdUtils {
                 if (s == null) continue;
                 s.setStationTitle(station);
                 //fetchWidgetSeriesDetails(s);
-                series.add(s);
+                if (!series.contains(s))
+                    series.add(s);
+            }
+            return series;
+        } catch (IOException ignored) {
+            return null;
+        }
+    }
+
+    public static ArrayList<Series> addSeriesList(ArrayList<Series> series, String url, String station) {
+        if (series == null) series = new ArrayList<>();
+        try {
+            Document doc = Jsoup.connect(url).get();
+            Elements elements = doc.select("div.section.onlyWithJs.sectionA").select("div.box").select("div.teaser");
+
+            for (Element e : elements) {
+                Series s = widgetHtmlToSeries(e);
+                if (s == null) continue;
+                s.setStationTitle(station);
+                //fetchWidgetSeriesDetails(s);
+                if (!series.contains(s))
+                    series.add(s);
             }
             return series;
         } catch (IOException ignored) {

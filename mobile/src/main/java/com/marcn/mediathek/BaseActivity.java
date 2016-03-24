@@ -22,12 +22,12 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.StationUtils.ArdUtils;
-import com.marcn.mediathek.base_objects.Station;
-import com.marcn.mediathek.base_objects.LiveStream;
+import com.marcn.mediathek.base_objects.LiveStreamM3U8;
+import com.marcn.mediathek.base_objects.StationOld;
+import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.stations.Arte;
-import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.Playback;
 import com.marcn.mediathek.utils.Storage;
 import com.marcn.mediathek.StationUtils.ZdfUtils;
@@ -107,13 +107,13 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     @Override
-    public void onLiveStreamClicked(final LiveStream liveStream, final View view, final int videoAction) {
+    public void onLiveStreamClicked(final LiveStreamM3U8 video, final View view, final int videoAction) {
         final Activity activity = this;
         setExitTransition();
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Playback.playByUrl(activity, liveStream.getLiveM3U8(), view, videoAction, liveStream.channel);
+                Playback.playByUrl(activity, video.getStreamUrl(), view, videoAction, video.toString());
             }
         });
     }
@@ -149,12 +149,12 @@ public abstract class BaseActivity extends AppCompatActivity
             public void run() {
                 try {
                     final TreeMap<Integer, String> s;
-                    int group = Station.getGroupFromName(episode.getStationTitle());
+                    int group = StationOld.getGroupFromName(episode.getStationTitle());
                     switch (group) {
-                        case Station.ARTE_GROUP:
+                        case StationOld.ARTE_GROUP:
                             s = (new Arte()).getVodUrls(episode.getAssetId());
                             break;
-                        case Station.ZDF_GROUP:
+                        case StationOld.ZDF_GROUP:
                             s = ZdfUtils.getVideoUrl(view.getContext(), episode.getAssetId());
                             break;
                         default:
@@ -201,7 +201,7 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     @Override
-    public void onChannelClicked(Station station, View view) {
+    public void onChannelClicked(StationOld station, View view) {
         if (station == null) return;
         Toast.makeText(this, station.title, Toast.LENGTH_SHORT).show();
     }
@@ -223,7 +223,7 @@ public abstract class BaseActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    void startChannelActivity(Station station) {
+    void startChannelActivity(StationOld station) {
         if (station == null) return;
         Intent intent = new Intent(this, ChannelActivity.class);
         intent.putExtra(ChannelActivity.INTENT_STATION_TITLE, station.title);

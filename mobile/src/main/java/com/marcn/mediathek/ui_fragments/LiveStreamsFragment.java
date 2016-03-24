@@ -13,10 +13,12 @@ import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.LiveStreamAdapter;
+import com.marcn.mediathek.adapter.LiveStreamAdapter2;
 import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.base_objects.LiveStream;
+import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
 import com.marcn.mediathek.base_objects.LiveStreams;
+import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.stations.ZdfGroup;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.EpgUtils;
@@ -25,6 +27,11 @@ import com.marcn.mediathek.utils.XmlParser;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
+
 public class LiveStreamsFragment extends Fragment {
     public static String FRAGMENT_TAG = "livestream-fragment";
 
@@ -32,7 +39,7 @@ public class LiveStreamsFragment extends Fragment {
     private int mColumnCount = 2;
     private OnVideoInteractionListener mListener;
     private LiveStreams mLiveStreams;
-    private LiveStreamAdapter mLiveStreamAdapter;
+    private LiveStreamAdapter2 mLiveStreamAdapter;
 
     public LiveStreamsFragment() {
     }
@@ -67,103 +74,41 @@ public class LiveStreamsFragment extends Fragment {
         mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                LiveStream l = mLiveStreamAdapter.getItem(position);
-                if (l == null) return 1;
-                if (l.channel.equals(Constants.TITLE_CHANNEL_ZDF)
-                        || l.channel.equals(Constants.TITLE_CHANNEL_ARTE)
-                        || l.channel.equals(Constants.TITLE_CHANNEL_ARD)
-                        || l.channel.equals(Constants.TITLE_CHANNEL_3SAT)
-                        || l.channel.equals(Constants.TITLE_CHANNEL_KIKA))
+                Station s = mLiveStreamAdapter.getItem(position);
+                if (s == null) return 1;
+                if (s.getTitle().equals(Constants.TITLE_CHANNEL_ZDF)
+                        || s.getTitle().equals(Constants.TITLE_CHANNEL_ARTE)
+                        || s.getTitle().equals(Constants.TITLE_CHANNEL_ARD)
+                        || s.getTitle().equals(Constants.TITLE_CHANNEL_3SAT)
+                        || s.getTitle().equals(Constants.TITLE_CHANNEL_KIKA))
                     return mColumnCount;
                 else return 1;
             }
         });
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+        ArrayList<Station> stations = Constants.getAllChannels();
+        for (Station station : stations) {
+            if (station == null) continue;
+            station.fetchCurrentEpisode()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(e -> updateStation(station, e));
+        }
+
         if (mLiveStreamAdapter == null) {
-            mLiveStreams = new LiveStreams(getContext());
-            mLiveStreamAdapter = new LiveStreamAdapter(mLiveStreams, mListener);
+            mLiveStreamAdapter = new LiveStreamAdapter2(stations, mListener);
             mRecyclerView.setAdapter(mLiveStreamAdapter);
         } else {
             mRecyclerView.setAdapter(mLiveStreamAdapter);
         }
-        downloadData2();
 
-        downloadZdfData();
-        downloadArteData();
-        downloadArdData();
         return view;
     }
 
-    private void downloadZdfData() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    final ArrayList<LiveStream> ls = XmlParser.getZDFLiveStreamData2(getContext(), mLiveStreams.getGroup(LiveStream.ZDF_MAIN_GROUP));
-                    EpgUtils.getLiveStreamEpgNow(ls);
-                    if (getActivity() == null || ls == null) return;
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mLiveStreamAdapter.updateZdfValues(ls);
-                        }
-                    });
-                } catch (IOException ignored) {
-                }
-            }
-        }).start();
-    }
-
-    private void downloadArteData() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final LiveStream l = XmlParser.arteLiveStreamData(getContext(), mLiveStreams.getArteLiveStream());
-                EpgUtils.getLiveStreamEpgNow(l);
-                if (getActivity() == null) return;
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mLiveStreamAdapter.updateArteValue(l);
-                    }
-                });
-            }
-        }).start();
-    }
-
-    private void downloadData2() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                ZdfGroup channel = new ZdfGroup(Constants.TITLE_CHANNEL_ZDF);
-                final LiveStreamM3U8 l = channel.getLiveStream();
-                final Episode episode = channel.getCurrentEpisode();
-                if (getActivity() == null) return;
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                    }
-                });
-            }
-        }).start();
-    }
-
-    private void downloadArdData() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final ArrayList<LiveStream> ls = XmlParser.ardLiveStreamsData(getContext(), mLiveStreams.getGroup(LiveStream.ARD_GROUP));
-                EpgUtils.getLiveStreamEpgNow(ls);
-                if (getActivity() == null) return;
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mLiveStreamAdapter.updateArdValues(ls);
-                    }
-                });
-            }
-        }).start();
+    private void updateStation(Station station, Episode episode) {
+        if (mLiveStreamAdapter != null)
+            mLiveStreamAdapter.updateStation(station, episode);
     }
 
     @Override

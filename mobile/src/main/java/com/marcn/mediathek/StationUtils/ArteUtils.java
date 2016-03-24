@@ -1,12 +1,8 @@
 package com.marcn.mediathek.StationUtils;
 
-import android.content.Context;
 import android.support.annotation.Nullable;
 
-import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.base_objects.Station;
-import com.marcn.mediathek.stations.Arte;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.FormatTime;
 import com.marcn.mediathek.utils.NetworkTasks;
@@ -15,12 +11,7 @@ import com.marcn.mediathek.utils.ParserUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.TreeMap;
 

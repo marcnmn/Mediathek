@@ -2,7 +2,8 @@ package com.marcn.mediathek.utils;
 
 import android.content.Context;
 
-import com.marcn.mediathek.base_objects.Station;
+import com.marcn.mediathek.base_objects.StationOld;
+import com.marcn.mediathek.stations.Station;
 
 import java.util.ArrayList;
 
@@ -60,6 +61,8 @@ public class Constants {
 
     public static final String TITLE_CHANNEL_KIKA = "KiKA";
 
+
+
     public static final String LIVE_STREAM_CHANNEL_ZDF = "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/index_3056_av-p.m3u8?sd=10&amp;dw=0&amp;rebase=on&amp;hdntl=";
     public static final String LIVE_STREAM_CHANNEL_PHOENIX = "http://zdf0910-lh.akamaihd.net/i/de09_v1@392871/master.m3u8";
     public static final String LIVE_STREAM_CHANNEL_ZDF_KULTUR = "http://zdf1112-lh.akamaihd.net/i/de11_v1@392881/master.m3u8?dw=0";
@@ -93,36 +96,61 @@ public class Constants {
     public static final String LIVE_STREAM_EPG_ZDF_NEO_NAME = "zdfneo";
     public static final String LIVE_STREAM_EPG_ARTE_NAME = "arte";
 
+    public static final String[] station_name_list = {
+            TITLE_CHANNEL_ZDF,
+            TITLE_CHANNEL_PHOENIX,
+            TITLE_CHANNEL_ZDF_KULTUR,
+            TITLE_CHANNEL_ZDF_INFO,
+            TITLE_CHANNEL_ZDF_NEO,
+            TITLE_CHANNEL_ARTE,
+            TITLE_CHANNEL_ARD,
+            TITLE_CHANNEL_SWR,
+            TITLE_CHANNEL_NDR,
+            TITLE_CHANNEL_3SAT,
+            TITLE_CHANNEL_WDR,
+            TITLE_CHANNEL_MDR,
+            TITLE_CHANNEL_ARD_ALPHA,
+            TITLE_CHANNEL_BR,
+            TITLE_CHANNEL_SR,
+            TITLE_CHANNEL_HR,
+            TITLE_CHANNEL_TAGESSCHAU};
 
-    public static ArrayList<Station> getBaseChannels(Context c){
-        ArrayList<Station> ls =  new ArrayList<>();
+    public static ArrayList<Station> getAllChannels() {
+        ArrayList<Station> stations = new ArrayList<>();
+        for (String title : station_name_list)
+            stations.add(Station.createStation(title));
+        return stations;
+    }
+
+    public static ArrayList<StationOld> getAllOldChannels(Context c){
+        ArrayList<StationOld> ls =  new ArrayList<>();
         if (c == null) return ls;
 
-        ls.add(new Station(Constants.TITLE_CHANNEL_ZDF)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_ZDF)); // ZDF
 
-        ls.add(new Station(Constants.TITLE_CHANNEL_PHOENIX)); // ZDF
-        ls.add(new Station(Constants.TITLE_CHANNEL_ZDF_KULTUR)); // ZDF
-        ls.add(new Station(Constants.TITLE_CHANNEL_ZDF_INFO)); // ZDF
-        ls.add(new Station(Constants.TITLE_CHANNEL_3SAT)); // ZDF
-        ls.add(new Station(Constants.TITLE_CHANNEL_ZDF_NEO)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_PHOENIX)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_ZDF_KULTUR)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_ZDF_INFO)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_3SAT)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_ZDF_NEO)); // ZDF
 
-        ls.add(new Station(Constants.TITLE_CHANNEL_ARTE)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_ARTE)); // ZDF
 
-        ls.add(new Station(Constants.TITLE_CHANNEL_ARD)); // ZDF
-        ls.add(new Station(Constants.TITLE_CHANNEL_ARD_ALPHA)); // ZDF
-        ls.add(new Station(Constants.TITLE_CHANNEL_TAGESSCHAU)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_ARD)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_ARD_ALPHA)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_TAGESSCHAU)); // ZDF
 
-        ls.add(new Station(Constants.TITLE_CHANNEL_SWR)); // ZDF
-        ls.add(new Station(Constants.TITLE_CHANNEL_WDR)); // ZDF
-        ls.add(new Station(Constants.TITLE_CHANNEL_MDR)); // ZDF
-        ls.add(new Station(Constants.TITLE_CHANNEL_NDR)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_SWR)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_WDR)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_MDR)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_NDR)); // ZDF
 
-        ls.add(new Station(Constants.TITLE_CHANNEL_BR)); // ZDF
-        ls.add(new Station(Constants.TITLE_CHANNEL_SR)); // ZDF
-        ls.add(new Station(Constants.TITLE_CHANNEL_HR)); // ZDF
-        ls.add(new Station(Constants.TITLE_CHANNEL_RBB)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_BR)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_SR)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_HR)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_RBB)); // ZDF
 
-        ls.add(new Station(Constants.TITLE_CHANNEL_KIKA)); // ZDF
+        ls.add(new StationOld(Constants.TITLE_CHANNEL_KIKA)); // ZDF
         return ls;
     }
 }

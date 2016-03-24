@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.stations.ArdGroup;
 import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.stations.ZdfGroup;
 import com.marcn.mediathek.adapter.VideoWidgetAdapter;
@@ -26,6 +27,10 @@ import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.Series;
 
 import java.util.ArrayList;
+
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class VideoWidgetFragment extends Fragment {
     public static final int WIDGET_TYPE_SENDUNG_LAST = 0;
@@ -109,30 +114,39 @@ public class VideoWidgetFragment extends Fragment {
         // TODO nested scrolling in a good manner
         recyclerView.setNestedScrollingEnabled(false);
 
-        downloadVideos();
+        mStation.fetchObsWidgetEpisodes(mHeaderTitle, mAssetId, VIDEO_ITEM_COUNT)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(this::updateAdapter);
+
         return mRootView;
     }
 
-    private void downloadVideos() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final ArrayList<Episode> episodes
-                        = mStation.fetchWidgetEpisodes(mHeaderTitle, mAssetId, VIDEO_ITEM_COUNT);
-                if (getActivity() == null) return;
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (episodes != null) {
-                            mVideoAdapter.updateValues(episodes);
-                            animateInFromBottom();
-                        } else {
-                            removeFragment();
-                        }
-                    }
-                });
-            }
-        }).start();
+//    private void downloadVideos() {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                final ArrayList<Episode> episodes
+//                        = mStation.fetchWidgetEpisodes(mHeaderTitle, mAssetId, VIDEO_ITEM_COUNT);
+//                if (getActivity() == null) return;
+//                getActivity().runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        if (episodes != null) {
+//                            mVideoAdapter.updateValues(episodes);
+//                            animateInFromBottom();
+//                        } else {
+//                            removeFragment();
+//                        }
+//                    }
+//                });
+//            }
+//        }).start();
+//    }
+
+    private void updateAdapter(ArrayList<Episode> episodes) {
+        mVideoAdapter.updateValues(episodes);
+        animateInFromBottom();
     }
 
     @Override

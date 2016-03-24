@@ -12,47 +12,47 @@ public class LiveStreams {
     public final static String ZDF_INFO_ID = "2306126";
     public final static String ZDF_NEO_ID = "1822440";
 
-    public final ArrayList<LiveStream> mLiveStreams;
+    public final ArrayList<Video> mVideos;
 
     public LiveStreams(Context context) {
-        this(LiveStream.getBaseLiveStreams(context));
+        this(Video.getBaseLiveStreams(context));
     }
 
-    public LiveStreams(ArrayList<LiveStream> liveStreams) {
-        this.mLiveStreams = liveStreams;
+    public LiveStreams(ArrayList<Video> videos) {
+        this.mVideos = videos;
     }
 
-    public ArrayList<LiveStream> getGroup(int originId) {
-        ArrayList<LiveStream> ls = new ArrayList<>();
-        for (LiveStream l : mLiveStreams)
+    public ArrayList<Video> getGroup(int originId) {
+        ArrayList<Video> ls = new ArrayList<>();
+        for (Video l : mVideos)
             if (l.originChannelId == originId)
                 ls.add(l);
         return ls;
     }
 
     @Nullable
-    public LiveStream getArteLiveStream() {
-        ArrayList<LiveStream> ls = getGroup(LiveStream.ARTE_GROUP);
+    public Video getArteLiveStream() {
+        ArrayList<Video> ls = getGroup(Video.ARTE_GROUP);
         if (ls.size() > 0) return ls.get(0);
         else return null;
     }
 
-    public void pushLiveStream(LiveStream l) {
-        if (mLiveStreams == null || l == null) return;
-        int index = mLiveStreams.indexOf(l);
+    public void pushLiveStream(Video l) {
+        if (mVideos == null || l == null) return;
+        int index = mVideos.indexOf(l);
         if (index < 0)
-            mLiveStreams.add(l);
+            mVideos.add(l);
         else
-            mLiveStreams.set(index, l);
+            mVideos.set(index, l);
     }
 
-    public void pushLiveStreams(ArrayList<LiveStream> ls) {
-        if (mLiveStreams == null || ls == null) return;
-        for (LiveStream l : ls)
+    public void pushLiveStreams(ArrayList<Video> ls) {
+        if (mVideos == null || ls == null) return;
+        for (Video l : ls)
             pushLiveStream(l);
     }
 
-    public static int indexOfId(ArrayList<LiveStream> ls, String id) {
+    public static int indexOfId(ArrayList<Video> ls, String id) {
         for (int i = 0; i < ls.size(); i++)
             if (ls.get(i).id.equals(id))
                 return i;
@@ -60,22 +60,22 @@ public class LiveStreams {
     }
 
     public int indexOfId(String id) {
-        return indexOfId(mLiveStreams, id);
+        return indexOfId(mVideos, id);
     }
 
-    public LiveStream get(int i) {
-        if (mLiveStreams == null || i >= mLiveStreams.size())
+    public Video get(int i) {
+        if (mVideos == null || i >= mVideos.size())
             return null;
         else
-            return mLiveStreams.get(i);
+            return mVideos.get(i);
     }
 
     public int size() {
-        if (mLiveStreams == null) return 0;
-        else return mLiveStreams.size();
+        if (mVideos == null) return 0;
+        else return mVideos.size();
     }
 
-    public static int indexOfName(ArrayList<LiveStream> ls, String name) {
+    public static int indexOfName(ArrayList<Video> ls, String name) {
         for (int i = 0; i < ls.size(); i++)
             if (ls.get(i).channel.equals(name))
                 return i;

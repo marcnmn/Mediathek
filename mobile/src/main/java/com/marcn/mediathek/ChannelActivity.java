@@ -27,7 +27,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.base_objects.LiveStream;
+import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.ui_fragments.SeriesWidgetFragment;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
@@ -44,9 +44,9 @@ public class ChannelActivity extends BaseActivity
     public static final int INT_WIDGET_SERIES = 1;
 //    public static final String INTENT_SENDER_JSON = "station-json";
 
-//    private Station mStation;
+//    private StationOld mStation;
     private Station mStation;
-    private LiveStream mLiveStream;
+    private Video mVideo;
 
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
     private boolean mToolbarIsShown = false;
@@ -106,7 +106,7 @@ public class ChannelActivity extends BaseActivity
             @Override
             public void run() {
                 mCurrentEpisode = mStation.getCurrentEpisode();
-//                mLiveStream = XmlParser.getLivestreamFromChannel(mContext, mStation);
+//                mVideo = XmlParser.getLivestreamFromChannel(mContext, mStation);
                 if (mCurrentEpisode == null) return;
                 runOnUiThread(new Runnable() {
                     @Override
@@ -173,9 +173,9 @@ public class ChannelActivity extends BaseActivity
             });
         }
 
-        if (mThumbnail != null && mCurrentEpisode.getThumb_url() != null)
+        if (mThumbnail != null && mCurrentEpisode.getThumbUrl() != null)
             Picasso.with(mContext)
-                    .load(mCurrentEpisode.getThumb_url())
+                    .load(mCurrentEpisode.getThumbUrl())
 //                    .config(Bitmap.Config.RGB_565)
 //                    .resize(Constants.SIZE_THUMB_BIG_X, Constants.SIZE_THUMB_BIG_Y)
 //                    .onlyScaleDown()
@@ -243,8 +243,8 @@ public class ChannelActivity extends BaseActivity
             mToolbarScrollRange = appBarLayout.getTotalScrollRange();
         }
         if (mToolbarScrollRange + verticalOffset == 0) {
-            if (mLiveStream != null)
-                mCollapsingToolbarLayout.setTitle(mLiveStream.title);
+            if (mVideo != null)
+                mCollapsingToolbarLayout.setTitle(mVideo.title);
             mToolbarIsShown = true;
         } else if (mToolbarIsShown) {
             mCollapsingToolbarLayout.setTitle("");
@@ -276,7 +276,7 @@ public class ChannelActivity extends BaseActivity
 //    }
 }
 
-//    private void setupHeaderView(final LiveStream liveStream) {
+//    private void setupHeaderView(final Video liveStream) {
 //        if (liveStream == null) return;
 //        if (findViewById(R.id.imageChannel) != null)
 //            ((TextView) findViewById(R.id.imageChannel)).setText(mStation.title);

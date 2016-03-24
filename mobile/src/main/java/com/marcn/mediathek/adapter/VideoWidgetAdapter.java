@@ -59,7 +59,7 @@ public class VideoWidgetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             Context context = holder.mView.getContext();
 
             // Thumbnail Image
-            String thumb = holder.mItem.getThumb_url();
+            String thumb = holder.mItem.getThumbUrl();
             if (thumb == null || thumb.isEmpty())
                 holder.mThumb.setImageResource(R.drawable.placeholder_stream);
             else

@@ -2,10 +2,8 @@ package com.marcn.mediathek.utils;
 
 import android.support.annotation.Nullable;
 
-import com.marcn.mediathek.StationUtils.ArdUtils;
 import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.base_objects.LiveStream;
-import com.marcn.mediathek.base_objects.Station;
+import com.marcn.mediathek.base_objects.Video;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,32 +13,32 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class EpgUtils {
-    public static ArrayList<LiveStream> getLiveStreamEpgNow(ArrayList<LiveStream> ls) {
-        for (LiveStream l : ls)
+    public static ArrayList<Video> getLiveStreamEpgNow(ArrayList<Video> ls) {
+        for (Video l : ls)
             getLiveStreamEpgNow(l);
         return ls;
     }
 
-    public static LiveStream getLiveStreamEpgNow(LiveStream l) {
+    public static Video getLiveStreamEpgNow(Video l) {
 //        if (l.stationObject == null || l.stationObject.getGroup() < 0) return l;
 //        try {
 //            switch (l.stationObject.getGroup()) {
-//                case Station.ZDF_GROUP:
+//                case StationOld.ZDF_GROUP:
 //                    return getZDFLiveStreamEpgNow(l);
-//                case Station.ARTE_GROUP:
+//                case StationOld.ARTE_GROUP:
 //                    return getZDFLiveStreamEpgNow(l);
-//                case Station.ARD_GROUP:
+//                case StationOld.ARD_GROUP:
 //                    return ArdUtils.getARDLiveStreamEpgNow(l);
 //            }
 //        } catch (IOException ignored) {}
         return l;
     }
 
-    public static LiveStream getZDFLiveStreamEpgNow(LiveStream l) throws IOException {
+    public static Video getZDFLiveStreamEpgNow(Video l) throws IOException {
         return getZDFLiveStreamEpgNow(l, 0);
     }
 
-    public static LiveStream getZDFLiveStreamEpgNow(LiveStream l, int entry) throws IOException {
+    public static Video getZDFLiveStreamEpgNow(Video l, int entry) throws IOException {
         String url = l.getLiveEPGURL();
         JSONObject json = NetworkTasks.downloadJSONData(url);
         try {
@@ -62,7 +60,7 @@ public class EpgUtils {
             if (cEndTime != null && cEndTime.before(Calendar.getInstance()))
                 return getZDFLiveStreamEpgNow(l, entry + 1);
 
-            // Update LiveStream Data
+            // Update Video Data
             if (cTime != null && cEndTime != null) {
                 episode.setStartTime(cTime);
                 long length = cEndTime.getTimeInMillis() - cTime.getTimeInMillis();
@@ -99,7 +97,7 @@ public class EpgUtils {
             if (cEndTime != null && cEndTime.before(Calendar.getInstance()))
                 return getZDFLiveEpisode(url, entry + 1);
 
-            // Update LiveStream Data
+            // Update Video Data
             if (cTime != null && cEndTime != null) {
                 episode.setStartTime(cTime);
                 long length = cEndTime.getTimeInMillis() - cTime.getTimeInMillis();

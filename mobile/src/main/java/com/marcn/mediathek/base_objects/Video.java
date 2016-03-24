@@ -8,7 +8,7 @@ import com.marcn.mediathek.stations.Station;
 
 import java.util.ArrayList;
 
-public class LiveStream {
+public class Video {
     public final static int ZDF_MAIN_GROUP = 1617708;
     public final static int ZDF_REST_GROUP = 1822520;
     public final static int ARTE_GROUP = 2;
@@ -48,42 +48,42 @@ public class LiveStream {
     private Episode currentEpisode;
     public Station stationObject;
 
-    public static ArrayList<LiveStream> getBaseLiveStreams (Context c){
-        ArrayList<LiveStream> ls =  new ArrayList<>();
+    public static ArrayList<Video> getBaseLiveStreams (Context c){
+        ArrayList<Video> ls =  new ArrayList<>();
         if (c == null) return ls;
 
-        ls.add(new LiveStream("2639200", c.getString(R.string.zdf_name), ZDF_MAIN_GROUP)); // ZDF
+        ls.add(new Video("2639200", c.getString(R.string.zdf_name), ZDF_MAIN_GROUP)); // ZDF
 
-        ls.add(new LiveStream("2492878", c.getString(R.string.phoenix_name), ZDF_MAIN_GROUP)); // PHOENIX
-        ls.add(new LiveStream("1822544", c.getString(R.string.zdf_kultur_name), ZDF_MAIN_GROUP)); // ZDF KULTUR
-        ls.add(new LiveStream("2306126", c.getString(R.string.zdf_info_name), ZDF_MAIN_GROUP)); // ZDF INFO
-        ls.add(new LiveStream("1822440", c.getString(R.string.zdf_neo_name), ZDF_MAIN_GROUP)); // ZDF NEO
+        ls.add(new Video("2492878", c.getString(R.string.phoenix_name), ZDF_MAIN_GROUP)); // PHOENIX
+        ls.add(new Video("1822544", c.getString(R.string.zdf_kultur_name), ZDF_MAIN_GROUP)); // ZDF KULTUR
+        ls.add(new Video("2306126", c.getString(R.string.zdf_info_name), ZDF_MAIN_GROUP)); // ZDF INFO
+        ls.add(new Video("1822440", c.getString(R.string.zdf_neo_name), ZDF_MAIN_GROUP)); // ZDF NEO
 
-        ls.add(new LiveStream("6", c.getString(R.string.arte_name), ARTE_GROUP)); //ARTE
+        ls.add(new Video("6", c.getString(R.string.arte_name), ARTE_GROUP)); //ARTE
 
-        ls.add(new LiveStream("208", c.getString(R.string.ard_name), ARD_GROUP, ARD_QUERY));  // ARD
-        ls.add(new LiveStream("5904", c.getString(R.string.swr_name), ARD_GROUP, SWR_QUERY));  // SWR
-        ls.add(new LiveStream("21518352", c.getString(R.string.ndr_name), ARD_GROUP, NDR_QUERY));  // NDR
+        ls.add(new Video("208", c.getString(R.string.ard_name), ARD_GROUP, ARD_QUERY));  // ARD
+        ls.add(new Video("5904", c.getString(R.string.swr_name), ARD_GROUP, SWR_QUERY));  // SWR
+        ls.add(new Video("21518352", c.getString(R.string.ndr_name), ARD_GROUP, NDR_QUERY));  // NDR
 
-        ls.add(new LiveStream("5900", c.getString(R.string.drei_sat_name), ARD_GROUP, DREI_SAT_QUERY));  // 3SAT
+        ls.add(new Video("5900", c.getString(R.string.drei_sat_name), ARD_GROUP, DREI_SAT_QUERY));  // 3SAT
 
-        ls.add(new LiveStream("1386804", c.getString(R.string.mdr_name), ARD_GROUP, MDR_QUERY));  // MDR
-        ls.add(new LiveStream("5902", c.getString(R.string.wdr_name), ARD_GROUP, WDR_QUERY));  // WDR
+        ls.add(new Video("1386804", c.getString(R.string.mdr_name), ARD_GROUP, MDR_QUERY));  // MDR
+        ls.add(new Video("5902", c.getString(R.string.wdr_name), ARD_GROUP, WDR_QUERY));  // WDR
 
-        ls.add(new LiveStream("5868", c.getString(R.string.ard_alpha_name), ARD_GROUP, ARD_ALPHA_QUERY));  // ARD-alpha
-        ls.add(new LiveStream("21518950", c.getString(R.string.br_name), ARD_GROUP, BR_QUERY));  // BR
-        ls.add(new LiveStream("21518358", c.getString(R.string.rbb_name), ARD_GROUP, RBB_QUERY));  // RBB
-        ls.add(new LiveStream("5870", c.getString(R.string.sr_name), ARD_GROUP, SR_QUERY));  // SR
-        ls.add(new LiveStream("5878", c.getString(R.string.tagesschau_name), ARD_GROUP, TAGESSCHAU_QUERY));  // TAGESSCHAU24
-        ls.add(new LiveStream("5886", c.getString(R.string.kika_name), ARD_GROUP, KIKA_QUERY));  // KIKA
+        ls.add(new Video("5868", c.getString(R.string.ard_alpha_name), ARD_GROUP, ARD_ALPHA_QUERY));  // ARD-alpha
+        ls.add(new Video("21518950", c.getString(R.string.br_name), ARD_GROUP, BR_QUERY));  // BR
+        ls.add(new Video("21518358", c.getString(R.string.rbb_name), ARD_GROUP, RBB_QUERY));  // RBB
+        ls.add(new Video("5870", c.getString(R.string.sr_name), ARD_GROUP, SR_QUERY));  // SR
+        ls.add(new Video("5878", c.getString(R.string.tagesschau_name), ARD_GROUP, TAGESSCHAU_QUERY));  // TAGESSCHAU24
+        ls.add(new Video("5886", c.getString(R.string.kika_name), ARD_GROUP, KIKA_QUERY));  // KIKA
         return ls;
     }
 
-    public LiveStream(String id, String channel, int originChannelId) {
+    public Video(String id, String channel, int originChannelId) {
         this(id, channel, originChannelId, channel);
     }
 
-    public LiveStream(String id, String channel, int originChannelId, String queryName) {
+    public Video(String id, String channel, int originChannelId, String queryName) {
         this.id = id;
         this.channel = channel;
         this.stationObject = Station.createStation(channel);
@@ -175,9 +175,9 @@ public class LiveStream {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof LiveStream))
+        if (!(o instanceof Video))
             return false;
-        LiveStream ls = (LiveStream) o;
+        Video ls = (Video) o;
         return ls.channel.equals(this.channel);
     }
 

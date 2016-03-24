@@ -22,6 +22,8 @@ public class Episode {
     private boolean isHeader;
     private boolean isLive;
 
+    private Video video;
+
     private String remainingTime;
 
     // Additional information
@@ -110,7 +112,7 @@ public class Episode {
         this.description = description;
     }
 
-    public String getThumb_url() {
+    public String getThumbUrl() {
         return thumb_url;
     }
 
@@ -203,5 +205,13 @@ public class Episode {
 
     public String getStationTitle() {
         return stationTitle;
+    }
+
+    public Video getVideo() {
+        return video;
+    }
+
+    public void setVideo(Video video) {
+        this.video = video;
     }
 }

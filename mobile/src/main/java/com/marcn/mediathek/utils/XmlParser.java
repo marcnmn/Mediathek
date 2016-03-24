@@ -4,8 +4,8 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.stations.Station;
-import com.marcn.mediathek.base_objects.LiveStream;
 import com.marcn.mediathek.base_objects.LiveStreams;
 
 import org.json.JSONException;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class XmlParser {
 
     // LiveStreams
-    public static ArrayList<LiveStream> getZDFLiveStreamData2(Context c, ArrayList<LiveStream> ls) throws IOException {
+    public static ArrayList<Video> getZDFLiveStreamData2(Context c, ArrayList<Video> ls) throws IOException {
         String url = c.getString(R.string.zdf_live_api);
         Document d = Jsoup.connect(url).get();
 
@@ -50,30 +50,30 @@ public class XmlParser {
     }
 
     @Nullable
-    public static LiveStream getLivestreamFromChannel(Context context, Station station) {
-        LiveStream liveStream = null;
+    public static Video getLivestreamFromChannel(Context context, Station station) {
+        Video video = null;
         switch (station.getTitle()) {
             case Constants.TITLE_CHANNEL_ARD:
-                liveStream = ardLiveStreamsData(context, station);
+                video = ardLiveStreamsData(context, station);
                 break;
             case Constants.TITLE_CHANNEL_ARTE:
-                liveStream = arteLiveStreamData(context, station);
+                video = arteLiveStreamData(context, station);
                 break;
             default:
-                liveStream = getZDFLiveStreamData(context, station);
+                video = getZDFLiveStreamData(context, station);
                 break;
         }
-        return liveStream;
+        return video;
     }
 
     @Nullable
-    public static LiveStream getZDFLiveStreamData(Context context, Station station) {
+    public static Video getZDFLiveStreamData(Context context, Station station) {
         String url = context.getString(R.string.zdf_live_api);
         return getZDFLiveStreamData(url, station.getTitle());
     }
 
     @Nullable
-    public static LiveStream getZDFLiveStreamData(String url, String titie) {
+    public static Video getZDFLiveStreamData(String url, String titie) {
         Document d;
         try {
             d = Jsoup.connect(url).get();
@@ -84,7 +84,7 @@ public class XmlParser {
         if (d == null || titie == null)
             return null;
 
-        LiveStream liveStream = null;
+        Video video = null;
         Elements elements = d.getElementsByTag("teaser");
         for (Element el : elements.select("teaser[member=onAir]")) {
             try {
@@ -96,28 +96,28 @@ public class XmlParser {
                 int originChannelId = getIntegerByTag(el, "originChannelId");
 
                 if (titie.equals(channelName)) {
-                    liveStream = new LiveStream(assetId, channelName, originChannelId);
-                    liveStream.detail = detail;
-                    liveStream.thumb_url = thumb;
-                    liveStream.title = title;
+                    video = new Video(assetId, channelName, originChannelId);
+                    video.detail = detail;
+                    video.thumb_url = thumb;
+                    video.title = title;
                 }
             } catch (NullPointerException ignored) {
             }
         }
-        return liveStream;
+        return video;
     }
 
-    public static LiveStream arteLiveStreamData(Context c, Station station) {
+    public static Video arteLiveStreamData(Context c, Station station) {
         if (c == null || station == null) return null;
         String url = c.getString(R.string.arte_live_api);
 
-        LiveStream liveStream = new LiveStream("6", c.getString(R.string.arte_name), LiveStream.ARTE_GROUP);
+        Video video = new Video("6", c.getString(R.string.arte_name), Video.ARTE_GROUP);
         try {
             Document doc = Jsoup.connect(url).get();
             String thumbnail = doc.select("div.video-block.has-play > img").attr("src");
-            liveStream.setThumb_url(thumbnail);
-            liveStream.stationObject = station;
-            return liveStream;
+            video.setThumb_url(thumbnail);
+            video.stationObject = station;
+            return video;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -125,7 +125,7 @@ public class XmlParser {
     }
 
 
-    public static LiveStream arteLiveStreamData(Context c, LiveStream l) {
+    public static Video arteLiveStreamData(Context c, Video l) {
         if (c == null) return l;
         String url = c.getString(R.string.arte_live_api);
 
@@ -140,10 +140,10 @@ public class XmlParser {
         return null;
     }
 
-    public static LiveStream ardLiveStreamsData(Context c, Station station) {
+    public static Video ardLiveStreamsData(Context c, Station station) {
         if (c == null) return null;
         return null;
-//        LiveStream liveStream = station.getLiveStream();
+//        Video liveStream = station.getLiveStream();
 //        String url = c.getString(R.string.ard_live_api);
 //        String image_url = c.getString(R.string.ard_live_image_api);
 //        try {
@@ -166,13 +166,13 @@ public class XmlParser {
 //        }
     }
 
-    public static ArrayList<LiveStream> ardLiveStreamsData(Context c, ArrayList<LiveStream> ls) {
+    public static ArrayList<Video> ardLiveStreamsData(Context c, ArrayList<Video> ls) {
         if (c == null) return null;
         String url = c.getString(R.string.ard_live_api);
         String image_url = c.getString(R.string.ard_live_image_api);
         try {
             Document doc = Jsoup.connect(url).get();
-            for (LiveStream l : ls) {
+            for (Video l : ls) {
                 String thumb;
                 try {
                     String json = doc.select("a[href=/tv/" + l.queryName + "/live?kanal=" + l.id + "].medialink").select("img.img.hideOnNoScript").attr("data-ctrl-image");

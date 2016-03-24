@@ -6,20 +6,17 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
-import android.view.View;
 
-import com.marcn.mediathek.base_objects.Station;
+import com.marcn.mediathek.base_objects.StationOld;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
 import com.marcn.mediathek.ui_fragments.SendungenAbisZFragment;
 import com.marcn.mediathek.ui_fragments.ZdfMissedVideoFragment;
-import com.marcn.mediathek.utils.Constants;
 
 public class MainActivity extends BaseActivity {
 
@@ -82,14 +79,14 @@ public class MainActivity extends BaseActivity {
             loadCleanFragment(new SendungenAbisZFragment());
         }
 
-        Station station = null;
+        StationOld station = null;
         switch (id) {
-            case R.id.nav_zdf: station = new Station(getString(R.string.zdf_name)); break;
-            case R.id.nav_ard: station = new Station(getString(R.string.ard_name)); break;
-            case R.id.nav_swr: station = new Station(getString(R.string.swr_name)); break;
-            case R.id.nav_zdf_neo: station = new Station(getString(R.string.zdf_neo_name)); break;
-            case R.id.nav_arte: station = new Station(getString(R.string.arte_name)); break;
-            case R.id.nav_zdf_info: station = new Station(getString(R.string.zdf_info_name)); break;
+            case R.id.nav_zdf: station = new StationOld(getString(R.string.zdf_name)); break;
+            case R.id.nav_ard: station = new StationOld(getString(R.string.ard_name)); break;
+            case R.id.nav_swr: station = new StationOld(getString(R.string.swr_name)); break;
+            case R.id.nav_zdf_neo: station = new StationOld(getString(R.string.zdf_neo_name)); break;
+            case R.id.nav_arte: station = new StationOld(getString(R.string.arte_name)); break;
+            case R.id.nav_zdf_info: station = new StationOld(getString(R.string.zdf_info_name)); break;
         }
         if (station != null)
             startChannelActivity(station);

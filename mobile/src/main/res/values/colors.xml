@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FA7D19</color>
-    <color name="colorPrimaryDark">#ea6800</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#353535</color>
+    <color name="colorPrimaryDark">#2b2b2b</color>
+    <color name="colorAccent">#78f1b6</color>
+
+    <color name="colorTimeBackground">#58000000</color>
 
     <color name="colorPlayerChooser">#cecece</color>
     <color name="colorSendungBackground">#e2e2e2</color>

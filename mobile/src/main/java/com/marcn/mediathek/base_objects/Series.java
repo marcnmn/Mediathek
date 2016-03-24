@@ -6,7 +6,7 @@ public class Series {
     private String thumb_url;
     private String stationTitle;
     private String episodesInfo;
-    public Station station;
+    public StationOld station;
     public boolean isHeader;
     private boolean isHidden;
 
@@ -23,7 +23,7 @@ public class Series {
         this.member = member;
 
         this.stationTitle = channel;
-        this.station = new Station(channel);
+        this.station = new StationOld(channel);
     }
 
     public Series(String title) {

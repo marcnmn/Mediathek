@@ -10,11 +10,14 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
+import rx.Observable;
+
 public abstract class Station {
     protected String title;
     protected LinkedHashMap<String, String> top_level_categories;
     protected LinkedHashMap<String, String> series_widgets;
     protected LinkedHashMap<String, String> episode_widgets;
+    protected Episode currentEpisode2;
 
     public static Station createStation(String title) {
         if (title == null) return null;
@@ -49,11 +52,15 @@ public abstract class Station {
     }
 
     public abstract LiveStreamM3U8 getLiveStream();
+
+    public abstract Observable<Episode> fetchCurrentEpisode();
     public abstract Episode getCurrentEpisode();
 
     public abstract ArrayList<Series> fetchAllSeries(int count, int offset);
 
     public abstract ArrayList<Episode> fetchCategoryEpisodes(String key, int offset, int limit);
+
+    public abstract Observable<ArrayList<Episode>> fetchObsWidgetEpisodes(String key, String assetId, int count);
     public abstract ArrayList<Episode> fetchWidgetEpisodes(String key, String assetId, int count);
     public abstract ArrayList<Series> fetchWidgetSeries(String mHeaderTitle, String mAssetId, int videoItemCount);
     public abstract ArrayList<Episode> fetchSeriesEpisodes(String assetId, int count, int offset);
@@ -95,5 +102,13 @@ public abstract class Station {
 
     public HashMap<String, String> getEpisodeWidgets() {
         return episode_widgets;
+    }
+
+    public Episode getCurrentEpisode2() {
+        return currentEpisode2;
+    }
+
+    public void setCurrentEpisode2(Episode currentEpisode2) {
+        this.currentEpisode2 = currentEpisode2;
     }
 }
