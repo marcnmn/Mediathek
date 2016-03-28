@@ -29,6 +29,15 @@ android {
     }
 }
 
+retrolambda {
+    jdk '/Library/Java/JavaVirtualMachines/jdk1.8.0_77.jdk/Contents/Home'
+    oldJdk '/Library/Java/JavaVirtualMachines/jdk1.8.0_77.jdk/Contents/Home'
+//    javaVersion JavaVersion.VERSION_1_7
+//    jvmArgs '-arg1', '-arg2'
+//    defaultMethods false
+//    incremental true
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'

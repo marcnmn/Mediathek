@@ -70,7 +70,10 @@ public class LiveStreamsFragment extends Fragment {
         if ((getActivity()) != null)
             ((BaseActivity) getActivity()).setActionBarResource(R.string.action_title_live_streams);
 
+        mColumnCount = context.getResources().getInteger(R.integer.live_streams);
+
         GridLayoutManager mLayoutManager = new GridLayoutManager(context, mColumnCount);
+        if (mColumnCount <= 2)
         mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
