@@ -41,7 +41,7 @@ public class ArdGroup extends Station {
     public ArdGroup(String title) {
         this.title = title;
 
-        // Setup Episode - Widgets
+        // Setup Asset - Widgets
         top_level_categories = new LinkedHashMap<>();
         top_level_categories.put(widget_key_neuste, ARD_BASE_URL + "/tv/Neueste-Videos/mehr?documentId=23644268");
         top_level_categories.put(widget_key_ausgewaehlte_filme, ARD_BASE_URL + "/tv/Ausgewählte-Filme/Tipps?documentId=33649088");
@@ -56,7 +56,7 @@ public class ArdGroup extends Station {
         series_widgets.put(widget_key_themen, ARD_BASE_URL + "/tv/Serien/Tipps?documentId=21301810");
         series_widgets.put(widget_key_rubriken, ARD_BASE_URL + "/tv/Serien/Tipps?documentId=21282550");
 
-        // Setup Episode - Widgets
+        // Setup Asset - Widgets
         episode_widgets = new LinkedHashMap<>();
     }
 

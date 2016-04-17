@@ -11,20 +11,17 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.marcn.mediathek.BaseActivity;
+import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.stations.ArdGroup;
 import com.marcn.mediathek.stations.ZdfGroup;
 import com.marcn.mediathek.adapter.VideoAdapter;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.FormatTime;
 import com.marcn.mediathek.utils.LayoutTasks;
-import com.marcn.mediathek.StationUtils.ZdfUtils;
 import com.tonicartos.superslim.LayoutManager;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;

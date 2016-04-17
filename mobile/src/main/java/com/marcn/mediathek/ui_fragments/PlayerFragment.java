@@ -1,6 +1,5 @@
 package com.marcn.mediathek.ui_fragments;
 
-import android.animation.StateListAnimator;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -24,14 +23,12 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.google.android.exoplayer.AspectRatioFrameLayout;
 import com.google.android.exoplayer.ExoPlayer;
 import com.google.android.exoplayer.util.Util;
-import com.marcn.mediathek.BaseActivity;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.player.ExtractorRendererBuilder;
 import com.marcn.mediathek.player.HlsRendererBuilder;

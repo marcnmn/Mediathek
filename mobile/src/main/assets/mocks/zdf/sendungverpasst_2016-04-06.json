@@ -1,0 +1,5269 @@
+{
+	"ergebnis": {
+		"additionalTeaser": false,
+		"teaser": [{
+			"type": "video",
+			"contextLink": "http:\/\/zdfneo.de\/",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg75x52blob\/13152077",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Michael Mosley."
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg476x176blob\/13152076",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Michael Mosley."
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg298x168blob\/13152079",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Michael Mosley."
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg404x227blob\/13152084",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Michael Mosley."
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg276x155blob\/13164016",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Michael Mosley."
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg644x363blob\/13152081",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Michael Mosley."
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg144x81blob\/13152083",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Michael Mosley."
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg485x273blob\/13152071",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Michael Mosley."
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg94x65blob\/13152069",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Michael Mosley."
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg72x54blob\/13152075",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Michael Mosley."
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg173x120blob\/13152070",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Michael Mosley."
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg236x133blob\/13152080",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Michael Mosley."
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg116x54blob\/13152073",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Michael Mosley."
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg672x378blob\/13152082",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Michael Mosley."
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2382392\/timg946x532blob\/13152085",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Michael Mosley."
+				}
+			},
+			"titel": "Wer hat\u0027s erfunden? - Kommunikation",
+			"beschreibung": "Was gab Erfindern den n\u00f6tigen Geistesblitz? Welche unglaublichen Geschichten tummeln sich um diese Erfindungen? Was ist wahr, was ist Mythos? Und wie funktionieren diese Erfindungen eigentlich?",
+			"id": "2382392",
+			"length": 1920,
+			"airtime": "06.04.2016 06:00",
+			"timetolive": "13.04.2016 23:59",
+			"channel": "ZDFneo",
+			"originChannelId": 180,
+			"originChannelTitle": "Dokumentation",
+			"otherChannels": [2298110, 2298120, 857392],
+			"member": "morgens"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/www.zdf.de\/terra-x\/marco-polo-entdecker-oder-luegner-dokumentation-38447178.html",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg75x52blob\/11506854",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg476x176blob\/11506853",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg298x168blob\/11506856",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg404x227blob\/11506861",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg276x155blob\/11506849",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg644x363blob\/11506858",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg144x81blob\/11506860",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg485x273blob\/11506848",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg94x65blob\/11506846",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg72x54blob\/11506852",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg173x120blob\/11506847",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg236x133blob\/11506857",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg116x54blob\/11506850",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg672x378blob\/11506859",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2404042\/timg946x532blob\/11506862",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Marco Polo (Ben Braun)"
+				}
+			},
+			"titel": "Marco Polo - Entdecker oder L\u00fcgner?",
+			"beschreibung": "War Marco Polo, der ber\u00fchmteste Fernreisende der Weltgeschichte, wirklich im China des 13. Jahrhunderts? Noch immer bezweifeln einige Forscher das. Jetzt haben Wissenschaftler Beweise gefunden.",
+			"id": "2404042",
+			"length": 2580,
+			"airtime": "06.04.2016 06:30",
+			"timetolive": "07.06.2025 19:30",
+			"channel": "ZDFneo",
+			"originChannelId": 330,
+			"originChannelTitle": "Terra X",
+			"otherChannels": [570, 2298120, 2298110],
+			"member": "morgens"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg75x52blob\/13029690",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg476x176blob\/13029689",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg298x168blob\/13029692",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg404x227blob\/13029697",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg276x155blob\/13029685",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg644x363blob\/13029694",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg144x81blob\/13029696",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg485x273blob\/13029684",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg94x65blob\/13029682",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg72x54blob\/13029688",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg173x120blob\/13029683",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg236x133blob\/13029693",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg116x54blob\/13029686",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg672x378blob\/13029695",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596152\/timg946x532blob\/13029698",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "H\u00e4nde am Controller in blauem Licht"
+				}
+			},
+			"titel": "Videospiele: Revolution einer Generation",
+			"beschreibung": "Videospiele f\u00fchren in vielen Familien zu Spannungen. Manchmal sind sie die Ursache f\u00fcr Schulversagen. Viele Eltern verteufeln sie. Doch die Game-Industrie birgt auch kreatives Potenzial.",
+			"id": "2596152",
+			"length": 2580,
+			"airtime": "06.04.2016 07:45",
+			"timetolive": "24.04.2016 23:15",
+			"channel": "ZDFinfo",
+			"originChannelId": 398,
+			"originChannelTitle": "ZDFinfo Doku",
+			"otherChannels": [2298110, 562, 2298126, 558],
+			"member": "morgens"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg75x52blob\/13029130",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg476x176blob\/13029129",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg298x168blob\/13029132",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg404x227blob\/13029137",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg276x155blob\/13029125",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg644x363blob\/13029134",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg144x81blob\/13029136",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg485x273blob\/13029124",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg94x65blob\/13029122",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg72x54blob\/13029128",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg173x120blob\/13029123",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg236x133blob\/13029133",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg116x54blob\/13029126",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg672x378blob\/13029135",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Eines der ersten Handys"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2630650\/timg946x532blob\/13029138",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Eines der ersten Handys"
+				}
+			},
+			"titel": "Das Handy-die mobile Revolution der Welt",
+			"beschreibung": "Die Dokumentation erz\u00e4hlt, wie das Mobiltelefon unser Leben ver\u00e4ndert hat. Wie konnten wir in wenigen Jahrzehnten vom langsamen, gebundenen Menschen zum dynamischen Kommunikationsprofi werden?",
+			"id": "2630650",
+			"length": 2580,
+			"airtime": "06.04.2016 08:30",
+			"timetolive": "24.04.2016 09:30",
+			"channel": "ZDFinfo",
+			"originChannelId": 398,
+			"originChannelTitle": "ZDFinfo Doku",
+			"otherChannels": [2298110, 2298120],
+			"member": "morgens"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/www.zdf.de\/volle-kanne\/prominente-studiogaeste-bei-volle-kanne-5341080.html",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg75x52blob\/13182291",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg476x176blob\/13182290",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg298x168blob\/13182293",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Die H\u00f6hner und Andea Ballschuh"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg404x227blob\/13182298",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg276x155blob\/13182286",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg644x363blob\/13182295",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg144x81blob\/13182297",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg485x273blob\/13182285",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg94x65blob\/13182283",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg72x54blob\/13182289",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg173x120blob\/13182284",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg236x133blob\/13182294",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg116x54blob\/13182287",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg672x378blob\/13182296",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711332\/timg946x532blob\/13182299",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Die H\u00f6hner und Andrea Ballschuh"
+				}
+			},
+			"titel": "Zu Gast bei \u0022Volle Kanne\u0022: die H\u00f6hner",
+			"beschreibung": "Die H\u00f6hner sind die wohl bekannteste Karnevals-Band in Deutschland - mit Andrea Ballschuh sprechen sie \u00fcber ihre Musik.",
+			"id": "2711332",
+			"length": 1500,
+			"airtime": "06.04.2016 09:05",
+			"timetolive": "06.05.2016 11:19",
+			"channel": "ZDF",
+			"originChannelId": 168,
+			"originChannelTitle": "Volle Kanne",
+			"otherChannels": [574],
+			"member": "morgens"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg75x52blob\/13184243",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg476x176blob\/13184242",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg298x168blob\/13184245",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg404x227blob\/13184250",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg276x155blob\/13184238",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg644x363blob\/13184247",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg144x81blob\/13184249",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg485x273blob\/13184237",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg94x65blob\/13184235",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg72x54blob\/13184241",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg173x120blob\/13184236",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg236x133blob\/13184246",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg116x54blob\/13184239",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg672x378blob\/13184248",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2696938\/timg946x532blob\/13184251",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Mann h\u00e4lt ein gro\u00dfes Schild mit der Aufschrift \u0022Chaos Computer Club\u0022"
+				}
+			},
+			"titel": "Hacker, Freaks und Funktion\u00e4re",
+			"beschreibung": "Die Geschichte des Chaos Computer Clubs (CCC) ist gleichsam eine Geschichte der deutschen Digitalisierung.",
+			"id": "2696938",
+			"length": 2580,
+			"airtime": "06.04.2016 09:15",
+			"timetolive": "11.04.2016 23:55",
+			"channel": "ZDFinfo",
+			"originChannelId": 398,
+			"originChannelTitle": "ZDFinfo Doku",
+			"otherChannels": [2298110, 558, 2588770],
+			"member": "morgens"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg75x52blob\/12770614",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg476x176blob\/12770613",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg298x168blob\/12770616",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg404x227blob\/12770621",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg276x155blob\/12770609",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg644x363blob\/12770618",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg144x81blob\/12770620",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg485x273blob\/12770608",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg94x65blob\/12770606",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg72x54blob\/12770612",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg173x120blob\/12770607",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg236x133blob\/12770617",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg116x54blob\/12770610",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg672x378blob\/12770619",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Junger mann spielt counterstrike"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2658536\/timg946x532blob\/12770622",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Junger mann spielt counterstrike"
+				}
+			},
+			"titel": "Killerspiele",
+			"beschreibung": "Kaum ein Wort in der Gaming-Landschaft ist so aufgeladen, kaum eine Debatte wurde so emotional gef\u00fchrt. Wer das Wort h\u00f6rt, denkt an \u0022Counter Strike\u0022, an \u0022Doom\u0022. Doch dahinter verbirgt sich mehr.",
+			"id": "2658536",
+			"length": 2640,
+			"airtime": "06.04.2016 10:00",
+			"timetolive": "28.01.2017 14:37",
+			"channel": "ZDFinfo",
+			"originChannelId": 398,
+			"originChannelTitle": "ZDFinfo Doku",
+			"otherChannels": [2298110, 2298126, 558],
+			"member": "morgens"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg75x52blob\/10981356",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg476x176blob\/10981334",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg298x168blob\/10981358",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg404x227blob\/10981342",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg276x155blob\/10981351",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg644x363blob\/10981360",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg144x81blob\/10981362",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg485x273blob\/10981350",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg94x65blob\/10981327",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg72x54blob\/10981354",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg173x120blob\/10981349",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg236x133blob\/10981338",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg116x54blob\/10981352",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg672x378blob\/10981361",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2340494\/timg946x532blob\/10981343",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "World of Warcraft - Geschichte eines Kult-Spiels Bildausschnitt aus dem Spiel"
+				}
+			},
+			"titel": "WOW- Geschichte eines Kult-Spiels",
+			"beschreibung": "Das PC-Spiel \u0022World of Warcraft\u0022 feiert sein 10-j\u00e4hriges Jubil\u00e4um. Der Suchtfaktor des Rollenspiel-Meilensteins h\u00e4lt bei seinen Fans bis heute an. Eine Reise in das \u0022WoW-Paralleluniversum\u0022.",
+			"id": "2340494",
+			"length": 2580,
+			"airtime": "06.04.2016 10:45",
+			"timetolive": "11.02.2017 01:10",
+			"channel": "ZDFinfo",
+			"originChannelId": 398,
+			"originChannelTitle": "ZDFinfo Doku",
+			"otherChannels": [2298110, 2298120, 558],
+			"member": "morgens"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg75x52blob\/12813232",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg476x176blob\/12813231",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg298x168blob\/12813339",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg404x227blob\/12813239",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg276x155blob\/12813227",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg644x363blob\/12813236",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg144x81blob\/12813343",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg485x273blob\/12813226",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg94x65blob\/12813329",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg72x54blob\/12813335",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg173x120blob\/12813225",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg236x133blob\/12813340",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg116x54blob\/12813333",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg672x378blob\/12813342",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711356\/timg946x532blob\/12813345",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Logo der heute-Nachrichten"
+				}
+			},
+			"titel": "ZDF-heute-Sendung vom 06. April 2016",
+			"beschreibung": "Mit folgenden Themen: EU-Kommission will gemeinsames Asylrecht; Versicherer: Zinsen zu niedrig; Klee-Ausstellung in Paris; Wetter und weiteren Nachrichten.",
+			"id": "2711356",
+			"length": 480,
+			"airtime": "06.04.2016 12:00",
+			"timetolive": "05.04.2017 12:00",
+			"channel": "ZDF",
+			"originChannelId": 166,
+			"originChannelTitle": "ZDF heute",
+			"otherChannels": [1785298],
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg75x52blob\/9039612",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "drehscheibe"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg476x176blob\/9039462",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "drehscheibe"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg298x168blob\/9033030",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "drehscheibe"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg404x227blob\/9029800",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "drehscheibe"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg276x155blob\/9029788",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "drehscheibe"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg644x363blob\/9028219",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "drehscheibe"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg144x81blob\/9029745",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "drehscheibe"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg485x273blob\/9028209",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "drehscheibe"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg94x65blob\/9035056",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "drehscheibe"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg72x54blob\/9039610",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "drehscheibe"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg173x120blob\/9035093",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "drehscheibe"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg236x133blob\/9033031",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "drehscheibe"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg116x54blob\/9029789",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "drehscheibe"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg672x378blob\/9029744",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "drehscheibe"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711138\/timg946x532blob\/9028223",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "drehscheibe"
+				}
+			},
+			"titel": "drehscheibe am 6. April 2016",
+			"beschreibung": "Unsere Themen: Richtiges Verhalten am Unfallort \/ Heringsangeln \/ Falsch getankt",
+			"id": "2711138",
+			"length": 2880,
+			"airtime": "06.04.2016 12:10",
+			"timetolive": "06.04.2017 12:10",
+			"channel": "ZDF",
+			"originChannelId": 428,
+			"originChannelTitle": "drehscheibe",
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg75x52blob\/8741959",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "heute in Deutschland"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg476x176blob\/8747330",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "heute in Deutschland"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg298x168blob\/8742061",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "heute in Deutschland"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg404x227blob\/8747338",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "heute in Deutschland"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg276x155blob\/8747219",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "heute in Deutschland"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg644x363blob\/8742063",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "heute in Deutschland"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg144x81blob\/8741965",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "heute in Deutschland"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg485x273blob\/8741953",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "heute in Deutschland"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg94x65blob\/8742051",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "heute in Deutschland"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg72x54blob\/8742057",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "heute in Deutschland"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg173x120blob\/8747324",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "heute in Deutschland"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg236x133blob\/8741962",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "heute in Deutschland"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg116x54blob\/8741955",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "heute in Deutschland"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg672x378blob\/8747229",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "heute in Deutschland"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711334\/timg946x532blob\/8742067",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "heute in Deutschland"
+				}
+			},
+			"titel": "ZDF heute in Deutschland vom 06.04.2016",
+			"beschreibung": "Mit den Themen: De Maizi\u00e8re l\u00e4sst hoffen - Grenze zu \u00d6sterreich bald wieder offen? \/ Kein Schadenersatz f\u00fcr EnBW \u2013 Gericht weist Klage ab",
+			"id": "2711334",
+			"length": 720,
+			"airtime": "06.04.2016 14:00",
+			"timetolive": "05.04.2017 14:00",
+			"channel": "ZDF",
+			"originChannelId": 1522522,
+			"originChannelTitle": "heute - in Deutschland",
+			"otherChannels": [1785298],
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg75x52blob\/13173416",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg476x176blob\/13173415",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg298x168blob\/13173418",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg404x227blob\/13173423",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg276x155blob\/13173411",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg644x363blob\/13173420",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg144x81blob\/13173422",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg485x273blob\/13173410",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg94x65blob\/13173408",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg72x54blob\/13173414",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg173x120blob\/13173409",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg236x133blob\/13173419",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg116x54blob\/13173412",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg672x378blob\/13173421",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710766\/timg946x532blob\/13173424",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Die K\u00fcchenschlacht vom 6.April 2016"
+				}
+			},
+			"titel": "Die K\u00fcchenschlacht vom 6. April 2016",
+			"beschreibung": "Die Sendung vom 6. April in voller L\u00e4nge.",
+			"id": "2710766",
+			"length": 2520,
+			"airtime": "06.04.2016 14:15",
+			"timetolive": "06.07.2016 15:00",
+			"channel": "ZDF",
+			"originChannelId": 394110,
+			"originChannelTitle": "Die K\u00fcchenschlacht",
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg75x52blob\/13175866",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Screenshot"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg476x176blob\/13175865",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Screenshot"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg298x168blob\/13175868",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Screenshot"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg404x227blob\/13175873",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Screenshot"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg276x155blob\/13175861",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Screenshot"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg644x363blob\/13175870",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Screenshot"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg144x81blob\/13175872",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Screenshot"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg485x273blob\/13175860",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Screenshot"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg94x65blob\/13175858",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Screenshot"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg72x54blob\/13175864",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg173x120blob\/13175859",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Screenshot"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg236x133blob\/13175869",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Screenshot"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg116x54blob\/13175862",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg672x378blob\/13175871",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Screenshot"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711134\/timg946x532blob\/13175874",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Screenshot"
+				}
+			},
+			"titel": "Sehnsuchtsland Brasilien - Von...",
+			"beschreibung": "Brasilien ist eine Nation, die - wie kaum eine andere der Erde - von Einwanderung gepr\u00e4gt ist. So entstand eine einzigartige multi-ethnische Gesellschaft. S\u00fcdamerikakorrespondent Andreas Wunn...",
+			"id": "2711134",
+			"length": 2580,
+			"airtime": "06.04.2016 14:45",
+			"timetolive": "13.04.2016 23:59",
+			"channel": "3sat",
+			"originChannelId": 1514560,
+			"originChannelTitle": "Filme, Dokus \u0026 Kabarett",
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/www.zdf.de\/bares-fuer-rares\/bares-fuer-rares-27797260.html",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg75x52blob\/13177818",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg476x176blob\/13177817",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg298x168blob\/13177820",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg404x227blob\/13177825",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg276x155blob\/13177813",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg644x363blob\/13177822",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg144x81blob\/13177824",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg485x273blob\/13177812",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg94x65blob\/13177810",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg72x54blob\/13177816",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg173x120blob\/13177811",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg236x133blob\/13177821",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg116x54blob\/13177814",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg672x378blob\/13177823",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2707950\/timg946x532blob\/13177826",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "\u0022Bares f\u00fcr Rares\u0022 vom 6.4.16 - Horst Lichter und Experte"
+				}
+			},
+			"titel": "\u0022Bares f\u00fcr Rares\u0022 vom 6. April 2016",
+			"beschreibung": "Die Tr\u00f6del-Show mit Horst Lichter, in der \u0022Sch\u00e4tzchen\u0022 zu Geld gemacht werden.",
+			"id": "2707950",
+			"length": 3120,
+			"airtime": "06.04.2016 15:05",
+			"timetolive": "06.07.2016 11:00",
+			"channel": "ZDF",
+			"originChannelId": 1894606,
+			"originChannelTitle": "Bares f\u00fcr Rares",
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg75x52blob\/13175849",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Screenshot"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg476x176blob\/13175848",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Screenshot"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg298x168blob\/13175851",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Screenshot"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg404x227blob\/13175856",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Screenshot"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg276x155blob\/13175844",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Screenshot"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg644x363blob\/13175853",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Screenshot"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg144x81blob\/13175855",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Screenshot"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg485x273blob\/13175843",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Screenshot"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg94x65blob\/13175841",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Screenshot"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg72x54blob\/13175847",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg173x120blob\/13175842",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Screenshot"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg236x133blob\/13175852",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Screenshot"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg116x54blob\/13175845",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg672x378blob\/13175854",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Screenshot"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711132\/timg946x532blob\/13175857",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Screenshot"
+				}
+			},
+			"titel": "Life\u0027s a Beach - Traumstr\u00e4nde der Welt",
+			"beschreibung": "Das Rauschen der Wellen, das Lachen der Kinder, die Rufe der M\u00f6wen - nirgends f\u00fchlen sich jeden Sommer so viele Menschen so wohl wie am Strand, der gro\u00dfen B\u00fchne unserer Urlaubstr\u00e4ume.",
+			"id": "2711132",
+			"length": 2580,
+			"airtime": "06.04.2016 15:30",
+			"timetolive": "13.04.2016 23:59",
+			"channel": "3sat",
+			"originChannelId": 1514560,
+			"originChannelTitle": "Filme, Dokus \u0026 Kabarett",
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg75x52blob\/10736054",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg476x176blob\/10736053",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg298x168blob\/10736056",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg404x227blob\/10752008",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg276x155blob\/10736049",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg644x363blob\/10736058",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg144x81blob\/10736060",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg485x273blob\/10736048",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg94x65blob\/10736046",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg72x54blob\/10736052",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg173x120blob\/10736047",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg236x133blob\/10736057",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg116x54blob\/10736050",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg672x378blob\/10736059",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711444\/timg946x532blob\/10736062",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "heute in Europa vom 06.04.2016"
+				}
+			},
+			"titel": "heute in Europa vom 06.04.2016",
+			"beschreibung": "Unsere Themen: Schicksalswahl in den Niederlanden - Referendum zu EU-Abkommen mit Ukraine \/ Zu arm f\u00fcr Gro\u00dfbritannien - Neue Visa-Regelung f\u00fcr EU-Ausl\u00e4nder",
+			"id": "2711444",
+			"length": 780,
+			"airtime": "06.04.2016 16:00",
+			"timetolive": "06.04.2017 16:15",
+			"channel": "ZDF",
+			"originChannelId": 246,
+			"originChannelTitle": "ZDF heute in europa",
+			"otherChannels": [1785486],
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg75x52blob\/13175832",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Screenshot"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg476x176blob\/13175831",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Screenshot"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg298x168blob\/13175834",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Screenshot"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg404x227blob\/13175839",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Screenshot"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg276x155blob\/13175827",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Screenshot"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg644x363blob\/13175836",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Screenshot"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg144x81blob\/13175838",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Screenshot"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg485x273blob\/13175826",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Screenshot"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg94x65blob\/13175824",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Screenshot"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg72x54blob\/13175830",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg173x120blob\/13175825",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Screenshot"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg236x133blob\/13175835",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Screenshot"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg116x54blob\/13175828",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg672x378blob\/13175837",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Screenshot"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711130\/timg946x532blob\/13175840",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Screenshot"
+				}
+			},
+			"titel": "17.000 Kilometer KANADA (1-2) -...",
+			"beschreibung": "17.000 Kilometer, sechs Wochen im Sommer, ist das ZDF-Team unterwegs im zweitgr\u00f6\u00dften Land der Erde. Der erste Teil zeigt Kanadas rauen Norden, wo die Menschen der Natur jeden Tag ein Leben abtrotzen.",
+			"id": "2711130",
+			"length": 2580,
+			"airtime": "06.04.2016 16:15",
+			"timetolive": "13.04.2016 23:59",
+			"channel": "3sat",
+			"originChannelId": 1514560,
+			"originChannelTitle": "Filme, Dokus \u0026 Kabarett",
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg75x52blob\/13175815",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Screenshot"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg476x176blob\/13175814",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Screenshot"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg298x168blob\/13175817",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Screenshot"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg404x227blob\/13175822",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Screenshot"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg276x155blob\/13175810",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Screenshot"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg644x363blob\/13175819",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Screenshot"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg144x81blob\/13175821",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Screenshot"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg485x273blob\/13175809",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Screenshot"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg94x65blob\/13175807",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Screenshot"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg72x54blob\/13175813",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg173x120blob\/13175808",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Screenshot"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg236x133blob\/13175818",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Screenshot"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg116x54blob\/13175811",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg672x378blob\/13175820",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Screenshot"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711128\/timg946x532blob\/13175823",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Screenshot"
+				}
+			},
+			"titel": "17.000 Kilometer KANADA (2-2) -...",
+			"beschreibung": "Der zweite Teil von \u002217.000 Kilometer Kanada\u0022 f\u00fchrt das ZDF-Team durch Kanadas wilden, einsamen Westen \u00fcber Vancouver zur\u00fcck nach Montreal.",
+			"id": "2711128",
+			"length": 2580,
+			"airtime": "06.04.2016 16:55",
+			"timetolive": "13.04.2016 23:59",
+			"channel": "3sat",
+			"originChannelId": 1514560,
+			"originChannelTitle": "Filme, Dokus \u0026 Kabarett",
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/www.heute.de",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg75x52blob\/7555812",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg476x176blob\/7555811",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg298x168blob\/7555814",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg404x227blob\/7555819",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg276x155blob\/7556146",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg644x363blob\/7555816",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg144x81blob\/7555818",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg485x273blob\/7556145",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg94x65blob\/7555804",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg72x54blob\/7556149",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg173x120blob\/7555805",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg236x133blob\/7555815",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg116x54blob\/7555808",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg672x378blob\/7555817",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711352\/timg946x532blob\/7556159",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Logo der heute-Nachrichten"
+				}
+			},
+			"titel": "ZDF heute Sendung vom 06. April 2016",
+			"beschreibung": "Mit folgenden Themen: EU: Debatte um einheitliches Asylrecht; Gesetzentwurf gegen Zwangsprostitution; Versicherer: Zinsen zu niedrig; Klee-Ausstellung in Paris; Wetter und weiteren Nachrichten.",
+			"id": "2711352",
+			"length": 660,
+			"airtime": "06.04.2016 17:00",
+			"timetolive": "05.04.2017 17:00",
+			"channel": "ZDF",
+			"originChannelId": 166,
+			"originChannelTitle": "ZDF heute",
+			"otherChannels": [1785298],
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg75x52blob\/13179742",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg476x176blob\/13179741",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg298x168blob\/13179744",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg404x227blob\/13179749",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg276x155blob\/13179737",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg644x363blob\/13179746",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg144x81blob\/13179748",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg485x273blob\/13179736",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg94x65blob\/13179734",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg72x54blob\/13179740",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg173x120blob\/13179735",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg236x133blob\/13179745",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg116x54blob\/13179738",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg672x378blob\/13179747",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711568\/timg946x532blob\/13179750",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Hallo Deutschland am 06. April mit Moderatorin  Sandra Maria Gronewald"
+				}
+			},
+			"titel": "hallo deutschland am 06. April",
+			"beschreibung": "Einige Themen: Dieb \u00fcberf\u00e4llt Spielhalle mit einem Beil; Auto rast in Stra\u00dfencaf\u00e9; Erpressung im Internet; Letzter Schliff f\u00fcr neues XXL-Kreuzfahrtschiff [u.a.]",
+			"id": "2711568",
+			"length": 1980,
+			"airtime": "06.04.2016 17:11",
+			"timetolive": "06.04.2017 16:49",
+			"channel": "ZDF",
+			"originChannelId": 210,
+			"originChannelTitle": "hallo deutschland",
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg75x52blob\/13156461",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg476x176blob\/13156460",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg298x168blob\/13156463",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg404x227blob\/13156468",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg276x155blob\/13156456",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg644x363blob\/13156465",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg144x81blob\/13156467",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg485x273blob\/13156455",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg94x65blob\/13156453",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg72x54blob\/13156459",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg173x120blob\/13156454",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg236x133blob\/13156464",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg116x54blob\/13156457",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg672x378blob\/13156466",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2054790\/timg946x532blob\/13156469",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Nacktbader am M\u00fcggelsee"
+				}
+			},
+			"titel": "Wie die DDR wirklich war (1)",
+			"beschreibung": "Von FDJ bis FKK: Die zweiteilige Dokumentation wagt eine neue Sicht auf das Leben ind er DDR. In der ersten Folge werden die Themen Mangelwirtschaft und Urlaub in der DDR ganz privat betrachtet.",
+			"id": "2054790",
+			"length": 2640,
+			"airtime": "06.04.2016 17:20",
+			"timetolive": "31.12.2016 08:15",
+			"channel": "ZDFinfo",
+			"originChannelId": 398,
+			"originChannelTitle": "ZDFinfo Doku",
+			"otherChannels": [2071342, 2298110, 1208708],
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/www.leuteheute.zdf.de",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg75x52blob\/13179844",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Leute heute"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg476x176blob\/13179843",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Leute heute"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg298x168blob\/13179846",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Leute heute"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg404x227blob\/13179851",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Leute heute"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg276x155blob\/13179839",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Leute heute"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg644x363blob\/13179848",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Leute heute"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg144x81blob\/13179850",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Leute heute"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg485x273blob\/13179838",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Leute heute"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg94x65blob\/13179836",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Leute heute"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg72x54blob\/13179842",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Leute heute"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg173x120blob\/13179837",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Leute heute"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg236x133blob\/13179847",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Leute heute"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg116x54blob\/13179840",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Leute heute"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg672x378blob\/13179849",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Leute heute"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711460\/timg946x532blob\/13179852",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Leute heute"
+				}
+			},
+			"titel": "Leute heute 6.4.2016",
+			"beschreibung": "Deutschland-Premiere von \u0022The Jungle Book\u0022, sch\u00f6ne Nachrichten von Iva Schell, Neuigkeiten von Janet Jackson, Mandy Capristo, die jetzt Grace hei\u00dft sowie die Pet Shop Boys, die Berlin besuchen.",
+			"id": "2711460",
+			"length": 660,
+			"airtime": "06.04.2016 17:44",
+			"timetolive": "13.04.2016 14:19",
+			"channel": "ZDF",
+			"originChannelId": 182,
+			"originChannelTitle": "Leute heute",
+			"otherChannels": [574],
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/sokowismar.zdf.de",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg75x52blob\/13166723",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg476x176blob\/13166453",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg298x168blob\/13166456",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg404x227blob\/13166461",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg276x155blob\/13166449",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg644x363blob\/13166727",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg144x81blob\/13166460",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg485x273blob\/13166448",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg94x65blob\/13166715",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg72x54blob\/13166721",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg173x120blob\/13166716",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg236x133blob\/13166457",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg116x54blob\/13166450",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg672x378blob\/13166728",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2695798\/timg946x532blob\/13166731",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "\u201eSOKO Wismar \u2013 Lebensretter\u201c: Victoria und Bastian Schulz (Ellen Treede, Marc Dresander) stehen in ihrem Garten und werfen den Kommissaren Katrin B\u00f6rensen (Claudia Schmutzler) und Lars P\u00f6hlmann (Dominic Boeer) einen skeptischen Blick zu."
+				}
+			},
+			"titel": "Lebensretter",
+			"beschreibung": "\u0022SOKO Wismar\u0022 vom 06.04.: Unter einer Br\u00fccke wird eine Leiche gefunden. Ist der Mann von der Br\u00fccke gesprungen? Bald stellt sich heraus, dass noch ein zweites Leben durch seinen Tod in Gefahr ist.",
+			"id": "2695798",
+			"length": 2580,
+			"airtime": "06.04.2016 18:05",
+			"timetolive": "06.07.2016 23:59",
+			"channel": "ZDF",
+			"originChannelId": 478,
+			"originChannelTitle": "SOKO Wismar",
+			"otherChannels": [1766312, 618212, 2294676, 2294684],
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg75x52blob\/13180471",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Screenshot"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg476x176blob\/13180470",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Screenshot"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg298x168blob\/13180473",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Screenshot"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg404x227blob\/13180478",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Screenshot"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg276x155blob\/13180466",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Screenshot"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg644x363blob\/13180475",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Screenshot"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg144x81blob\/13180477",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Screenshot"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg485x273blob\/13180465",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Screenshot"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg94x65blob\/13180463",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Screenshot"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg72x54blob\/13180469",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg173x120blob\/13180464",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Screenshot"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg236x133blob\/13180474",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Screenshot"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg116x54blob\/13180467",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg672x378blob\/13180476",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Screenshot"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711780\/timg946x532blob\/13180479",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Screenshot"
+				}
+			},
+			"titel": "nano vom 6. April 2016",
+			"beschreibung": "Die Panama-Papiere \\ Gespr\u00e4ch mit Werner R\u00fcgemer \\ Bananensch\u00e4dling - Den Pilz ersticken \\ Wilde Gene gegen gef\u00e4hrlichen Pilz \\ Pankreaskrebs - Ein extrem gef\u00e4hrlicher Tumor",
+			"id": "2711780",
+			"length": 1680,
+			"airtime": "06.04.2016 18:30",
+			"timetolive": "05.10.2016 23:59",
+			"channel": "3sat",
+			"originChannelId": 1025148,
+			"originChannelTitle": "nano",
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg75x52blob\/13156479",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg476x176blob\/13156478",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg298x168blob\/13156481",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg404x227blob\/13156486",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg276x155blob\/13156474",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg644x363blob\/13156483",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg144x81blob\/13156485",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg485x273blob\/13156473",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg94x65blob\/13156471",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg72x54blob\/13156477",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg173x120blob\/13156472",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg236x133blob\/13156482",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg116x54blob\/13156475",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg672x378blob\/13156484",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2509762\/timg946x532blob\/13156487",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "ein bar-besucher sitzt in einer szene-bar in frankfurt am main."
+				}
+			},
+			"titel": "Genusstrinken und Komasaufen",
+			"beschreibung": "Alkohol macht uns locker, gesellig und geh\u00f6rt scheinbar bei vielen Gelegenheiten dazu. Doch wie bestimmt unser Trinkverhalten unser Verh\u00e4ltnis zu der gesellschaftlich anerkannten Droge?",
+			"id": "2509762",
+			"length": 2520,
+			"airtime": "06.04.2016 18:50",
+			"timetolive": "06.05.2016 19:35",
+			"channel": "ZDFinfo",
+			"originChannelId": 398,
+			"originChannelTitle": "ZDFinfo Doku",
+			"otherChannels": [2298110, 2298126],
+			"member": "mittags"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/www.heute.de",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg75x52blob\/13180694",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg476x176blob\/13180693",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg298x168blob\/13180696",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg404x227blob\/13180701",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg276x155blob\/13180689",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg644x363blob\/13180698",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg144x81blob\/13180700",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg485x273blob\/13180688",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg94x65blob\/13180686",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg72x54blob\/13180692",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg173x120blob\/13180687",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg236x133blob\/13180697",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg116x54blob\/13180690",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg672x378blob\/13180699",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Logo der heute-Nachrichten"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711354\/timg946x532blob\/13180702",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Logo der heute-Nachrichten"
+				}
+			},
+			"titel": "ZDF heute-Sendung vom 06. April 2016",
+			"beschreibung": "Mit folgenden Themen: EU: Debatte um einheitliches Asylrecht; Gesetzentwurf gegen Zwangsprostitution; Whatsapp verschl\u00fcsselt Nachrichten; Sport; Wetter und weiteren Nachrichten.",
+			"id": "2711354",
+			"length": 1140,
+			"airtime": "06.04.2016 19:00",
+			"timetolive": "05.04.2017 19:00",
+			"channel": "ZDF",
+			"originChannelId": 166,
+			"originChannelTitle": "ZDF heute",
+			"otherChannels": [1785298],
+			"member": "abends"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/www.3sat.de\/kulturzeit",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg75x52blob\/13062779",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Screenshot"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg476x176blob\/13062778",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Screenshot"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg298x168blob\/13062781",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Screenshot"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg404x227blob\/13062786",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Screenshot"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg276x155blob\/13062774",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Screenshot"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg644x363blob\/13062783",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Screenshot"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg144x81blob\/13062785",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Screenshot"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg485x273blob\/13062773",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Screenshot"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg94x65blob\/13062771",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Screenshot"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg72x54blob\/13062777",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg173x120blob\/13062772",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Screenshot"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg236x133blob\/13062782",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Screenshot"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg116x54blob\/13062775",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg672x378blob\/13062784",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Screenshot"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711796\/timg946x532blob\/13062787",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Screenshot"
+				}
+			},
+			"titel": "\u0022Kulturzeit\u0022 am 06.04.2016",
+			"beschreibung": "Unsere Themen: Wir sprechen mit dem Philosophen Philipp H\u00fcbl \u00fcber Verstand und Bewusstsein, besuchen die iranische K\u00fcnstlerin Sheida Soleimani und Pina Bauschs Tanztheater in M\u00fcnchen.",
+			"id": "2711796",
+			"length": 2220,
+			"airtime": "06.04.2016 19:20",
+			"timetolive": "07.04.2021 23:59",
+			"channel": "3sat",
+			"originChannelId": 960798,
+			"originChannelTitle": "Kulturzeit",
+			"member": "abends"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/www.zdf.de\/die-spezialisten-im-namen-der-opfer\/die-spezialisten-im-namen-der-opfer-41890700.html",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg75x52blob\/13134633",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg476x176blob\/13134632",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg298x168blob\/13134635",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg404x227blob\/13134640",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg276x155blob\/13134628",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg644x363blob\/13134637",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg144x81blob\/13134639",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg485x273blob\/13134627",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg94x65blob\/13134625",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg72x54blob\/13134631",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg173x120blob\/13134626",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg236x133blob\/13134636",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg116x54blob\/13134629",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg672x378blob\/13134638",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2674200\/timg946x532blob\/13134641",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Dr. Katrin Stoll (Valerie Niehaus) und Kriminalhauptkommissar Mirko Kiefer (David Rott)"
+				}
+			},
+			"titel": "Zersetzt (Folge 10)",
+			"beschreibung": "Ein Mann bringt dem IEK-Team die sterblichen \u00dcberreste seines Bruders und behauptet, die Stasi habe ihn vor 30 Jahren ermordet. Katrin findet an den Knochen tats\u00e4chlich Spuren von Gewalteinwirkung...",
+			"id": "2674200",
+			"length": 2580,
+			"airtime": "06.04.2016 19:35",
+			"timetolive": "06.07.2016 23:59",
+			"channel": "ZDF",
+			"originChannelId": 2648922,
+			"originChannelTitle": "Die Spezialisten - Im Namen der Opfer",
+			"otherChannels": [1859968, 2294676, 2294684],
+			"member": "abends"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/www.zdf.de\/die-spezialisten-im-namen-der-opfer\/die-spezialisten-im-namen-der-opfer-41890700.html",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg75x52blob\/12148844",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg476x176blob\/12155192",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg298x168blob\/12148825",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg404x227blob\/12148830",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg276x155blob\/12148839",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg644x363blob\/12148848",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg144x81blob\/12148829",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg485x273blob\/12148817",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg94x65blob\/12148259",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg72x54blob\/12148842",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg173x120blob\/12148260",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg236x133blob\/12148959",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg116x54blob\/12148819",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg672x378blob\/12148849",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "H\u00f6rfassung"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710778\/timg946x532blob\/12148831",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "H\u00f6rfassung"
+				}
+			},
+			"titel": "H\u00f6rfassung: Zersetzt (Folge 10)",
+			"beschreibung": "Ein Mann bringt dem IEK-Team die sterblichen \u00dcberreste seines Bruders und behauptet, die Stasi habe ihn vor 30 Jahren ermordet. Katrin findet an den Knochen tats\u00e4chlich Spuren von Gewalteinwirkung...",
+			"id": "2710778",
+			"length": 2580,
+			"airtime": "06.04.2016 19:35",
+			"timetolive": "06.07.2016 23:59",
+			"channel": "ZDF",
+			"originChannelId": 2648922,
+			"originChannelTitle": "Die Spezialisten - Im Namen der Opfer",
+			"otherChannels": [1859968, 2294676, 2294684, 2508624],
+			"member": "abends"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg75x52blob\/13181782",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg476x176blob\/13181781",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg298x168blob\/13181784",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg404x227blob\/13181789",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg276x155blob\/13181777",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg644x363blob\/13181786",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg144x81blob\/13181788",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg485x273blob\/13181776",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg94x65blob\/13181774",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg72x54blob\/13181780",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg173x120blob\/13181775",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg236x133blob\/13181785",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg116x54blob\/13181778",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg672x378blob\/13181787",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/70990\/timg946x532blob\/13181790",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "logo! am Mittwochabend",
+			"beschreibung": "Du willst wissen, was in der Welt los ist? Du willst super gut informiert sein? Dann: Hallo bei logo! - deine Kindernachrichten bei KiKA.",
+			"id": "70990",
+			"length": 600,
+			"airtime": "06.04.2016 19:50",
+			"timetolive": "06.01.2020 12:00",
+			"channel": "ZDF",
+			"originChannelId": 158,
+			"originChannelTitle": "logo! (tivi)",
+			"member": "abends"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg75x52blob\/13140416",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Screenshot"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg476x176blob\/13140415",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Screenshot"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg298x168blob\/13140418",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Screenshot"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg404x227blob\/13140423",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Screenshot"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg276x155blob\/13140411",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Screenshot"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg644x363blob\/13140420",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Screenshot"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg144x81blob\/13140422",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Screenshot"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg485x273blob\/13140410",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Screenshot"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg94x65blob\/13140408",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Screenshot"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg72x54blob\/13140414",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg173x120blob\/13140409",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Screenshot"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg236x133blob\/13140419",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Screenshot"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg116x54blob\/13140412",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg672x378blob\/13140421",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Screenshot"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2088264\/timg946x532blob\/13140424",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Screenshot"
+				}
+			},
+			"titel": "Neues aus dem Reich der Mitte: Der Darm",
+			"beschreibung": "Nach neuesten wissenschaftlichen Erkenntnissen l\u00e4sst sich die Menschheit in unterschiedliche Darmgruppen unterteilen: in drei Enterotypen. Die sind, vergleichbar den Blutgruppen, nicht...",
+			"id": "2088264",
+			"length": 2580,
+			"airtime": "06.04.2016 20:15",
+			"timetolive": "07.04.2021 23:59",
+			"channel": "3sat",
+			"originChannelId": 1626954,
+			"originChannelTitle": "Wissenschaftsdoku",
+			"member": "abends"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg75x52blob\/13156531",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Drogen"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg476x176blob\/13156530",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Drogen"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg298x168blob\/13156533",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Drogen"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg404x227blob\/13156538",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Drogen"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg276x155blob\/13156526",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Drogen"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg644x363blob\/13156535",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Drogen"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg144x81blob\/13156537",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Drogen"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg485x273blob\/13156525",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Drogen"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg94x65blob\/13156523",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Drogen"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg72x54blob\/13156529",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Drogen"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg173x120blob\/13156524",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Drogen"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg236x133blob\/13156534",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Drogen"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg116x54blob\/13156527",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Drogen"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg672x378blob\/13156536",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Drogen"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2587126\/timg946x532blob\/13156539",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Drogen"
+				}
+			},
+			"titel": "Die neuen Drogen - Rausch ohne Risiko?",
+			"beschreibung": "Heute sind mehr Drogen im Umlauf als jemals zuvor. Jeder Dritte hat sie schon mal genommen. Was wissen wir eigentlich \u00fcber die Inhalte dieser Pillen und Pulver?",
+			"id": "2587126",
+			"length": 2580,
+			"airtime": "06.04.2016 20:15",
+			"timetolive": "06.05.2016 21:00",
+			"channel": "ZDFinfo",
+			"originChannelId": 398,
+			"originChannelTitle": "ZDFinfo Doku",
+			"otherChannels": [2298110, 2298126],
+			"member": "abends"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/zdfneo.de\/",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg75x52blob\/13147034",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg476x176blob\/13147033",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg298x168blob\/13147036",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg404x227blob\/13147041",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg276x155blob\/13147029",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg644x363blob\/13147038",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg144x81blob\/13147040",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg485x273blob\/13147028",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg94x65blob\/13147026",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg72x54blob\/13147032",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg173x120blob\/13147027",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg236x133blob\/13147037",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg116x54blob\/13147030",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg672x378blob\/13147039",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Frau umarmt Mann"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2680490\/timg946x532blob\/13147042",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Frau umarmt Mann"
+				}
+			},
+			"titel": "Racheengel - Ein eiskalter Plan",
+			"beschreibung": "In einem Hotel in Travem\u00fcnde wird der Gast Brederstein tot in der Badewanne gefunden. Dass Kommissarin Tina Campenhausen den Toten kennt, verschweigt sie ihren Kollegen zun\u00e4chst.",
+			"id": "2680490",
+			"length": 5280,
+			"airtime": "06.04.2016 20:15",
+			"timetolive": "17.04.2016 23:59",
+			"channel": "ZDFneo",
+			"originChannelId": 526,
+			"originChannelTitle": "Der Fernsehfilm der Woche",
+			"otherChannels": [2294676, 857392],
+			"member": "abends"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg75x52blob\/13181742",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg476x176blob\/13181741",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg298x168blob\/13181744",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg404x227blob\/13181749",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg276x155blob\/13181737",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg644x363blob\/13181746",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg144x81blob\/13181748",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg485x273blob\/13181736",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg94x65blob\/13181734",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg72x54blob\/13181740",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg173x120blob\/13181735",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg236x133blob\/13181745",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg116x54blob\/13181738",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg672x378blob\/13181747",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711604\/timg946x532blob\/13181750",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Wolfsburg empf\u00e4ngt Real Madrid."
+				}
+			},
+			"titel": "Champions-League-Sendung vom 6.4.2016",
+			"beschreibung": "Das Viertelfinal-Hinspiel VfL Wolfsburg - Real Madrid. Dazu Interviews und die Analyse sowie Zusammenfassungen von PSG - ManCity, FC Bayern - Benfica und FC Barcelona - Atletico Madrid.",
+			"id": "2711604",
+			"length": 9420,
+			"airtime": "06.04.2016 20:25",
+			"timetolive": "13.04.2016 23:22",
+			"channel": "ZDF",
+			"originChannelId": 2344312,
+			"originChannelTitle": "UEFA Champions League",
+			"otherChannels": [610, 646, 1711902, 1617708],
+			"member": "abends"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/www.heute.de",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg75x52blob\/13180882",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg476x176blob\/13180881",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg298x168blob\/13180884",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg404x227blob\/13180889",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg276x155blob\/13180877",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg644x363blob\/13180886",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg144x81blob\/13180888",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg485x273blob\/13180876",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg94x65blob\/13180874",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg72x54blob\/13180880",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg173x120blob\/13180875",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg236x133blob\/13180885",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg116x54blob\/13180878",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg672x378blob\/13180887",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "ZDF heute journal Logo"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711628\/timg946x532blob\/13180890",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "ZDF heute journal Logo"
+				}
+			},
+			"titel": "ZDF heute journal vom 06. April 2016",
+			"beschreibung": "Mit den Themen: EU-Ukraine-Abkommen - Referendum in den Niederlanden; Gesetz zur Zwangsprostitution - Haftstrafen f\u00fcr Freier; Panama Papers - Razzia in UEFA-Zentrale",
+			"id": "2711628",
+			"length": 600,
+			"airtime": "06.04.2016 21:30",
+			"timetolive": "05.04.2017 21:30",
+			"channel": "ZDF",
+			"originChannelId": 228,
+			"originChannelTitle": "ZDF heute journal",
+			"otherChannels": [1790128],
+			"member": "abends"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg75x52blob\/12970889",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg476x176blob\/12970888",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg298x168blob\/12970891",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg404x227blob\/12970896",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg276x155blob\/12970884",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg644x363blob\/12970893",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg144x81blob\/12970895",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg485x273blob\/12970883",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg94x65blob\/12970881",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg72x54blob\/12970887",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg173x120blob\/12970882",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg236x133blob\/12970892",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg116x54blob\/12970885",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg672x378blob\/12970894",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635648\/timg946x532blob\/12970897",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Banken \u00fcberfiel Siegfried Massat immer nur mit scharfen Waffen. Zu seinen Hochzeiten besa\u00df er ein ganzes Waffenarsenal. Noch heute faszinieren ihn Gewehre und Revolver"
+				}
+			},
+			"titel": "\u00dcberf\u00fchrt: Bankr\u00e4uber Siegfried Massat",
+			"beschreibung": "In der ersten Folge trifft Joe Bausch auf Siegfried Massat, der in den 70er Jahren Banken, Juweliergesch\u00e4fte, Privatwohnungen \u00fcberfiel. Stets ging er dabei mit Akribie und perfekter Vorbereitung vor.",
+			"id": "2635648",
+			"length": 2640,
+			"airtime": "06.04.2016 21:45",
+			"timetolive": "28.12.2016 19:35",
+			"channel": "ZDFinfo",
+			"originChannelId": 398,
+			"originChannelTitle": "ZDFinfo Doku",
+			"otherChannels": [1208748, 2298110],
+			"member": "abends"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg75x52blob\/13182439",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Screenshot"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg476x176blob\/13182438",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Screenshot"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg298x168blob\/13182441",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Screenshot"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg404x227blob\/13182446",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Screenshot"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg276x155blob\/13182434",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Screenshot"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg644x363blob\/13182443",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Screenshot"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg144x81blob\/13182445",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Screenshot"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg485x273blob\/13182433",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Screenshot"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg94x65blob\/13182431",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Screenshot"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg72x54blob\/13182437",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg173x120blob\/13182432",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Screenshot"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg236x133blob\/13182442",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Screenshot"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg116x54blob\/13182435",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Screenshot"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg672x378blob\/13182444",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Screenshot"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712034\/timg946x532blob\/13182447",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Screenshot"
+				}
+			},
+			"titel": "phoenix Runde vom 06.04.2016",
+			"beschreibung": "\u0022Panama-Leaks \u0096 Die Trickserei der Reichen\u0022\n\nZu Gast:\n\n- Georg Mascolo\n- Reinhard Kilmer\n- Prof. Veronika Grimm\n- Dorothea Siems",
+			"id": "2712034",
+			"length": 2700,
+			"airtime": "06.04.2016 22:15",
+			"timetolive": "06.10.2016 22:15",
+			"channel": "Phoenix",
+			"originChannelId": 2341480,
+			"originChannelTitle": "phoenix Runde",
+			"member": "abends"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg75x52blob\/13156566",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Steve Wright"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg476x176blob\/13156565",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Steve Wright"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg298x168blob\/13156568",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Steve Wright"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg404x227blob\/13156573",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Steve Wright"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg276x155blob\/13156561",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Steve Wright"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg644x363blob\/13156570",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Steve Wright"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg144x81blob\/13156572",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Steve Wright"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg485x273blob\/13156560",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Steve Wright"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg94x65blob\/13156558",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Steve Wright"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg72x54blob\/13156564",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Steve Wright"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg173x120blob\/13156559",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Steve Wright"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg236x133blob\/13156569",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Steve Wright"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg116x54blob\/13156562",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Steve Wright"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg672x378blob\/13156571",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Steve Wright"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635586\/timg946x532blob\/13156574",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Steve Wright"
+				}
+			},
+			"titel": "Der M\u00f6rder von nebenan: Steve Wright",
+			"beschreibung": "Die Dokumentation erz\u00e4hlt die Geschichten von aufsehenerregenden F\u00e4llen der britischen Kriminalgeschichte. Aus der Perspektive von T\u00e4tern und Opfern werden die Taten detailliert nachgestellt.",
+			"id": "2635586",
+			"length": 2640,
+			"airtime": "06.04.2016 22:25",
+			"timetolive": "06.05.2016 23:10",
+			"channel": "ZDFinfo",
+			"originChannelId": 398,
+			"originChannelTitle": "ZDFinfo Doku",
+			"otherChannels": [2588770, 1208748, 572, 2298110],
+			"member": "abends"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/www.heute.de",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg75x52blob\/11478727",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "heute+"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg476x176blob\/11448575",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "heute+"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg298x168blob\/11478763",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "heute+"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg404x227blob\/11478751",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "heute+"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg276x155blob\/11478722",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "heute+"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg644x363blob\/11478765",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "heute+"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg144x81blob\/11478750",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "heute+"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg485x273blob\/11478738",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "heute+"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg94x65blob\/11478736",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "heute+ vom 26. Mai 2015"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg72x54blob\/11478759",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "heute+"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg173x120blob\/11479648",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "heute+"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg236x133blob\/11478747",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "heute+"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg116x54blob\/11479651",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "heute+"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg672x378blob\/11479660",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "heute+"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711784\/timg946x532blob\/11478752",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "heute+"
+				}
+			},
+			"titel": "heute+ vom 06. April 2016 - Stream",
+			"beschreibung": "Die Themen: Referendum - Niederl\u00e4nder entscheiden \u00fcber EU-Vertrag mit Ukraine; Salafisten-Prediger - Was geht zu weit?;  Virtual Reality Brille - Reporter im Selbstversuch",
+			"id": "2711784",
+			"length": 1080,
+			"airtime": "06.04.2016 23:00",
+			"timetolive": "05.04.2017 23:00",
+			"channel": "ZDF",
+			"originChannelId": 1427676,
+			"originChannelTitle": "heute plus",
+			"otherChannels": [2404436],
+			"member": "abends"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg75x52blob\/13156584",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg476x176blob\/13156583",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg298x168blob\/13156586",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg404x227blob\/13156591",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg276x155blob\/13156579",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg644x363blob\/13156588",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg144x81blob\/13156590",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg485x273blob\/13156578",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg94x65blob\/13156576",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg72x54blob\/13156582",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg173x120blob\/13156577",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg236x133blob\/13156587",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg116x54blob\/13156580",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg672x378blob\/13156589",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2635606\/timg946x532blob\/13156592",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Dennis Rader in Polizeigewahrsam"
+				}
+			},
+			"titel": "Der Frauenm\u00f6rder von Wichita",
+			"beschreibung": "Die Dokumentation erz\u00e4hlt die Geschichten von aufsehenerregenden F\u00e4llen der britischen Kriminalgeschichte. Aus der Perspektive von T\u00e4tern und Opfern werden die Taten detailliert nachgestellt.",
+			"id": "2635606",
+			"length": 2640,
+			"airtime": "06.04.2016 23:10",
+			"timetolive": "06.05.2016 23:55",
+			"channel": "ZDFinfo",
+			"originChannelId": 398,
+			"originChannelTitle": "ZDFinfo Doku",
+			"otherChannels": [2298110, 2298126],
+			"member": "abends"
+		}, {
+			"type": "video",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg75x52blob\/13177221",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg476x176blob\/13177220",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg298x168blob\/13177791",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg404x227blob\/13177228",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg276x155blob\/13177216",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg644x363blob\/13177225",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg144x81blob\/13177227",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg485x273blob\/13177215",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg94x65blob\/13177213",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg72x54blob\/13177219",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg173x120blob\/13177214",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg236x133blob\/13177224",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg116x54blob\/13177785",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg672x378blob\/13177226",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2710260\/timg946x532blob\/13177229",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Jo Sch\u00fcck im VW K\u00e4fer"
+				}
+			},
+			"titel": "ZDFzoom: \u00dcberlebt Volkswagen?",
+			"beschreibung": "Es wird eng f\u00fcr VW. Seitdem der Abgas-Skandal publiziert wurde, wollen viele den Konzern finanziell bluten sehen. Milliardenklagen, Milliardenstrafen, Milliardenkosten \u2013 gigantische Summen.",
+			"id": "2710260",
+			"length": 1740,
+			"airtime": "06.04.2016 23:15",
+			"timetolive": "05.04.2017 10:05",
+			"channel": "ZDF",
+			"originChannelId": 1315152,
+			"originChannelTitle": "ZDFzoom",
+			"otherChannels": [2298110],
+			"member": "abends"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/markuslanz.zdf.de",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg75x52blob\/13182233",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Pamela Reif"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg476x176blob\/13182232",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Pamela Reif"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg298x168blob\/13182235",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Pamela Reif"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg404x227blob\/13182240",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Pamela Reif"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg276x155blob\/13182228",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Pamela Reif"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg644x363blob\/13182237",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Pamela Reif"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg144x81blob\/13182239",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Pamela Reif"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg485x273blob\/13182227",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Pamela Reif"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg94x65blob\/13182225",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Pamela Reif"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg72x54blob\/13182231",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Pamela Reif"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg173x120blob\/13182226",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Pamela Reif"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg236x133blob\/13182236",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Pamela Reif"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg116x54blob\/13182229",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Pamela Reif"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg672x378blob\/13182238",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Pamela Reif"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2705862\/timg946x532blob\/13182241",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Pamela Reif"
+				}
+			},
+			"titel": "\u0022Markus Lanz\u0022 vom 6. April 2016",
+			"beschreibung": "Zu Gast sind Ex-Fu\u00dfballprofi Sebastian Kehl, Moderator J\u00f6rg Wontorra, Journalist Thomas Kistner, Fitnessmodel Pamela Reif und Hockeyprofi Moritz F\u00fcrste.",
+			"id": "2705862",
+			"length": 4320,
+			"airtime": "06.04.2016 23:45",
+			"timetolive": "07.07.2016 01:00",
+			"channel": "ZDF",
+			"originChannelId": 509418,
+			"originChannelTitle": "Markus Lanz",
+			"member": "abends"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/www.heute.de",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg75x52blob\/11478727",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "heute+"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg476x176blob\/11448575",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "heute+"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg298x168blob\/11478763",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "heute+"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg404x227blob\/11478751",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "heute+"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg276x155blob\/11478722",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "heute+"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg644x363blob\/11478765",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "heute+"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg144x81blob\/11478750",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "heute+"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg485x273blob\/11478738",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "heute+"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg94x65blob\/11478736",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "heute+ vom 26. Mai 2015"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg72x54blob\/11478759",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "heute+"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg173x120blob\/11479648",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "heute+"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg236x133blob\/11478747",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "heute+"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg116x54blob\/11479651",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "heute+"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg672x378blob\/11479660",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "heute+"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2711786\/timg946x532blob\/11478752",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "heute+"
+				}
+			},
+			"titel": "heute+ vom 06. April 2016 - TV",
+			"beschreibung": "Die Themen: Referendum - Niederl\u00e4nder entscheiden \u00fcber EU-Vertrag mit Ukraine; Salafisten-Prediger - Was geht zu weit?;  Virtual Reality Brille - Reporter im Selbstversuch",
+			"id": "2711786",
+			"length": 780,
+			"airtime": "06.04.2016 23:55",
+			"timetolive": "05.04.2017 23:55",
+			"channel": "ZDF",
+			"originChannelId": 1427676,
+			"originChannelTitle": "heute plus",
+			"otherChannels": [2404436],
+			"member": "abends"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/www.heute.de",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg75x52blob\/13193498",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "heute+"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg476x176blob\/13193497",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "heute+"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg298x168blob\/13193500",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "heute+"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg404x227blob\/13193505",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "heute+"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg276x155blob\/13193493",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "heute+"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg644x363blob\/13193502",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "heute+"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg144x81blob\/13193504",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "heute+"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg485x273blob\/13193492",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "heute+"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg94x65blob\/13193490",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "heute+ vom 26. Mai 2015"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg72x54blob\/13193496",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "heute+"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg173x120blob\/13193491",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "heute+"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg236x133blob\/13193501",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "heute+"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg116x54blob\/13193494",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "heute+"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg672x378blob\/13193503",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "heute+"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2712544\/timg946x532blob\/13193506",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "heute+"
+				}
+			},
+			"titel": "heute+ vom 07. April 2016 - TV",
+			"beschreibung": "Die Themen: Neue Erkenntnisse - NSU-Terrorist hat f\u00fcr einen V-Mann gearbeitet; Held oder M\u00f6rder? Israel diskutiert \u00fcber angeklagten Soldaten; Besser-Esser - Wie Veganer die Welt retten.",
+			"id": "2712544",
+			"length": 900,
+			"airtime": "07.04.2016 00:40",
+			"timetolive": "14.04.2017 00:40",
+			"channel": "ZDF",
+			"originChannelId": 1427676,
+			"originChannelTitle": "heute plus",
+			"otherChannels": [2404436],
+			"member": "nachts"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/wilsberg.zdf.de ",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg75x52blob\/13189254",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg476x176blob\/13189253",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg298x168blob\/13189256",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg404x227blob\/13189261",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg276x155blob\/13189249",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg644x363blob\/13189258",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg144x81blob\/13189260",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg485x273blob\/13189248",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg94x65blob\/13189246",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg72x54blob\/13189252",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg173x120blob\/13189247",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg236x133blob\/13189257",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg116x54blob\/13189250",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg672x378blob\/13189259",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2596902\/timg946x532blob\/13189262",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "\u0022Wilsberg  - Bittere Pillen\u0022: Wilsberg (Leonard Lansink) als Testperson von Arzneimitteln in einem Labor."
+				}
+			},
+			"titel": "Wilsberg - Bittere Pillen",
+			"beschreibung": "SEK-Einsatz im Finanzamt M\u00fcnster: Eine Bombe muss entsch\u00e4rft werden. Eine m\u00e4nnliche Reinigungskraft mit Migrationshintergrund wird \u00fcberw\u00e4ltigt, sein Rucksack sichergestellt.",
+			"id": "2596902",
+			"length": 5340,
+			"airtime": "07.04.2016 00:50",
+			"timetolive": "13.04.2016 23:59",
+			"channel": "ZDFneo",
+			"originChannelId": 442,
+			"originChannelTitle": "Wilsberg",
+			"otherChannels": [2294676, 857392],
+			"member": "nachts"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/zdfneo.de\/",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg75x52blob\/13163724",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg476x176blob\/13163723",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg298x168blob\/13163726",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg404x227blob\/13163731",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg276x155blob\/13163719",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg644x363blob\/13163728",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg144x81blob\/13163730",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg485x273blob\/13163718",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg94x65blob\/13163716",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg72x54blob\/13163722",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg173x120blob\/13163717",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg236x133blob\/13163727",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg116x54blob\/13163720",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg672x378blob\/13163729",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676818\/timg946x532blob\/13163732",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Die untergehende Sonne."
+				}
+			},
+			"titel": "Paradiese und Piraten - Folge 1",
+			"beschreibung": "Autor, Moderator und Weltenbummler Simon Reeve bereist in sechs beeindruckenden Folgen 16 L\u00e4nder - von S\u00fcdafrika bis Indonesien. Dabei muss er nicht nur einmal um sein Leben bangen.",
+			"id": "2676818",
+			"length": 2580,
+			"airtime": "07.04.2016 02:20",
+			"timetolive": "13.04.2016 23:59",
+			"channel": "ZDFneo",
+			"originChannelId": 180,
+			"originChannelTitle": "Dokumentation",
+			"otherChannels": [2298110, 2298126, 857392],
+			"member": "nachts"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/zdfneo.de\/",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg75x52blob\/11465034",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg476x176blob\/11465033",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg298x168blob\/11465036",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg404x227blob\/11465041",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg276x155blob\/11465029",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg644x363blob\/11465038",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg144x81blob\/11465040",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg485x273blob\/11465028",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg94x65blob\/11465026",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg72x54blob\/11465032",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg173x120blob\/11465027",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg236x133blob\/11465037",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg116x54blob\/11465030",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg672x378blob\/11465039",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Die untergehende Sonne."
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2676822\/timg946x532blob\/11465042",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Die untergehende Sonne."
+				}
+			},
+			"titel": "Paradiese und Piraten - Folge 2",
+			"beschreibung": "Simon bereist Madagaskar, Mauritius und die Seychellen. Neben traumhaften Korallenriffen und einer spektakul\u00e4ren Tierwelt, entdeckt er eine gro\u00dfe Bedrohung f\u00fcr den Indischen Ozean.",
+			"id": "2676822",
+			"length": 2640,
+			"airtime": "07.04.2016 03:05",
+			"timetolive": "13.04.2016 23:59",
+			"channel": "ZDFneo",
+			"originChannelId": 180,
+			"originChannelTitle": "Dokumentation",
+			"otherChannels": [2298110, 2298126, 857392],
+			"member": "nachts"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/zdfneo.de\/",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg75x52blob\/12906729",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg476x176blob\/12906728",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg298x168blob\/12906731",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg404x227blob\/12906736",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg276x155blob\/12906724",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg644x363blob\/12906733",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg144x81blob\/12906735",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg485x273blob\/12906723",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg94x65blob\/12906721",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg72x54blob\/12906727",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg173x120blob\/12906722",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg236x133blob\/12906732",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg116x54blob\/12906725",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg672x378blob\/12906734",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1976140\/timg946x532blob\/12906737",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Botticellis Meisterwerk \u0022Die Geburt der Venus\u0022 ist ebenfalls in den Uffizien in Florenz ausgestellt."
+				}
+			},
+			"titel": "Akte M. - 3. Uffizien, Florenz",
+			"beschreibung": "Die Uffizien in Florenz gelten als das \u00e4lteste Kunstmuseum der westlichen Welt. Aufgrund ihrer einzigartigen Kunstsch\u00e4tze ziehen sie j\u00e4hrlich \u00fcber eineinhalb Millionen Besucher an.",
+			"id": "1976140",
+			"length": 2460,
+			"airtime": "07.04.2016 03:50",
+			"timetolive": "13.04.2016 23:59",
+			"channel": "ZDFneo",
+			"originChannelId": 180,
+			"originChannelTitle": "Dokumentation",
+			"otherChannels": [2298110, 2298120, 857392],
+			"member": "nachts"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/zdfneo.de\/",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg75x52blob\/13164055",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Jerusalem"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg476x176blob\/13164054",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Jerusalem"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg298x168blob\/13164057",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Jerusalem"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg404x227blob\/13164062",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Jerusalem"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg276x155blob\/13164050",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Jerusalem"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg644x363blob\/13164059",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Jerusalem"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg144x81blob\/13164061",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Jerusalem"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg485x273blob\/13164049",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Jerusalem"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg94x65blob\/13164047",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Jerusalem"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg72x54blob\/13164053",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Jerusalem"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg173x120blob\/13164048",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Jerusalem"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg236x133blob\/13164058",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Jerusalem"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg116x54blob\/13164051",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Jerusalem"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg672x378blob\/13164060",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Jerusalem"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2380812\/timg946x532blob\/13164063",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Jerusalem"
+				}
+			},
+			"titel": "Aufgedeckt - Die Suche nach Jesus Frau",
+			"beschreibung": "Hatte Jesus Christus eine Frau? \u0022Aufgedeckt: Geheimnisse des Altertums\u0022 versucht das Mysterium um Maria Magdalena und einer m\u00f6glichen Frau an Jesus Christus\u0027 Seite zu kl\u00e4ren.",
+			"id": "2380812",
+			"length": 2580,
+			"airtime": "07.04.2016 04:30",
+			"timetolive": "13.04.2016 23:59",
+			"channel": "ZDFneo",
+			"originChannelId": 180,
+			"originChannelTitle": "Dokumentation",
+			"otherChannels": [2298110, 2298120, 857392],
+			"member": "nachts"
+		}, {
+			"type": "video",
+			"contextLink": "http:\/\/zdfneo.de\/",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg75x52blob\/12906786",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg476x176blob\/12906785",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg298x168blob\/12906788",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg404x227blob\/12906793",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg276x155blob\/12906781",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg644x363blob\/12906790",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg144x81blob\/12906792",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg485x273blob\/12906780",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg94x65blob\/12906778",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg72x54blob\/12906784",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg173x120blob\/12906779",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg236x133blob\/12906789",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg116x54blob\/12906782",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg672x378blob\/12906791",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Das Grabtuch von Turin"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2216806\/timg946x532blob\/12906794",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Das Grabtuch von Turin"
+				}
+			},
+			"titel": "Aufgedeckt - Das Grabtuch von Turin",
+			"beschreibung": "Nach der Kreuzigung soll ein Tuch \u00fcber Jesus Christus gelegt worden sein: das Turiner Grabtuch. Es gilt als das einzige Abbild des christlichen Propheten. Doch ist es auch echt?",
+			"id": "2216806",
+			"length": 2580,
+			"airtime": "07.04.2016 05:15",
+			"timetolive": "13.04.2016 23:59",
+			"channel": "ZDFneo",
+			"originChannelId": 180,
+			"originChannelTitle": "Dokumentation",
+			"otherChannels": [2298110, 2298120, 857392],
+			"member": "nachts"
+		}]
+	},
+	"tracking": {
+		"cp": "ZDFde\/0\/",
+		"co": "SendungVerpasst\/SendungVerpasst\/MSendungVerpasst"
+	}
+}

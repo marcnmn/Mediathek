@@ -1,4 +1,4 @@
-package com.marcn.mediathek;
+package com.marcn.mediathek.pages.home;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -13,10 +13,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
 
+import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.StationOld;
+import com.marcn.mediathek.model.asset.Asset;
+import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
 import com.marcn.mediathek.ui_fragments.SendungenAbisZFragment;
 import com.marcn.mediathek.ui_fragments.ZdfMissedVideoFragment;
+import com.marcn.mediathek.utils.NetworkTasks;
+
+import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
@@ -62,11 +68,15 @@ public class MainActivity extends BaseActivity {
                 liveStreamsFragment = LiveStreamsFragment.newInstance(1);
             loadCleanFragment(liveStreamsFragment, R.id.content_main, FRAGMENT_NAME_FIRST_PAGE, LiveStreamsFragment.FRAGMENT_TAG);
         }
+
+        new Thread(() -> {
+            List<Asset> episodes = NetworkTasks.listEpisodes();
+        }).start();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    void navigationIdReceived(int id) {
+    public void navigationIdReceived(int id) {
         if (id == R.id.nav_live) {
             loadCleanFragment(new LiveStreamsFragment(), R.id.content_main, FRAGMENT_NAME_FIRST_PAGE, LiveStreamsFragment.FRAGMENT_TAG);
         } else if (id == R.id.nav_gallery) {
@@ -98,7 +108,7 @@ public class MainActivity extends BaseActivity {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
-    void setExitTransition() {
+    protected void setExitTransition() {
         getWindow().setExitTransition(new Explode());
     }
 }

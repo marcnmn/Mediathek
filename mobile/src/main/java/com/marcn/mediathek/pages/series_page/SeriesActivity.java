@@ -1,4 +1,4 @@
-package com.marcn.mediathek;
+package com.marcn.mediathek.pages.series_page;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -22,6 +22,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.marcn.mediathek.pages.BaseActivity;
+import com.marcn.mediathek.pages.home.MainActivity;
+import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.stations.ArdGroup;
 import com.marcn.mediathek.stations.Station;
@@ -154,8 +157,7 @@ public class SeriesActivity extends BaseActivity {
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    void navigationIdReceived(int id) {
+    public void navigationIdReceived(int id) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(MainActivity.INTENT_LIVE_DRAWER_ITEM, id);
         startActivity(intent);
@@ -196,8 +198,7 @@ public class SeriesActivity extends BaseActivity {
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    void setExitTransition() {
+    protected void setExitTransition() {
         getWindow().setExitTransition(new Explode());
     }
 

@@ -1,4 +1,4 @@
-package com.marcn.mediathek;
+package com.marcn.mediathek.pages;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,16 +22,20 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
+import com.marcn.mediathek.MediathekApplication;
+import com.marcn.mediathek.R;
 import com.marcn.mediathek.StationUtils.ArdUtils;
-import com.marcn.mediathek.base_objects.LiveStreamM3U8;
-import com.marcn.mediathek.base_objects.StationOld;
-import com.marcn.mediathek.base_objects.Video;
-import com.marcn.mediathek.base_objects.Series;
+import com.marcn.mediathek.StationUtils.ZdfUtils;
 import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.base_objects.LiveStreamM3U8;
+import com.marcn.mediathek.base_objects.Series;
+import com.marcn.mediathek.base_objects.StationOld;
+import com.marcn.mediathek.pages.player_page.VideoActivity;
+import com.marcn.mediathek.pages.series_page.SeriesActivity;
+import com.marcn.mediathek.pages.station_page.StationActivity;
 import com.marcn.mediathek.stations.Arte;
 import com.marcn.mediathek.utils.Playback;
 import com.marcn.mediathek.utils.Storage;
-import com.marcn.mediathek.StationUtils.ZdfUtils;
 
 import java.io.IOException;
 import java.util.TreeMap;
@@ -41,18 +46,25 @@ public abstract class BaseActivity extends AppCompatActivity
 
     public static String FRAGMENT_NAME_FIRST_PAGE = "first-fragment";
 
-    abstract void navigationIdReceived(int id);
-    abstract void setExitTransition();
+    public abstract void navigationIdReceived(int id);
+    protected abstract void setExitTransition();
 
-    void loadCleanFragment(Fragment fragment, int containerId) {
+    protected void loadCleanFragment(Fragment fragment, int containerId) {
         loadCleanFragment(fragment, containerId, "0");
     }
 
-    void loadCleanFragment(Fragment fragment, int containerId, String name) {
+    protected void loadCleanFragment(Fragment fragment, int containerId, String name) {
         loadCleanFragment(fragment, containerId, name, name);
     }
 
-    void loadCleanFragment(Fragment fragment, int containerId, String name, String tag) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Perform injection so that when this call returns all dependencies will be available for use.
+        ((MediathekApplication) getApplication()).component().inject(this);
+    }
+
+    protected void loadCleanFragment(Fragment fragment, int containerId, String name, String tag) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         transaction.replace(containerId, fragment, tag);
@@ -223,10 +235,10 @@ public abstract class BaseActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    void startChannelActivity(StationOld station) {
+    public void startChannelActivity(StationOld station) {
         if (station == null) return;
-        Intent intent = new Intent(this, ChannelActivity.class);
-        intent.putExtra(ChannelActivity.INTENT_STATION_TITLE, station.title);
+        Intent intent = new Intent(this, StationActivity.class);
+        intent.putExtra(StationActivity.INTENT_STATION_TITLE, station.title);
 
 //        ImageView imageView = (ImageView) thumbnail;
 //        Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();

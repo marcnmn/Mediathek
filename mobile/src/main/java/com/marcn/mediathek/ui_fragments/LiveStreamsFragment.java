@@ -9,27 +9,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.marcn.mediathek.BaseActivity;
+import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.adapter.LiveStreamAdapter;
 import com.marcn.mediathek.adapter.LiveStreamAdapter2;
 import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.base_objects.Video;
-import com.marcn.mediathek.base_objects.LiveStreamM3U8;
 import com.marcn.mediathek.base_objects.LiveStreams;
 import com.marcn.mediathek.stations.Station;
-import com.marcn.mediathek.stations.ZdfGroup;
 import com.marcn.mediathek.utils.Constants;
-import com.marcn.mediathek.utils.EpgUtils;
-import com.marcn.mediathek.utils.XmlParser;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
-import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 public class LiveStreamsFragment extends Fragment {

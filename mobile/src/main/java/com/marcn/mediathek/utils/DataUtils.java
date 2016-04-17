@@ -134,7 +134,7 @@ public class DataUtils {
                 if (calendar != null && calendar.get(Calendar.DAY_OF_YEAR) < lastCalendar.get(Calendar.DAY_OF_YEAR)) {
                     lastCalendar = calendar;
                     Episode.addHeader(result, lastCalendar, index);
-//                    result.add(index, Episode.createHeader(FormatTime.calendarToHeadlineFormat(lastCalendar)));
+//                    result.add(index, Asset.createHeader(FormatTime.calendarToHeadlineFormat(lastCalendar)));
                     index++;
                     size++;
                 }

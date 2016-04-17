@@ -125,7 +125,7 @@ public class Arte extends Station {
     }
 
 //    @Override
-//    public ArrayList<Episode> getMostRecentEpisodes(int offset, int limit) {
+//    public ArrayList<Asset> getMostRecentEpisodes(int offset, int limit) {
 //        return null;
 //    }
 

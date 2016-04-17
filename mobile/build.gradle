@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 23
@@ -28,6 +29,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
+    compile 'com.google.guava:guava:19.0'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:design:23.3.0'
     compile 'com.android.support:support-v4:23.3.0'
@@ -44,4 +46,11 @@ dependencies {
     compile 'com.android.support:percent:23.3.0'
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'me.tatarka:gradle-retrolambda:3.3.0-beta4'
+    compile 'com.squareup.retrofit2:retrofit:2.0.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+    compile 'com.google.dagger:dagger:2.3'
+    apt 'com.google.dagger:dagger-compiler:2.3'
+    testApt 'com.google.dagger:dagger-compiler:2.3'
+    androidTestApt 'com.google.dagger:dagger-compiler:2.3'
+    provided 'javax.annotation:jsr250-api:1.0'
 }

@@ -117,7 +117,7 @@ public class LiveStreamAdapter {
 //            @Override
 //            public void onClick(View v) {
 //                if (null != mListener) {
-//                    mListener.onLiveStreamClicked(holder.mItem, holder.mThumb, Episode.ACTION_INTERNAL_PLAYER);
+//                    mListener.onLiveStreamClicked(holder.mItem, holder.mThumb, Asset.ACTION_INTERNAL_PLAYER);
 //                }
 //            }
 //        });
@@ -125,7 +125,7 @@ public class LiveStreamAdapter {
 //        holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
 //            @Override
 //            public boolean onLongClick(View v) {
-//                mListener.playVideoExternal(holder.mItem.getLiveM3U8(), holder.mItem.title, Episode.ACTION_SHARE_VIDEO_DIALOG);
+//                mListener.playVideoExternal(holder.mItem.getLiveM3U8(), holder.mItem.title, Asset.ACTION_SHARE_VIDEO_DIALOG);
 //                return true;
 //            }
 //        });

@@ -1,0 +1,3267 @@
+{
+	"alphabet": {
+		"0-9": true,
+		"A": true,
+		"B": true,
+		"C": true,
+		"D": true,
+		"E": true,
+		"F": true,
+		"G": true,
+		"H": true,
+		"I": true,
+		"J": true,
+		"K": true,
+		"L": true,
+		"M": true,
+		"N": true,
+		"O": true,
+		"P": true,
+		"Q": false,
+		"R": true,
+		"S": true,
+		"T": true,
+		"U": true,
+		"V": true,
+		"W": true,
+		"X": false,
+		"Y": false,
+		"Z": true
+	},
+	"ergebnis": {
+		"additionalTeaser": false,
+		"teaser": [{
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg75x52blob\/10194164",
+					"width": 75,
+					"height": 52,
+					"tooltipText": ""
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg476x176blob\/10194163",
+					"width": 476,
+					"height": 176,
+					"tooltipText": ""
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg298x168blob\/10194166",
+					"width": 298,
+					"height": 168,
+					"tooltipText": ""
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/404x227.jpg",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg276x155blob\/10194159",
+					"width": 276,
+					"height": 155,
+					"tooltipText": ""
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg644x363blob\/10194168",
+					"width": 644,
+					"height": 363,
+					"tooltipText": ""
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg144x81blob\/10194169",
+					"width": 144,
+					"height": 81,
+					"tooltipText": ""
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg485x273blob\/10194158",
+					"width": 485,
+					"height": 273,
+					"tooltipText": ""
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg94x65blob\/10194156",
+					"width": 94,
+					"height": 65,
+					"tooltipText": ""
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg72x54blob\/10194162",
+					"width": 72,
+					"height": 54,
+					"tooltipText": ""
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg173x120blob\/10193739",
+					"width": 173,
+					"height": 120,
+					"tooltipText": ""
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg236x133blob\/10193749",
+					"width": 236,
+					"height": 133,
+					"tooltipText": ""
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg116x54blob\/10193742",
+					"width": 116,
+					"height": 54,
+					"tooltipText": ""
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/672x378.jpg",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Jahrhundertprojekt Museumsinsel",
+			"beschreibung": "Seit 2001 begleitet das ZDF den Wiederaufbau der Berliner Museumsinsel. Ein interaktives Modul und filmische Dokumentationen belegen den Fortgang der Renovierungsarbeiten.",
+			"id": "1779466",
+			"length": 11,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "J"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg75x52blob\/12685977",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg476x176blob\/12685976",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg298x168blob\/12685979",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg404x227blob\/12685984",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg276x155blob\/12685956",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg644x363blob\/12685965",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg144x81blob\/12685983",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg485x273blob\/12685971",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg94x65blob\/12685953",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg72x54blob\/12685975",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg173x120blob\/12685954",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg236x133blob\/12685964",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg116x54blob\/12685973",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/326\/timg672x378blob\/12685966",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Das kleine Fernsehspiel"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg946x532blob\/10194202",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Das kleine Fernsehspiel",
+			"beschreibung": "Deutschlands erste Adresse f\u00fcr den Filmnachwuchs.",
+			"id": "326",
+			"length": 44,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"contextLink": "http:\/\/www.zdf.de\/ZDFde\/inhalt\/4\/0,1872,7132644,00.html?dr=1",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg75x52blob\/464112",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Walter Sittler"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg476x176blob\/464115",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Walter Sittler"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg298x168blob\/8852393",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Walter Sittler"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg404x227blob\/8852398",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Walter Sittler"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg276x155blob\/8852386",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Walter Sittler"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg644x363blob\/8852395",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Walter Sittler"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg144x81blob\/8852397",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Walter Sittler"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg485x273blob\/8852385",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Walter Sittler"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg94x65blob\/464116",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Walter Sittler"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg72x54blob\/464113",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Walter Sittler"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg173x120blob\/464111",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Walter Sittler"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg236x133blob\/8852394",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Walter Sittler"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg116x54blob\/464118",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Walter Sittler"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg672x378blob\/8852396",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Walter Sittler"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/379348\/timg946x532blob\/8852399",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Walter Sittler"
+				}
+			},
+			"titel": "Der Kommissar und das Meer",
+			"beschreibung": "ZDF-Krimireihe mit dem beliebten TV-Schauspieler Walter Sittler.",
+			"id": "379348",
+			"length": 8,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg75x52blob\/6999980",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Schumann"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg476x176blob\/6999979",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Schumann"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg298x168blob\/6999982",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Schumann"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg404x227blob\/6999987",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Schumann"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg276x155blob\/6999975",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Schumann"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg644x363blob\/6999984",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Schumann"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg144x81blob\/6999986",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Schumann"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg485x273blob\/6999974",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Schumann"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg94x65blob\/6999972",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Schumann"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg72x54blob\/6999978",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Schumann"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg173x120blob\/6999973",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Schumann"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg236x133blob\/6999983",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Schumann"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg116x54blob\/6999976",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Schumann"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/404\/timg672x378blob\/6999985",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Schumann"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Der Kriminalist",
+			"beschreibung": "Hauptkommissar Bruno Schumann untersucht Mordf\u00e4lle in der Hauptstadt. Dabei hat der Viktimologe eine besondere Herangehensweise: Er versetzt sich in das Opfer hinein und schlie\u00dft so auf den T\u00e4ter.",
+			"id": "404",
+			"length": 4,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg75x52blob\/8408578",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg476x176blob\/8408577",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg298x168blob\/8408580",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg404x227blob\/8408585",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg276x155blob\/8408573",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg644x363blob\/8408582",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg144x81blob\/8408584",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg485x273blob\/8408572",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg94x65blob\/8408570",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg72x54blob\/8408576",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg173x120blob\/8408571",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg236x133blob\/8408581",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg116x54blob\/8408574",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg672x378blob\/8408583",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/394110\/timg946x532blob\/8408586",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Logo der \u0022K\u00fcchenschlacht\u0022"
+				}
+			},
+			"titel": "Die K\u00fcchenschlacht",
+			"beschreibung": "Montags bis freitags treten jeweils sechs Hobbyk\u00f6che in der Studiok\u00fcche gegeneinander an. Der Wochensieger wird als VIP-Gast bei \u0022Lafer!Lichter!Lecker!\u0022 von den Spitzenk\u00f6chen verw\u00f6hnt.",
+			"id": "394110",
+			"length": 64,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg75x52blob\/10426334",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg476x176blob\/10426505",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg298x168blob\/10426336",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg404x227blob\/10426513",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg276x155blob\/10426501",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg644x363blob\/10426510",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg144x81blob\/10426340",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg485x273blob\/10426328",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg94x65blob\/10426326",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg72x54blob\/10426504",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg173x120blob\/10426327",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg236x133blob\/10426509",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg116x54blob\/10426330",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg672x378blob\/10426511",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2179086\/timg946x532blob\/10426514",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Dr. Valerie Klein (ChrisTine Urspruch), Dr. Bernd Lang (Simon Licht, l.) und Prof. Dr. Magnus Eisner (Miroslav Nemec, r.)."
+				}
+			},
+			"titel": "Dr. Klein",
+			"beschreibung": "Die kleinw\u00fcchsige, unkonventionelle Kinder\u00e4rztin Valerie Klein begegnet ihren kleinen Patienten auf Augenh\u00f6he - und ihrer turbulenten Familie sowie ihrem Konkurrenten, dem Macho Dr. Lang mit Gr\u00f6\u00dfe.",
+			"id": "2179086",
+			"length": 5,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg75x52blob\/12806433",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg476x176blob\/12806432",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg298x168blob\/12806418",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg404x227blob\/12806423",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg276x155blob\/12806411",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg644x363blob\/12806420",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg144x81blob\/12806439",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg485x273blob\/12806410",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg94x65blob\/12807271",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg72x54blob\/12806414",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg173x120blob\/12806496",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg236x133blob\/12806419",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg116x54blob\/12806429",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg672x378blob\/12806438",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2661922\/timg946x532blob\/12806424",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Thomas Gottschalk mit der \u0022Goldenen Kamera\u0022"
+				}
+			},
+			"titel": "GOLDENE KAMERA",
+			"beschreibung": "\u0022Die Goldene Kamera\u0022 - die gro\u00dfe Gala mit Thomas Gottschalk",
+			"id": "2661922",
+			"length": 11,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg75x52blob\/13203951",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg476x176blob\/13203950",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg298x168blob\/13203953",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg404x227blob\/13203958",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg276x155blob\/13203946",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg644x363blob\/13203955",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg144x81blob\/13203957",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg485x273blob\/13203945",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg94x65blob\/13203943",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg72x54blob\/13203949",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg173x120blob\/13203944",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg236x133blob\/13203954",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg116x54blob\/13203947",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg672x378blob\/13203956",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2400684\/timg946x532blob\/13203959",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Der \u0022Graf\u0022 (Manuel Rubey), Manni (Tristan Seith) und Erdem (Denis Moschitto)"
+				}
+			},
+			"titel": "Im Knast",
+			"beschreibung": "In der sechsteiligen Gef\u00e4ngnis-Sitcom dreht sich alles um die H\u00e4ftlinge Erdem, Manni und den \u0022Grafen\u0022. Gemeinsam bilden eine eingeschworene Gemeinschaft im allt\u00e4glichen Gef\u00e4ngnis-Wahnsinn.",
+			"id": "2400684",
+			"length": 20,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg75x52blob\/13019832",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg476x176blob\/13019831",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg298x168blob\/13019834",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg404x227blob\/13019839",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg276x155blob\/13019827",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg644x363blob\/13019836",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg144x81blob\/13019838",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg485x273blob\/13019826",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg94x65blob\/13019824",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg72x54blob\/13019830",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg173x120blob\/13019825",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg236x133blob\/13019835",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg116x54blob\/13019828",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg672x378blob\/13019837",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2688282\/timg946x532blob\/13019840",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Logo \u0022kaputt und ... zugen\u00e4ht!\u0022"
+				}
+			},
+			"titel": "kaputt und ... zugen\u00e4ht!",
+			"beschreibung": "Moderatorin Eva Brenner begr\u00fc\u00dft Besitzer defekter Lieblingsst\u00fccke. Sind die Sch\u00e4tze noch zu retten, dann geht es in die Werkstatt, wo Experten sich um die Instandsetzung k\u00fcmmern.",
+			"id": "2688282",
+			"length": 3,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg75x52blob\/8862111",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg476x176blob\/8862110",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg298x168blob\/8862113",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg404x227blob\/8862118",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg276x155blob\/8862106",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg644x363blob\/8862115",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg144x81blob\/8862117",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg485x273blob\/8862105",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg94x65blob\/8862103",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg72x54blob\/8862109",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg173x120blob\/8862104",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg236x133blob\/8862114",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg116x54blob\/8862107",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg672x378blob\/8862116",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2038296\/timg946x532blob\/8862119",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Animationsszene aus Katastrophen, die Geschichte machten"
+				}
+			},
+			"titel": "Katastrophen, die Geschichte machten",
+			"beschreibung": "In dieser Serie geht es um die gr\u00f6\u00dften und folgenreichsten Katastrophen aller Zeiten, Kollisionen von Mensch und Natur, die die Welt f\u00fcr immer ver\u00e4nderten",
+			"id": "2038296",
+			"length": 4,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg75x52blob\/10082920",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Michael Kessler"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg476x176blob\/10082919",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Michael Kessler"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg298x168blob\/10082922",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Michael Kessler"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg404x227blob\/10082927",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Michael Kessler"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg276x155blob\/10082915",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Michael Kessler"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg644x363blob\/10082924",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Michael Kessler"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg144x81blob\/10082926",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Michael Kessler"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg485x273blob\/10082914",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Michael Kessler"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg94x65blob\/10082912",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Michael Kessler"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg72x54blob\/10082918",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Michael Kessler"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg173x120blob\/10082913",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Michael Kessler"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg236x133blob\/10082923",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Michael Kessler"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg116x54blob\/10082916",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Michael Kessler"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg672x378blob\/10082925",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Michael Kessler"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2209002\/timg946x532blob\/10082928",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Michael Kessler"
+				}
+			},
+			"titel": "Kessler ist...",
+			"beschreibung": "Wie f\u00fchlt es sich eigentlich an, Heino zu sein? Und wie l\u00e4uft es sich in Michaela Schaffraths Pumps? Michael Kessler will es wissen: Er nimmt das Leben einiger Prominenter ganz genau unter die Lupe.",
+			"id": "2209002",
+			"length": 25,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg75x52blob\/9151477",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg476x176blob\/9151476",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg298x168blob\/9151479",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg404x227blob\/9151484",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg276x155blob\/9151472",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg644x363blob\/9151481",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg144x81blob\/9151483",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg485x273blob\/9151471",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg94x65blob\/9151469",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg72x54blob\/9151475",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg173x120blob\/9151470",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg236x133blob\/9151480",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg116x54blob\/9151473",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg672x378blob\/9151482",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2078040\/timg946x532blob\/9151485",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Kommissarin Winnie Heller (Lisa Wagner, re) und Kommissar Hendrik Verhoeven(Hans-Jochen Wagner, li)"
+				}
+			},
+			"titel": "Kommissarin Heller",
+			"beschreibung": "Lisa Wagener geht als eigenwillige Nachwuchs-Kommissarin in Wiesbaden auf Verbrecherjagd.",
+			"id": "2078040",
+			"length": 4,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg75x52blob\/12957893",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg476x176blob\/12961360",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg298x168blob\/12957895",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg404x227blob\/12961368",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg276x155blob\/12961356",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg644x363blob\/12957897",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg144x81blob\/12957899",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg485x273blob\/12957887",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg94x65blob\/12961353",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg72x54blob\/12957891",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg173x120blob\/12961354",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg236x133blob\/12961364",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg116x54blob\/12961357",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg672x378blob\/12957898",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2679866\/timg946x532blob\/12957901",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Caterina Sch\u00f6llack (Claudia Michelsen, l.) erf\u00e4hrt vom Rauswurf Monikas aus der Hauswirtschaftsschule. Ihre T\u00f6chter Monika (Sonja Gerhardt, m.l.), Helga (Maria Ehrich, m.r.) und Eva (Emilia Sch\u00fcle, r.) warten auf ihre Reaktion."
+				}
+			},
+			"titel": "Ku\u0027damm 56",
+			"beschreibung": "Dreiteilige Familiengeschichte \u00fcber den Aufbruch der Jugend in den 50er Jahren",
+			"id": "2679866",
+			"length": 19,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"contextLink": "http:\/\/www.3sat.de\/kulturzeit",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg75x52blob\/2859870",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg476x176blob\/2859862",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg298x168blob\/8852871",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg404x227blob\/8852876",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg276x155blob\/8852864",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg644x363blob\/8852873",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg144x81blob\/8852875",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg485x273blob\/8852863",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg94x65blob\/2859863",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg72x54blob\/2859867",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg173x120blob\/2859859",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg236x133blob\/8852872",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg116x54blob\/2859866",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg672x378blob\/8852874",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/960798\/timg946x532blob\/8852877",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Sendungslogo 3sat kulturzeit"
+				}
+			},
+			"titel": "Kulturzeit",
+			"beschreibung": "\u0022kulturzeit\u0022 ist das Fernsehfeuilleton der 3sat-Partner ARD, ZDF, ORF und SF und berichtet aus Deutschland, \u00d6sterreich und der Schweiz \u00fcber das kulturelle Leben in seiner gesamten Bandbreite.",
+			"id": "960798",
+			"length": 832,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "3sat",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"contextLink": "hhtp:\/\/kuestenwache.zdf.de",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/186\/timg75x52blob\/2179629",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "K\u00fcstenwache"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/186\/timg476x176blob\/2179628",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "K\u00fcstenwache"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/186\/timg298x168blob\/2179631",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "K\u00fcstenwache"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/404x227.jpg",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/186\/timg276x155blob\/2179624",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "K\u00fcstenwache"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884714\/timg644x363blob\/2555032",
+					"width": 644,
+					"height": 363,
+					"tooltipText": ""
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/186\/timg144x81blob\/2179633",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "K\u00fcstenwache"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/186\/timg485x273blob\/2179623",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "K\u00fcstenwache"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/186\/timg94x65blob\/2179621",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "K\u00fcstenwache"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/186\/timg72x54blob\/2179627",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "K\u00fcstenwache"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/186\/timg173x120blob\/2179622",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "K\u00fcstenwache"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/186\/timg236x133blob\/2179632",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "K\u00fcstenwache"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/186\/timg116x54blob\/2179625",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "K\u00fcstenwache"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/672x378.jpg",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "K\u00fcstenwache",
+			"beschreibung": "Im Kampf gegen das Verbrechen auf hoher See - Die K\u00fcstenwache.",
+			"id": "186",
+			"length": 24,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg75x52blob\/12893892",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg476x176blob\/12893891",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg298x168blob\/12893894",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg404x227blob\/12893899",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg276x155blob\/12893502",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg644x363blob\/12893511",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg144x81blob\/12893513",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg485x273blob\/12893886",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg94x65blob\/12893884",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg72x54blob\/12893890",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg173x120blob\/12893500",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg236x133blob\/12893895",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg116x54blob\/12893888",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg672x378blob\/12893897",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2114234\/timg946x532blob\/12893900",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "T\u00fcrschild \u0022Kuttner\u0022"
+				}
+			},
+			"titel": "Kuttner plus Zwei",
+			"beschreibung": "Ein Loft, zwei prominente G\u00e4ste und keine Grenzen: Sarah Kuttner empf\u00e4ngt bei \u0022Kuttner plus Zwei\u0022 ihre Besucher in einem Loft zum Reden, Streiten und Lachen.",
+			"id": "2114234",
+			"length": 31,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg75x52blob\/12227621",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg476x176blob\/12227620",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg298x168blob\/12227623",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg404x227blob\/12227628",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg276x155blob\/12227616",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg644x363blob\/12227625",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg144x81blob\/12227627",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg485x273blob\/12227615",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg94x65blob\/12227613",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg72x54blob\/12227619",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg173x120blob\/12227614",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg236x133blob\/12227624",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg116x54blob\/12227617",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg672x378blob\/12227626",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2518054\/timg946x532blob\/12227629",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Mich t\u00e4uscht keiner! - Logo"
+				}
+			},
+			"titel": "Mich t\u00e4uscht keiner!",
+			"beschreibung": "Dirk Steffens pr\u00e4sentiert die Show der Sinne",
+			"id": "2518054",
+			"length": 8,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg75x52blob\/12273430",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg476x176blob\/12273429",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg298x168blob\/12273432",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg404x227blob\/12273437",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg276x155blob\/12273425",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg644x363blob\/12274893",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg144x81blob\/12273436",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg485x273blob\/12274883",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg94x65blob\/12274881",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg72x54blob\/12273428",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg173x120blob\/12274882",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg236x133blob\/12273433",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg116x54blob\/12274885",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg672x378blob\/12274894",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2502664\/timg946x532blob\/12274897",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Jochen Schropp und Christopher Lesko"
+				}
+			},
+			"titel": "Pl\u00f6tzlich Krieg? - Ein Experiment",
+			"beschreibung": "Das zweiteilige Social Factual will zeigen, wie schnell sich Menschen in Gruppen manipulieren lassen, eine Situation eskalieren kann und wie zwei Gruppen sogar bereit sind, sich zu bekriegen.",
+			"id": "2502664",
+			"length": 6,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg75x52blob\/8935746",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg476x176blob\/8930550",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg298x168blob\/8935748",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg404x227blob\/8930558",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg276x155blob\/8930546",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg644x363blob\/8930555",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg144x81blob\/8935752",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg485x273blob\/8930545",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg94x65blob\/8930543",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg72x54blob\/8930549",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg173x120blob\/8930544",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg236x133blob\/8935749",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg116x54blob\/8930547",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg672x378blob\/8930556",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Open Air in ZDFkultur"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1321386\/timg946x532blob\/8935754",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Open Air in ZDFkultur"
+				}
+			},
+			"titel": "ZDFkultur",
+			"beschreibung": "ZDFkultur - \u0022die Vers\u00f6hnung zwischen Feuilleton und Popkultur\u0022",
+			"id": "1321386",
+			"length": 111,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF.kultur",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "K"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg75x52blob\/12013202",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg476x176blob\/12013201",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg298x168blob\/12013204",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg404x227blob\/12013209",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg276x155blob\/12013197",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg644x363blob\/12013206",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg144x81blob\/12013208",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg485x273blob\/12013196",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg94x65blob\/12013194",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg72x54blob\/12013200",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg173x120blob\/12013195",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg236x133blob\/12013205",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg116x54blob\/12013198",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg672x378blob\/12013207",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2486024\/timg946x532blob\/12013210",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Schriftzug: Das Literarische QUARTETT"
+				}
+			},
+			"titel": "Das Literarische Quartett",
+			"beschreibung": "Vier Literaturexperten debattieren engagiert \u00fcber vier B\u00fccher.",
+			"id": "2486024",
+			"length": 73,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "L"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg75x52blob\/3637720",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Lafer Lichter"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg476x176blob\/3637719",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Lafer Lichter"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg298x168blob\/8858120",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Lafer Lichter"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg404x227blob\/8858125",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Lafer Lichter"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg276x155blob\/8858113",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Lafer Lichter"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg644x363blob\/8858122",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Lafer Lichter"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg144x81blob\/8858124",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Lafer Lichter"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg485x273blob\/8858112",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Lafer Lichter"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg94x65blob\/3637712",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Lafer Lichter"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg72x54blob\/3637718",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Lafer Lichter"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg173x120blob\/3637713",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Lafer Lichter"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg236x133blob\/8858121",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Lafer Lichter"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg116x54blob\/3637716",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Lafer Lichter"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg672x378blob\/8858123",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Lafer Lichter"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/484\/timg946x532blob\/8858126",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Lafer Lichter"
+				}
+			},
+			"titel": "Lafer!Lichter!Lecker!",
+			"beschreibung": "Die Kochshow mit Johann Lafer und Horst Lichter im Zweiten!",
+			"id": "484",
+			"length": 12,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "L"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg75x52blob\/12207135",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "LandEier Logo"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg476x176blob\/12207134",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "LandEier Logo"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg298x168blob\/12207137",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "LandEier Logo"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg404x227blob\/12207142",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "LandEier Logo"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg276x155blob\/12207130",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "LandEier Logo"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg644x363blob\/12207139",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "LandEier Logo"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg144x81blob\/12207141",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "LandEier Logo"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg485x273blob\/12207129",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "LandEier Logo"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg94x65blob\/12207127",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "LandEier Logo"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg72x54blob\/12207133",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "LandEier Logo"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg173x120blob\/12207128",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "LandEier Logo"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg236x133blob\/12207138",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "LandEier Logo"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg116x54blob\/12207131",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "LandEier Logo"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg672x378blob\/12207140",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "LandEier Logo"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2515020\/timg946x532blob\/12207143",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "LandEier Logo"
+				}
+			},
+			"titel": "LandEier",
+			"beschreibung": "Tausche Stadtluft gegen Landleben",
+			"id": "2515020",
+			"length": 5,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "L"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg75x52blob\/11029650",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg476x176blob\/11029649",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg298x168blob\/11029652",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg404x227blob\/11029657",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg276x155blob\/11029645",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg644x363blob\/11029654",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg144x81blob\/11029656",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg485x273blob\/11029644",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg94x65blob\/11029642",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg72x54blob\/11029648",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg173x120blob\/11029643",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg236x133blob\/11029653",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg116x54blob\/11029646",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg672x378blob\/11029655",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2343658\/timg946x532blob\/11029658",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Sendungstypical L\u00e4nderforum"
+				}
+			},
+			"titel": "L\u00e4nderforum",
+			"beschreibung": "In der einst\u00fcndigen phoenix-Sendung \u0022L\u00e4nderforum\u0022 befragen die beiden Moderatoren Michaela Kolster und Michael Hirz amtierende Ministerpr\u00e4sidentinnen und Ministerpr\u00e4sidenten zur aktuellen Politk.",
+			"id": "2343658",
+			"length": 2,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "Phoenix",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "L"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg75x52blob\/7472439",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg476x176blob\/7472438",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg298x168blob\/7472458",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg404x227blob\/7472463",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg276x155blob\/7472451",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg644x363blob\/7472443",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg144x81blob\/7472445",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg485x273blob\/7472450",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg94x65blob\/7472448",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg72x54blob\/7472437",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg173x120blob\/7472432",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg236x133blob\/7472459",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg116x54blob\/7472435",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg672x378blob\/7472444",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "L\u00e4nderspiegel"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/416\/timg946x532blob\/7472464",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "L\u00e4nderspiegel"
+				}
+			},
+			"titel": "L\u00e4nderspiegel",
+			"beschreibung": "Der L\u00e4nderspiegel - b\u00fcrgernah und zupackend. Politik und ihre Folgen vor Ort. Au\u00dferdem jeden Samstag: Beh\u00f6rdenirrsinn - aufgesp\u00fcrt und angeprangert - im \u0022Hammer der Woche\u0022.",
+			"id": "416",
+			"length": 461,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "L"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg75x52blob\/11117493",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg476x176blob\/11117492",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg298x168blob\/11117495",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg404x227blob\/11117500",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg276x155blob\/11117488",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg644x363blob\/11117497",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg144x81blob\/11117499",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg485x273blob\/11117487",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg94x65blob\/11117485",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg72x54blob\/11117491",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg173x120blob\/11117486",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg236x133blob\/11117496",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg116x54blob\/11117489",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg672x378blob\/11117498",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2358308\/timg946x532blob\/11117501",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Eine Frau auf dem Weg in ihre alte Heimat: Lena Lorenz (Patricia Aulitzky) auf der Suche nach dem, was sie im Leben will."
+				}
+			},
+			"titel": "Lena Lorenz",
+			"beschreibung": "Lena Lorenz, eine selbstbewusste, impulsive und eigensinnige Hebamme, will in ihrer bayerischen Heimat eigentlich dem Berliner Klinikalltag entkommen - doch dort jagt eine Herausforderung die n\u00e4chste.",
+			"id": "2358308",
+			"length": 7,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "L"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg75x52blob\/13203968",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg476x176blob\/13203967",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg298x168blob\/13203970",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg404x227blob\/13203975",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg276x155blob\/13203963",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg644x363blob\/13203972",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg144x81blob\/13203974",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg485x273blob\/13203962",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg94x65blob\/13203960",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg72x54blob\/13203966",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg173x120blob\/13203961",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg236x133blob\/13203971",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg116x54blob\/13203964",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/1779886\/timg672x378blob\/13203973",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Matthias Lier (Philipp), Cornelia Gr\u00f6schel (Judith), Eva L\u00f6bau (Billie), Sascha Hehn (Sascha), Karin Giegerich (Dr. Wolter), Anke Sevenich (Frau Merzig)"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg946x532blob\/10194202",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Lerchenberg",
+			"beschreibung": "Die satirische ZDF-Sitcom mit und rund um Sascha Hehn.",
+			"id": "1779886",
+			"length": 3,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "L"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg75x52blob\/11778582",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg476x176blob\/11721060",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg298x168blob\/11774466",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg404x227blob\/11721102",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg276x155blob\/11774459",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg644x363blob\/11774468",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg144x81blob\/11778588",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg485x273blob\/11721055",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg94x65blob\/9140374",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg72x54blob\/11778580",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg173x120blob\/11774457",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg236x133blob\/11721098",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg116x54blob\/11774460",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg672x378blob\/11721066",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/382\/timg946x532blob\/11778590",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Sendungslogo: Leschs Kosmos"
+				}
+			},
+			"titel": "Leschs Kosmos",
+			"beschreibung": "\u0022Leschs Kosmos\u0022 mit Professor Harald Lesch greift aktuelle Themen aus den Naturwissenschaften auf, macht Zusammenh\u00e4nge verst\u00e4ndlich und beleuchtet f\u00fcr unsere Zukunft relevante Entwicklungen.",
+			"id": "382",
+			"length": 231,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "L"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg75x52blob\/10907043",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg476x176blob\/10907042",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg298x168blob\/10907045",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg404x227blob\/10907050",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg276x155blob\/10907038",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg644x363blob\/10907047",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg144x81blob\/10907049",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg485x273blob\/10907037",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg94x65blob\/10907035",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg72x54blob\/10907041",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg173x120blob\/10907036",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg236x133blob\/10907046",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg116x54blob\/10907039",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg672x378blob\/10907048",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Teaser: Lesch to go"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2329514\/timg946x532blob\/10907051",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Teaser: Lesch to go"
+				}
+			},
+			"titel": "Lesch to go",
+			"beschreibung": "Ob News oder Kurioses - Harald Lesch mit kurzen Wissenshappen f\u00fcr unterwegs",
+			"id": "2329514",
+			"length": 87,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "L"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg75x52blob\/11678687",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Leute heute"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg476x176blob\/11678686",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Leute heute"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg298x168blob\/11678689",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Leute heute"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg404x227blob\/11678694",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Leute heute"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg276x155blob\/11678682",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Leute heute"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg644x363blob\/11678691",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Leute heute"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg144x81blob\/11678693",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Leute heute"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg485x273blob\/11678681",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Leute heute"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg94x65blob\/11678679",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Leute heute"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg72x54blob\/11678685",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Leute heute"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg173x120blob\/11678680",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Leute heute"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg236x133blob\/11678690",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Leute heute"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg116x54blob\/11678683",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Leute heute"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg672x378blob\/11678692",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Leute heute"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/182\/timg946x532blob\/11678695",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Leute heute"
+				}
+			},
+			"titel": "Leute heute",
+			"beschreibung": "Aktuelle News von Prominenz und Society",
+			"id": "182",
+			"length": 6,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "L"
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg75x52blob\/2669994",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg476x176blob\/2669888",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg298x168blob\/8856673",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg404x227blob\/8856678",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg276x155blob\/8856666",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg644x363blob\/8856675",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg144x81blob\/8856677",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg485x273blob\/8856665",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg94x65blob\/2669986",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg72x54blob\/2669992",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg173x120blob\/2669987",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg236x133blob\/8856674",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg116x54blob\/2669990",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg672x378blob\/8856676",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg946x532blob\/8856679",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "logo!-Nachrichten"
+				}
+			},
+			"titel": "logo! (tivi)",
+			"beschreibung": "Die Kindernachrichten des ZDF - samstags bis donnerstags um 19:50 Uhr und freitags um 19:25 Uhr bei KiKA und nat\u00fcrlich immer in der ZDFmediathek ...",
+			"id": "158",
+			"length": 31,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "L"
+		}, {
+			"type": "sendung",
+			"contextLink": "http:\/\/markuslanz.zdf.de\/ZDFde\/inhalt\/1\/0,1872,7243009,00.html",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg75x52blob\/3505884",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Markus Lanz"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg476x176blob\/3505136",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Markus Lanz"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg298x168blob\/8858139",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Markus Lanz"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg404x227blob\/8858144",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Markus Lanz"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg276x155blob\/8858132",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Markus Lanz"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg644x363blob\/8858141",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Markus Lanz"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg144x81blob\/8858143",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Markus Lanz"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg485x273blob\/8858131",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Markus Lanz"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg94x65blob\/3505876",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Markus Lanz"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg72x54blob\/3505135",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Markus Lanz"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg173x120blob\/3505877",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Markus Lanz"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg236x133blob\/8858140",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Markus Lanz"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg116x54blob\/3505880",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Markus Lanz"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg672x378blob\/8858142",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Markus Lanz"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/509418\/timg946x532blob\/8858145",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Markus Lanz"
+				}
+			},
+			"titel": "Markus Lanz",
+			"beschreibung": "Markus Lanz - die Talkshow mit einer gro\u00dfen Bandbreite an Themen und G\u00e4sten",
+			"id": "509418",
+			"length": 45,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": "",
+			"member": "L"
+		}]
+	},
+	"tracking": {
+		"cp": "ZDFde\/0\/",
+		"co": "SendungenAZ\/SendungenAZ\/MSendungenAZ"
+	}
+}

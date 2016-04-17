@@ -69,7 +69,7 @@ public abstract class Station {
     public abstract String getMostViewsUrl(int offset, int limit);
     public abstract String getMostRecentUrl(int offset, int limit);
 
-//    public abstract ArrayList<Episode> getMostRecentEpisodes(int offset, int limit);
+//    public abstract ArrayList<Asset> getMostRecentEpisodes(int offset, int limit);
     public abstract ArrayList<Episode> getMostRecentEpisodes(int offset, int limit, Calendar startDate, Calendar endDate);
 
 

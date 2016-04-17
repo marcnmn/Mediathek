@@ -11,7 +11,7 @@ import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.marcn.mediathek.PlayerActivity;
+import com.marcn.mediathek.pages.player_page.PlayerActivity;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Episode;
 

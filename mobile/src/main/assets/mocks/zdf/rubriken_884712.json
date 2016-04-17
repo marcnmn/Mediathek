@@ -1,0 +1,1459 @@
+{
+	"rubriken": {
+		"additionalTeaser": false,
+		"teaser": [{
+			"type": "rubrik",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg75x52blob\/12118709",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Teaser Rubrik Film"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg476x176blob\/12118739",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Teaser Rubrik Film"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg298x168blob\/12118742",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Filmrolle"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg404x227blob\/12118716",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Filmrolle"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg276x155blob\/12118735",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Filmrolle"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg644x363blob\/12118713",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Filmrolle"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg144x81blob\/12118715",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Filmrolle"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg485x273blob\/12118703",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Filmrolle"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg94x65blob\/12118701",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Teaser Rubrik Film"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg72x54blob\/12118738",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Teaser Rubrik Film"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg173x120blob\/12118702",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Teaser Rubrik Film"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg236x133blob\/12118712",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Filmrolle"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg116x54blob\/12118705",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Teaser Rubrik Film"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg672x378blob\/12118714",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Filmrolle"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884708\/timg946x532blob\/12118748",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Filmrolle"
+				}
+			},
+			"titel": "Film",
+			"beschreibung": "Film",
+			"id": "884708",
+			"length": 747,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}, {
+			"type": "rubrik",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg75x52blob\/5341401",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Rubrik - Kinder"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg476x176blob\/5341400",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Rubrik - Kinder"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg298x168blob\/5341402",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Rubrik - Kinder"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/404x227.jpg",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg276x155blob\/5341396",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Rubrik - Kinder"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg644x363blob\/5341404",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Rubrik - Kinder"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg144x81blob\/5341405",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Rubrik - Kinder"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg485x273blob\/5341395",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Rubrik - Kinder"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg94x65blob\/5341393",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Rubrik - Kinder"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg72x54blob\/5341399",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Rubrik - Kinder"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg173x120blob\/5341394",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Rubrik - Kinder"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg236x133blob\/5341403",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Rubrik - Kinder"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg116x54blob\/5341397",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Rubrik - Kinder"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/672x378.jpg",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Kinder",
+			"beschreibung": "Kinder",
+			"id": "884712",
+			"length": 37,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}, {
+			"type": "rubrik",
+			"contextLink": "www.zdf.de",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884714\/timg75x52blob\/8852048",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Rubrik - Krimis"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884714\/timg476x176blob\/8852047",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Rubrik - Krimis"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884714\/timg298x168blob\/8852050",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Rubrik - Krimis"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/404x227.jpg",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884714\/timg276x155blob\/8852043",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Rubrik - Krimis"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884714\/timg644x363blob\/8852052",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Rubrik - Krimis"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884714\/timg144x81blob\/8848433",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Rubrik - Krimis"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884714\/timg485x273blob\/8852042",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Rubrik - Krimis"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884714\/timg94x65blob\/8848420",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Rubrik - Krimis"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884714\/timg72x54blob\/8852046",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Rubrik - Krimis"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884714\/timg173x120blob\/8848421",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Rubrik - Krimis"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884714\/timg236x133blob\/8852051",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Rubrik - Krimis"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884714\/timg116x54blob\/8852044",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Rubrik - Krimis"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/672x378.jpg",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Krimis",
+			"beschreibung": "Krimis",
+			"id": "884714",
+			"length": 478,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}, {
+			"type": "rubrik",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg75x52blob\/11183023",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg476x176blob\/11183022",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg298x168blob\/11183025",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg404x227blob\/11183331",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg276x155blob\/11183018",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg644x363blob\/11183027",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg144x81blob\/11183029",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg485x273blob\/11183318",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg94x65blob\/11183316",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg72x54blob\/11183021",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg173x120blob\/11183016",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg236x133blob\/11183327",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg116x54blob\/11183019",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg672x378blob\/11183329",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/2341434\/timg946x532blob\/11183332",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "Typical Talk - Zwei Sessel"
+				}
+			},
+			"titel": "Talk",
+			"beschreibung": "xxx",
+			"id": "2341434",
+			"length": 293,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}, {
+			"type": "rubrik",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884716\/timg75x52blob\/2555042",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Rubrik - Kultur"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884716\/timg476x176blob\/2555041",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Rubrik - Kultur"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884716\/timg298x168blob\/2555044",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Rubrik - Kultur"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/404x227.jpg",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884716\/timg276x155blob\/2555037",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Rubrik - Kultur"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884716\/timg644x363blob\/2555046",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Rubrik - Kultur"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884716\/timg144x81blob\/2555084",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Rubrik - Kultur"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884716\/timg485x273blob\/2555036",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Rubrik - Kultur"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884716\/timg94x65blob\/2555071",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Rubrik - Kultur"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884716\/timg72x54blob\/2555040",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Rubrik - Kultur"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884716\/timg173x120blob\/2555072",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Rubrik - Kultur"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884716\/timg236x133blob\/2555082",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Rubrik - Kultur"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884716\/timg116x54blob\/2555038",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Rubrik - Kultur"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/672x378.jpg",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Kultur",
+			"beschreibung": "Kultur",
+			"id": "884716",
+			"length": 2223,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}, {
+			"type": "rubrik",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884718\/timg75x52blob\/2554400",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Teaser Rubrik Nachrichten"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884718\/timg476x176blob\/2555063",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Teaser Rubrik Nachrichten"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884718\/timg298x168blob\/2554402",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Teaser Rubrik Nachrichten"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/404x227.jpg",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884718\/timg276x155blob\/2555059",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Teaser Rubrik Nachrichten"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884718\/timg644x363blob\/2554404",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Teaser Rubrik Nachrichten"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884718\/timg144x81blob\/2555069",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Teaser Rubrik Nachrichten"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884718\/timg485x273blob\/2555058",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Teaser Rubrik Nachrichten"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884718\/timg94x65blob\/2555056",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Teaser Rubrik Nachrichten"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884718\/timg72x54blob\/2554398",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Teaser Rubrik Nachrichten"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884718\/timg173x120blob\/2554393",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Teaser Rubrik Nachrichten"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884718\/timg236x133blob\/2555067",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Teaser Rubrik Nachrichten"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884718\/timg116x54blob\/2554396",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Teaser Rubrik Nachrichten"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/672x378.jpg",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Nachrichten - Aktuelles",
+			"beschreibung": "Nachrichten und Aktuelles",
+			"id": "884718",
+			"length": 19103,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}, {
+			"type": "rubrik",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884720\/timg75x52blob\/9679514",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Rubriken - Politik"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884720\/timg476x176blob\/9679550",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Rubriken - Politik"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884720\/timg298x168blob\/9679516",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Rubriken - Politik"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/404x227.jpg",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884720\/timg276x155blob\/9679509",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Rubriken - Politik"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884720\/timg644x363blob\/9679555",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Rubriken - Politik"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884720\/timg144x81blob\/9679556",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Rubriken - Politik"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884720\/timg485x273blob\/9679545",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Rubriken - Politik"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884720\/timg94x65blob\/9679506",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Rubriken - Politik"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884720\/timg72x54blob\/9679512",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Rubriken - Politik"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884720\/timg173x120blob\/9679507",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Rubriken - Politik"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884720\/timg236x133blob\/9679554",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Rubriken - Politik"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884720\/timg116x54blob\/9679547",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Rubriken - Politik"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/672x378.jpg",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Politik - Gesellschaft",
+			"beschreibung": "Politik und Gesellschaft",
+			"id": "884720",
+			"length": 5587,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}, {
+			"type": "rubrik",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884722\/timg75x52blob\/8742919",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Rubrik - Ratgeber"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884722\/timg476x176blob\/8742918",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Rubrik - Ratgeber"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884722\/timg298x168blob\/8742921",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Rubrik - Ratgeber"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/404x227.jpg",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884722\/timg276x155blob\/8742914",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Rubrik - Ratgeber"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884722\/timg644x363blob\/8742081",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Rubrik - Ratgeber"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884722\/timg144x81blob\/8742924",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Rubrik - Ratgeber"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884722\/timg485x273blob\/8742913",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Rubrik - Ratgeber"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884722\/timg94x65blob\/8742911",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Rubrik - Ratgeber"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884722\/timg72x54blob\/8742917",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Rubrik - Ratgeber"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884722\/timg173x120blob\/8742070",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Rubrik - Ratgeber"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884722\/timg236x133blob\/8742922",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Rubrik - Ratgeber"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884722\/timg116x54blob\/8742915",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Rubrik - Ratgeber"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/672x378.jpg",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Ratgeber",
+			"beschreibung": "Ratgeber",
+			"id": "884722",
+			"length": 6518,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}, {
+			"type": "rubrik",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884724\/timg75x52blob\/2555142",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Rubrik - Serien"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884724\/timg476x176blob\/2554673",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Rubrik - Serien"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884724\/timg298x168blob\/2555144",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Rubrik - Serien"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/404x227.jpg",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884724\/timg276x155blob\/2555137",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Rubrik - Serien"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884724\/timg644x363blob\/2554678",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Rubrik - Serien"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884724\/timg144x81blob\/2554679",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Rubrik - Serien"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884724\/timg485x273blob\/2554668",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Rubrik - Serien"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884724\/timg94x65blob\/2554666",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Rubrik - Serien"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884724\/timg72x54blob\/2555140",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Rubrik - Serien"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884724\/timg173x120blob\/2554667",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Rubrik - Serien"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884724\/timg236x133blob\/2554677",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Rubrik - Serien"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884724\/timg116x54blob\/2554670",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Rubrik - Serien"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/672x378.jpg",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Serien",
+			"beschreibung": "Serien",
+			"id": "884724",
+			"length": 438,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}, {
+			"type": "rubrik",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884726\/timg75x52blob\/6399977",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Rubrik - Sport"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884726\/timg476x176blob\/6395392",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Rubrik - Sport"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884726\/timg298x168blob\/6399979",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Rubrik - Sport"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/404x227.jpg",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884726\/timg276x155blob\/6399972",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Rubrik - Sport"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884726\/timg644x363blob\/6399981",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Rubrik - Sport"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884726\/timg144x81blob\/6395398",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Rubrik - Sport"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884726\/timg485x273blob\/6399971",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Rubrik - Sport"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884726\/timg94x65blob\/6395385",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Rubrik - Sport"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884726\/timg72x54blob\/6395391",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Rubrik - Sport"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884726\/timg173x120blob\/6399970",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Rubrik - Sport"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884726\/timg236x133blob\/6395396",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Rubrik - Sport"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884726\/timg116x54blob\/6399973",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Rubrik - Sport"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/672x378.jpg",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Sport",
+			"beschreibung": "Sport",
+			"id": "884726",
+			"length": 2186,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}, {
+			"type": "rubrik",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884728\/timg75x52blob\/10185156",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Rubrik - Unterhaltung"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884728\/timg476x176blob\/10185155",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Rubrik - Unterhaltung"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884728\/timg298x168blob\/10185130",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Rubrik - Unterhaltung"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/404x227.jpg",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884728\/timg276x155blob\/10185151",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Rubrik - Unterhaltung"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884728\/timg644x363blob\/10185132",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Rubrik - Unterhaltung"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884728\/timg144x81blob\/10185161",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Rubrik - Unterhaltung"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884728\/timg485x273blob\/10185122",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Rubrik - Unterhaltung"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884728\/timg94x65blob\/10185148",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Rubrik - Unterhaltung"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884728\/timg72x54blob\/10185126",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Rubrik - Unterhaltung"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884728\/timg173x120blob\/10185149",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Rubrik - Unterhaltung"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884728\/timg236x133blob\/10185159",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Rubrik - Unterhaltung"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884728\/timg116x54blob\/10185152",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Rubrik - Unterhaltung"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/672x378.jpg",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Unterhaltung",
+			"beschreibung": "Unterhaltung",
+			"id": "884728",
+			"length": 1228,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}, {
+			"type": "rubrik",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg75x52blob\/10185415",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Rubrik - Wissen"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg476x176blob\/10184996",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Rubrik - Wissen"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg298x168blob\/10185417",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "Rubrik - Wissen"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/404x227.jpg",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg276x155blob\/10185410",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "Rubrik - Wissen"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg644x363blob\/10185001",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "Rubrik - Wissen"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg144x81blob\/10185420",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "Rubrik - Wissen"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg485x273blob\/10185409",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Rubrik - Wissen"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg94x65blob\/10184989",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Rubrik - Wissen"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg72x54blob\/10184995",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Rubrik - Wissen"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg173x120blob\/10185408",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Rubrik - Wissen"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg236x133blob\/10185000",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "Rubrik - Wissen"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884730\/timg116x54blob\/10184993",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Rubrik - Wissen"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/672x378.jpg",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Wissen",
+			"beschreibung": "Wissen",
+			"id": "884730",
+			"length": 6323,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}]
+	},
+	"aktuell": {
+		"additionalTeaser": false,
+		"titel": "Kinder",
+		"beschreibung": "Kinder",
+		"teaser": [{
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg75x52blob\/2669994",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg476x176blob\/2669888",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg298x168blob\/8852167",
+					"width": 298,
+					"height": 168,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg404x227blob\/8852172",
+					"width": 404,
+					"height": 227,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg276x155blob\/8852160",
+					"width": 276,
+					"height": 155,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg644x363blob\/8852169",
+					"width": 644,
+					"height": 363,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg144x81blob\/8852171",
+					"width": 144,
+					"height": 81,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg485x273blob\/8852159",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg94x65blob\/2669986",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg72x54blob\/2669992",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg173x120blob\/2669987",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg236x133blob\/8852168",
+					"width": 236,
+					"height": 133,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg116x54blob\/2669990",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg672x378blob\/8852170",
+					"width": 672,
+					"height": 378,
+					"tooltipText": "logo!-Nachrichten"
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/158\/timg946x532blob\/8852173",
+					"width": 946,
+					"height": 532,
+					"tooltipText": "logo!-Nachrichten"
+				}
+			},
+			"titel": "logo! (tivi)",
+			"beschreibung": "Die Kindernachrichten des ZDF - samstags bis donnerstags um 19:50 Uhr und freitags um 19:25 Uhr bei KiKA und nat\u00fcrlich immer in der ZDFmediathek ...",
+			"id": "158",
+			"length": 31,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}, {
+			"type": "sendung",
+			"teaserBild": {
+				"75": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/258\/timg75x52blob\/276456",
+					"width": 75,
+					"height": 52,
+					"tooltipText": "Die Mainzelm\u00e4nnchen"
+				},
+				"476": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/258\/timg476x176blob\/251183",
+					"width": 476,
+					"height": 176,
+					"tooltipText": "Die Mainzelm\u00e4nnchen"
+				},
+				"298": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg298x168blob\/5341402",
+					"width": 298,
+					"height": 168,
+					"tooltipText": ""
+				},
+				"404": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/404x227.jpg",
+					"width": 404,
+					"height": 227,
+					"tooltipText": ""
+				},
+				"276": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/258\/timg276x155blob\/3605469",
+					"width": 276,
+					"height": 155,
+					"tooltipText": ""
+				},
+				"644": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/258\/timg644x363blob\/3605475",
+					"width": 644,
+					"height": 363,
+					"tooltipText": ""
+				},
+				"144": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg144x81blob\/5341405",
+					"width": 144,
+					"height": 81,
+					"tooltipText": ""
+				},
+				"485": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/258\/timg485x273blob\/251179",
+					"width": 485,
+					"height": 273,
+					"tooltipText": "Die Mainzelm\u00e4nnchen"
+				},
+				"94": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/258\/timg94x65blob\/276449",
+					"width": 94,
+					"height": 65,
+					"tooltipText": "Die Mainzelm\u00e4nnchen"
+				},
+				"72": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/258\/timg72x54blob\/251182",
+					"width": 72,
+					"height": 54,
+					"tooltipText": "Die Mainzelm\u00e4nnchen"
+				},
+				"173": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/258\/timg173x120blob\/276450",
+					"width": 173,
+					"height": 120,
+					"tooltipText": "Die Mainzelm\u00e4nnchen"
+				},
+				"236": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/884712\/timg236x133blob\/5341403",
+					"width": 236,
+					"height": 133,
+					"tooltipText": ""
+				},
+				"116": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/contentblob\/258\/timg116x54blob\/251180",
+					"width": 116,
+					"height": 54,
+					"tooltipText": "Die Mainzelm\u00e4nnchen"
+				},
+				"672": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/672x378.jpg",
+					"width": 672,
+					"height": 378,
+					"tooltipText": ""
+				},
+				"946": {
+					"url": "http:\/\/www.zdf.de\/ZDFmediathek\/img\/fallback\/946x532.jpg",
+					"width": 946,
+					"height": 532,
+					"tooltipText": ""
+				}
+			},
+			"titel": "Mainzelm\u00e4nnchen",
+			"beschreibung": "Sie sind die sechs Maskottchen des ZDF und wirbeln gerne im Werbefernsehen umher: Anton, Berti, Conni, Det, Edi und Fritzchen!",
+			"id": "258",
+			"length": 5,
+			"airtime": "",
+			"timetolive": "",
+			"channel": "ZDF",
+			"originChannelId": 0,
+			"originChannelTitle": ""
+		}]
+	},
+	"tracking": {
+		"cp": "ZDFde\/0\/",
+		"co": "Rubriken\/Rubriken\/MRubriken"
+	}
+}

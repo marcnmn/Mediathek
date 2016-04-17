@@ -67,13 +67,13 @@ public class ZdfGroup extends Station {
     public ZdfGroup(String title) {
         this.title = title;
 
-        // Setup Episode - Widgets
+        // Setup Asset - Widgets
         top_level_categories = new LinkedHashMap<>();
         top_level_categories.put(widget_key_aktuellste, aktuellste_api);
         top_level_categories.put(widget_key_meistgesehen, meist_gesehen_api);
         top_level_categories.put(widget_key_tipps, tipps_api);
 
-        // Setup Episode - Widgets
+        // Setup Asset - Widgets
         episode_widgets = new LinkedHashMap<>();
         episode_widgets.put(widget_key_aktuellste, aktuellste_api);
         episode_widgets.put(widget_key_meistgesehen, meist_gesehen_api);

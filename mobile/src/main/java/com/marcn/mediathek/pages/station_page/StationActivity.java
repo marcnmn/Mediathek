@@ -1,4 +1,4 @@
-package com.marcn.mediathek;
+package com.marcn.mediathek.pages.station_page;
 
 import android.annotation.TargetApi;
 import android.app.ActivityOptions;
@@ -26,8 +26,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.Video;
+import com.marcn.mediathek.pages.BaseActivity;
+import com.marcn.mediathek.pages.home.MainActivity;
 import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.ui_fragments.SeriesWidgetFragment;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
@@ -36,7 +39,7 @@ import com.marcn.mediathek.utils.Transitions;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
-public class ChannelActivity extends BaseActivity
+public class StationActivity extends BaseActivity
         implements AppBarLayout.OnOffsetChangedListener {
 
     public static final String INTENT_STATION_TITLE = "station-title";
@@ -225,7 +228,7 @@ public class ChannelActivity extends BaseActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    void navigationIdReceived(int id) {
+    public void navigationIdReceived(int id) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(MainActivity.INTENT_LIVE_DRAWER_ITEM, id);
         startActivity(intent);
@@ -254,7 +257,7 @@ public class ChannelActivity extends BaseActivity
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
-    void setExitTransition() {
+    protected void setExitTransition() {
         getWindow().setExitTransition(new Explode());
     }
 
@@ -299,7 +302,7 @@ public class ChannelActivity extends BaseActivity
 //            mFab.setOnLongClickListener(new View.OnLongClickListener() {
 //                @Override
 //                public boolean onLongClick(View v) {
-//                    playVideoExternal(liveStream.getLiveM3U8(), mStation.title, Episode.ACTION_SHARE_VIDEO_DIALOG);
+//                    playVideoExternal(liveStream.getLiveM3U8(), mStation.title, Asset.ACTION_SHARE_VIDEO_DIALOG);
 //                    return true;
 //                }
 //            });

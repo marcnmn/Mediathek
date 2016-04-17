@@ -15,20 +15,16 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.marcn.mediathek.BaseActivity;
+import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.stations.ArdGroup;
 import com.marcn.mediathek.stations.Station;
-import com.marcn.mediathek.stations.ZdfGroup;
 import com.marcn.mediathek.adapter.VideoWidgetAdapter;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.Series;
 
 import java.util.ArrayList;
 
-import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -126,7 +122,7 @@ public class VideoWidgetFragment extends Fragment {
 //        new Thread(new Runnable() {
 //            @Override
 //            public void run() {
-//                final ArrayList<Episode> episodes
+//                final ArrayList<Asset> episodes
 //                        = mStation.fetchWidgetEpisodes(mHeaderTitle, mAssetId, VIDEO_ITEM_COUNT);
 //                if (getActivity() == null) return;
 //                getActivity().runOnUiThread(new Runnable() {

@@ -1,4 +1,4 @@
-package com.marcn.mediathek;
+package com.marcn.mediathek.pages.player_page;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -11,10 +11,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
-import android.view.View;
 
+import com.marcn.mediathek.R;
+import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.ui_fragments.VideoFragment;
-import com.marcn.mediathek.ui_fragments.ZdfVideoFragment;
 
 public class VideoActivity extends BaseActivity {
     public static final String INTENT_VIDEO_TYPE = "video-type";
@@ -30,13 +30,9 @@ public class VideoActivity extends BaseActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        assert fab != null;
+        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -60,13 +56,13 @@ public class VideoActivity extends BaseActivity {
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    void navigationIdReceived(int id) {
+    public void navigationIdReceived(int id) {
 
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
-    void setExitTransition() {
+    protected void setExitTransition() {
         getWindow().setExitTransition(new Explode());
     }
 }
