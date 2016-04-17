@@ -22,7 +22,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
-import com.marcn.mediathek.MediathekApplication;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.StationUtils.ArdUtils;
 import com.marcn.mediathek.StationUtils.ZdfUtils;
@@ -61,7 +60,6 @@ public abstract class BaseActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Perform injection so that when this call returns all dependencies will be available for use.
-        ((MediathekApplication) getApplication()).component().inject(this);
     }
 
     protected void loadCleanFragment(Fragment fragment, int containerId, String name, String tag) {
