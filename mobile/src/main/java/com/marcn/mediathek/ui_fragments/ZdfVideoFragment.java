@@ -11,13 +11,13 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.stations.Station;
-import com.marcn.mediathek.stations.ZdfGroup;
 import com.marcn.mediathek.adapter.VideoAdapter;
 import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.pages.BaseActivity;
+import com.marcn.mediathek.stations.Station;
+import com.marcn.mediathek.stations.ZdfGroup;
 import com.marcn.mediathek.utils.LayoutTasks;
 import com.tonicartos.superslim.LayoutManager;
 
@@ -103,7 +103,7 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
         mLayoutManager = new LayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        mVideoAdapter = new VideoAdapter(new ArrayList<Episode>(), mListener);
+        mVideoAdapter = new VideoAdapter(new ArrayList<>(), mListener);
         recyclerView.setAdapter(mVideoAdapter);
 
         recyclerView.addOnScrollListener(onScrollListener);
@@ -131,7 +131,7 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
                             return;
                         }
 
-                        mVideoAdapter.updateValues(episodes);
+//                        mVideoAdapter.updateValues(episodes);
                         mLoadedItems += episodes.size();
 
                         if (mWidgetType == ZdfVideoFragment.WIDGET_TYPE_SENDUNG_LAST)

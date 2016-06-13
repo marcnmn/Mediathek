@@ -9,28 +9,43 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.adapter.LiveStreamAdapter2;
-import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.base_objects.LiveStreams;
-import com.marcn.mediathek.stations.Station;
-import com.marcn.mediathek.utils.Constants;
+import com.marcn.mediathek.adapter.LiveStreamAdapter;
+import com.marcn.mediathek.di.InjectHelper;
+import com.marcn.mediathek.di.Injector;
+import com.marcn.mediathek.model.base.Stream;
+import com.marcn.mediathek.network.services.ArdInteractor;
+import com.marcn.mediathek.network.services.ZdfInteractor;
+import com.marcn.mediathek.pages.ActivityComponent;
+import com.marcn.mediathek.pages.BaseActivity;
+import com.marcn.mediathek.utils.NavigationManager;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import javax.inject.Inject;
+
+import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import rx.subscriptions.CompositeSubscription;
 
-public class LiveStreamsFragment extends Fragment {
+public class LiveStreamsFragment extends Fragment implements Injector<ActivityComponent> {
     public static String FRAGMENT_TAG = "livestream-fragment";
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 2;
     private OnVideoInteractionListener mListener;
-    private LiveStreams mLiveStreams;
-    private LiveStreamAdapter2 mLiveStreamAdapter;
+    private LiveStreamAdapter mAdapter;
+    private CompositeSubscription mSubscription = new CompositeSubscription();
+
+    @Inject
+    ArdInteractor mArdInteractor;
+
+    @Inject
+    ZdfInteractor mZdfInteractor;
+
+    @Inject
+    NavigationManager mNavigationManager;
 
     public LiveStreamsFragment() {
     }
@@ -47,6 +62,7 @@ public class LiveStreamsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        InjectHelper.setupPage(this);
     }
 
     @Override
@@ -64,53 +80,28 @@ public class LiveStreamsFragment extends Fragment {
         mColumnCount = context.getResources().getInteger(R.integer.live_streams);
 
         GridLayoutManager mLayoutManager = new GridLayoutManager(context, mColumnCount);
-        if (mColumnCount <= 2)
-        mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                Station s = mLiveStreamAdapter.getItem(position);
-                if (s == null) return 1;
-                if (s.getTitle().equals(Constants.TITLE_CHANNEL_ZDF)
-                        || s.getTitle().equals(Constants.TITLE_CHANNEL_ARTE)
-                        || s.getTitle().equals(Constants.TITLE_CHANNEL_ARD)
-                        || s.getTitle().equals(Constants.TITLE_CHANNEL_3SAT)
-                        || s.getTitle().equals(Constants.TITLE_CHANNEL_KIKA))
-                    return mColumnCount;
-                else return 1;
-            }
-        });
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        ArrayList<Station> stations = Constants.getAllChannels();
-        for (Station station : stations) {
-            if (station == null) continue;
-            station.fetchCurrentEpisode()
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(e -> updateStation(station, e));
-        }
+        mRecyclerView.setAdapter(mAdapter);
 
-        if (mLiveStreamAdapter == null) {
-            mLiveStreamAdapter = new LiveStreamAdapter2(stations, mListener);
-            mRecyclerView.setAdapter(mLiveStreamAdapter);
-        } else {
-            mRecyclerView.setAdapter(mLiveStreamAdapter);
-        }
-
+        loadLiveStreams();
         return view;
     }
 
-    private void updateStation(Station station, Episode episode) {
-        if (mLiveStreamAdapter != null)
-            mLiveStreamAdapter.updateStation(station, episode);
+    private void loadLiveStreams() {
+        mSubscription.add(
+                Observable.concat(mZdfInteractor.loadZdfStreams(), mArdInteractor.loadLivestreams())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(this::onStreamSuccess, this::onError)
+        );
     }
 
-    @Override
-    public void onResume() {
-        if (mLiveStreamAdapter != null && mListener != null) {
-            mLiveStreamAdapter.setVideoClickListener(mListener);
-        }
-        super.onResume();
+    private void onStreamSuccess(List<Stream> streams) {
+        mAdapter.addValues(streams);
+    }
+
+    private void onError(Throwable throwable) {
+
     }
 
     @Override
@@ -129,4 +120,37 @@ public class LiveStreamsFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+    @Override
+    public void injectWith(ActivityComponent component) {
+        component.inject(this);
+    }
+
+//    @Override
+//    public void onStreamClicked(Stream stream) {
+//        if (stream instanceof ArdLive) {
+//            String id = ((ArdLive) stream).getId();
+//            mSubscription.add(
+//                    mArdInteractor.loadVideo(id)
+//                            .observeOn(AndroidSchedulers.mainThread())
+//                            .subscribe(a -> mNavigationManager.startInternalPlayer(a), this::onError)
+//            );
+//        } else if (stream instanceof ZdfLive) {
+//
+//        }
+//    }
+//
+//    @Override
+//    public void onStreamLongClicked(Stream stream) {
+//        if (stream instanceof ArdLive) {
+//            String id = ((ArdLive) stream).getId();
+//            mSubscription.add(
+//                    mArdInteractor.loadVideo(id)
+//                            .observeOn(AndroidSchedulers.mainThread())
+//                            .subscribe(a -> mNavigationManager.startExternalPlayer(a), this::onError)
+//            );
+//        } else if (stream instanceof ZdfLive) {
+//
+//        }
+//    }
 }

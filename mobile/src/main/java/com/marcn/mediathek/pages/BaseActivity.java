@@ -2,9 +2,12 @@ package com.marcn.mediathek.pages;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -22,6 +25,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
+import com.marcn.mediathek.MediathekApplication;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.StationUtils.ArdUtils;
 import com.marcn.mediathek.StationUtils.ZdfUtils;
@@ -39,13 +43,21 @@ import com.marcn.mediathek.utils.Storage;
 import java.io.IOException;
 import java.util.TreeMap;
 
+import butterknife.BindView;
+
 public abstract class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         OnVideoInteractionListener {
 
     public static String FRAGMENT_NAME_FIRST_PAGE = "first-fragment";
 
+    @BindView(R.id.drawer_layout)
+    DrawerLayout mDrawer;
+
+    protected MediathekApplication mApplication;
+
     public abstract void navigationIdReceived(int id);
+
     protected abstract void setExitTransition();
 
     protected void loadCleanFragment(Fragment fragment, int containerId) {
@@ -59,7 +71,7 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Perform injection so that when this call returns all dependencies will be available for use.
+        mApplication = getApplication(this);
     }
 
     protected void loadCleanFragment(Fragment fragment, int containerId, String name, String tag) {
@@ -72,9 +84,8 @@ public abstract class BaseActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
+            mDrawer.closeDrawer(GravityCompat.START);
         } else if (startPointFragmentOnTop()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                 finishAfterTransition();
@@ -94,7 +105,6 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 
@@ -102,8 +112,7 @@ public abstract class BaseActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         navigationIdReceived(id);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        mDrawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
@@ -120,67 +129,44 @@ public abstract class BaseActivity extends AppCompatActivity
     public void onLiveStreamClicked(final LiveStreamM3U8 video, final View view, final int videoAction) {
         final Activity activity = this;
         setExitTransition();
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Playback.playByUrl(activity, video.getStreamUrl(), view, videoAction, video.toString());
-            }
-        });
+        runOnUiThread(() -> Playback.playByUrl(activity, video.getStreamUrl(), view, videoAction, video.toString()));
     }
 
     @Override
     public void playVideoWithInternalPlayer(final String url, final ActivityOptions activityOptions) {
         final Activity activity = this;
         setExitTransition();
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Playback.startInternalPlayer(activity, url, activityOptions);
-            }
-        });
+        runOnUiThread(() -> Playback.startInternalPlayer(activity, url, activityOptions));
     }
 
     @Override
     public void playVideoExternal(final String url, final String title, final int videoAction) {
         final Activity activity = this;
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Playback.playByUrl(activity, url, null, videoAction, title);
-            }
-        });
+        runOnUiThread(() -> Playback.playByUrl(activity, url, null, videoAction, title));
     }
 
     @Override
     public void onVideoClicked(final Episode episode, final View view, final int videoAction) {
         final Activity activity = this;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    final TreeMap<Integer, String> s;
-                    int group = StationOld.getGroupFromName(episode.getStationTitle());
-                    switch (group) {
-                        case StationOld.ARTE_GROUP:
-                            s = (new Arte()).getVodUrls(episode.getAssetId());
-                            break;
-                        case StationOld.ZDF_GROUP:
-                            s = ZdfUtils.getVideoUrl(view.getContext(), episode.getAssetId());
-                            break;
-                        default:
-                            s = ArdUtils.getVideoUrl(episode.getAssetId());
-                            break;
-                    }
-
-                    if (s != null && !s.isEmpty())
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Playback.playByUrl(activity, s.get(s.firstKey()), view, videoAction, episode.getTitle());
-                            }
-                        });
-                } catch (IOException ignored) {
+        new Thread(() -> {
+            try {
+                final TreeMap<Integer, String> s;
+                int group = StationOld.getGroupFromName(episode.getStationTitle());
+                switch (group) {
+                    case StationOld.ARTE_GROUP:
+                        s = (new Arte()).getVodUrls(episode.getAssetId());
+                        break;
+                    case StationOld.ZDF_GROUP:
+                        s = ZdfUtils.getVideoUrl(view.getContext(), episode.getAssetId());
+                        break;
+                    default:
+                        s = ArdUtils.getVideoUrl(episode.getAssetId());
+                        break;
                 }
+
+                if (s != null && !s.isEmpty())
+                    runOnUiThread(() -> Playback.playByUrl(activity, s.get(s.firstKey()), view, videoAction, episode.getTitle()));
+            } catch (IOException ignored) {
             }
         }).start();
     }
@@ -199,7 +185,6 @@ public abstract class BaseActivity extends AppCompatActivity
         Storage.saveBitmapOnDisk(this, bmp);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            //getWindow().setExitTransition(new Explode());
             setExitTransition();
 
             thumbnail.setTransitionName("thumbnail");
@@ -237,19 +222,7 @@ public abstract class BaseActivity extends AppCompatActivity
         if (station == null) return;
         Intent intent = new Intent(this, StationActivity.class);
         intent.putExtra(StationActivity.INTENT_STATION_TITLE, station.title);
-
-//        ImageView imageView = (ImageView) thumbnail;
-//        Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-//        saveBitmapOnDisk(bmp);
-
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            getWindow().setExitTransition(new Explode());
-//
-//            thumbnail.setTransitionName("thumbnail");
-//            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,
-//                    Pair.create(thumbnail, "thumbnail"));
-//            startActivity(intent, options.toBundle());
-//        } else
+        intent.putExtra(StationActivity.INTENT_STATION_ID, station.getChannelId());
         startActivity(intent);
     }
 
@@ -260,5 +233,20 @@ public abstract class BaseActivity extends AppCompatActivity
         if (backEntry == null) return false;
         String str = backEntry.getName();
         return str != null && str.equals(FRAGMENT_NAME_FIRST_PAGE);
+    }
+
+    private static MediathekApplication getApplication(Context context) {
+        return (MediathekApplication) context.getApplicationContext();
+    }
+
+    protected void hideWindowBackground() {
+        if (isDestroyed()) {
+            return;
+        }
+
+        // ensure that all UI changes happened before we clear the background, to avoid ugly flickering
+        getSupportFragmentManager().executePendingTransactions();
+
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 }

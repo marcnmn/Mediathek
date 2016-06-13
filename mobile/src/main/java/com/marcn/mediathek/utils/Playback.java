@@ -3,37 +3,31 @@ package com.marcn.mediathek.utils;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Pair;
 import android.view.View;
-import android.widget.ImageView;
 
-import com.marcn.mediathek.pages.player_page.PlayerActivity;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.pages.player_page.PlayerActivity;
 
 public class Playback {
     public static void playByUrl(final Activity activity, final String url, final View view, final int internalPlayer, final String title) {
-        activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                switch (internalPlayer) {
-                    case Episode.ACTION_INTERNAL_PLAYER:
-                        startInternalPlayer(activity, url, view);
-                        break;
-                    case Episode.ACTION_SHARE_VIDEO_DIALOG:
-                        startExternalPlayerDialog(activity, url, title);
-                        break;
-                    case Episode.ACTION_DEFAULT_EXTERNAL_PLAYER:
-                        startDefaultExternalPlayer(activity, url);
-                        break;
-                    case Episode.ACTION_DOWNLOAD:
-                        Storage.downloadFile(activity, url, title);
-                        break;
-                }
+        activity.runOnUiThread(() -> {
+            switch (internalPlayer) {
+                case Episode.ACTION_INTERNAL_PLAYER:
+                    startInternalPlayer(activity, url, view);
+                    break;
+                case Episode.ACTION_SHARE_VIDEO_DIALOG:
+                    startExternalPlayerDialog(activity, url, title);
+                    break;
+                case Episode.ACTION_DEFAULT_EXTERNAL_PLAYER:
+                    startDefaultExternalPlayer(activity, url);
+                    break;
+                case Episode.ACTION_DOWNLOAD:
+                    Storage.downloadFile(activity, url, title);
+                    break;
             }
         });
     }
@@ -43,9 +37,9 @@ public class Playback {
         Intent intent = new Intent(activity, PlayerActivity.class);
         intent.putExtra(PlayerActivity.INTENT_LIVE_STREAM_URL, url);
 
-        ImageView imageView = (ImageView) view;
-        Bitmap bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-        Storage.saveBitmapOnDisk(activity, bmp);
+//        ImageView imageView = (ImageView) view;
+//        Bitmap bmp = (imageView.getDrawable()).g();
+//        Storage.saveBitmapOnDisk(activity, bmp);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //            activity.getWindow().setExitTransition(new Explode());
@@ -64,7 +58,7 @@ public class Playback {
         Intent intent = new Intent(activity, PlayerActivity.class);
         intent.putExtra(PlayerActivity.INTENT_LIVE_STREAM_URL, url);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && activityOptions != null) {
             activity.startActivity(intent, activityOptions.toBundle());
         } else {
             activity.startActivity(intent);

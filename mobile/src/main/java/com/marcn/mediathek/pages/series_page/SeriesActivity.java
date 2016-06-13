@@ -21,17 +21,16 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
-import com.marcn.mediathek.pages.BaseActivity;
-import com.marcn.mediathek.pages.home.MainActivity;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Series;
+import com.marcn.mediathek.pages.BaseActivity;
+import com.marcn.mediathek.pages.home.MainActivity;
 import com.marcn.mediathek.stations.ArdGroup;
 import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.ui_fragments.VideoFragment;
 import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
-import com.marcn.mediathek.utils.Constants;
-import com.squareup.picasso.Picasso;
 
 import java.io.FileNotFoundException;
 
@@ -91,7 +90,7 @@ public class SeriesActivity extends BaseActivity {
                     if (mVideoFragment != null)
                         mVideoFragment.setNestedScrollingEnabled(true);
                     isShow = true;
-                } else if(isShow) {
+                } else if (isShow) {
                     mCollapsingToolbarLayout.setTitle("");
                     if (mVideoFragment != null)
                         mVideoFragment.setNestedScrollingEnabled(false);
@@ -120,12 +119,9 @@ public class SeriesActivity extends BaseActivity {
 
         ImageView thumbnail = (ImageView) findViewById(R.id.imageThumbnail);
         if (thumbnail != null && series.thumb_url_high != null)
-            Picasso.with(this)
+            Glide.with(this)
                     .load(series.thumb_url_high)
                     .placeholder(thumbnail.getDrawable())
-                    .config(Bitmap.Config.RGB_565)
-                    .resize(Constants.SIZE_THUMB_BIG_X, Constants.SIZE_THUMB_BIG_Y)
-                    .onlyScaleDown()
                     .centerCrop()
                     .into(thumbnail);
 
@@ -141,7 +137,7 @@ public class SeriesActivity extends BaseActivity {
         }
     }
 
-//    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    //    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void themeActivity(Bitmap bitmap) {
         Palette p = Palette.from(bitmap).generate();
         Palette.Swatch swatch = p.getDarkVibrantSwatch() != null ?
@@ -204,7 +200,8 @@ public class SeriesActivity extends BaseActivity {
 
     private Transition.TransitionListener transitionListener = new Transition.TransitionListener() {
         @Override
-        public void onTransitionStart(Transition transition) {}
+        public void onTransitionStart(Transition transition) {
+        }
 
         @Override
         public void onTransitionEnd(Transition transition) {
@@ -213,12 +210,15 @@ public class SeriesActivity extends BaseActivity {
         }
 
         @Override
-        public void onTransitionCancel(Transition transition) {}
+        public void onTransitionCancel(Transition transition) {
+        }
 
         @Override
-        public void onTransitionPause(Transition transition) {}
+        public void onTransitionPause(Transition transition) {
+        }
 
         @Override
-        public void onTransitionResume(Transition transition) {}
+        public void onTransitionResume(Transition transition) {
+        }
     };
 }

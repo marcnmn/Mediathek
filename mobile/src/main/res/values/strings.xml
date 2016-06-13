@@ -23,4 +23,5 @@
     <string name="video_widget_header_most_popular">Meist gesehen</string>
     <string name="video_widget_header_further">Weitere</string>
     <string name="video_widget_header_tipps">Tipps</string>
+    <string name="livestream_station_live_suffix">" - Jetzt live:"</string>
 </resources>

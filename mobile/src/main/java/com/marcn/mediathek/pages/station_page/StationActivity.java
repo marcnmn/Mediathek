@@ -1,230 +1,215 @@
 package com.marcn.mediathek.pages.station_page;
 
 import android.annotation.TargetApi;
-import android.app.ActivityOptions;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
-import android.util.Pair;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
+import com.bumptech.glide.Glide;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.base_objects.Video;
+import com.marcn.mediathek.di.InjectHelper;
+import com.marcn.mediathek.di.Injector;
+import com.marcn.mediathek.model.base.Episode;
+import com.marcn.mediathek.model.pages.ZdfPage;
+import com.marcn.mediathek.model.zdf.ZdfAsset;
+import com.marcn.mediathek.model.zdf.ZdfEpisode;
+import com.marcn.mediathek.model.zdf.ZdfLive;
+import com.marcn.mediathek.network.services.ArdInteractor;
+import com.marcn.mediathek.network.services.ZdfInteractor;
+import com.marcn.mediathek.pages.ActivityComponent;
 import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.pages.home.MainActivity;
-import com.marcn.mediathek.stations.Station;
-import com.marcn.mediathek.ui_fragments.SeriesWidgetFragment;
-import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
 import com.marcn.mediathek.utils.Anims;
-import com.marcn.mediathek.utils.Transitions;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+import com.marcn.mediathek.views.SideScroller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.subscriptions.CompositeSubscription;
 
 public class StationActivity extends BaseActivity
-        implements AppBarLayout.OnOffsetChangedListener {
+        implements Injector<ActivityComponent> {
 
     public static final String INTENT_STATION_TITLE = "station-title";
-    public static final int INT_WIDGET_VIDEO = 0;
-    public static final int INT_WIDGET_SERIES = 1;
-//    public static final String INTENT_SENDER_JSON = "station-json";
+    public static final String INTENT_STATION_TYPE = "station-type";
+    public static final String INTENT_STATION_ID = "station-id";
 
-//    private StationOld mStation;
-    private Station mStation;
-    private Video mVideo;
+    @Inject
+    ArdInteractor mArdInteractor;
 
-    private CollapsingToolbarLayout mCollapsingToolbarLayout;
-    private boolean mToolbarIsShown = false;
-    private int mToolbarScrollRange = -1;
-    private Context mContext;
-    private ImageView mThumbnail;
-    private FloatingActionButton mFab;
-    private Episode mCurrentEpisode;
+    @Inject
+    ZdfInteractor mZdfInteractor;
+
+    @BindView(R.id.widgetContainer)
+    LinearLayout mWidgetContainer;
+
+    @BindView(R.id.toolbar_layout)
+    CollapsingToolbarLayout mCollapsingToolbarLayout;
+
+    @BindView(R.id.imageThumbnail)
+    ImageView mThumbnail;
+
+    @BindView(R.id.fab)
+    FloatingActionButton mFab;
+
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+
+    @BindView(R.id.drawer_layout)
+    DrawerLayout mDrawerLayout;
+
+    @BindView(R.id.nav_view)
+    NavigationView mNavigationView;
+    private String mId;
+    private CompositeSubscription mSubscription = new CompositeSubscription();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_channel);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        ButterKnife.bind(this);
+        InjectHelper.setupPage(this);
 
-        mContext = toolbar.getContext();
-        mThumbnail = (ImageView) findViewById(R.id.imageThumbnail);
-        mFab = (FloatingActionButton) findViewById(R.id.fab);
         Anims.fadeOut(mFab, 0);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        setSupportActionBar(mToolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+                this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setItemIconTintList(null);
+        mNavigationView.setNavigationItemSelectedListener(this);
+        mNavigationView.setItemIconTintList(null);
 
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
             String title = intent.getStringExtra(INTENT_STATION_TITLE);
-            mStation = Station.createStation(title);
+            String type = intent.getStringExtra(INTENT_STATION_TYPE);
+            mId = intent.getStringExtra(INTENT_STATION_ID);
+            mToolbar.setTitle(title);
+            loadZdfData();
+        }
+    }
 
-            if(getSupportActionBar() != null)
-                getSupportActionBar().setTitle(title);
+    @Override
+    public void injectWith(ActivityComponent component) {
+        component.inject(this);
+    }
+
+    private void loadZdfData() {
+        Observable<ZdfPage> zdfPageObservable = mZdfInteractor.loadStations(Long.parseLong(mId), 0);
+        mSubscription.add(zdfPageObservable
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this::onSuccess, this::onError));
+    }
+
+    private void onSuccess(ZdfPage zdfPage) {
+        List<ZdfAsset> live = zdfPage.getTeaserList(ZdfPage.CATEGORY_TYPE_LIVE);
+        if (live.get(0) instanceof ZdfLive) {
+            Glide.with(this)
+                    .load(((ZdfLive) live.get(0)).getThumbUrl())
+                    .centerCrop()
+                    .into(mThumbnail);
         }
 
-        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
-//        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
-//        appBarLayout.addOnOffsetChangedListener(this);
-
-//        getIntentThumbnail();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadWidgets();
-                downloadLiveStreamData();
-            }
-        }, 500);
+        List<ZdfAsset> meistgesehen = zdfPage.getTeaserList(ZdfPage.CATEGORY_TYPE_MOST_WATCHED);
+        addWidget(meistgesehen);
+        List<ZdfAsset> neu = zdfPage.getTeaserList(ZdfPage.CATEGORY_TYPE_NEW);
+        addWidget(neu);
+        List<ZdfAsset> tipps = zdfPage.getTeaserList(ZdfPage.CATEGORY_TYPE_TIPPS);
+        addWidget(tipps);
     }
 
-    private void downloadLiveStreamData() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                mCurrentEpisode = mStation.getCurrentEpisode();
-//                mVideo = XmlParser.getLivestreamFromChannel(mContext, mStation);
-                if (mCurrentEpisode == null) return;
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        setupHeaderView();
-                    }
-                });
-            }
-        }).start();
-    }
-
-    private void loadWidgets() {
-        if (mStation == null || mStation.getTopLevelCategories() == null) return;
-
-        if (mStation.getTopLevelCategories() != null) {
-            for (String key : mStation.getTopLevelCategories().keySet()) {
-                loadWidget(key, INT_WIDGET_VIDEO);
+    private void addWidget(List<ZdfAsset> assets) {
+        List<Episode> episodes = new ArrayList<>();
+        for (ZdfAsset asset : assets) {
+            if (asset instanceof ZdfEpisode) {
+                episodes.add((Episode) asset);
             }
         }
-
-        if (mStation.getSeriesWidgets() != null) {
-            for (String key : mStation.getSeriesWidgets().keySet()) {
-                loadWidget(key, INT_WIDGET_SERIES);
-            }
-        }
+        SideScroller sideScroller = new SideScroller(this);
+        sideScroller.setTitle("Das ist ein Test");
+        sideScroller.setItems(episodes);
+        mWidgetContainer.addView(sideScroller);
     }
 
-    private void loadWidget(String widgetKey, int type) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        Fragment frag;
-        if (type == INT_WIDGET_VIDEO)
-            frag = VideoWidgetFragment.newInstance(mStation.getTitle(), null, widgetKey);
-        else
-            frag = SeriesWidgetFragment.newInstance(mStation.getTitle(), null, widgetKey);
-        transaction.add(R.id.widgetContainer, frag, widgetKey);
-        transaction.commit();
+    private void onError(Throwable throwable) {
+        String asdf = "asdf";
     }
 
-    private void setupHeaderView() {
-        if (findViewById(R.id.imageChannel) != null)
-            ((TextView) findViewById(R.id.imageChannel)).setText(mStation.toString());
-//            ((ImageView) findViewById(R.id.imageChannel)).setImageResource(sendung.station.getLogoResId());
-        if (findViewById(R.id.textTitle) != null)
-            ((TextView) findViewById(R.id.textTitle)).setText(mCurrentEpisode.getTitle());
+//    private void loadWidgets() {
+//        if (mStation == null || mStation.getTopLevelCategories() == null) return;
+//
+//        if (mStation.getTopLevelCategories() != null) {
+//            for (String key : mStation.getTopLevelCategories().keySet()) {
+//                loadWidget(key, INT_WIDGET_VIDEO);
+//            }
+//        }
+//
+//        if (mStation.getSeriesWidgets() != null) {
+//            for (String key : mStation.getSeriesWidgets().keySet()) {
+//                loadWidget(key, INT_WIDGET_SERIES);
+//            }
+//        }
+//    }
 
-        if (findViewById(R.id.textDetail) != null)
-            ((TextView) findViewById(R.id.textDetail)).setText(mCurrentEpisode.getDescription());
+//    private void loadWidget(String widgetKey, int type) {
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        Fragment frag;
+//        if (type == INT_WIDGET_VIDEO)
+//            frag = VideoWidgetFragment.newInstance(mStation.getTitle(), null, widgetKey);
+//        else
+//            frag = SeriesWidgetFragment.newInstance(mStation.getTitle(), null, widgetKey);
+//        transaction.add(R.id.widgetContainer, frag, widgetKey);
+//        transaction.commit();
+//    }
 
-        if (mFab != null) {
-            Anims.fadeIn(mFab);
-            mFab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ActivityOptions activityOptions = prepareInternalPlayerTransition();
-                    playVideoWithInternalPlayer(mStation.getLiveStream().getStreamUrl(), activityOptions);
-                }
-            });
-            mFab.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    playVideoExternal(mStation.getLiveStream().getStreamUrl(), mStation.toString(), Episode.ACTION_SHARE_VIDEO_DIALOG);
-                    return true;
-                }
-            });
-        }
+//    private void setupHeaderView() {
+//        if (findViewById(R.id.imageChannel) != null)
+//            ((TextView) findViewById(R.id.imageChannel)).setText(mStation.toString());
+//        if (findViewById(R.id.textTitle) != null)
+//            ((TextView) findViewById(R.id.textTitle)).setText(mCurrentEpisode.getTitle());
+//
+//        if (findViewById(R.id.textDetail) != null)
+//            ((TextView) findViewById(R.id.textDetail)).setText(mCurrentEpisode.getDescription());
+//
+//        if (mFab != null) {
+//            Anims.fadeIn(mFab);
+//            mFab.setOnClickListener(v -> {
+//                ActivityOptions activityOptions = prepareInternalPlayerTransition();
+//                playVideoWithInternalPlayer(mStation.getLiveStream().getStreamUrl(), activityOptions);
+//            });
+//            mFab.setOnLongClickListener(v -> {
+//                playVideoExternal(mStation.getLiveStream().getStreamUrl(), mStation.toString(), Episode.ACTION_SHARE_VIDEO_DIALOG);
+//                return true;
+//            });
+//        }
+//    }
 
-        if (mThumbnail != null && mCurrentEpisode.getThumbUrl() != null)
-            Picasso.with(mContext)
-                    .load(mCurrentEpisode.getThumbUrl())
-//                    .config(Bitmap.Config.RGB_565)
-//                    .resize(Constants.SIZE_THUMB_BIG_X, Constants.SIZE_THUMB_BIG_Y)
-//                    .onlyScaleDown()
-//                    .centerCrop()
-                    .into(loadTarget);
-    }
 
-    private Target loadTarget = new Target() {
-        @Override
-        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-            if (mThumbnail != null)
-                mThumbnail.setImageBitmap(bitmap);
-            if (bitmap != null)
-                themeActivity(bitmap);
-        }
-
-        @Override
-        public void onBitmapFailed(Drawable errorDrawable) {}
-
-        @Override
-        public void onPrepareLoad(Drawable placeHolderDrawable) {}
-    };
-
-    private void themeActivity(Bitmap bitmap) {
-        Palette p = Palette.from(bitmap).generate();
-        Palette.Swatch swatch = p.getDarkVibrantSwatch() != null ?
-                p.getDarkVibrantSwatch() : p.getDarkMutedSwatch();
-        if (swatch != null) {
-            float[] hsl = swatch.getHsl();
-            hsl[2] *= 0.98f;
-
-            mCollapsingToolbarLayout.setStatusBarScrimColor(Color.HSVToColor(hsl));
-            mCollapsingToolbarLayout.setContentScrimColor(swatch.getRgb());
-            mCollapsingToolbarLayout.setBackgroundColor(swatch.getRgb());
-        }
-    }
-
-    @SuppressWarnings("unchecked")
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private ActivityOptions prepareInternalPlayerTransition() {
-        mThumbnail.setTransitionName("thumb");
-        Transitions.saveBitmapFromImageView(this, mThumbnail, Transitions.PLAYER_THUMBNAIL);
-        return ActivityOptions.makeSceneTransitionAnimation(this,
-                new Pair<View, String>(mThumbnail, ""),
-                new Pair<View, String>(mFab, ""));
-    }
+//    @SuppressWarnings("unchecked")
+//    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+//    private ActivityOptions prepareInternalPlayerTransition() {
+//        mThumbnail.setTransitionName("thumb");
+//        Transitions.saveBitmapFromImageView(this, mThumbnail, Transitions.PLAYER_THUMBNAIL);
+//        return ActivityOptions.makeSceneTransitionAnimation(this,
+//                new Pair<>(mThumbnail, ""),
+//                new Pair<>(mFab, ""));
+//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -234,26 +219,21 @@ public class StationActivity extends BaseActivity
         startActivity(intent);
     }
 
-//    private void loadWidget(int Type, int resId) {
-////        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-////        transaction.replace(resId, VideoWidgetFragment.newInstance(mSendung, Type));
-////        transaction.commit();
-//    }
 
-    @Override
-    public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-        if (mToolbarScrollRange == -1) {
-            mToolbarScrollRange = appBarLayout.getTotalScrollRange();
-        }
-        if (mToolbarScrollRange + verticalOffset == 0) {
-            if (mVideo != null)
-                mCollapsingToolbarLayout.setTitle(mVideo.title);
-            mToolbarIsShown = true;
-        } else if (mToolbarIsShown) {
-            mCollapsingToolbarLayout.setTitle("");
-            mToolbarIsShown = false;
-        }
-    }
+//    @Override
+//    public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+//        if (mToolbarScrollRange == -1) {
+//            mToolbarScrollRange = appBarLayout.getTotalScrollRange();
+//        }
+//        if (mToolbarScrollRange + verticalOffset == 0) {
+//            if (mVideo != null)
+//                mCollapsingToolbarLayout.setTitle(mVideo.title);
+//            mToolbarIsShown = true;
+//        } else if (mToolbarIsShown) {
+//            mCollapsingToolbarLayout.setTitle("");
+//            mToolbarIsShown = false;
+//        }
+//    }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -261,6 +241,12 @@ public class StationActivity extends BaseActivity
         getWindow().setExitTransition(new Explode());
     }
 
+
+//    private void loadWidget(int Type, int resId) {
+////        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+////        transaction.replace(resId, VideoWidgetFragment.newInstance(mSendung, Type));
+////        transaction.commit();
+//    }
 //    private void prepareBitmap() {
 //        Bitmap bmp = ((BitmapDrawable) mThumbnail.getDrawable()).getBitmap();
 //        Storage.saveBitmapOnDisk(this, bmp);
@@ -313,4 +299,17 @@ public class StationActivity extends BaseActivity
 //                    .load(liveStream.thumb_url)
 //                    .config(Bitmap.Config.RGB_565)
 //                    .into(mThumbnail);
+//    }
+//    private void themeActivity(Bitmap bitmap) {
+//        Palette p = Palette.from(bitmap).generate();
+//        Palette.Swatch swatch = p.getDarkVibrantSwatch() != null ?
+//                p.getDarkVibrantSwatch() : p.getDarkMutedSwatch();
+//        if (swatch != null) {
+//            float[] hsl = swatch.getHsl();
+//            hsl[2] *= 0.98f;
+//
+//            mCollapsingToolbarLayout.setStatusBarScrimColor(Color.HSVToColor(hsl));
+//            mCollapsingToolbarLayout.setContentScrimColor(swatch.getRgb());
+//            mCollapsingToolbarLayout.setBackgroundColor(swatch.getRgb());
+//        }
 //    }

@@ -1,49 +1,29 @@
 package com.marcn.mediathek.utils;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import com.google.gson.Gson;
-import com.marcn.mediathek.model.asset.Asset;
-import com.marcn.mediathek.network.Api;
+import com.marcn.mediathek.model.base.Asset;
 import com.marcn.mediathek.network.Zdf;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.Buffer;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkTasks {
-
-    public static List<Asset> listZdfAssets(Context context) {
-        try {
-            InputStream in_s1 = context.getResources().getAssets().open("terms.txt");
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in_s1, "UTF-8"));
-            Gson gson = new Gson();
-            Zdf jsonObject = gson.fromJson(bufferedReader, Zdf.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
 
     public static List<Asset> listEpisodes() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -284,15 +264,15 @@ public class NetworkTasks {
             e.printStackTrace();
         }
 
-        Api service = retrofit.create(Api.class);
-        Call<Zdf> repos = service.zdfListMissedEpisodes("2016-04-09");
-        try {
-            Response<Zdf> response = repos.execute();
-            Zdf episodes = response.body();
-            String ea = "";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        Api service = retrofit.create(Api.class);
+//        Call<Zdf> repos = service.zdfListMissedEpisodes("2016-04-09");
+//        try {
+//            Response<Zdf> response = repos.execute();
+//            Zdf episodes = response.body();
+//            String ea = "";
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
         return null;
     }

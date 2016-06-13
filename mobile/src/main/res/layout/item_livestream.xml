@@ -1,54 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="5dp">
+
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageThumbnail"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         app:layout_aspectRatio="178%"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:id="@+id/imageThumbnail"/>
+        app:layout_widthPercent="100%"/>
 
     <TextView
+        android:id="@+id/textLiveTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textLiveTime"
         android:layout_alignParentEnd="true"
-        android:padding="2dp"
         android:layout_margin="4dp"
-        android:maxLines="1"
+        android:background="@color/colorTimeBackground"
         android:ellipsize="end"
+        android:maxLines="1"
+        android:padding="2dp"
         android:textAppearance="@style/WhiteShadowFont"
         android:textSize="12sp"
-        android:background="@color/colorTimeBackground"
         tools:text="12 min"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageThumbnail"
+        android:background="@drawable/gradient_bottom_up"
         android:orientation="vertical"
         android:padding="5dp"
-        android:paddingTop="10dp"
-        android:background="@drawable/gradient_bottom_up">
+        android:paddingTop="10dp">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/textStation"
             style="@style/WhiteShadowFont"
-            android:textSize="12sp"
-            tools:text="Phoenix - Jetzt live:"/>
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="12sp"
+            tools:text="Phoenix - Jetzt live:"/>
+
+        <TextView
             android:id="@+id/textTitle"
             style="@style/WhiteShadowFont"
-            android:maxLines="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
+            android:maxLines="1"
             android:textSize="16sp"
             tools:text="NeoMagazin Royale"/>
     </LinearLayout>

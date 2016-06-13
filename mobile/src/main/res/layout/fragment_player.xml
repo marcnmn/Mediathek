@@ -1,42 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.google.android.exoplayer.AspectRatioFrameLayout
         android:id="@+id/video_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_gravity="center"
+        app:layout_aspectRatio="178%"
+        app:layout_widthPercent="100%">
 
         <TextureView
             android:id="@+id/surface_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-        <ImageView
-            android:id="@+id/shutter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/placeholder_stream"
-            android:adjustViewBounds="true"
-            android:transitionName="thumb"/>
-
+            android:layout_height="wrap_content"/>
 
         <com.google.android.exoplayer.text.SubtitleLayout
             android:id="@+id/subtitles"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
         <FrameLayout
+            android:id="@+id/controllerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/controllerView"/>
+            android:layout_height="match_parent"/>
 
         <ProgressBar
+            android:id="@+id/progress_bar_player"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:id="@+id/progress_bar_player"/>
+            android:visibility="gone"/>
     </com.google.android.exoplayer.AspectRatioFrameLayout>
-</FrameLayout>
+</android.support.percent.PercentFrameLayout>

@@ -1,7 +1,6 @@
 package com.marcn.mediathek.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,14 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.base_objects.LiveStreams;
-import com.marcn.mediathek.base_objects.Video;
 import com.marcn.mediathek.stations.Station;
-import com.marcn.mediathek.utils.Constants;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -38,7 +34,6 @@ public class LiveStreamAdapter2 extends RecyclerView.Adapter<LiveStreamAdapter2.
             mValues.get(index).setCurrentEpisode2(e);
             notifyItemChanged(index);
         }
-
     }
 
     public void setVideoClickListener(OnVideoInteractionListener listener) {
@@ -74,12 +69,9 @@ public class LiveStreamAdapter2 extends RecyclerView.Adapter<LiveStreamAdapter2.
             holder.mThumb.setImageResource(R.drawable.placeholder_stream2);
         else {
             String thumb = current.getThumbUrl();
-            Picasso.with(context)
+            Glide.with(context)
                     .load(thumb)
                     .placeholder(R.drawable.placeholder_stream2)
-                    .config(Bitmap.Config.RGB_565)
-                    .resize(Constants.SIZE_THUMB_MEDIUM_X, Constants.SIZE_THUMB_MEDIUM_Y)
-                    .onlyScaleDown()
                     .centerCrop()
                     .into(holder.mThumb);
         }

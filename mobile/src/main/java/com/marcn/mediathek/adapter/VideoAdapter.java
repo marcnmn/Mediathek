@@ -1,7 +1,6 @@
 package com.marcn.mediathek.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,13 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.stations.Station;
-import com.marcn.mediathek.utils.Constants;
-import com.marcn.mediathek.utils.DataUtils;
-import com.squareup.picasso.Picasso;
+import com.marcn.mediathek.model.zdf.ZdfEpisode;
 import com.tonicartos.superslim.GridSLM;
 import com.tonicartos.superslim.LinearSLM;
 
@@ -30,10 +26,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
 
     private Context mContext;
     private boolean mIsLoading;
-    private ArrayList<Episode> mValues;
+    private ArrayList<ZdfEpisode> mValues;
     private final OnVideoInteractionListener mListener;
 
-    public VideoAdapter(ArrayList<Episode> items, OnVideoInteractionListener onVideoInteractionListener) {
+    public VideoAdapter(ArrayList<ZdfEpisode> items, OnVideoInteractionListener onVideoInteractionListener) {
         if (items == null)
             mValues = new ArrayList<>();
         else
@@ -43,15 +39,13 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
         notifyDataSetChanged();
     }
 
-    public void updateValues(ArrayList<Episode> ls) {
+    public void updateValues(ArrayList<ZdfEpisode> ls) {
         mValues.addAll(ls);
-//        DataUtils.sortEpisodesDateAsc(mValues);
-//        DataUtils.filterGanze(mValues);
-        mValues = DataUtils.addDateHeaders(mValues);
+//        mValues = DataUtils.addDateHeaders(mValues);
         notifyDataSetChanged();
     }
 
-    public void updateValues(Episode ls) {
+    public void updateValues(ZdfEpisode ls) {
         mValues.add(ls);
         notifyDataSetChanged();
     }
@@ -60,16 +54,16 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
         mIsLoading = b;
         try {
             notifyDataSetChanged();
-        } catch (IllegalStateException ignored) {}
+        } catch (IllegalStateException ignored) {
+        }
     }
 
     public void addHeaders() {
-        mValues = DataUtils.addDateHeaders(mValues);
         notifyDataSetChanged();
     }
 
     @Nullable
-    public Episode getItem(int position) {
+    public ZdfEpisode getItem(int position) {
         if (position < 0 || position >= mValues.size())
             return null;
         if (mValues.get(position).isHeader())
@@ -81,7 +75,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
     public String getMember(int position) {
         if (position < 0 || position >= mValues.size())
             return null;
-        return mValues.get(position).getAirTime();
+        return mValues.get(position).getAirtime();
     }
 
     @Override
@@ -117,24 +111,21 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
             return;
         }
 
-        final Episode item = mValues.get(position);
+        final ZdfEpisode item = mValues.get(position);
         View itemView = viewHolder.mView;
         viewHolder.mItem = item;
 
-        if(viewHolder.mTitle != null)
+        if (viewHolder.mTitle != null)
             viewHolder.mTitle.setText(item.getTitle());
 
         if (getItemViewType(position) == VIEW_TYPE_CONTENT) {
-            if(viewHolder.mVideoInfo != null)
-                viewHolder.mVideoInfo.setText(item.getAirTime());
+            if (viewHolder.mVideoInfo != null)
+                viewHolder.mVideoInfo.setText(item.getAirtime());
 
             if (item.getThumbUrl() != null)
-                Picasso.with(mContext)
+                Glide.with(mContext)
                         .load(item.getThumbUrl())
                         .placeholder(R.drawable.placeholder_stream)
-                        .config(Bitmap.Config.RGB_565)
-                        .resize(Constants.SIZE_THUMB_BIG_X, Constants.SIZE_THUMB_BIG_Y)
-                        .onlyScaleDown()
                         .centerCrop()
                         .into(viewHolder.mThumbnail);
             else
@@ -143,12 +134,12 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
             if (viewHolder.mChannel != null)
                 viewHolder.mChannel.setText(item.getStationTitle());
 
-            Station station = viewHolder.mItem.getStation();
-            if (station != null && viewHolder.mChannel != null) {
-                viewHolder.mChannel.setText(station.getTitle());
+//            Station station = viewHolder.mItem.getStation();
+//            if (station != null && viewHolder.mChannel != null) {
+//                viewHolder.mChannel.setText(station.getTitle());
 //                int color = station.getColor(mContext);
 //                viewHolder.mChannel.getBackground().setColorFilter(color, PorterDuff.Mode.OVERLAY);
-            }
+//            }
 //            if (item.station != null)
 //                viewHolder.mChannel.setImageResource(item.station.getLogoResId());
 //            else
@@ -160,21 +151,15 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
         lp.setFirstPosition(getFirstSectionPosition(position));
         itemView.setLayoutParams(lp);
 
-        viewHolder.mView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mListener != null)
-                    mListener.onVideoClicked(viewHolder.mItem, viewHolder.mThumbnail, Episode.ACTION_INTERNAL_PLAYER);
-            }
+        viewHolder.mView.setOnClickListener(v -> {
+//                if (mListener != null)
+//                    mListener.onVideoClicked(viewHolder.mItem, viewHolder.mThumbnail, Episode.ACTION_INTERNAL_PLAYER);
         });
 
-        viewHolder.mView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (mListener != null)
-                    mListener.onVideoClicked(viewHolder.mItem, viewHolder.mThumbnail, Episode.ACTION_SHARE_VIDEO_DIALOG);
-                return true;
-            }
+        viewHolder.mView.setOnLongClickListener((View.OnLongClickListener) v -> {
+//            if (mListener != null)
+//                    mListener.onVideoClicked(viewHolder.mItem, viewHolder.mThumbnail, Episode.ACTION_SHARE_VIDEO_DIALOG);
+            return true;
         });
     }
 
@@ -194,7 +179,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
     public void addHeader(Calendar mDay) {
         if (mValues.get(mValues.size() - 1).isHeader())
             mValues.remove(mValues.size() - 1);
-        Episode.addHeader(mValues, mDay);
+//        Episode.addHeader(mValues, mDay);
         notifyItemInserted(mValues.size() - 1);
     }
 
@@ -202,7 +187,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
         public final View mView;
         public final TextView mTitle, mVideoInfo, mChannel;
         public final ImageView mThumbnail;
-        public Episode mItem;
+        public ZdfEpisode mItem;
 
         public SendungViewHolder(View view) {
             super(view);

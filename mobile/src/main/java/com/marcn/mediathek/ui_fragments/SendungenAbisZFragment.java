@@ -15,11 +15,11 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.SendungAdapter;
 import com.marcn.mediathek.base_objects.Series;
+import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.stations.Station;
 import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.DataUtils;
@@ -72,7 +72,7 @@ public class SendungenAbisZFragment extends Fragment {
         mLayoutManager = new LayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        mSendungAdapter = new SendungAdapter(new ArrayList<Series>(), mListener);
+        mSendungAdapter = new SendungAdapter(new ArrayList<>(), mListener);
         recyclerView.setAdapter(mSendungAdapter);
 
         fabSearch = (FloatingActionButton) getActivity().findViewById(R.id.fabSearch);
@@ -81,11 +81,11 @@ public class SendungenAbisZFragment extends Fragment {
             fabSearch.setOnClickListener(fabOnClickListener);
         }
 
-        editSearch = (EditText) getActivity().findViewById(R.id.editSearch);
-        if (editSearch != null) {
-            editSearch.addTextChangedListener(editSearchWatcher);
-            editSearch.setOnFocusChangeListener(editSearchFocusListener);
-        }
+//        editSearch = (EditText) getActivity().findViewById(R.id.editSearch);
+//        if (editSearch != null) {
+//            editSearch.addTextChangedListener(editSearchWatcher);
+//            editSearch.setOnFocusChangeListener(editSearchFocusListener);
+//        }
 
 //        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 //            @Override
@@ -198,6 +198,7 @@ public class SendungenAbisZFragment extends Fragment {
 
     private View.OnClickListener fabOnClickListener = new View.OnClickListener() {
         boolean searchMode = true;
+
         @Override
         public void onClick(View v) {
             if (editSearch == null) return;

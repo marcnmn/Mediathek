@@ -1,7 +1,6 @@
 package com.marcn.mediathek.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,12 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Series;
-import com.marcn.mediathek.utils.Constants;
 import com.marcn.mediathek.utils.DataUtils;
-import com.squareup.picasso.Picasso;
 import com.tonicartos.superslim.GridSLM;
 import com.tonicartos.superslim.LinearSLM;
 
@@ -108,12 +106,9 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
 
         if (getItemViewType(position) == VIEW_TYPE_CONTENT) {
             if (item.thumb_url_low != null)
-                Picasso.with(mContext)
+                Glide.with(mContext)
                         .load(item.thumb_url_low)
                         .placeholder(R.drawable.placeholder_stream)
-                        .config(Bitmap.Config.RGB_565)
-                        .resize(Constants.SIZE_THUMB_SMALL_X, Constants.SIZE_THUMB_SMALL_Y)
-                        .onlyScaleDown()
                         .centerCrop()
                         .into(viewHolder.mThumbnail);
             else

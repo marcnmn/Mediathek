@@ -1,7 +1,6 @@
 package com.marcn.mediathek.utils;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.Nullable;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,11 +17,21 @@ public class FormatTime {
                 - Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
 
         switch (dayDiff) {
-            case 2: day = "Übermorgen"; break;
-            case 1: day = "Morgen"; break;
-            case 0: day = "Heute"; break;
-            case -1: day = "Gestern"; break;
-            case -2: day = "Vorgestern"; break;
+            case 2:
+                day = "Übermorgen";
+                break;
+            case 1:
+                day = "Morgen";
+                break;
+            case 0:
+                day = "Heute";
+                break;
+            case -1:
+                day = "Gestern";
+                break;
+            case -2:
+                day = "Vorgestern";
+                break;
             default:
                 SimpleDateFormat s = new SimpleDateFormat("EEE, d.MM");
                 day = s.format(c.getTime());
@@ -44,7 +53,7 @@ public class FormatTime {
     @SuppressLint("SimpleDateFormat")
     public static Calendar zdfAirtimeStringToDate(String airtime) {
         //String day = airtime.split(" ")[0];
-        SimpleDateFormat format  = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         Date date = null;
         try {
             date = format.parse(airtime);
@@ -60,7 +69,7 @@ public class FormatTime {
     @SuppressLint("SimpleDateFormat")
     public static Calendar arteAirtimeStringToDate(String airtime) {
         //String day = airtime.split(" ")[0];
-        SimpleDateFormat format  = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = null;
         try {
             date = format.parse(airtime);
@@ -79,8 +88,8 @@ public class FormatTime {
         String day = airtime.split("\\+")[0];
         if (day == null) return null;
         day = day.replace("T", " ");
-        SimpleDateFormat format  = new SimpleDateFormat("yyy-MM-dd HH:mm:ss");
-        SimpleDateFormat offsetFormat  = new SimpleDateFormat("mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat("yyy-MM-dd HH:mm:ss");
+        SimpleDateFormat offsetFormat = new SimpleDateFormat("mm:ss");
 
         Date date = null;
         try {
@@ -116,12 +125,18 @@ public class FormatTime {
                 - Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
 
         switch (dayDiff) {
-            case 2: return "Übermorgen";
-            case 1: return "Morgen";
-            case 0: return "Heute";
-            case -1: return "Gestern";
-            case -2: return "Vorgestern";
-            default: return calendarToHeadlineFormat(data);
+            case 2:
+                return "Übermorgen";
+            case 1:
+                return "Morgen";
+            case 0:
+                return "Heute";
+            case -1:
+                return "Gestern";
+            case -2:
+                return "Vorgestern";
+            default:
+                return calendarToHeadlineFormat(data);
         }
     }
 
@@ -134,6 +149,13 @@ public class FormatTime {
     @SuppressLint("SimpleDateFormat")
     public static String zdfCalendarToRecentRequest(Calendar date) {
         SimpleDateFormat s = new SimpleDateFormat("ddMMyy");
+        return s.format(date.getTime());
+    }
+
+    // 2016-09-15
+    @SuppressLint("SimpleDateFormat")
+    public static String zdfCalendarToMissedRequest(Calendar date) {
+        SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd");
         return s.format(date.getTime());
     }
 }

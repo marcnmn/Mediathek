@@ -1,8 +1,6 @@
 package com.marcn.mediathek.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,154 +8,109 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
+import com.bumptech.glide.Glide;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.base_objects.Episode;
-import com.marcn.mediathek.base_objects.Video;
-import com.marcn.mediathek.base_objects.LiveStreams;
-import com.marcn.mediathek.utils.Constants;
-import com.squareup.picasso.Picasso;
+import com.marcn.mediathek.model.base.Stream;
+import com.marcn.mediathek.model.zdf.ZdfLive;
+import com.marcn.mediathek.utils.NavigationManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class LiveStreamAdapter {
-//
-//    private final LiveStreams mValues;
-//    private OnVideoInteractionListener mListener;
-//
-//    public LiveStreamAdapter(LiveStreams items, OnVideoInteractionListener listener) {
-//        mValues = items;
-//        mListener = listener;
-//    }
-//
-////    public void updateValue(Video l) {
-////        int index = mValues.mVideos.indexOf(l);
-////        mValues.pushLiveStream(l);
-////        if (index < 0)
-////            notifyDataSetChanged();
-////        else
-////            notifyItemChanged(index);
-////    }
-//
-//    public void updateZdfValues(ArrayList<Video> ls) {
-//        mValues.pushLiveStreams(ls);
-//        notifyItemRangeChanged(0, 5);
-//    }
-//
-//    public void updateArteValue(Video l) {
-//        mValues.pushLiveStream(l);
-//        notifyItemChanged(5);
-//    }
-//
-//    public void updateArdValues(ArrayList<Video> ls) {
-//        mValues.pushLiveStreams(ls);
-////        notifyDataSetChanged();
-//        notifyItemRangeChanged(6, ls.size());
-//    }
-//
-//    public void setVideoClickListener(OnVideoInteractionListener listener) {
-//        mListener = listener;
-//    }
-//
-//    @Override
-//    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        View view = LayoutInflater.from(parent.getContext())
-//                .inflate(R.layout.item_livestream, parent, false);
-//
-//        return new ViewHolder(view);
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(final ViewHolder holder, int position) {
-//        holder.mItem = mValues.get(position);
-//        //holder.mTitle.setText(holder.mItem.station);
-//        Context context = holder.mView.getContext();
-////        final Video liveStream = mValues.get(position);
-//
-//        // Thumbnail Image
-//        String thumb = holder.mItem.getThumb_url();
-//        if (thumb == null || thumb.isEmpty())
-//            holder.mThumb.setImageResource(R.drawable.placeholder_stream);
-//        else
-//            Picasso.with(context)
-//                    .load(thumb)
-//                    .placeholder(R.drawable.placeholder_stream)
-//                    .config(Bitmap.Config.RGB_565)
-//                    .resize(Constants.SIZE_THUMB_MEDIUM_X, Constants.SIZE_THUMB_MEDIUM_Y)
-//                    .onlyScaleDown()
-//                    .centerCrop()
-//                    .into(holder.mThumb);
-//
-//        if (holder.mItem.stationObject != null) {
-//            if (holder.mStation != null) {
-//                holder.mStation.setText(holder.mItem.stationObject.getTitle() + " - Jetzt live:");
-////                int color = holder.mItem.stationObject.getColor(context);
-////                holder.mStation.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
-//            }
-//
-//            if (holder.mItem.getCurrentEpisode() != null) {
-//                if (holder.mTitle != null)
-//                    holder.mTitle.setText(holder.mItem.getCurrentEpisode().getTitle());
-//
-//                if (holder.mTime != null)
-//                    holder.mTime.setText(holder.mItem.getCurrentEpisode().getRemainingTime());
-//            }
-//
-////            holder.mView.findViewById(R.id.liveInfoContainer).setVisibility(View.VISIBLE);
-//        } else {
-//            if (holder.mTitle != null)
-//                holder.mTitle.setText(null);
-//
-//            if (holder.mTime != null)
-//                holder.mTime.setText(null);
-//        }
-//
-//        // OnClick
-//        holder.mView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (null != mListener) {
-//                    mListener.onLiveStreamClicked(holder.mItem, holder.mThumb, Asset.ACTION_INTERNAL_PLAYER);
-//                }
-//            }
-//        });
-//
-//        holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
-//            @Override
-//            public boolean onLongClick(View v) {
-//                mListener.playVideoExternal(holder.mItem.getLiveM3U8(), holder.mItem.title, Asset.ACTION_SHARE_VIDEO_DIALOG);
-//                return true;
-//            }
-//        });
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return mValues.size();
-//    }
-//
-//    @Nullable
-//    public Video getItem(int position) {
-//        if (position >= getItemCount() || position < 0)
-//            return null;
-//        return mValues.get(position);
-//    }
-//
-//    public class ViewHolder extends RecyclerView.ViewHolder {
-//        public final View mView;
-//        public final ImageView mThumb;
-//        //        public final TextView mLogo;
-//        public final TextView mTitle, mTime, mStation;
-//
-//        public Video mItem;
-//
-//        public ViewHolder(View view) {
-//            super(view);
-//            mView = view;
-//            mThumb = (ImageView) view.findViewById(R.id.imageThumbnail);
-//            mTitle = (TextView) view.findViewById(R.id.textTitle);
-//            mTime = (TextView) view.findViewById(R.id.textLiveTime);
-//            mStation = (TextView) view.findViewById(R.id.textStation);
-//        }
-//    }
+import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+import static com.marcn.mediathek.utils.NavigationManager.PlayerType.EXTERNAL;
+import static com.marcn.mediathek.utils.NavigationManager.PlayerType.INTERNAL;
+
+public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.ViewHolder> {
+
+    private final ArrayList<Stream> mValues;
+    private NavigationManager mNavigationManager;
+
+    @Inject
+    public LiveStreamAdapter(NavigationManager navigationManager) {
+        mNavigationManager = navigationManager;
+        mValues = new ArrayList<>();
+    }
+
+    public void addValues(List<Stream> streams) {
+        mValues.addAll(streams);
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_livestream, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        Context context = holder.mView.getContext();
+        holder.setItem(mValues.get(position));
+
+        String stationTitle = holder.getItem().getStationTitle()
+                + context.getString(R.string.livestream_station_live_suffix);
+        holder.mStation.setText(stationTitle);
+        Glide.with(context)
+                .load(holder.getItem().getThumbUrl())
+                .placeholder(R.drawable.placeholder_stream2)
+                .centerCrop()
+                .into(holder.mThumb);
+        holder.mTitle.setText(holder.getItem().getStreamTitle());
+
+        if (holder.getItem() instanceof ZdfLive) {
+            holder.mTime.setVisibility(View.GONE);
+        } else {
+            holder.mTime.setText(holder.getItem().getRemainingTime());
+            holder.mTime.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return mValues.size();
+    }
+
+    public ArrayList<Stream> getList() {
+        return mValues;
+    }
+
+    class ViewHolder extends RecyclerView.ViewHolder {
+        public final View mView;
+        @BindView(R.id.imageThumbnail)
+        ImageView mThumb;
+        @BindView(R.id.textTitle)
+        TextView mTitle;
+        @BindView(R.id.textLiveTime)
+        TextView mTime;
+        @BindView(R.id.textStation)
+        TextView mStation;
+
+        private Stream mItem;
+
+        public ViewHolder(View view) {
+            super(view);
+            ButterKnife.bind(this, view);
+
+            mView = view;
+            mView.setOnClickListener(v -> mNavigationManager.startLiveStream(mItem, INTERNAL));
+            mView.setOnLongClickListener(v -> {
+                mNavigationManager.startLiveStream(mItem, EXTERNAL);
+                return true;
+            });
+        }
+
+        public Stream getItem() {
+            return mItem;
+        }
+
+        public void setItem(Stream item) {
+            mItem = item;
+        }
+    }
 }

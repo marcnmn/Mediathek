@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.VideoAdapter;
 import com.marcn.mediathek.base_objects.Episode;
+import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.stations.Station;
 import com.tonicartos.superslim.LayoutManager;
 
@@ -27,7 +27,7 @@ public class VideoFragment extends Fragment {
     private static final int INT_UPDATE_THRESHOLD = 10;
     private static final int INT_UPDATE_COUNT = 50;
 
-//    private VideoWidgetAdapter mVideoAdapter;
+    //    private VideoWidgetAdapter mVideoAdapter;
     private VideoAdapter mVideoAdapter;
     private LayoutManager mLayoutManager;
     private OnVideoInteractionListener mListener;
@@ -76,7 +76,7 @@ public class VideoFragment extends Fragment {
         mLayoutManager = new LayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mVideoAdapter = new VideoAdapter(new ArrayList<Episode>(), mListener);
+        mVideoAdapter = new VideoAdapter(new ArrayList<>(), mListener);
         mRecyclerView.setAdapter(mVideoAdapter);
 
         mRecyclerView.addOnScrollListener(onScrollListener);
@@ -103,7 +103,7 @@ public class VideoFragment extends Fragment {
                             setIsLoading(false);
                             return;
                         }
-                        mVideoAdapter.updateValues(episodes);
+//                        mVideoAdapter.updateValues(episodes);
                         mLoadedItems += episodes.size();
 //                        if (mWidgetType == ZdfVideoFragment.WIDGET_TYPE_SENDUNG_LAST)
 //                            mVideoAdapter.addHeaders();
