@@ -17,13 +17,11 @@ public class ArdTeaser implements ArdAsset {
     private Link mLink;
 
     public String getId() {
-        if (mLink == null || mLink.mUrl == null) {
-            return null;
-        }
-        int start = mLink.mUrl.lastIndexOf("/") + 1;
-        int end = mLink.mUrl.indexOf("?");
-        String id = mLink.mUrl.substring(start, end);
-        return id;
+        return mId;
+    }
+
+    public void setId(String id) {
+        mId = id;
     }
 
     @Override
@@ -91,6 +89,16 @@ public class ArdTeaser implements ArdAsset {
     @JsonProperty("link")
     public void setLink(Link link) {
         mLink = link;
+        setId(parseLinkForId(link));
+    }
+
+    private String parseLinkForId(Link link) {
+        if (link == null || link.mUrl == null) {
+            return null;
+        }
+        int start = mLink.mUrl.lastIndexOf("/") + 1;
+        int end = mLink.mUrl.indexOf("?");
+        return mLink.mUrl.substring(start, end);
     }
 
     private static class TeaserImage {

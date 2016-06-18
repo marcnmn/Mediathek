@@ -16,10 +16,13 @@
 package com.marcn.mediathek.player;
 
 import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaCodec;
 import android.net.Uri;
+import android.os.Handler;
 
 import com.google.android.exoplayer.MediaCodecAudioTrackRenderer;
+import com.google.android.exoplayer.MediaCodecSelector;
 import com.google.android.exoplayer.MediaCodecVideoTrackRenderer;
 import com.google.android.exoplayer.TrackRenderer;
 import com.google.android.exoplayer.audio.AudioCapabilities;
@@ -38,48 +41,49 @@ import com.marcn.mediathek.player.Player.RendererBuilder;
  */
 public class ExtractorRendererBuilder implements RendererBuilder {
 
-  private static final int BUFFER_SEGMENT_SIZE = 64 * 1024;
-  private static final int BUFFER_SEGMENT_COUNT = 256;
+    private static final int BUFFER_SEGMENT_SIZE = 64 * 1024;
+    private static final int BUFFER_SEGMENT_COUNT = 256;
 
-  private final Context context;
-  private final String userAgent;
-  private final Uri uri;
+    private final Context context;
+    private final String userAgent;
+    private final Uri uri;
 
-  public ExtractorRendererBuilder(Context context, String userAgent, Uri uri) {
-    this.context = context;
-    this.userAgent = userAgent;
-    this.uri = uri;
-  }
+    public ExtractorRendererBuilder(Context context, String userAgent, Uri uri) {
+        this.context = context;
+        this.userAgent = userAgent;
+        this.uri = uri;
+    }
 
-  @Override
-  public void buildRenderers(Player player) {
-    Allocator allocator = new DefaultAllocator(BUFFER_SEGMENT_SIZE);
+    @Override
+    public void buildRenderers(Player player) {
+        Allocator allocator = new DefaultAllocator(BUFFER_SEGMENT_SIZE);
+        Handler mainHandler = player.getMainHandler();
 
-    // Build the video and audio renderers.
-    DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter(player.getMainHandler(),
-        null);
-    DataSource dataSource = new DefaultUriDataSource(context, bandwidthMeter, userAgent);
-    ExtractorSampleSource sampleSource = new ExtractorSampleSource(uri, dataSource, allocator,
-        BUFFER_SEGMENT_COUNT * BUFFER_SEGMENT_SIZE);
-    MediaCodecVideoTrackRenderer videoRenderer = new MediaCodecVideoTrackRenderer(context,
-        sampleSource, MediaCodec.VIDEO_SCALING_MODE_SCALE_TO_FIT, 5000, player.getMainHandler(),
-        player, 50);
-    MediaCodecAudioTrackRenderer audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource,
-        null, true, player.getMainHandler(), player, AudioCapabilities.getCapabilities(context));
-    TrackRenderer textRenderer = new TextTrackRenderer(sampleSource, player,
-        player.getMainHandler().getLooper());
+        // Build the video and audio renderers.
+        DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter(mainHandler, null);
+        DataSource dataSource = new DefaultUriDataSource(context, bandwidthMeter, userAgent);
+        ExtractorSampleSource sampleSource = new ExtractorSampleSource(uri, dataSource, allocator,
+                BUFFER_SEGMENT_COUNT * BUFFER_SEGMENT_SIZE);
+        MediaCodecVideoTrackRenderer videoRenderer = new MediaCodecVideoTrackRenderer(context,
+                sampleSource, MediaCodecSelector.DEFAULT, MediaCodec.VIDEO_SCALING_MODE_SCALE_TO_FIT, 5000,
+                mainHandler, player, 50);
+        MediaCodecAudioTrackRenderer audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource,
+                MediaCodecSelector.DEFAULT, null, true, mainHandler, player,
+                AudioCapabilities.getCapabilities(context), AudioManager.STREAM_MUSIC);
+        TrackRenderer textRenderer = new TextTrackRenderer(sampleSource, player,
+                mainHandler.getLooper());
 
-    // Invoke the callback.
-    TrackRenderer[] renderers = new TrackRenderer[Player.RENDERER_COUNT];
-    renderers[Player.TYPE_VIDEO] = videoRenderer;
-    renderers[Player.TYPE_AUDIO] = audioRenderer;
-    renderers[Player.TYPE_TEXT] = textRenderer;
-    player.onRenderers(renderers, bandwidthMeter);
-  }
+        // Invoke the callback.
+        TrackRenderer[] renderers = new TrackRenderer[Player.RENDERER_COUNT];
+        renderers[Player.TYPE_VIDEO] = videoRenderer;
+        renderers[Player.TYPE_AUDIO] = audioRenderer;
+        renderers[Player.TYPE_TEXT] = textRenderer;
+        player.onRenderers(renderers, bandwidthMeter);
+    }
 
-  @Override
-  public void cancel() {
-    // Do nothing.
-  }
+    @Override
+    public void cancel() {
+        // Do nothing.
+    }
 
 }

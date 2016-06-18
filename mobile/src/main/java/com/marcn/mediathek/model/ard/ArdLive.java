@@ -18,6 +18,7 @@ public class ArdLive extends ArdTeaser implements Stream {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mId);
         dest.writeString(getTitle());
         dest.writeString(mStationTitle);
         dest.writeString(getRemainingTime());
@@ -29,6 +30,7 @@ public class ArdLive extends ArdTeaser implements Stream {
     }
 
     private ArdLive(Parcel in) {
+        mId = in.readString();
         mLiveTitle = in.readString();
         mStationTitle = in.readString();
         mRemainingTime = in.readString();

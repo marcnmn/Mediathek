@@ -23,6 +23,7 @@ import com.google.android.exoplayer.dash.DashChunkSource;
 import com.google.android.exoplayer.drm.StreamingDrmSessionManager;
 import com.google.android.exoplayer.hls.HlsSampleSource;
 import com.google.android.exoplayer.metadata.MetadataTrackRenderer.MetadataRenderer;
+import com.google.android.exoplayer.metadata.id3.Id3Frame;
 import com.google.android.exoplayer.text.Cue;
 import com.google.android.exoplayer.text.TextRenderer;
 import com.google.android.exoplayer.upstream.BandwidthMeter;
@@ -33,7 +34,6 @@ import com.google.android.exoplayer.util.PlayerControl;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -45,7 +45,7 @@ public class Player implements ExoPlayer.Listener, ChunkSampleSource.EventListen
         HlsSampleSource.EventListener, DefaultBandwidthMeter.EventListener,
         MediaCodecVideoTrackRenderer.EventListener, MediaCodecAudioTrackRenderer.EventListener,
         StreamingDrmSessionManager.EventListener, DashChunkSource.EventListener, TextRenderer,
-        MetadataRenderer<Map<String, Object>>, DebugTextViewHelper.Provider {
+        MetadataRenderer<List<Id3Frame>>, DebugTextViewHelper.Provider {
 
     /**
      * Builds renderers for the player.
@@ -55,10 +55,11 @@ public class Player implements ExoPlayer.Listener, ChunkSampleSource.EventListen
          * Builds renderers for playback.
          *
          * @param player The player for which renderers are being built. {@link Player#onRenderers}
-         *     should be invoked once the renderers have been built. If building fails,
-         *     {@link Player#onRenderersError} should be invoked.
+         *               should be invoked once the renderers have been built. If building fails,
+         *               {@link Player#onRenderersError} should be invoked.
          */
         void buildRenderers(Player player);
+
         /**
          * Cancels the current build operation, if there is one. Else does nothing.
          * <p>
@@ -73,7 +74,9 @@ public class Player implements ExoPlayer.Listener, ChunkSampleSource.EventListen
      */
     public interface Listener {
         void onStateChanged(boolean playWhenReady, int playbackState);
+
         void onError(Exception e);
+
         void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees,
                                 float pixelWidthHeightRatio);
     }
@@ -88,12 +91,19 @@ public class Player implements ExoPlayer.Listener, ChunkSampleSource.EventListen
      */
     public interface InternalErrorListener {
         void onRendererInitializationError(Exception e);
+
         void onAudioTrackInitializationError(AudioTrack.InitializationException e);
+
         void onAudioTrackWriteError(AudioTrack.WriteException e);
+
         void onAudioTrackUnderrun(int bufferSize, long bufferSizeMs, long elapsedSinceLastFeedMs);
+
         void onDecoderInitializationError(DecoderInitializationException e);
+
         void onCryptoError(CryptoException e);
+
         void onLoadError(int sourceId, IOException e);
+
         void onDrmSessionManagerError(Exception e);
     }
 
@@ -102,16 +112,23 @@ public class Player implements ExoPlayer.Listener, ChunkSampleSource.EventListen
      */
     public interface InfoListener {
         void onVideoFormatEnabled(Format format, int trigger, long mediaTimeMs);
+
         void onAudioFormatEnabled(Format format, int trigger, long mediaTimeMs);
+
         void onDroppedFrames(int count, long elapsed);
+
         void onBandwidthSample(int elapsedMs, long bytes, long bitrateEstimate);
+
         void onLoadStarted(int sourceId, long length, int type, int trigger, Format format,
                            long mediaStartTimeMs, long mediaEndTimeMs);
+
         void onLoadCompleted(int sourceId, long bytesLoaded, int type, int trigger, Format format,
                              long mediaStartTimeMs, long mediaEndTimeMs, long elapsedRealtimeMs, long loadDurationMs);
+
         void onDecoderInitialized(String decoderName, long elapsedRealtimeMs,
                                   long initializationDurationMs);
-        void onAvailableRangeChanged(TimeRange availableRange);
+
+        void onAvailableRangeChanged(int sourceId, TimeRange availableRange);
     }
 
     /**
@@ -125,7 +142,7 @@ public class Player implements ExoPlayer.Listener, ChunkSampleSource.EventListen
      * A listener for receiving ID3 metadata parsed from the media stream.
      */
     public interface Id3MetadataListener {
-        void onId3Metadata(Map<String, Object> metadata);
+        void onId3Metadata(List<Id3Frame> id3Frames);
     }
 
     // Constants pulled into this class for convenience.
@@ -278,8 +295,8 @@ public class Player implements ExoPlayer.Listener, ChunkSampleSource.EventListen
     /**
      * Invoked with the results from a {@link RendererBuilder}.
      *
-     * @param renderers Renderers indexed by {@link Player} TYPE_* constants. An individual
-     *     element may be null if there do not exist tracks of the corresponding type.
+     * @param renderers      Renderers indexed by {@link Player} TYPE_* constants. An individual
+     *                       element may be null if there do not exist tracks of the corresponding type.
      * @param bandwidthMeter Provides an estimate of the currently available bandwidth. May be null.
      */
   /* package */ void onRenderers(TrackRenderer[] renderers, BandwidthMeter bandwidthMeter) {
@@ -504,16 +521,16 @@ public class Player implements ExoPlayer.Listener, ChunkSampleSource.EventListen
     }
 
     @Override
-    public void onMetadata(Map<String, Object> metadata) {
+    public void onMetadata(List<Id3Frame> id3Frames) {
         if (id3MetadataListener != null && getSelectedTrack(TYPE_METADATA) != TRACK_DISABLED) {
-            id3MetadataListener.onId3Metadata(metadata);
+            id3MetadataListener.onId3Metadata(id3Frames);
         }
     }
 
     @Override
-    public void onAvailableRangeChanged(TimeRange availableRange) {
+    public void onAvailableRangeChanged(int sourceId, TimeRange availableRange) {
         if (infoListener != null) {
-            infoListener.onAvailableRangeChanged(availableRange);
+            infoListener.onAvailableRangeChanged(sourceId, availableRange);
         }
     }
 
