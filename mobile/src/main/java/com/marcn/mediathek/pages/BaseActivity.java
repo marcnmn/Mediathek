@@ -38,11 +38,14 @@ import com.marcn.mediathek.pages.player_page.VideoActivity;
 import com.marcn.mediathek.pages.series_page.SeriesActivity;
 import com.marcn.mediathek.pages.station_page.StationActivity;
 import com.marcn.mediathek.stations.Arte;
+import com.marcn.mediathek.utils.NavigationManager;
 import com.marcn.mediathek.utils.Playback;
 import com.marcn.mediathek.utils.Storage;
 
 import java.io.IOException;
 import java.util.TreeMap;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 
@@ -51,6 +54,9 @@ public abstract class BaseActivity extends AppCompatActivity
         OnVideoInteractionListener {
 
     public static String FRAGMENT_NAME_FIRST_PAGE = "first-fragment";
+
+    @Inject
+    NavigationManager mNavigationManager;
 
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawer;
@@ -61,6 +67,9 @@ public abstract class BaseActivity extends AppCompatActivity
 
     //    @Override
     protected void navigationIdReceived(int id) {
+        if (id == R.id.nav_live) {
+            mNavigationManager.goToLiveStream();
+        }
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(MainActivity.INTENT_LIVE_DRAWER_ITEM, id);
         startActivity(intent);
@@ -120,9 +129,14 @@ public abstract class BaseActivity extends AppCompatActivity
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        navigationIdReceived(id);
         mDrawer.closeDrawer(GravityCompat.START);
+        int id = item.getItemId();
+        if (id == R.id.nav_live) {
+            mNavigationManager.goToLiveStream();
+            return true;
+        }
+
+        navigationIdReceived(id);
         return true;
     }
 

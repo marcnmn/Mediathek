@@ -11,6 +11,7 @@ import com.marcn.mediathek.model.base.Stream;
 import com.marcn.mediathek.model.zdf.ZdfLive;
 import com.marcn.mediathek.network.services.ArdInteractor;
 import com.marcn.mediathek.network.services.ZdfInteractor;
+import com.marcn.mediathek.pages.live.LiveActivity;
 import com.marcn.mediathek.pages.player_page.PlayerActivity;
 
 import javax.inject.Inject;
@@ -30,6 +31,10 @@ public class NavigationManager {
         mContext = context;
         mArdInteractor = ardInteractor;
         mZdfInteractor = zdfInteractor;
+    }
+
+    public void goToLiveStream() {
+        mContext.startActivity(new Intent(mContext, LiveActivity.class));
     }
 
     public void startLiveStream(Stream stream, PlayerType type) {

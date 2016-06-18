@@ -23,6 +23,4 @@ public interface ApplicationComponent {
 
     ArdInteractor provideArdInteractor();
 
-    void inject(BaseActivity baseActivity);
-
 }

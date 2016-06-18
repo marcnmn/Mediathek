@@ -139,9 +139,7 @@ public class MainActivity extends BaseActivity implements Injector<ActivityCompo
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public void navigationIdReceived(int id) {
-        if (id == R.id.nav_live) {
-            loadCleanFragment(new LiveStreamsFragment(), R.id.content_main, FRAGMENT_NAME_FIRST_PAGE, LiveStreamsFragment.FRAGMENT_TAG);
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_gallery) {
             loadCleanFragment(new ZdfMissedVideoFragment());
 //        } else if (id == R.id.nav_zdf_mediathek) {
 //            loadCleanFragment(new SendungenAbisZFragment());
