@@ -19,8 +19,20 @@ public class ArdLive extends ArdTeaser implements Stream {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(getTitle());
+        dest.writeString(mStationTitle);
         dest.writeString(getRemainingTime());
         dest.writeString(getThumbUrl());
+    }
+
+    public ArdLive() {
+
+    }
+
+    private ArdLive(Parcel in) {
+        mLiveTitle = in.readString();
+        mStationTitle = in.readString();
+        mRemainingTime = in.readString();
+        mLiveImageUrl = in.readString();
     }
 
     public static final Creator<ArdLive> CREATOR = new Creator<ArdLive>() {
@@ -34,16 +46,6 @@ public class ArdLive extends ArdTeaser implements Stream {
             return new ArdLive[size];
         }
     };
-
-    public ArdLive() {
-
-    }
-
-    private ArdLive(Parcel in) {
-        mLiveTitle = in.readString();
-        mRemainingTime = in.readString();
-        mLiveImageUrl = in.readString();
-    }
 
     @Override
     public String getTitle() {

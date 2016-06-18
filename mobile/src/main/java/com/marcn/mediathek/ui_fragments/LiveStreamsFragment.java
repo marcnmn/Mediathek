@@ -97,7 +97,7 @@ public class LiveStreamsFragment extends Fragment implements Injector<ActivityCo
     }
 
     private void onStreamSuccess(List<Stream> streams) {
-        mAdapter.addValues(streams);
+        mAdapter.addItems(streams);
     }
 
     private void onError(Throwable throwable) {

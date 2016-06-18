@@ -19,9 +19,6 @@ public class Constants {
     public static final int SIZE_THUMB_MEDIUM_Y = 2 * SIZE_THUMB_SMALL_Y;
 
 
-
-
-
     // Video Qualities
     public static final int QUALITY_AUDIO_ONLY = 0;
 
@@ -60,8 +57,6 @@ public class Constants {
     public static final String TITLE_CHANNEL_RBB = "RBB";
 
     public static final String TITLE_CHANNEL_KIKA = "KiKA";
-
-
 
     public static final String LIVE_STREAM_CHANNEL_ZDF = "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/index_3056_av-p.m3u8?sd=10&amp;dw=0&amp;rebase=on&amp;hdntl=";
     public static final String LIVE_STREAM_CHANNEL_PHOENIX = "http://zdf0910-lh.akamaihd.net/i/de09_v1@392871/master.m3u8";
@@ -122,8 +117,8 @@ public class Constants {
         return stations;
     }
 
-    public static ArrayList<StationOld> getAllOldChannels(Context c){
-        ArrayList<StationOld> ls =  new ArrayList<>();
+    public static ArrayList<StationOld> getAllOldChannels(Context c) {
+        ArrayList<StationOld> ls = new ArrayList<>();
         if (c == null) return ls;
 
         ls.add(new StationOld(Constants.TITLE_CHANNEL_ZDF)); // ZDF

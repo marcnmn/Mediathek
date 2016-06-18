@@ -17,14 +17,15 @@ public class ZdfTeaser implements ZdfAsset {
     @JsonProperty("teaserBild")
     private TeaserImages mTeaserImages;
     @JsonProperty("titel")
-    private String mTitle;
+    String mTitle;
     @JsonProperty("beschreibung")
     private String mDescribtion;
     private String mId;
     private Long mLength;
     private Calendar mAirtime;
+    @JsonProperty("channel")
+    protected String mStationTitle;
     private String mTimetolive;
-    private String mChannel;
     private Long mOriginChannelId;
     private String mOriginChannelTitle;
 
@@ -35,7 +36,7 @@ public class ZdfTeaser implements ZdfAsset {
 
     @Override
     public String getStationTitle() {
-        return mChannel;
+        return mStationTitle;
     }
 
     @Override
@@ -56,7 +57,7 @@ public class ZdfTeaser implements ZdfAsset {
     }
 
     public String getThumbUrl(int quality) {
-        if (mTeaserImages.mImages.keySet().contains(quality)) {
+        if (mTeaserImages != null && mTeaserImages.mImages != null && mTeaserImages.mImages.keySet().contains(quality)) {
             return mTeaserImages.mImages.get(quality).url;
         }
         return null;
@@ -114,14 +115,6 @@ public class ZdfTeaser implements ZdfAsset {
 
     public void setTimetolive(String timetolive) {
         mTimetolive = timetolive;
-    }
-
-    public String getChannel() {
-        return mChannel;
-    }
-
-    public void setChannel(String channel) {
-        mChannel = channel;
     }
 
     public Long getOriginChannelId() {

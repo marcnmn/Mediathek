@@ -2,6 +2,7 @@ package com.marcn.mediathek.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,35 +11,33 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.adapter.base.SortableDragAdapter;
 import com.marcn.mediathek.model.base.Stream;
-import com.marcn.mediathek.model.zdf.ZdfLive;
+import com.marcn.mediathek.utils.Anims;
 import com.marcn.mediathek.utils.NavigationManager;
+import com.marcn.mediathek.utils.PreferenceManager;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.marcn.mediathek.utils.NavigationManager.PlayerType.EXTERNAL;
 import static com.marcn.mediathek.utils.NavigationManager.PlayerType.INTERNAL;
 
-public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.ViewHolder> {
+public class LiveStreamAdapter extends SortableDragAdapter<Stream, LiveStreamAdapter.ViewHolder> {
+    private static final String PREF_LIVESTREAM_ORDER = "livestream-order";
 
-    private final ArrayList<Stream> mValues;
+    private PreferenceManager mPreferenceManager;
     private NavigationManager mNavigationManager;
+    private View mLastDraggedView;
 
     @Inject
-    public LiveStreamAdapter(NavigationManager navigationManager) {
+    public LiveStreamAdapter(NavigationManager navigationManager, PreferenceManager preferenceManager) {
         mNavigationManager = navigationManager;
-        mValues = new ArrayList<>();
-    }
-
-    public void addValues(List<Stream> streams) {
-        mValues.addAll(streams);
-        notifyDataSetChanged();
+        mPreferenceManager = preferenceManager;
     }
 
     @Override
@@ -51,10 +50,9 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Context context = holder.mView.getContext();
-        holder.setItem(mValues.get(position));
+        holder.setItem(mItems.get(position));
 
-        String stationTitle = holder.getItem().getStationTitle()
-                + context.getString(R.string.livestream_station_live_suffix);
+        String stationTitle = holder.getItem().getStationTitle() + context.getString(R.string.livestream_station_live_suffix);
         holder.mStation.setText(stationTitle);
         Glide.with(context)
                 .load(holder.getItem().getThumbUrl())
@@ -63,7 +61,7 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
                 .into(holder.mThumb);
         holder.mTitle.setText(holder.getItem().getStreamTitle());
 
-        if (holder.getItem() instanceof ZdfLive) {
+        if (holder.getItem().getRemainingTime() == null) {
             holder.mTime.setVisibility(View.GONE);
         } else {
             holder.mTime.setText(holder.getItem().getRemainingTime());
@@ -72,12 +70,42 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
     }
 
     @Override
-    public int getItemCount() {
-        return mValues.size();
+    public void saveItemOrder() {
+        mKeyList = new ArrayList<>();
+        for (Stream stream : mItems) {
+            mKeyList.add(stream.getStationTitle());
+        }
+        mPreferenceManager.saveObjectAsJSON(PREF_LIVESTREAM_ORDER, mKeyList);
+    }
+
+    @Override
+    public void sortItemList() {
+        mKeyList = mPreferenceManager.getStringArray(PREF_LIVESTREAM_ORDER);
+        if (mKeyList == null) {
+            return;
+        }
+        Collections.sort(mItems, (a, b) -> Integer
+                .compare(mKeyList.indexOf(a.getStationTitle()), mKeyList.indexOf(b.getStationTitle())));
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
+        switch (actionState) {
+            case ItemTouchHelper.ACTION_STATE_DRAG:
+                mLastDraggedView = viewHolder != null ? viewHolder.itemView : null;
+                Anims.elevateUp(mLastDraggedView);
+                break;
+            default:
+                if (mLastDraggedView != null) {
+                    Anims.elevateDown(mLastDraggedView);
+                }
+                break;
+        }
     }
 
     public ArrayList<Stream> getList() {
-        return mValues;
+        return mItems;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -96,13 +124,8 @@ public class LiveStreamAdapter extends RecyclerView.Adapter<LiveStreamAdapter.Vi
         public ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
-
             mView = view;
             mView.setOnClickListener(v -> mNavigationManager.startLiveStream(mItem, INTERNAL));
-            mView.setOnLongClickListener(v -> {
-                mNavigationManager.startLiveStream(mItem, EXTERNAL);
-                return true;
-            });
         }
 
         public Stream getItem() {

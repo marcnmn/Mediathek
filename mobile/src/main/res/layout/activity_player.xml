@@ -9,12 +9,19 @@
     android:keepScreenOn="true"
     tools:openDrawer="start">
 
-    <fragment
-        android:id="@+id/player_fragment"
-        android:name="com.marcn.mediathek.ui_fragments.PlayerFragment"
+    <android.support.percent.PercentRelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
 
+        <fragment
+            android:id="@+id/player_fragment"
+            android:name="com.marcn.mediathek.player.PlayerFragment"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:layout_widthPercent="100%"
+            tools:layout="@layout/fragment_player" />
+
+    </android.support.percent.PercentRelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
@@ -22,6 +29,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer"/>
+        app:menu="@menu/activity_main_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

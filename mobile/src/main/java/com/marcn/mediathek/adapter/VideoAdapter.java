@@ -41,7 +41,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
 
     public void updateValues(ArrayList<ZdfEpisode> ls) {
         mValues.addAll(ls);
-//        mValues = DataUtils.addDateHeaders(mValues);
+//        mItems = DataUtils.addDateHeaders(mItems);
         notifyDataSetChanged();
     }
 
@@ -179,7 +179,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
     public void addHeader(Calendar mDay) {
         if (mValues.get(mValues.size() - 1).isHeader())
             mValues.remove(mValues.size() - 1);
-//        Episode.addHeader(mValues, mDay);
+//        Episode.addHeader(mItems, mDay);
         notifyItemInserted(mValues.size() - 1);
     }
 

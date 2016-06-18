@@ -8,6 +8,7 @@ import android.net.Uri;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.model.ard.ArdLive;
 import com.marcn.mediathek.model.base.Stream;
+import com.marcn.mediathek.model.zdf.ZdfLive;
 import com.marcn.mediathek.network.services.ArdInteractor;
 import com.marcn.mediathek.network.services.ZdfInteractor;
 import com.marcn.mediathek.pages.player_page.PlayerActivity;
@@ -39,10 +40,15 @@ public class NavigationManager {
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(s -> startPlayer(s, type), this::onError)
             );
+        } else if (stream instanceof ZdfLive) {
+            startPlayer(stream.getStreamUrl(), type);
         }
     }
 
     private void startPlayer(String url, PlayerType playerType) {
+        if (url == null) {
+            return;
+        }
         switch (playerType) {
             case INTERNAL:
                 startInternalPlayer(url);

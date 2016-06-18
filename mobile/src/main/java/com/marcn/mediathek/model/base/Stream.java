@@ -2,7 +2,8 @@ package com.marcn.mediathek.model.base;
 
 import android.os.Parcelable;
 
-public interface Stream extends Parcelable {
+public interface Stream extends Asset, Parcelable {
+
     String getStreamTitle();
 
     String getStationTitle();
@@ -12,5 +13,4 @@ public interface Stream extends Parcelable {
     String getRemainingTime();
 
     String getStreamUrl();
-
 }

@@ -5,13 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp">
+    android:clipToPadding="false"
+    android:outlineProvider="bounds">
 
     <ImageView
         android:id="@+id/imageThumbnail"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:layout_aspectRatio="178%"
-        app:layout_widthPercent="100%"/>
+        app:layout_widthPercent="100%" />
 
     <TextView
         android:id="@+id/textLiveTime"
@@ -25,7 +26,7 @@
         android:padding="2dp"
         android:textAppearance="@style/WhiteShadowFont"
         android:textSize="12sp"
-        tools:text="12 min"/>
+        tools:text="12 min" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12sp"
-            tools:text="Phoenix - Jetzt live:"/>
+            tools:text="Phoenix - Jetzt live:" />
 
         <TextView
             android:id="@+id/textTitle"
@@ -52,7 +53,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:textSize="16sp"
-            tools:text="NeoMagazin Royale"/>
+            tools:text="NeoMagazin Royale" />
     </LinearLayout>
 
 

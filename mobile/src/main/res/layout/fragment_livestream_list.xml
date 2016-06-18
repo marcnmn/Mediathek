@@ -9,4 +9,4 @@
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     tools:context=".ui_fragments.LiveStreamsFragment"
-    tools:listitem="@layout/item_livestream"/>
+    tools:listitem="@layout/item_livestream" />

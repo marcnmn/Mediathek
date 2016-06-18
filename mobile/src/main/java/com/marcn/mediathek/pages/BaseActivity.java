@@ -33,6 +33,7 @@ import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
 import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.base_objects.StationOld;
+import com.marcn.mediathek.pages.home.MainActivity;
 import com.marcn.mediathek.pages.player_page.VideoActivity;
 import com.marcn.mediathek.pages.series_page.SeriesActivity;
 import com.marcn.mediathek.pages.station_page.StationActivity;
@@ -56,9 +57,18 @@ public abstract class BaseActivity extends AppCompatActivity
 
     protected MediathekApplication mApplication;
 
-    public abstract void navigationIdReceived(int id);
+//    public abstract void navigationIdReceived(int id);
 
-    protected abstract void setExitTransition();
+    //    @Override
+    protected void navigationIdReceived(int id) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra(MainActivity.INTENT_LIVE_DRAWER_ITEM, id);
+        startActivity(intent);
+    }
+
+    protected void setExitTransition() {
+        // nop
+    }
 
     protected void loadCleanFragment(Fragment fragment, int containerId) {
         loadCleanFragment(fragment, containerId, "0");
