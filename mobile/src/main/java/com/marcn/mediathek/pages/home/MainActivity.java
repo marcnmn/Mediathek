@@ -26,6 +26,7 @@ import com.marcn.mediathek.network.services.ArdInteractor;
 import com.marcn.mediathek.network.services.ZdfInteractor;
 import com.marcn.mediathek.pages.ActivityComponent;
 import com.marcn.mediathek.pages.BaseActivity;
+import com.marcn.mediathek.pages.CoordinatorActivity;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
 import com.marcn.mediathek.ui_fragments.SendungenAbisZFragment;
 import com.marcn.mediathek.ui_fragments.ZdfMissedVideoFragment;
@@ -40,7 +41,7 @@ import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.subscriptions.CompositeSubscription;
 
-public class MainActivity extends BaseActivity implements Injector<ActivityComponent> {
+public abstract class MainActivity extends CoordinatorActivity implements Injector<ActivityComponent> {
 
     @Inject
     Context mApplicationContext;
@@ -137,7 +138,6 @@ public class MainActivity extends BaseActivity implements Injector<ActivityCompo
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
-    @Override
     public void navigationIdReceived(int id) {
         if (id == R.id.nav_gallery) {
             loadCleanFragment(new ZdfMissedVideoFragment());

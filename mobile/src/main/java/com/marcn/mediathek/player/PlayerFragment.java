@@ -4,17 +4,31 @@ import android.content.res.Configuration;
 import android.graphics.SurfaceTexture;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.ViewStubCompat;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.exoplayer.AspectRatioFrameLayout;
 import com.google.android.exoplayer.ExoPlayer;
+import com.google.android.exoplayer.MediaFormat;
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.adapter.BottomQualityAdapter;
+import com.marcn.mediathek.pages.player_page.IPlayer;
+import com.marcn.mediathek.pages.player_page.PlayerActivity;
+import com.marcn.mediathek.utils.DataUtils;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,7 +39,7 @@ import static com.marcn.mediathek.utils.LayoutTasks.isImmersiveEnabled;
 import static com.marcn.mediathek.utils.LayoutTasks.isInLandscape;
 
 public class PlayerFragment extends Fragment implements Player.Listener,
-        TextureView.SurfaceTextureListener, PlayerControls {
+        TextureView.SurfaceTextureListener, PlayerControls, IPlayer, IPlayer.Callbacks, BottomQualityAdapter.OnQualityClicked {
 
     @BindView(R.id.video_frame)
     AspectRatioFrameLayout mVideoFrame;
@@ -37,8 +51,14 @@ public class PlayerFragment extends Fragment implements Player.Listener,
     private Player mPlayer;
     private boolean mPlayerNeedsPrepare;
     private VideoControllerView mVideoControllerView;
+    private IPlayer.Callbacks mCallbacks;
+    private int mSelectedVideoTrack = -1;
 
-    @Override
+    private View mBottomBar;
+    private BottomSheetBehavior<ViewStubCompat> mBottomSheetBehaviour;
+    private RecyclerView mBottomContainer;
+    private BottomSheetDialog mBottomSheetDialog;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
@@ -56,6 +76,7 @@ public class PlayerFragment extends Fragment implements Player.Listener,
         mSurfaceView.setSurfaceTextureListener(this);
         mVideoControllerView = new VideoControllerView(getContext());
         mVideoControllerView.setAnchorView(mVideoFrame);
+        mVideoControllerView.setCallbacks(this);
         if (isInLandscape(getContext()) && !isImmersiveEnabled(getActivity())) {
             hideSystemUI(getActivity());
         }
@@ -123,9 +144,35 @@ public class PlayerFragment extends Fragment implements Player.Listener,
     // Player events
     @Override
     public void onStateChanged(boolean playWhenReady, int playbackState) {
+
         if (playbackState == ExoPlayer.STATE_ENDED) {
             mVideoControllerView.show(Integer.MAX_VALUE);
         }
+
+        if (playbackState == Player.STATE_BUFFERING && mSelectedVideoTrack < 0) {
+            mTracks = getMediaFormats();
+            mSelectedVideoTrack = mPlayer.getSelectedTrack(Player.TYPE_VIDEO);
+        }
+    }
+
+    private ArrayList<MediaFormat> mTracks;
+
+    @Override
+    public void setCallbacks(Callbacks callbacks) {
+        mCallbacks = callbacks;
+        mVideoControllerView.setCallbacks(mCallbacks);
+    }
+
+    private int getBestQuality() {
+        return mTracks.indexOf(Collections.max(mTracks, (a, b) -> Integer.compare(a.bitrate, b.bitrate)));
+    }
+
+    private ArrayList<MediaFormat> getMediaFormats() {
+        ArrayList<MediaFormat> tracks = new ArrayList<>();
+        for (int i = 0; i < mPlayer.getTrackCount(Player.TYPE_VIDEO); i++) {
+            tracks.add(mPlayer.getTrackFormat(Player.TYPE_VIDEO, i));
+        }
+        return tracks;
     }
 
     @Override
@@ -147,6 +194,7 @@ public class PlayerFragment extends Fragment implements Player.Listener,
         }
     }
 
+
     @Override
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
         return false;
@@ -156,7 +204,6 @@ public class PlayerFragment extends Fragment implements Player.Listener,
     public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
         // nop
     }
-
 
     @Override
     public void onSurfaceTextureUpdated(SurfaceTexture surface) {
@@ -169,6 +216,12 @@ public class PlayerFragment extends Fragment implements Player.Listener,
         if (mSurfaceView.getSurfaceTexture() != null) {
             preparePlayer(true);
         }
+    }
+
+    public void setBottomBar(ViewStubCompat bottomBar) {
+        bottomBar.setLayoutResource(R.layout.bottom_player_setting);
+        mBottomSheetBehaviour = BottomSheetBehavior.from(bottomBar);
+        mBottomBar = bottomBar.inflate();
     }
 
     @Override
@@ -202,5 +255,56 @@ public class PlayerFragment extends Fragment implements Player.Listener,
             toggleControlsVisibility();
         }
         return true;
+    }
+
+    @Override
+    public void showBottomBar() {
+        mBottomSheetDialog = new BottomSheetDialog(getContext());
+        mBottomSheetDialog.setContentView(R.layout.bottom_player_setting);
+        TextView qualityText = (TextView) mBottomSheetDialog.findViewById(R.id.bottom_player_setting_quality);
+        if (qualityText != null) {
+            qualityText.setText(getString(R.string.player_bottom_quality, getSelectedQuality()));
+            qualityText.setOnClickListener(view -> onQualityClicked());
+        }
+        mBottomSheetDialog.show();
+    }
+
+    void onQualityClicked() {
+        mBottomSheetDialog.hide();
+        mBottomSheetDialog.setContentView(R.layout.content_recycler);
+        RecyclerView recyclerView = (RecyclerView) mBottomSheetDialog.findViewById(R.id.content_recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        BottomQualityAdapter adapter = new BottomQualityAdapter(getFilteredQualities());
+        adapter.setOnQualityClicked(this);
+        recyclerView.setAdapter(adapter);
+        mBottomSheetDialog.show();
+    }
+
+    @Override
+    public void setQuality(int mediaFormat) {
+        mBottomSheetDialog.hide();
+        ((PlayerActivity) getActivity()).hideBottomBar();
+        if (mPlayer != null && mTracks != null) {
+            MediaFormat format = DataUtils.filterRedundantTracks(mTracks).get(mediaFormat);
+            mPlayer.setSelectedTrack(Player.TYPE_VIDEO, mTracks.indexOf(format));
+        }
+    }
+
+    @Override
+    public String getSelectedQuality() {
+        if (mTracks != null) {
+            return String.valueOf(mTracks.get(mSelectedVideoTrack).height);
+        }
+        return null;
+    }
+
+    @Override
+    public String[] getFilteredQualities() {
+        ArrayList<MediaFormat> formats = DataUtils.filterRedundantTracks(mTracks);
+        return DataUtils.getFormatNames(formats);
+    }
+
+    public void setBottomContainer(RecyclerView bottomContainer) {
+        mBottomContainer = bottomContainer;
     }
 }

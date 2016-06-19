@@ -31,51 +31,73 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
+import android.widget.MediaController.MediaPlayerControl;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.MediaController.MediaPlayerControl;
 
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.pages.player_page.IPlayer;
 import com.marcn.mediathek.utils.Anims;
 
 import java.util.Formatter;
 import java.util.Locale;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class VideoControllerView extends FrameLayout {
     private static final String TAG = "VideoControllerView";
     private static final int INT_DEFAULT_TIMEOUT = 3000;
     private static final int INT_DEFAULT_INITIAL_TIMEOUT = 1500;
 
-    private MediaPlayerControl  mPlayer;
-    private Context             mContext;
-    private ViewGroup           mAnchor;
-    private View                mRoot;
-    private boolean             mShowing;
-    private static final int    FADE_OUT = 1;
-    private static final int    SHOW_PROGRESS = 2;
-    private ImageView           mPauseButton;
-    private ImageView           mSettingsButton;
-    private ImageView           mShareButton;
-    private ProgressBar mProgress;
-    private TextView mEndTime, mCurrentTime;
+    private MediaPlayerControl mPlayer;
+    private Context mContext;
+    private ViewGroup mAnchor;
+    private View mRoot;
+    private boolean mShowing;
+    private static final int FADE_OUT = 1;
+    private static final int SHOW_PROGRESS = 2;
+
+    @BindView(R.id.pause)
+    ImageView mPauseButton;
+
+    @BindView(R.id.quality)
+    ImageView mSettingsButton;
+
+    @BindView(R.id.share)
+    ImageView mShareButton;
+
+    @BindView(R.id.mediacontroller_progress)
+    SeekBar mProgress;
+
+    @BindView(R.id.progressContainer)
+    View mProgressContainer;
+
+    @BindView(R.id.textEndTime)
+    TextView mEndTime;
+
+    @BindView(R.id.textCurrentTime)
+    TextView mCurrentTime;
+
     private StringBuilder mFormatBuilder;
     private Formatter mFormatter;
-    private View mProgressContainer;
+    private boolean mDragging;
 
+    private IPlayer.Callbacks mCallbacks;
 
     public VideoControllerView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mRoot = null;
         mContext = context;
-        
+
         Log.i(TAG, TAG);
     }
 
     public VideoControllerView(Context context) {
         super(context);
         mContext = context;
-        
+
         Log.i(TAG, TAG);
     }
 
@@ -85,10 +107,14 @@ public class VideoControllerView extends FrameLayout {
             initControllerView(mRoot);
         super.onFinishInflate();
     }
-    
+
     public void setMediaPlayer(MediaPlayerControl player) {
         mPlayer = player;
         updatePausePlay();
+    }
+
+    public void setCallbacks(IPlayer.Callbacks callbacks) {
+        mCallbacks = callbacks;
     }
 
     public void setAnchorView(ViewGroup view) {
@@ -106,56 +132,31 @@ public class VideoControllerView extends FrameLayout {
     protected View makeControllerView() {
         LayoutInflater inflate = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mRoot = inflate.inflate(R.layout.media_controller, null);
+        ButterKnife.bind(this, mRoot);
 
         initControllerView(mRoot);
         return mRoot;
     }
 
     private void initControllerView(View v) {
-        mPauseButton = (ImageView) v.findViewById(R.id.pause);
-        if (mPauseButton != null) {
-            mPauseButton.requestFocus();
-            mPauseButton.setOnClickListener(mPauseListener);
-        }
-
-        mSettingsButton = (ImageView) v.findViewById(R.id.quality);
-        if (mSettingsButton != null) {
-            mSettingsButton.requestFocus();
-        }
-
-        mShareButton = (ImageView) v.findViewById(R.id.share);
-        if (mShareButton != null) {
-            mShareButton.requestFocus();
-        }
-
-        mProgressContainer = v.findViewById(R.id.progressContainer);
-
-        mProgress = (SeekBar) v.findViewById(R.id.mediacontroller_progress);
-        if (mProgress != null) {
-            if (mProgress instanceof SeekBar) {
-                SeekBar seeker = (SeekBar) mProgress;
-                seeker.setOnSeekBarChangeListener(mSeekListener);
-                mProgress.setEnabled(true);
-            }
-            mProgress.setMax(1000);
-        }
+        mProgress.setOnSeekBarChangeListener(mSeekListener);
+        mProgress.setEnabled(true);
+        mProgress.setMax(1000);
 
         if (mAnchor != null) {
             mAnchor.addView(this);
         }
 
-        mEndTime = (TextView) v.findViewById(R.id.textEndTime);
-        mCurrentTime = (TextView) v.findViewById(R.id.textCurrentTime);
         mFormatBuilder = new StringBuilder();
         mFormatter = new Formatter(mFormatBuilder, Locale.getDefault());
     }
 
     private void disableUnsupportedButtons() {
         try {
-            if (mPauseButton != null && !mPlayer.canPause()) {
+            if (!mPlayer.canPause()) {
                 mPauseButton.setEnabled(false);
             }
-        } catch (IncompatibleClassChangeError ex) {
+        } catch (IncompatibleClassChangeError ignored) {
         }
     }
 
@@ -163,25 +164,20 @@ public class VideoControllerView extends FrameLayout {
         show(INT_DEFAULT_TIMEOUT);
     }
 
+
     public void showFirstTime() {
         show(INT_DEFAULT_INITIAL_TIMEOUT);
     }
 
-
     public void show(int timeout) {
         if (!mShowing && mAnchor != null) {
             mRoot.setVisibility(VISIBLE);
-            if (mPauseButton != null)
-                mPauseButton.requestFocus();
+            mPauseButton.requestFocus();
 
             setProgress();
-
             ObjectAnimator fadeIn = ObjectAnimator.ofFloat(this, "alpha", 0.f, 1.f);
             fadeIn.start();
-
-            if (mPauseButton != null)
-                Anims.slightBounce(mPauseButton);
-
+            Anims.slightBounce(mPauseButton);
             mShowing = true;
         }
         updatePausePlay();
@@ -241,11 +237,11 @@ public class VideoControllerView extends FrameLayout {
         if (mPlayer == null) {
             return true;
         }
-        
+
         int keyCode = event.getKeyCode();
         final boolean uniqueDown = event.getRepeatCount() == 0
                 && event.getAction() == KeyEvent.ACTION_DOWN;
-        if (keyCode ==  KeyEvent.KEYCODE_HEADSETHOOK
+        if (keyCode == KeyEvent.KEYCODE_HEADSETHOOK
                 || keyCode == KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE
                 || keyCode == KeyEvent.KEYCODE_SPACE) {
             if (uniqueDown) {
@@ -287,17 +283,6 @@ public class VideoControllerView extends FrameLayout {
         return super.dispatchKeyEvent(event);
     }
 
-    private OnClickListener mPauseListener = new OnClickListener() {
-        public void onClick(View v) {
-            if (!mShowing) {
-                show(INT_DEFAULT_TIMEOUT);
-            } else {
-                resetHideTimeout();
-                doPauseResume();
-            }
-        }
-    };
-
     public void updatePausePlay() {
         if (mRoot == null || mPauseButton == null || mPlayer == null) {
             return;
@@ -313,7 +298,7 @@ public class VideoControllerView extends FrameLayout {
         if (mPlayer == null) {
             return;
         }
-        
+
         if (mPlayer.isPlaying()) {
             mPlayer.pause();
         } else {
@@ -343,7 +328,6 @@ public class VideoControllerView extends FrameLayout {
         info.setClassName(VideoControllerView.class.getName());
     }
 
-    private boolean mDragging;
     private final SeekBar.OnSeekBarChangeListener mSeekListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onStartTrackingTouch(SeekBar bar) {
@@ -369,7 +353,7 @@ public class VideoControllerView extends FrameLayout {
 
             long duration = mPlayer.getDuration();
             long newposition = (duration * progress) / 1000L;
-            mPlayer.seekTo( (int) newposition);
+            mPlayer.seekTo((int) newposition);
 //            if (mCurrentTime != null)
 //                mCurrentTime.setText(stringForTime( (int) newposition));
         }
@@ -400,21 +384,16 @@ public class VideoControllerView extends FrameLayout {
         else
             mProgressContainer.setVisibility(VISIBLE);
 
-
-        if (mProgress != null) {
-            if (duration > 0) {
-                // use long to avoid overflow
-                long pos = 1000L * position / duration;
-                mProgress.setProgress( (int) pos);
-            }
+        if (duration > 0) {
+            // use long to avoid overflow
+            long pos = 1000L * position / duration;
+            mProgress.setProgress((int) pos);
             int percent = mPlayer.getBufferPercentage();
             mProgress.setSecondaryProgress(percent * 10);
         }
 
-        if (mEndTime != null)
-            mEndTime.setText(stringForTime(duration));
-        if (mCurrentTime != null)
-            mCurrentTime.setText(stringForTime(position));
+        mEndTime.setText(stringForTime(duration));
+        mCurrentTime.setText(stringForTime(position));
         return position;
     }
 
@@ -433,7 +412,7 @@ public class VideoControllerView extends FrameLayout {
 
         int seconds = totalSeconds % 60;
         int minutes = (totalSeconds / 60) % 60;
-        int hours   = totalSeconds / 3600;
+        int hours = totalSeconds / 3600;
 
         mFormatBuilder.setLength(0);
 
@@ -441,6 +420,23 @@ public class VideoControllerView extends FrameLayout {
             return mFormatter.format("%d:%02d:%02d", hours, minutes, seconds).toString();
         } else {
             return mFormatter.format("%02d:%02d", minutes, seconds).toString();
+        }
+    }
+
+    @OnClick(R.id.pause)
+    void onClick(View v) {
+        if (!mShowing) {
+            show(INT_DEFAULT_TIMEOUT);
+        } else {
+            resetHideTimeout();
+            doPauseResume();
+        }
+    }
+
+    @OnClick(R.id.quality)
+    void onQualitySelected() {
+        if (mCallbacks != null) {
+            mCallbacks.showBottomBar();
         }
     }
 }

@@ -34,7 +34,10 @@ public class ZdfInteractor {
                 .map(z -> z.getTeaserList(ZdfPage.CATEGORY_TYPE_LIVE))
                 .flatMap(Observable::from)
                 .filter(asset -> asset instanceof ZdfLive)
-                .filter(asset -> !((ZdfLive) asset).getId().equals("0"))
+                .filter(asset -> !(asset.getTitle().contains("Phoenix")))
+                .filter(asset -> !(asset.getTitle().contains("KiKA")))
+                .filter(asset -> !(asset.getTitle().contains("ARTE")))
+                .filter(asset -> !(asset.getTitle().contains("3sat")))
                 .cast(ZdfLive.class)
                 .collect(() -> streams, (b, s) -> streams.add(s))
                 .subscribeOn(Schedulers.io());

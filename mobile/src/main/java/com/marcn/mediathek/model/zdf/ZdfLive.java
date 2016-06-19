@@ -8,7 +8,7 @@ public class ZdfLive extends ZdfTeaser implements Stream {
     private String mLiveImageUrl;
     private String mStreamUrl;
 
-    private static final String LIVE_ZDF = "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/index_3056_av-p.m3u8";
+    private static final String LIVE_ZDF = "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8";
     private static final String LIVE_PHOENIX = "http://zdf0910-lh.akamaihd.net/i/de09_v1@392871/master.m3u8";
     private static final String LIVE_ZDF_KULTUR = "http://zdf1112-lh.akamaihd.net/i/de11_v1@392881/master.m3u8";
     private static final String LIVE_ZDF_INFO = "http://zdf1112-lh.akamaihd.net/i/de12_v1@392882/master.m3u8";

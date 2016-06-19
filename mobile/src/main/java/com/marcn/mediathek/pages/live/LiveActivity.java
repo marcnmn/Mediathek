@@ -1,18 +1,10 @@
 package com.marcn.mediathek.pages.live;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.transition.Explode;
 
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.LiveStreamAdapter;
@@ -23,7 +15,7 @@ import com.marcn.mediathek.model.base.Stream;
 import com.marcn.mediathek.network.services.ArdInteractor;
 import com.marcn.mediathek.network.services.ZdfInteractor;
 import com.marcn.mediathek.pages.ActivityComponent;
-import com.marcn.mediathek.pages.BaseActivity;
+import com.marcn.mediathek.pages.CoordinatorActivity;
 
 import java.util.List;
 
@@ -35,15 +27,12 @@ import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.subscriptions.CompositeSubscription;
 
-public class LiveActivity extends BaseActivity implements Injector<ActivityComponent> {
+public class LiveActivity extends CoordinatorActivity implements Injector<ActivityComponent> {
 
     private static final String ARG_DATA = "arg-data";
 
     @Inject
     Context mApplicationContext;
-
-    @Inject
-    LiveStreamAdapter mAdapter;
 
     @Inject
     ZdfInteractor mZdfInteractor;
@@ -54,26 +43,23 @@ public class LiveActivity extends BaseActivity implements Injector<ActivityCompo
     @Inject
     SortableDragCallback mTouchCallback;
 
-    @BindView(R.id.live_recycler_view)
+    @Inject
+    LiveStreamAdapter mAdapter;
+
+    @BindView(R.id.content_recycler)
     RecyclerView mRecyclerView;
-
-    @BindView(R.id.drawer_layout)
-    DrawerLayout mDrawer;
-
-    @BindView(R.id.nav_view)
-    NavigationView mNavigationView;
 
     private CompositeSubscription mSubscription = new CompositeSubscription();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_live);
+    protected int getContentResource() {
+        return R.layout.content_recycler;
+    }
+
+    @Override
+    protected void setUpActivity(Bundle savedInstanceState) {
         InjectHelper.setupPage(this);
         ButterKnife.bind(this);
-
-        hideWindowBackground();
-        setUpPage();
 
         GridLayoutManager mLayoutManager = new GridLayoutManager(this, getResources().getInteger(R.integer.live_streams));
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -87,6 +73,11 @@ public class LiveActivity extends BaseActivity implements Injector<ActivityCompo
         } else {
             loadLiveStreams();
         }
+    }
+
+    @Override
+    public void injectWith(ActivityComponent component) {
+        component.inject(this);
     }
 
     private void loadLiveStreams() {
@@ -105,19 +96,6 @@ public class LiveActivity extends BaseActivity implements Injector<ActivityCompo
         throwable.printStackTrace();
     }
 
-    private void setUpPage() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mDrawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        mNavigationView.setNavigationItemSelectedListener(this);
-        mNavigationView.setItemIconTintList(null);
-    }
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -128,24 +106,5 @@ public class LiveActivity extends BaseActivity implements Injector<ActivityCompo
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelableArrayList(ARG_DATA, mAdapter.getList());
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    protected void setExitTransition() {
-        getWindow().setExitTransition(new Explode());
-    }
-
-    @Override
-    public void injectWith(ActivityComponent component) {
-        component.inject(this);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
-            mDrawer.closeDrawer(GravityCompat.START);
-        }
-        finish();
     }
 }

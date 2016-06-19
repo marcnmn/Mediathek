@@ -1,5 +1,6 @@
 package com.marcn.mediathek.utils;
 
+import com.google.android.exoplayer.MediaFormat;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.Series;
 
@@ -11,11 +12,46 @@ import java.util.Iterator;
 
 public class DataUtils {
 
+    public static String[] getFormatNames(ArrayList<MediaFormat> formats) {
+        String[] qualites = new String[formats.size()];
+        for (int i = 0; i < formats.size(); i++) {
+            if (formats.get(i).height <= 0) {
+                qualites[i] = "auto";
+            } else {
+                qualites[i] = formats.get(i).height + "p";
+            }
+        }
+        return qualites;
+    }
+
+    public static ArrayList<MediaFormat> filterRedundantTracks(ArrayList<MediaFormat> input) {
+        ArrayList<MediaFormat> tracks = new ArrayList<>(input);
+        Iterator iter = tracks.listIterator();
+        while (iter.hasNext()) {
+            MediaFormat format = (MediaFormat) iter.next();
+            if (format != null && isRedundant(format, tracks)) {
+                iter.remove();
+            }
+        }
+        return tracks;
+    }
+
+    private static boolean isRedundant(MediaFormat format, ArrayList<MediaFormat> tracks) {
+        for (MediaFormat mediaFormat : tracks) {
+            if (mediaFormat != format && format.height == mediaFormat.height
+                    && format.bitrate <= mediaFormat.bitrate) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public static void filterByStation(ArrayList<Episode> data, String title) {
         if (title == null) return;
         Iterator iter = data.listIterator();
 
-        while(iter.hasNext()){
+        while (iter.hasNext()) {
             Episode e = (Episode) iter.next();
             if (e != null && !title.equals(e.getStationTitle()))
                 iter.remove();
@@ -26,7 +62,7 @@ public class DataUtils {
         Iterator iter = data.listIterator();
         if (query == null) return;
 
-        while(iter.hasNext()){
+        while (iter.hasNext()) {
             Series e = (Series) iter.next();
             String title = e.title;
 
@@ -49,7 +85,7 @@ public class DataUtils {
     public static void filterByHidden(ArrayList<Series> data) {
         Iterator iter = data.listIterator();
 
-        while(iter.hasNext()){
+        while (iter.hasNext()) {
             Series e = (Series) iter.next();
             if (e.isHidden()) iter.remove();
         }
@@ -58,7 +94,7 @@ public class DataUtils {
     public static void filterGanze(ArrayList<Episode> data) {
         Iterator iter = data.listIterator();
 
-        while(iter.hasNext()){
+        while (iter.hasNext()) {
             Episode e = (Episode) iter.next();
             if (!e.getGanzeSendung())
                 iter.remove();
@@ -97,7 +133,7 @@ public class DataUtils {
         int index = 0;
         String lastMember = null;
 
-        while(index < data.size()) {
+        while (index < data.size()) {
             String member = data.get(index).member;
             if (lastMember == null || !member.equals(lastMember))
                 data.add(index, Series.createSendungHeader(member));

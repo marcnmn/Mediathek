@@ -13,14 +13,19 @@ import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
 
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.pages.BaseActivity;
+import com.marcn.mediathek.pages.CoordinatorActivity;
 import com.marcn.mediathek.ui_fragments.VideoFragment;
 
-public class VideoActivity extends BaseActivity {
+public class VideoActivity extends CoordinatorActivity {
     public static final String INTENT_VIDEO_TYPE = "video-type";
     public static final String INTENT_VIDEO_ASSET_ID = "asset-id";
     public static final String INTENT_VIDEO_TITLE = "title";
     public static final String INTENT_VIDEO_CHANNEL_TITLE = "channel-title";
+
+    @Override
+    protected int getContentResource() {
+        return R.layout.content_player;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +59,12 @@ public class VideoActivity extends BaseActivity {
         }
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
+    protected void setUpActivity(Bundle savedInstanceState) {
+
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
     public void navigationIdReceived(int id) {
 
     }

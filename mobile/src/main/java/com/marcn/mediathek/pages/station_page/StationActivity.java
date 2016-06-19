@@ -26,7 +26,7 @@ import com.marcn.mediathek.model.zdf.ZdfLive;
 import com.marcn.mediathek.network.services.ArdInteractor;
 import com.marcn.mediathek.network.services.ZdfInteractor;
 import com.marcn.mediathek.pages.ActivityComponent;
-import com.marcn.mediathek.pages.BaseActivity;
+import com.marcn.mediathek.pages.CoordinatorActivity;
 import com.marcn.mediathek.pages.home.MainActivity;
 import com.marcn.mediathek.utils.Anims;
 import com.marcn.mediathek.views.SideScroller;
@@ -42,7 +42,7 @@ import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.subscriptions.CompositeSubscription;
 
-public class StationActivity extends BaseActivity
+public class StationActivity extends CoordinatorActivity
         implements Injector<ActivityComponent> {
 
     public static final String INTENT_STATION_TITLE = "station-title";
@@ -79,6 +79,11 @@ public class StationActivity extends BaseActivity
     private CompositeSubscription mSubscription = new CompositeSubscription();
 
     @Override
+    protected int getContentResource() {
+        return R.layout.content_player;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_channel);
@@ -103,6 +108,11 @@ public class StationActivity extends BaseActivity
             mToolbar.setTitle(title);
             loadZdfData();
         }
+    }
+
+    @Override
+    protected void setUpActivity(Bundle savedInstanceState) {
+
     }
 
     @Override
@@ -212,7 +222,6 @@ public class StationActivity extends BaseActivity
 //    }
 
     @SuppressWarnings("StatementWithEmptyBody")
-    @Override
     public void navigationIdReceived(int id) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(MainActivity.INTENT_LIVE_DRAWER_ITEM, id);

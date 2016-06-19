@@ -42,9 +42,9 @@ public class Constants {
 
     public static final String TITLE_CHANNEL_ARTE = "Arte";
 
-    public static final String TITLE_CHANNEL_ARD = "ARD";
-    public static final String TITLE_CHANNEL_ARD_ALPHA = "ARD Alpha";
-    public static final String TITLE_CHANNEL_TAGESSCHAU = "Tagesschau24";
+    public static final String TITLE_CHANNEL_ARD = "Das Erste";
+    public static final String TITLE_CHANNEL_ARD_ALPHA = "ARD-alpha";
+    public static final String TITLE_CHANNEL_TAGESSCHAU = "tagesschau24";
 
     public static final String TITLE_CHANNEL_SWR = "SWR";
     public static final String TITLE_CHANNEL_MDR = "MDR";

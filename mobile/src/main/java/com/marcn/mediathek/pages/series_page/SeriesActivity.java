@@ -25,7 +25,7 @@ import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.base_objects.Series;
-import com.marcn.mediathek.pages.BaseActivity;
+import com.marcn.mediathek.pages.CoordinatorActivity;
 import com.marcn.mediathek.pages.home.MainActivity;
 import com.marcn.mediathek.stations.ArdGroup;
 import com.marcn.mediathek.stations.Station;
@@ -34,7 +34,7 @@ import com.marcn.mediathek.ui_fragments.VideoWidgetFragment;
 
 import java.io.FileNotFoundException;
 
-public class SeriesActivity extends BaseActivity {
+public class SeriesActivity extends CoordinatorActivity {
 
     public static final String INTENT_SENDUNG_JSON = "sendung-json";
 //    public static final String INTENT_SENDUNG_ID = "sendung-id";
@@ -42,6 +42,11 @@ public class SeriesActivity extends BaseActivity {
     private Series mSeries;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
     private VideoFragment mVideoFragment;
+
+    @Override
+    protected int getContentResource() {
+        return R.layout.content_player;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +107,11 @@ public class SeriesActivity extends BaseActivity {
         getIntentThumbnail();
 //        getIntentThumbnail();
         loadWidgets();
+    }
+
+    @Override
+    protected void setUpActivity(Bundle savedInstanceState) {
+
     }
 
     private void setupHeaderView(Series series) {

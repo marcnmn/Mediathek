@@ -10,12 +10,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,7 +29,6 @@ import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
 import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.base_objects.StationOld;
-import com.marcn.mediathek.pages.home.MainActivity;
 import com.marcn.mediathek.pages.player_page.VideoActivity;
 import com.marcn.mediathek.pages.series_page.SeriesActivity;
 import com.marcn.mediathek.pages.station_page.StationActivity;
@@ -47,44 +42,18 @@ import java.util.TreeMap;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-
 public abstract class BaseActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,
-        OnVideoInteractionListener {
+        implements OnVideoInteractionListener {
 
     public static String FRAGMENT_NAME_FIRST_PAGE = "first-fragment";
 
     @Inject
     NavigationManager mNavigationManager;
 
-    @BindView(R.id.drawer_layout)
-    DrawerLayout mDrawer;
-
     protected MediathekApplication mApplication;
-
-//    public abstract void navigationIdReceived(int id);
-
-    //    @Override
-    protected void navigationIdReceived(int id) {
-        if (id == R.id.nav_live) {
-            mNavigationManager.goToLiveStream();
-        }
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra(MainActivity.INTENT_LIVE_DRAWER_ITEM, id);
-        startActivity(intent);
-    }
 
     protected void setExitTransition() {
         // nop
-    }
-
-    protected void loadCleanFragment(Fragment fragment, int containerId) {
-        loadCleanFragment(fragment, containerId, "0");
-    }
-
-    protected void loadCleanFragment(Fragment fragment, int containerId, String name) {
-        loadCleanFragment(fragment, containerId, name, name);
     }
 
     @Override
@@ -93,26 +62,8 @@ public abstract class BaseActivity extends AppCompatActivity
         mApplication = getApplication(this);
     }
 
-    protected void loadCleanFragment(Fragment fragment, int containerId, String name, String tag) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        transaction.replace(containerId, fragment, tag);
-        transaction.addToBackStack(name);
-        transaction.commit();
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
-            mDrawer.closeDrawer(GravityCompat.START);
-        } else if (startPointFragmentOnTop()) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-                finishAfterTransition();
-            else
-                finish();
-        } else {
-            super.onBackPressed();
-        }
+    private static MediathekApplication getApplication(Context context) {
+        return (MediathekApplication) context.getApplicationContext();
     }
 
     @Override
@@ -127,19 +78,6 @@ public abstract class BaseActivity extends AppCompatActivity
         return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        mDrawer.closeDrawer(GravityCompat.START);
-        int id = item.getItemId();
-        if (id == R.id.nav_live) {
-            mNavigationManager.goToLiveStream();
-            return true;
-        }
-
-        navigationIdReceived(id);
-        return true;
-    }
-
     public void setActionBarResource(int resId) {
         setActionBarTitle(getString(resId));
     }
@@ -147,6 +85,27 @@ public abstract class BaseActivity extends AppCompatActivity
     public void setActionBarTitle(String title) {
         if (getSupportActionBar() != null)
             getSupportActionBar().setTitle(title);
+    }
+
+    protected void hideToolbar() {
+        if (getSupportActionBar() != null)
+            getSupportActionBar().hide();
+    }
+
+    protected void loadCleanFragment(Fragment fragment, int containerId, String name, String tag) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        transaction.replace(containerId, fragment, tag);
+        transaction.addToBackStack(name);
+        transaction.commit();
+    }
+
+    protected void hideWindowBackground() {
+        if (isDestroyed()) {
+            return;
+        }
+        getSupportFragmentManager().executePendingTransactions();
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 
     @Override
@@ -242,35 +201,19 @@ public abstract class BaseActivity extends AppCompatActivity
         startActivity(intent);
     }
 
+    protected void loadCleanFragment(Fragment fragment, int containerId) {
+        loadCleanFragment(fragment, containerId, "0");
+    }
+
+    protected void loadCleanFragment(Fragment fragment, int containerId, String name) {
+        loadCleanFragment(fragment, containerId, name, name);
+    }
+
     public void startChannelActivity(StationOld station) {
         if (station == null) return;
         Intent intent = new Intent(this, StationActivity.class);
         intent.putExtra(StationActivity.INTENT_STATION_TITLE, station.title);
         intent.putExtra(StationActivity.INTENT_STATION_ID, station.getChannelId());
         startActivity(intent);
-    }
-
-    private boolean startPointFragmentOnTop() {
-        int fragmentCount = getSupportFragmentManager().getBackStackEntryCount() - 1;
-        if (fragmentCount < 0) return false;
-        FragmentManager.BackStackEntry backEntry = getSupportFragmentManager().getBackStackEntryAt(fragmentCount);
-        if (backEntry == null) return false;
-        String str = backEntry.getName();
-        return str != null && str.equals(FRAGMENT_NAME_FIRST_PAGE);
-    }
-
-    private static MediathekApplication getApplication(Context context) {
-        return (MediathekApplication) context.getApplicationContext();
-    }
-
-    protected void hideWindowBackground() {
-        if (isDestroyed()) {
-            return;
-        }
-
-        // ensure that all UI changes happened before we clear the background, to avoid ugly flickering
-        getSupportFragmentManager().executePendingTransactions();
-
-        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 }

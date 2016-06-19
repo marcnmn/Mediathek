@@ -137,8 +137,8 @@
     <orderEntry type="library" exported="" name="guava-18.0" level="project" />
     <orderEntry type="library" exported="" name="percent-24.0.0" level="project" />
     <orderEntry type="library" exported="" name="exoplayer-r1.5.9" level="project" />
-    <orderEntry type="library" exported="" name="retrofit-2.0.1" level="project" />
     <orderEntry type="library" exported="" name="javax.inject-1" level="project" />
+    <orderEntry type="library" exported="" name="retrofit-2.0.1" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-24.0.0" level="project" />
     <orderEntry type="library" exported="" name="rxandroid-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="converter-gson-2.0.1" level="project" />
