@@ -14,6 +14,8 @@ import com.marcn.mediathek.network.services.ZdfService;
 
 import java.io.IOException;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
@@ -21,34 +23,22 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
-/**
- * Created by marcneumann on 27.05.16.
- */
 @Module
 public class ApiModule {
-    public static final String ZDF_BASE_URL = "http://heute-api.live.cellular.de/";
-    public static final String ARD_BASE_URL = "http://www.ardmediathek.de/";
+    private static final String ZDF_BASE_URL = "http://heute-api.live.cellular.de/";
+    private static final String ARD_BASE_URL = "http://www.ardmediathek.de/";
 
     @Provides
-    public OkHttpClient provideOkHTTPClient() {
+    @Singleton
+    OkHttpClient provideOkHTTPClient() {
         return new OkHttpClient
                 .Builder()
                 .build();
     }
 
-//    @Provides
-//    public Retrofit provideRetrofit(final OkHttpClient okHttpClient,
-//                                    final ObjectMapper objectMapper) {
-//        return new Retrofit.Builder()
-//                .baseUrl(ZDF_BASE_URL)
-//                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-//                .addConverterFactory(JacksonConverterFactory.create(objectMapper))
-//                .client(okHttpClient)
-//                .build();
-//    }
-
     @Provides
-    public ObjectMapper provideObjectMapper() {
+    @Singleton
+    ObjectMapper provideObjectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
@@ -65,9 +55,9 @@ public class ApiModule {
                                                  JsonDeserializer<?> deserializer,
                                                  Object pojo,
                                                  String propertyName) throws IOException {
-                Log.v("JSON", "unrecognized JSON property '" + propertyName + "' in pojo '"
-                        + pojo.getClass().getSimpleName() + "' (known properties are: "
-                        + deserializer.getKnownPropertyNames().toString() + ")");
+//                Log.v("JSON", "unrecognized JSON property '" + propertyName + "' in pojo '"
+//                        + pojo.getClass().getSimpleName() + "' (known properties are: "
+//                        + deserializer.getKnownPropertyNames().toString() + ")");
                 // its important to return false here, otherwise Jackson
                 // won't evaluate the FAIL_ON_UNKNOWN_PROPERTIES flag!
                 return false;
@@ -76,12 +66,14 @@ public class ApiModule {
     }
 
     @Provides
-    public ZdfService provideAssetService() {
+    @Singleton
+    ZdfService provideAssetService() {
         return provideZdfRetrofit(provideOkHTTPClient(), provideObjectMapper()).create(ZdfService.class);
     }
 
     @Provides
-    public ArdService provideArdService() {
+    @Singleton
+    ArdService provideArdService() {
         return provideArdRetrofit(provideOkHTTPClient(), provideObjectMapper()).create(ArdService.class);
     }
 

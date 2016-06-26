@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.adapter.VideoAdapter;
+import com.marcn.mediathek.adapter.VideoAdapterOld;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.stations.Station;
@@ -27,8 +27,8 @@ public class VideoFragment extends Fragment {
     private static final int INT_UPDATE_THRESHOLD = 10;
     private static final int INT_UPDATE_COUNT = 50;
 
-    //    private VideoWidgetAdapter mVideoAdapter;
-    private VideoAdapter mVideoAdapter;
+    //    private VideoWidgetAdapter mVideoAdapterOld;
+    private VideoAdapterOld mVideoAdapterOld;
     private LayoutManager mLayoutManager;
     private OnVideoInteractionListener mListener;
 
@@ -76,8 +76,8 @@ public class VideoFragment extends Fragment {
         mLayoutManager = new LayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mVideoAdapter = new VideoAdapter(new ArrayList<>(), mListener);
-        mRecyclerView.setAdapter(mVideoAdapter);
+        mVideoAdapterOld = new VideoAdapterOld(new ArrayList<>(), mListener);
+        mRecyclerView.setAdapter(mVideoAdapterOld);
 
         mRecyclerView.addOnScrollListener(onScrollListener);
         mRecyclerView.setNestedScrollingEnabled(nestedScrolling);
@@ -103,10 +103,10 @@ public class VideoFragment extends Fragment {
                             setIsLoading(false);
                             return;
                         }
-//                        mVideoAdapter.updateValues(episodes);
+//                        mVideoAdapterOld.updateValues(episodes);
                         mLoadedItems += episodes.size();
 //                        if (mWidgetType == ZdfVideoFragment.WIDGET_TYPE_SENDUNG_LAST)
-//                            mVideoAdapter.addHeaders();
+//                            mVideoAdapterOld.addHeaders();
                         setIsLoading(false);
                     }
                 });
@@ -129,7 +129,7 @@ public class VideoFragment extends Fragment {
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
             int lastVisibleItem = mLayoutManager.findLastVisibleItemPosition();
-            if (lastVisibleItem >= mVideoAdapter.getItemCount() - INT_UPDATE_THRESHOLD)
+            if (lastVisibleItem >= mVideoAdapterOld.getItemCount() - INT_UPDATE_THRESHOLD)
                 downloadVideos();
         }
     };
@@ -153,8 +153,8 @@ public class VideoFragment extends Fragment {
 
     private void setIsLoading(boolean loading) {
         mIsLoading = loading;
-        if (mVideoAdapter != null)
-            mVideoAdapter.setLoading(loading);
+        if (mVideoAdapterOld != null)
+            mVideoAdapterOld.setLoading(loading);
     }
 
     public void setNestedScrollingEnabled(boolean b) {

@@ -28,7 +28,8 @@ public abstract class CoordinatorActivity extends BaseActivity implements Naviga
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawer;
 
-    protected ViewStubCompat mViewStub;
+    @BindView(R.id.nav_view)
+    NavigationView mNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +40,16 @@ public abstract class CoordinatorActivity extends BaseActivity implements Naviga
             setContentView(R.layout.activity_wo_app_bar);
         }
 
-        mViewStub = (ViewStubCompat) findViewById(R.id.coordinator_content);
-        mViewStub.setLayoutResource(getContentResource());
-        mViewStub.inflate();
+        ViewStubCompat viewStub = (ViewStubCompat) findViewById(R.id.coordinator_content);
+        viewStub.setLayoutResource(getContentResource());
+        viewStub.inflate();
 
         setUpActivity(savedInstanceState);
         initLayout();
-        hideWindowBackground();
     }
 
     private void initLayout() {
+        mNavigationView.setNavigationItemSelectedListener(this);
         if (hasAppBarLayout()) {
             setSupportActionBar(mToolbar);
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -79,10 +80,18 @@ public abstract class CoordinatorActivity extends BaseActivity implements Naviga
     public boolean onNavigationItemSelected(MenuItem item) {
         mDrawer.closeDrawer(GravityCompat.START);
         int id = item.getItemId();
-        if (id == R.id.nav_live) {
-            mNavigationManager.goToLiveStream();
-            return true;
+        switch (id) {
+            case R.id.nav_live:
+                mNavigationManager.goToLiveStream();
+                break;
+            case R.id.nav_missed:
+                mNavigationManager.gotToAllMissed();
+                break;
+            case R.id.nav_all_series:
+                mNavigationManager.goToLiveStream();
+                break;
         }
+        mNavigationView.setCheckedItem(id);
         return true;
     }
 }

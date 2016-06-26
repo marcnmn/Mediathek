@@ -181,7 +181,7 @@ public class Player implements ExoPlayer.Listener, ChunkSampleSource.EventListen
     private int videoTrackToRestore;
 
     private BandwidthMeter bandwidthMeter;
-    private boolean backgrounded;
+    private boolean backgrounded = true;
 
     private CaptionListener captionListener;
     private Id3MetadataListener id3MetadataListener;

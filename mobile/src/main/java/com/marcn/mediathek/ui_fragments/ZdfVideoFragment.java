@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.adapter.VideoAdapter;
+import com.marcn.mediathek.adapter.VideoAdapterOld;
 import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.stations.Station;
@@ -35,7 +35,7 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
     private static final int INT_UPDATE_THRESHOLD = 10;
     private static final int INT_UPDATE_COUNT = 50;
 
-    private VideoAdapter mVideoAdapter;
+    private VideoAdapterOld mVideoAdapterOld;
     private LayoutManager mLayoutManager;
 
     private Station station = new ZdfGroup("zdf");
@@ -103,8 +103,8 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
         mLayoutManager = new LayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        mVideoAdapter = new VideoAdapter(new ArrayList<>(), mListener);
-        recyclerView.setAdapter(mVideoAdapter);
+        mVideoAdapterOld = new VideoAdapterOld(new ArrayList<>(), mListener);
+        recyclerView.setAdapter(mVideoAdapterOld);
 
         recyclerView.addOnScrollListener(onScrollListener);
 
@@ -131,11 +131,11 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
                             return;
                         }
 
-//                        mVideoAdapter.updateValues(episodes);
+//                        mVideoAdapterOld.updateValues(episodes);
                         mLoadedItems += episodes.size();
 
                         if (mWidgetType == ZdfVideoFragment.WIDGET_TYPE_SENDUNG_LAST)
-                            mVideoAdapter.addHeaders();
+                            mVideoAdapterOld.addHeaders();
                         setIsLoading(false);
                     }
                 });
@@ -148,7 +148,7 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
             int lastVisibleItem = mLayoutManager.findLastVisibleItemPosition();
-            if (lastVisibleItem >= mVideoAdapter.getItemCount() - INT_UPDATE_THRESHOLD)
+            if (lastVisibleItem >= mVideoAdapterOld.getItemCount() - INT_UPDATE_THRESHOLD)
                 downloadVideos();
         }
     };
@@ -156,8 +156,8 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         float normalizedPosition = 1.7f * (event.getY() - mWindowHeight / 2) + mWindowHeight / 2;
-        int fastScrollPosition = (int) (mVideoAdapter.getItemCount() * normalizedPosition / mWindowHeight);
-        fastScrollPosition = Math.max(0, Math.min(fastScrollPosition, mVideoAdapter.getItemCount() - 1));
+        int fastScrollPosition = (int) (mVideoAdapterOld.getItemCount() * normalizedPosition / mWindowHeight);
+        fastScrollPosition = Math.max(0, Math.min(fastScrollPosition, mVideoAdapterOld.getItemCount() - 1));
         mLayoutManager.scrollToPosition(fastScrollPosition);
 
         // Indicator
@@ -165,8 +165,8 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
         mIndicator.setLayoutParams(mScrollLayoutParams);
 
         int firstVisible = mLayoutManager.findFirstCompletelyVisibleItemPosition();
-        if (mVideoAdapter.getMember(firstVisible) != null) {
-            mIndicator.setText(mVideoAdapter.getMember(firstVisible));
+        if (mVideoAdapterOld.getMember(firstVisible) != null) {
+            mIndicator.setText(mVideoAdapterOld.getMember(firstVisible));
         }
 
         if (event.getAction() == MotionEvent.ACTION_DOWN && firstVisible >= 1)
@@ -196,8 +196,8 @@ public class ZdfVideoFragment extends Fragment implements View.OnTouchListener {
 
     private void setIsLoading(boolean loading) {
         mIsLoading = loading;
-        if (mVideoAdapter != null)
-            mVideoAdapter.setLoading(loading);
+        if (mVideoAdapterOld != null)
+            mVideoAdapterOld.setLoading(loading);
     }
 
     private ArrayList<Episode> fetchVideoList(int count, int offset) {

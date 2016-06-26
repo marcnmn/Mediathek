@@ -1,6 +1,6 @@
 package com.marcn.mediathek.adapter;
 
-import android.content.Context;
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
@@ -30,14 +30,17 @@ import static com.marcn.mediathek.utils.NavigationManager.PlayerType.INTERNAL;
 public class LiveStreamAdapter extends SortableDragAdapter<Stream, LiveStreamAdapter.ViewHolder> {
     private static final String PREF_LIVESTREAM_ORDER = "livestream-order";
 
+    private Activity mContext;
     private PreferenceManager mPreferenceManager;
     private NavigationManager mNavigationManager;
     private View mLastDraggedView;
 
     @Inject
-    public LiveStreamAdapter(NavigationManager navigationManager, PreferenceManager preferenceManager) {
+    LiveStreamAdapter(NavigationManager navigationManager, PreferenceManager preferenceManager,
+                      Activity context) {
         mNavigationManager = navigationManager;
         mPreferenceManager = preferenceManager;
+        mContext = context;
     }
 
     @Override
@@ -49,12 +52,11 @@ public class LiveStreamAdapter extends SortableDragAdapter<Stream, LiveStreamAda
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        Context context = holder.mView.getContext();
         holder.setItem(mItems.get(position));
 
-        String stationTitle = holder.getItem().getStationTitle() + context.getString(R.string.livestream_station_live_suffix);
+        String stationTitle = holder.getItem().getStationTitle() + mContext.getString(R.string.livestream_station_live_suffix);
         holder.mStation.setText(stationTitle);
-        Glide.with(context)
+        Glide.with(mContext)
                 .load(holder.getItem().getThumbUrl())
                 .placeholder(R.drawable.placeholder_stream2)
                 .centerCrop()
@@ -109,7 +111,6 @@ public class LiveStreamAdapter extends SortableDragAdapter<Stream, LiveStreamAda
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
         @BindView(R.id.imageThumbnail)
         ImageView mThumb;
         @BindView(R.id.textTitle)
@@ -124,8 +125,7 @@ public class LiveStreamAdapter extends SortableDragAdapter<Stream, LiveStreamAda
         public ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
-            mView = view;
-            mView.setOnClickListener(v -> mNavigationManager.startLiveStream(mItem, INTERNAL));
+            view.setOnClickListener(v -> mNavigationManager.startLiveStream(mItem, INTERNAL));
         }
 
         public Stream getItem() {

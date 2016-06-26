@@ -24,5 +24,16 @@
     <string name="video_widget_header_further">Weitere</string>
     <string name="video_widget_header_tipps">Tipps</string>
     <string name="livestream_station_live_suffix">" - Jetzt live:"</string>
-    <string name="player_bottom_quality">"Qualität  -   %sp"</string>
+
+    <!-- Bottom Bar -->
+    <string name="player_setting_quality">"Qualität   -   %s"</string>
+    <string name="player_setting_download">"Herunterladen"</string>
+    <string name="player_setting_audio_background_enabled">"Im Hintergrund weiterspielen"</string>
+    <string name="player_setting_audio_background_disabled">"Im Hintergrund stoppen"</string>
+    <string name="player_setting_mute_enable">"Stummschalten"</string>
+    <string name="player_setting_mute_disable">"Aktiviere Tonspur"</string>
+    <string name="player_setting_headphone_mode_enable">"Kophörer Modus aktivieren"</string>
+    <string name="player_setting_headphone_mode_disable">"Kophörer Modus deaktivieren"</string>
+    <string name="player_quality">"%s"</string>
+    <string name="player_setting_video_track_disabled">Deaktiviert</string>
 </resources>

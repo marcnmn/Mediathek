@@ -17,10 +17,10 @@
 package com.marcn.mediathek.player;
 
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -36,23 +36,28 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.pages.player_page.IPlayer;
 import com.marcn.mediathek.utils.Anims;
+import com.marcn.mediathek.views.bottom_bar.BottomBarManager;
 
 import java.util.Formatter;
 import java.util.Locale;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import rx.subscriptions.CompositeSubscription;
 
 public class VideoControllerView extends FrameLayout {
     private static final String TAG = "VideoControllerView";
     private static final int INT_DEFAULT_TIMEOUT = 3000;
     private static final int INT_DEFAULT_INITIAL_TIMEOUT = 1500;
 
+    private BottomBarManager mBottomBarManager;
     private MediaPlayerControl mPlayer;
-    private Context mContext;
+    private PlayerFragment mPlayerFragment;
+    private Activity mContext;
     private ViewGroup mAnchor;
     private View mRoot;
     private boolean mShowing;
@@ -64,9 +69,6 @@ public class VideoControllerView extends FrameLayout {
 
     @BindView(R.id.quality)
     ImageView mSettingsButton;
-
-    @BindView(R.id.share)
-    ImageView mShareButton;
 
     @BindView(R.id.mediacontroller_progress)
     SeekBar mProgress;
@@ -80,23 +82,17 @@ public class VideoControllerView extends FrameLayout {
     @BindView(R.id.textCurrentTime)
     TextView mCurrentTime;
 
+    private CompositeSubscription mSubscription = new CompositeSubscription();
     private StringBuilder mFormatBuilder;
     private Formatter mFormatter;
     private boolean mDragging;
 
-    private IPlayer.Callbacks mCallbacks;
-
-    public VideoControllerView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    @Inject
+    VideoControllerView(Activity context, BottomBarManager bottomBarManager) {
+        super(context);
         mRoot = null;
         mContext = context;
-
-        Log.i(TAG, TAG);
-    }
-
-    public VideoControllerView(Context context) {
-        super(context);
-        mContext = context;
+        mBottomBarManager = bottomBarManager;
 
         Log.i(TAG, TAG);
     }
@@ -108,16 +104,13 @@ public class VideoControllerView extends FrameLayout {
         super.onFinishInflate();
     }
 
-    public void setMediaPlayer(MediaPlayerControl player) {
+    void setMediaPlayer(MediaPlayerControl player, PlayerFragment fragment) {
         mPlayer = player;
+        mPlayerFragment = fragment;
         updatePausePlay();
     }
 
-    public void setCallbacks(IPlayer.Callbacks callbacks) {
-        mCallbacks = callbacks;
-    }
-
-    public void setAnchorView(ViewGroup view) {
+    void setAnchorView(ViewGroup view) {
         mAnchor = view;
 
         LayoutParams frameParams = new LayoutParams(
@@ -423,6 +416,12 @@ public class VideoControllerView extends FrameLayout {
         }
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mSubscription.unsubscribe();
+    }
+
     @OnClick(R.id.pause)
     void onClick(View v) {
         if (!mShowing) {
@@ -435,8 +434,6 @@ public class VideoControllerView extends FrameLayout {
 
     @OnClick(R.id.quality)
     void onQualitySelected() {
-        if (mCallbacks != null) {
-            mCallbacks.showBottomBar();
-        }
+        mPlayerFragment.showSettings();
     }
 }

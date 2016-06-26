@@ -1,6 +1,5 @@
 package com.marcn.mediathek.pages.live;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +9,6 @@ import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.LiveStreamAdapter;
 import com.marcn.mediathek.adapter.base.SortableDragCallback;
 import com.marcn.mediathek.di.InjectHelper;
-import com.marcn.mediathek.di.Injector;
 import com.marcn.mediathek.model.base.Stream;
 import com.marcn.mediathek.network.services.ArdInteractor;
 import com.marcn.mediathek.network.services.ZdfInteractor;
@@ -27,12 +25,9 @@ import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.subscriptions.CompositeSubscription;
 
-public class LiveActivity extends CoordinatorActivity implements Injector<ActivityComponent> {
+public class LiveActivity extends CoordinatorActivity {
 
     private static final String ARG_DATA = "arg-data";
-
-    @Inject
-    Context mApplicationContext;
 
     @Inject
     ZdfInteractor mZdfInteractor;
@@ -60,6 +55,7 @@ public class LiveActivity extends CoordinatorActivity implements Injector<Activi
     protected void setUpActivity(Bundle savedInstanceState) {
         InjectHelper.setupPage(this);
         ButterKnife.bind(this);
+        hideWindowBackground();
 
         GridLayoutManager mLayoutManager = new GridLayoutManager(this, getResources().getInteger(R.integer.live_streams));
         mRecyclerView.setLayoutManager(mLayoutManager);

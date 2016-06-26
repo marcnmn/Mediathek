@@ -8,18 +8,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.model.zdf.ZdfEpisode;
+import com.marcn.mediathek.utils.NavigationManager;
 import com.tonicartos.superslim.GridSLM;
 import com.tonicartos.superslim.LinearSLM;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewHolder> {
+@Deprecated
+public class VideoAdapterOld extends RecyclerView.Adapter<VideoAdapterOld.SendungViewHolder> {
     private static final int VIEW_TYPE_HEADER = 0;
     private static final int VIEW_TYPE_CONTENT = 1;
     private static final int VIEW_TYPE_LOADING = 2;
@@ -28,8 +31,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
     private boolean mIsLoading;
     private ArrayList<ZdfEpisode> mValues;
     private final OnVideoInteractionListener mListener;
+    private NavigationManager mNavigationManager;
 
-    public VideoAdapter(ArrayList<ZdfEpisode> items, OnVideoInteractionListener onVideoInteractionListener) {
+    public VideoAdapterOld(ArrayList<ZdfEpisode> items, OnVideoInteractionListener onVideoInteractionListener) {
         if (items == null)
             mValues = new ArrayList<>();
         else
@@ -152,13 +156,12 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
         itemView.setLayoutParams(lp);
 
         viewHolder.mView.setOnClickListener(v -> {
-//                if (mListener != null)
-//                    mListener.onVideoClicked(viewHolder.mItem, viewHolder.mThumbnail, Episode.ACTION_INTERNAL_PLAYER);
+            mNavigationManager.gotToZdfVideo(viewHolder.mItem.getId());
+            Toast.makeText(mContext, viewHolder.mItem.getId(), Toast.LENGTH_LONG).show();
         });
 
         viewHolder.mView.setOnLongClickListener((View.OnLongClickListener) v -> {
-//            if (mListener != null)
-//                    mListener.onVideoClicked(viewHolder.mItem, viewHolder.mThumbnail, Episode.ACTION_SHARE_VIDEO_DIALOG);
+            mNavigationManager.gotToZdfVideo(viewHolder.mItem.getId());
             return true;
         });
     }
@@ -183,6 +186,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
         notifyItemInserted(mValues.size() - 1);
     }
 
+    public void setNavigationManager(NavigationManager navigationManager) {
+        mNavigationManager = navigationManager;
+    }
+
     public class SendungViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView mTitle, mVideoInfo, mChannel;
@@ -196,6 +203,14 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.SendungViewH
             mVideoInfo = (TextView) view.findViewById(R.id.textVideoInfo);
             mThumbnail = (ImageView) view.findViewById(R.id.imageThumbnail);
             mChannel = (TextView) view.findViewById(R.id.imageChannel);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(view.getContext(), mItem.getId(), Toast.LENGTH_LONG).show();
+//                    mListener.onVideoClicked(mItem, view, Episode.ACTION_INTERNAL_PLAYER);
+                }
+            });
         }
     }
 }

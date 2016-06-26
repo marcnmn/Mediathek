@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:visibility="gone">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
 
     <RelativeLayout
         android:id="@+id/topRightContainer"
@@ -12,24 +12,13 @@
 
         <ImageView
             android:id="@+id/quality"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_margin="5dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_settings" />
-
-        <ImageView
-            android:id="@+id/share"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_toStartOf="@id/quality"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_share_white" />
+            android:src="@drawable/ic_more_vert_white_24dp" />
     </RelativeLayout>
 
     <ImageView
@@ -42,13 +31,13 @@
         android:src="@drawable/ic_pause_circle" />
 
     <RelativeLayout
+        android:id="@+id/progressContainer"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:id="@+id/progressContainer"
         android:layout_alignParentBottom="true"
-        android:paddingStart="10dp"
+        android:background="@drawable/gradient_bottom_up"
         android:paddingEnd="10dp"
-        android:background="@drawable/gradient_bottom_up">
+        android:paddingStart="10dp">
 
         <TextView
             android:id="@+id/textCurrentTime"
@@ -56,22 +45,22 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/textEndTime"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_alignParentEnd="true"
+            android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
 
         <SeekBar
+            android:id="@+id/mediacontroller_progress"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/mediacontroller_progress"
             android:layout_toEndOf="@+id/textCurrentTime"
-            android:layout_toStartOf="@+id/textEndTime"/>
+            android:layout_toStartOf="@+id/textEndTime" />
     </RelativeLayout>
 </RelativeLayout>

@@ -6,13 +6,18 @@ import android.content.Intent;
 import android.net.Uri;
 
 import com.marcn.mediathek.R;
+import com.marcn.mediathek.StationUtils.ZdfUtils;
 import com.marcn.mediathek.model.ard.ArdLive;
 import com.marcn.mediathek.model.base.Stream;
 import com.marcn.mediathek.model.zdf.ZdfLive;
 import com.marcn.mediathek.network.services.ArdInteractor;
 import com.marcn.mediathek.network.services.ZdfInteractor;
 import com.marcn.mediathek.pages.live.LiveActivity;
+import com.marcn.mediathek.pages.missed.MissedActivity;
 import com.marcn.mediathek.pages.player_page.PlayerActivity;
+
+import java.io.IOException;
+import java.util.TreeMap;
 
 import javax.inject.Inject;
 
@@ -35,6 +40,10 @@ public class NavigationManager {
 
     public void goToLiveStream() {
         mContext.startActivity(new Intent(mContext, LiveActivity.class));
+    }
+
+    public void gotToAllMissed() {
+        mContext.startActivity(new Intent(mContext, MissedActivity.class));
     }
 
     public void startLiveStream(Stream stream, PlayerType type) {
@@ -80,6 +89,16 @@ public class NavigationManager {
 
     private void onError(Throwable throwable) {
         throwable.printStackTrace();
+    }
+
+    public void gotToZdfVideo(String id) {
+        new Thread(() -> {
+            try {
+                final TreeMap<Integer, String> s = ZdfUtils.getVideoUrl(mContext, id);
+                mContext.runOnUiThread(() -> startPlayer(s.get(s.firstKey()), PlayerType.INTERNAL));
+            } catch (IOException ignored) {
+            }
+        }).start();
     }
 
     public enum PlayerType {

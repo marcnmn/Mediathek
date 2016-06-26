@@ -7,7 +7,7 @@
             android:icon="@drawable/ic_tv_black"
             android:title="@string/nav_live" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_missed"
             android:icon="@drawable/ic_missed"
             android:title="@string/nav_verpasst" />
         <item
@@ -17,28 +17,28 @@
     </group>
 
     <!--<item android:title="Mediatheken">-->
-        <!--<menu>-->
-            <!--<item-->
-                <!--android:id="@+id/nav_ard_mediathek"-->
-                <!--android:icon="@drawable/ic_ard"-->
-                <!--android:title="ARD Mediathek" />-->
-            <!--<item-->
-                <!--android:id="@+id/nav_zdf_mediathek"-->
-                <!--android:icon="@drawable/ic_zdf"-->
-                <!--android:title="ZDF Mediathek" />-->
-            <!--<item-->
-                <!--android:id="@+id/nav_arte_mediathek"-->
-                <!--android:icon="@drawable/ic_arte"-->
-                <!--android:title="ARTE Mediathek" />-->
-        <!--</menu>-->
+    <!--<menu>-->
+    <!--<item-->
+    <!--android:id="@+id/nav_ard_mediathek"-->
+    <!--android:icon="@drawable/ic_ard"-->
+    <!--android:title="ARD Mediathek" />-->
+    <!--<item-->
+    <!--android:id="@+id/nav_zdf_mediathek"-->
+    <!--android:icon="@drawable/ic_zdf"-->
+    <!--android:title="ZDF Mediathek" />-->
+    <!--<item-->
+    <!--android:id="@+id/nav_arte_mediathek"-->
+    <!--android:icon="@drawable/ic_arte"-->
+    <!--android:title="ARTE Mediathek" />-->
+    <!--</menu>-->
     <!--</item>-->
 
 
     <item android:title="Sender">
         <menu>
             <!--<item-->
-                <!--android:id="@+id/nav_ard"-->
-                <!--android:title="@string/ard_name" />-->
+            <!--android:id="@+id/nav_ard"-->
+            <!--android:title="@string/ard_name" />-->
             <!--android:icon="@drawable/ic_ard"-->
             <item
                 android:id="@+id/nav_zdf"
@@ -65,8 +65,8 @@
             <!--android:icon="@drawable/ic_zdf_neo"-->
             <!--android:icon="@drawable/ic_3sat"-->
             <!--<item-->
-                <!--android:id="@+id/nav_arte"-->
-                <!--android:title="@string/arte_name" />-->
+            <!--android:id="@+id/nav_arte"-->
+            <!--android:title="@string/arte_name" />-->
             <!--&lt;!&ndash;android:icon="@drawable/ic_arte"&ndash;&gt;-->
         </menu>
     </item>

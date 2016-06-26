@@ -2,22 +2,33 @@ package com.marcn.mediathek.di;
 
 import android.content.Context;
 
+import com.marcn.mediathek.views.bottom_bar.BottomItem;
+
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
+import rx.subjects.PublishSubject;
+import rx.subjects.Subject;
 
-/**
- * Created by marcneumann on 24.05.16.
- */
 @Module
-public class ApplicationModule {
-    protected final Context mAppContext;
+class ApplicationModule {
+    private final Context mAppContext;
 
-    public ApplicationModule(Context context) {
+    ApplicationModule(Context context) {
         mAppContext = context.getApplicationContext();
     }
 
     @Provides
-    public Context providesApplicationContext() {
+    @Singleton
+    Context providesApplicationContext() {
         return mAppContext;
     }
+
+    @Provides
+    @Singleton
+    Subject<BottomItem, BottomItem> providesBottomSubject() {
+        return PublishSubject.create();
+    }
+
 }

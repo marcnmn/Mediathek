@@ -15,7 +15,6 @@ import android.transition.Explode;
 import android.widget.FrameLayout;
 
 import com.marcn.mediathek.R;
-import com.marcn.mediathek.ToastManager;
 import com.marcn.mediathek.base_objects.StationOld;
 import com.marcn.mediathek.di.InjectHelper;
 import com.marcn.mediathek.di.Injector;
@@ -25,11 +24,10 @@ import com.marcn.mediathek.model.pages.ZdfPage;
 import com.marcn.mediathek.network.services.ArdInteractor;
 import com.marcn.mediathek.network.services.ZdfInteractor;
 import com.marcn.mediathek.pages.ActivityComponent;
-import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.pages.CoordinatorActivity;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
 import com.marcn.mediathek.ui_fragments.SendungenAbisZFragment;
-import com.marcn.mediathek.ui_fragments.ZdfMissedVideoFragment;
+import com.marcn.mediathek.pages.missed.ZdfMissedVideoFragment;
 
 import java.util.List;
 
@@ -45,9 +43,6 @@ public abstract class MainActivity extends CoordinatorActivity implements Inject
 
     @Inject
     Context mApplicationContext;
-
-    @Inject
-    ToastManager mToastManager;
 
     @Inject
     ZdfInteractor mZdfInteractor;
@@ -139,7 +134,7 @@ public abstract class MainActivity extends CoordinatorActivity implements Inject
 
     @SuppressWarnings("StatementWithEmptyBody")
     public void navigationIdReceived(int id) {
-        if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_missed) {
             loadCleanFragment(new ZdfMissedVideoFragment());
 //        } else if (id == R.id.nav_zdf_mediathek) {
 //            loadCleanFragment(new SendungenAbisZFragment());

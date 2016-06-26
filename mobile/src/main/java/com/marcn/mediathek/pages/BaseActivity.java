@@ -2,7 +2,6 @@ package com.marcn.mediathek.pages;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -21,7 +20,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.marcn.mediathek.Interfaces.OnVideoInteractionListener;
-import com.marcn.mediathek.MediathekApplication;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.StationUtils.ArdUtils;
 import com.marcn.mediathek.StationUtils.ZdfUtils;
@@ -29,6 +27,7 @@ import com.marcn.mediathek.base_objects.Episode;
 import com.marcn.mediathek.base_objects.LiveStreamM3U8;
 import com.marcn.mediathek.base_objects.Series;
 import com.marcn.mediathek.base_objects.StationOld;
+import com.marcn.mediathek.di.Injector;
 import com.marcn.mediathek.pages.player_page.VideoActivity;
 import com.marcn.mediathek.pages.series_page.SeriesActivity;
 import com.marcn.mediathek.pages.station_page.StationActivity;
@@ -43,14 +42,12 @@ import java.util.TreeMap;
 import javax.inject.Inject;
 
 public abstract class BaseActivity extends AppCompatActivity
-        implements OnVideoInteractionListener {
+        implements Injector<ActivityComponent>, OnVideoInteractionListener {
 
-    public static String FRAGMENT_NAME_FIRST_PAGE = "first-fragment";
+    protected static String FRAGMENT_NAME_FIRST_PAGE = "first-fragment";
 
     @Inject
     NavigationManager mNavigationManager;
-
-    protected MediathekApplication mApplication;
 
     protected void setExitTransition() {
         // nop
@@ -59,11 +56,6 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mApplication = getApplication(this);
-    }
-
-    private static MediathekApplication getApplication(Context context) {
-        return (MediathekApplication) context.getApplicationContext();
     }
 
     @Override
@@ -209,11 +201,16 @@ public abstract class BaseActivity extends AppCompatActivity
         loadCleanFragment(fragment, containerId, name, name);
     }
 
-    public void startChannelActivity(StationOld station) {
+    protected void startChannelActivity(StationOld station) {
         if (station == null) return;
         Intent intent = new Intent(this, StationActivity.class);
         intent.putExtra(StationActivity.INTENT_STATION_TITLE, station.title);
         intent.putExtra(StationActivity.INTENT_STATION_ID, station.getChannelId());
         startActivity(intent);
+    }
+
+    @Override
+    public void injectWith(ActivityComponent component) {
+        component.inject(this);
     }
 }

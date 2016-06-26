@@ -5,9 +5,7 @@ import android.app.Activity;
 import dagger.Module;
 import dagger.Provides;
 
-/**
- * Created by marcneumann on 24.05.16.
- */
+@ActivityScope
 @Module
 public class ActivityModule {
     protected final Activity mContext;
@@ -20,4 +18,5 @@ public class ActivityModule {
     Activity providesActivityContext() {
         return mContext;
     }
+
 }

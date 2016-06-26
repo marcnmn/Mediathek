@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 
 public interface PlayerControls {
 
+    void showSettings();
+
     void seekTo(long positionMs);
 
     void play(@NonNull String url);

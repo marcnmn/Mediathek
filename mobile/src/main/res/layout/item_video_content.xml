@@ -1,80 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    android:paddingEnd="10dp"
+    android:paddingStart="10dp"
+    android:paddingTop="20dp">
 
     <ImageView
-        app:layout_widthPercent="100%"
-        app:layout_aspectRatio="178%"
         android:id="@+id/imageThumbnail"
-        android:src="@drawable/placeholder_stream"/>
-
-    <!--<ImageView-->
-        <!--android:layout_width="40dp"-->
-        <!--android:layout_height="40dp"-->
-        <!--android:id="@+id/imageChannel"-->
-        <!--android:scaleType="centerInside"-->
-        <!--android:adjustViewBounds="true"-->
-        <!--android:layout_below="@id/imageThumbnail"-->
-        <!--android:layout_marginStart="15dp"-->
-        <!--android:layout_marginEnd="15dp"/>-->
+        android:src="@drawable/placeholder_stream"
+        app:layout_aspectRatio="178%"
+        app:layout_widthPercent="100%" />
 
     <TextView
+        android:id="@+id/imageChannel"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:id="@+id/imageChannel"
-        android:layout_marginTop="10dp"
         android:layout_below="@id/imageThumbnail"
-        android:gravity="center"
-        android:layout_marginStart="5dp"
         android:layout_marginEnd="15dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/circle"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
         android:textColor="@android:color/white"
         android:textSize="12sp"
-        android:fontFamily="sans-serif-condensed"
-        tools:text="ZDFkultur"/>
+        tools:text="ZDFkultur" />
 
     <ImageView
+        android:id="@+id/imageOptionsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageOptionsButton"
-        android:scaleType="centerCrop"
-        android:layout_below="@id/imageThumbnail"
+        android:layout_alignBottom="@+id/textTitle"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/textTitle"
-        android:layout_alignBottom="@+id/textTitle"
-        android:src="@drawable/ic_more_vert_black_24dp"
-        android:paddingTop="24dip"
+        android:layout_below="@id/imageThumbnail"
         android:paddingBottom="24dip"
-        android:layout_marginEnd="15dp"/>
+        android:paddingEnd="5dp"
+        android:paddingTop="24dip"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_more_vert_black_24dp"
+        android:tint="@android:color/white"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/imageChannel"
+        android:layout_marginBottom="5dp"
         android:layout_toEndOf="@id/imageChannel"
         android:layout_toStartOf="@+id/imageOptionsButton"
-        android:textColor="#222222"
         android:textSize="16sp"
-        android:layout_marginBottom="5dp"
-        tools:text="Text Line Item"/>
+        tools:text="Text Line Item" />
 
     <TextView
+        android:id="@+id/textVideoInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textVideoInfo"
-        android:layout_below="@id/textTitle"
         android:layout_alignStart="@+id/textTitle"
-        tools:text="Text Line Item"/>
+        android:layout_below="@id/textTitle"
+        tools:text="Text Line Item" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/textVideoInfo"
-        android:background="@android:color/darker_gray"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:background="@android:color/darker_gray" />
+
+    <ProgressBar
+        android:id="@+id/item_episode_progress"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerInParent="true" />
+
 </android.support.percent.PercentRelativeLayout>
