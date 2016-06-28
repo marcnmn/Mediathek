@@ -58,7 +58,7 @@ public class FormatTime {
         try {
             date = format.parse(airtime);
         } catch (ParseException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         if (date == null) return null;
         Calendar calendar = GregorianCalendar.getInstance();
