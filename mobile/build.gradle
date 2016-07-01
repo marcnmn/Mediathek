@@ -46,6 +46,10 @@ dependencies {
     compile 'com.tonicartos:superslim:0.4.13'
     compile 'com.github.bumptech.glide:glide:3.4.0'
 
+    // casting
+    compile 'com.android.support:mediarouter-v7:24.0.0'
+    compile 'com.google.android.gms:play-services-cast-framework:9.2.0'
+
     // web stack and json parsing
     compile 'com.squareup.okhttp3:okhttp:3.3.0'
     compile 'com.squareup.retrofit2:retrofit:2.0.1'

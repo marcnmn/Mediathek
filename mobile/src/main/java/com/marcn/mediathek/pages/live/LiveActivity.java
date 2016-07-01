@@ -4,7 +4,11 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import com.google.android.gms.cast.framework.CastButtonFactory;
+import com.google.android.gms.cast.framework.CastContext;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.LiveStreamAdapter;
 import com.marcn.mediathek.adapter.base.SortableDragCallback;
@@ -45,6 +49,15 @@ public class LiveActivity extends CoordinatorActivity {
     RecyclerView mRecyclerView;
 
     private CompositeSubscription mSubscription = new CompositeSubscription();
+    private CastContext mCastContext;
+    private MenuItem mediaRouteMenuItem;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mCastContext = CastContext.getSharedInstance(getApplicationContext());
+    }
 
     @Override
     protected int getContentResource() {
@@ -102,5 +115,13 @@ public class LiveActivity extends CoordinatorActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelableArrayList(ARG_DATA, mAdapter.getList());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        mediaRouteMenuItem = CastButtonFactory.setUpMediaRouteButton(getApplicationContext(), menu, R.id.media_route_menu_item);
+        mediaRouteMenuItem.setVisible(false);
+        return true;
     }
 }
