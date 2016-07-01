@@ -61,8 +61,8 @@
       <file leaf-file-name="LiveActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/marcn/mediathek/pages/live/LiveActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="263">
+              <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
               <folding>
                 <element signature="e#1885#1886#0" expanded="true" />
                 <element signature="e#1933#1934#0" expanded="true" />
@@ -3612,8 +3612,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/marcn/mediathek/pages/live/LiveActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="263">
+          <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
           <folding>
             <element signature="e#1885#1886#0" expanded="true" />
             <element signature="e#1933#1934#0" expanded="true" />
