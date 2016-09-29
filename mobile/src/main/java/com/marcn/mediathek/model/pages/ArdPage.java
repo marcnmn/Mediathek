@@ -12,6 +12,7 @@ import java.util.List;
 public class ArdPage {
     private static final String MOD_LIVE_STREAMS = "livestreams";
     private static final String MOD_STATIONS = "sender";
+    private static final String MOD_AtoZ = "sendungAbisZ-mod";
 
     private String mTitle;
     private List<Section> mSections;
@@ -36,6 +37,10 @@ public class ArdPage {
         return findTeaserById(MOD_LIVE_STREAMS);
     }
 
+    public List<? extends ArdAsset> getAtoZSeries() {
+        return findTeaserById(MOD_AtoZ);
+    }
+
     public ArrayList<? extends ArdAsset> findTeaserById(String id) {
         ArrayList<ArdAsset> list = new ArrayList<>();
         for (Section s : mSections) {
@@ -51,7 +56,6 @@ public class ArdPage {
     }
 
     @JsonProperty("titel")
-
     public String getTitle() {
         return mTitle;
     }

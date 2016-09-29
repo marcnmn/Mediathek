@@ -1,13 +1,15 @@
 package com.marcn.mediathek.pages;
 
 import com.marcn.mediathek.di.ApplicationComponent;
+import com.marcn.mediathek.pages.atoz.AtoZFragment;
+import com.marcn.mediathek.pages.atoz.LetterSelectFragment;
 import com.marcn.mediathek.pages.home.MainActivity;
 import com.marcn.mediathek.pages.live.LiveActivity;
 import com.marcn.mediathek.pages.missed.MissedActivity;
+import com.marcn.mediathek.pages.missed.ZdfMissedVideoFragment;
 import com.marcn.mediathek.pages.station_page.StationActivity;
 import com.marcn.mediathek.player.PlayerFragment;
 import com.marcn.mediathek.ui_fragments.LiveStreamsFragment;
-import com.marcn.mediathek.pages.missed.ZdfMissedVideoFragment;
 
 import dagger.Component;
 
@@ -33,4 +35,8 @@ public interface ActivityComponent {
     void inject(MissedActivity missedActivity);
 
     void inject(BaseActivity baseActivity);
+
+    void inject(AtoZFragment atoZFragment);
+
+    void inject(LetterSelectFragment letterSelectFragment);
 }

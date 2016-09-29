@@ -7,7 +7,6 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.gms.cast.framework.CastButtonFactory;
 import com.google.android.gms.cast.framework.CastContext;
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.adapter.LiveStreamAdapter;
@@ -56,7 +55,7 @@ public class LiveActivity extends CoordinatorActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mCastContext = CastContext.getSharedInstance(getApplicationContext());
+//        mCastContext = CastContext.getSharedInstance(getApplicationContext());
     }
 
     @Override
@@ -120,8 +119,8 @@ public class LiveActivity extends CoordinatorActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        mediaRouteMenuItem = CastButtonFactory.setUpMediaRouteButton(getApplicationContext(), menu, R.id.media_route_menu_item);
-        mediaRouteMenuItem.setVisible(false);
+//        mediaRouteMenuItem = CastButtonFactory.setUpMediaRouteButton(getApplicationContext(), menu, R.id.media_route_menu_item);
+//        mediaRouteMenuItem.setVisible(false);
         return true;
     }
 }

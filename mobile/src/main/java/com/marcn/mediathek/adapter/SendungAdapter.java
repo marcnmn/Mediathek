@@ -28,8 +28,11 @@ public class SendungAdapter extends RecyclerView.Adapter<SendungAdapter.SendungV
     private boolean mIsLoading;
     private final ArrayList<Series> shownValues = new ArrayList<>();
 
-    private final ArrayList<Series> mValues;
-    private final OnVideoInteractionListener mListener;
+    private ArrayList<Series> mValues;
+    private OnVideoInteractionListener mListener;
+
+    public SendungAdapter() {
+    }
 
     public SendungAdapter(ArrayList<Series> items, OnVideoInteractionListener onVideoInteractionListener) {
         if (items == null)

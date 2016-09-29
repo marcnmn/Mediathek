@@ -28,6 +28,18 @@ public class ArdInteractor {
                 .subscribeOn(Schedulers.io());
     }
 
+    public Observable<List<Stream>> loadAllAtoZ() {
+        List<Stream> streams = new ArrayList<>();
+        return mService.getAllAtoZ()
+                .map(Response::body)
+                .map(ArdPage::getAtoZSeries)
+                .flatMap(Observable::from)
+                .filter(asset -> asset instanceof ArdLive)
+                .cast(ArdLive.class)
+                .collect(() -> streams, (b, s) -> streams.add(s))
+                .subscribeOn(Schedulers.io());
+    }
+
     public Observable<List<Stream>> loadLivestreams() {
         List<Stream> streams = new ArrayList<>();
         return mService.getLivePage()

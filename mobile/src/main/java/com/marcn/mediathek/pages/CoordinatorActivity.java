@@ -88,7 +88,7 @@ public abstract class CoordinatorActivity extends BaseActivity implements Naviga
                 mNavigationManager.gotToAllMissed();
                 break;
             case R.id.nav_all_series:
-                mNavigationManager.goToLiveStream();
+                mNavigationManager.gotToAtoZ();
                 break;
         }
         mNavigationView.setCheckedItem(id);

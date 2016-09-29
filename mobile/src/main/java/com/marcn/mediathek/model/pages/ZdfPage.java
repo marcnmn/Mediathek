@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 
 import com.marcn.mediathek.model.zdf.ZdfAsset;
 import com.marcn.mediathek.model.zdf.ZdfEpisode;
+import com.marcn.mediathek.model.zdf.ZdfSeries;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,6 +64,16 @@ public class ZdfPage {
         ArrayList<ZdfEpisode> episodes = new ArrayList<>();
         for (ZdfAsset a : getTeaserList(CATEGORY_TYPE_RESUlT)) {
             episodes.add((ZdfEpisode) a);
+        }
+        return episodes;
+    }
+
+    @SuppressWarnings("Convert2streamapi")
+    @Nullable
+    public ArrayList<ZdfSeries> getSeries() {
+        ArrayList<ZdfSeries> episodes = new ArrayList<>();
+        for (ZdfAsset a : getTeaserList(CATEGORY_TYPE_RESUlT)) {
+            episodes.add((ZdfSeries) a);
         }
         return episodes;
     }

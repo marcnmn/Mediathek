@@ -17,7 +17,6 @@ import com.marcn.mediathek.model.zdf.ZdfEpisode;
 import com.marcn.mediathek.network.services.ArdInteractor;
 import com.marcn.mediathek.network.services.ZdfInteractor;
 import com.marcn.mediathek.pages.ActivityComponent;
-import com.marcn.mediathek.pages.BaseActivity;
 import com.marcn.mediathek.utils.FormatTime;
 
 import java.util.ArrayList;
@@ -70,10 +69,6 @@ public class ZdfMissedVideoFragment extends Fragment implements Injector<Activit
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sendungen_abisz, container, false);
         ButterKnife.bind(this, view);
-
-        if ((getActivity()) != null) {
-            ((BaseActivity) getActivity()).setActionBarResource(R.string.action_title_sendung_verpasst);
-        }
 
         setUpRecycler();
         downloadMissedVideos();

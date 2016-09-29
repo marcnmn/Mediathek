@@ -39,6 +39,11 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
+            android:name=".pages.atoz.AtoZActivity"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
             android:name=".pages.series_page.SeriesActivity"
             android:label=""
             android:theme="@style/SendungTheme.NoActionBar">

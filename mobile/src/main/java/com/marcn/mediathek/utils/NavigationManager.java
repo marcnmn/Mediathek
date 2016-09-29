@@ -4,6 +4,7 @@ package com.marcn.mediathek.utils;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
 
 import com.marcn.mediathek.R;
 import com.marcn.mediathek.StationUtils.ZdfUtils;
@@ -12,6 +13,8 @@ import com.marcn.mediathek.model.base.Stream;
 import com.marcn.mediathek.model.zdf.ZdfLive;
 import com.marcn.mediathek.network.services.ArdInteractor;
 import com.marcn.mediathek.network.services.ZdfInteractor;
+import com.marcn.mediathek.pages.atoz.AtoZActivity;
+import com.marcn.mediathek.pages.atoz.AtoZFragment;
 import com.marcn.mediathek.pages.live.LiveActivity;
 import com.marcn.mediathek.pages.missed.MissedActivity;
 import com.marcn.mediathek.pages.player_page.PlayerActivity;
@@ -25,9 +28,9 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.subscriptions.CompositeSubscription;
 
 public class NavigationManager {
+    private final Activity mContext;
     private final ArdInteractor mArdInteractor;
     private final ZdfInteractor mZdfInteractor;
-    private final Activity mContext;
 
     CompositeSubscription mSubscription = new CompositeSubscription();
 
@@ -44,6 +47,18 @@ public class NavigationManager {
 
     public void gotToAllMissed() {
         mContext.startActivity(new Intent(mContext, MissedActivity.class));
+    }
+
+    public void gotToAtoZ() {
+        mContext.startActivity(new Intent(mContext, AtoZActivity.class));
+    }
+
+    public void gotToAtoZFragment(String letter) {
+        AtoZFragment fragment = AtoZFragment.newInstance(letter);
+        ((AppCompatActivity) mContext).getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment, null)
+                .addToBackStack(null)
+                .commit();
     }
 
     public void startLiveStream(Stream stream, PlayerType type) {

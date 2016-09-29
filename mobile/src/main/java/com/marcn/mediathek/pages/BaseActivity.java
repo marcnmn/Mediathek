@@ -86,10 +86,10 @@ public abstract class BaseActivity extends AppCompatActivity
 
     protected void loadCleanFragment(Fragment fragment, int containerId, String name, String tag) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        transaction.replace(containerId, fragment, tag);
-        transaction.addToBackStack(name);
-        transaction.commit();
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .replace(containerId, fragment, tag)
+                .addToBackStack(name)
+                .commit();
     }
 
     protected void hideWindowBackground() {

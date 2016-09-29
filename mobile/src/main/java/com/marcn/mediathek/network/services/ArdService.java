@@ -18,5 +18,8 @@ public interface ArdService {
     @GET("/appdata/servlet/play/media/{videoId}?devicetype=tablet&features=hls")
     Observable<Response<ArdVideo>> getVideo(@Path("videoId") String videoId);
 
+    @GET("/appdata/servlet/tv/sendungAbisZ?json")
+    Observable<Response<ArdPage>> getAllAtoZ();
+
 }
 

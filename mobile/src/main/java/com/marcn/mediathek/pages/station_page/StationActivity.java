@@ -29,7 +29,7 @@ import com.marcn.mediathek.pages.ActivityComponent;
 import com.marcn.mediathek.pages.CoordinatorActivity;
 import com.marcn.mediathek.pages.home.MainActivity;
 import com.marcn.mediathek.utils.Anims;
-import com.marcn.mediathek.views.SideScroller;
+import com.marcn.mediathek.views.sidescroller.SideScroller;
 
 import java.util.ArrayList;
 import java.util.List;
